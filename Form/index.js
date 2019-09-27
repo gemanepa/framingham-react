@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { selects } from './data.js'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -39,45 +40,27 @@ export default function SimpleSelect() {
     }));
   };
 
+
   return (
     <form className={classes.root} autoComplete="off">
+    {selects.map(select =>
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="age">Age</InputLabel>
+        <InputLabel htmlFor={select.name}>{select.label}</InputLabel>
         <Select
           value={values.age}
           onChange={handleChange}
           inputProps={{
-            name: 'age',
-            id: 'age',
+            name: select.name,
+            id: select.name,
           }}
         >
-          <MenuItem value={'30 - 34'}>30 - 34</MenuItem>
-          <MenuItem value={'35 - 39'}>35 - 39</MenuItem>
-          <MenuItem value={'40 - 44'}>40 - 44</MenuItem>
-          <MenuItem value={'45 - 49'}>45 - 49</MenuItem>
-          <MenuItem value={'50 - 54'}>50 - 54</MenuItem>
-          <MenuItem value={'55 - 59'}>55 - 59</MenuItem>
-          <MenuItem value={'60 - 64'}>60 - 64</MenuItem>
-          <MenuItem value={'65 - 69'}>65 - 69</MenuItem>
-          <MenuItem value={'70 - 74'}>70 - 74</MenuItem>
-          <MenuItem value={'75+'}>75+</MenuItem>
+        {select.values.map(val => 
+          <MenuItem value={val}>{val}</MenuItem>
+        )}
         </Select>
-        </FormControl>
-      
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="hdl">Colesterol HDL (mg/dl)</InputLabel>
-        <Select
-          value={values.hdl}
-          onChange={handleChange}
-          inputProps={{
-            name: 'hdl',
-            id: 'hdl',
-          }}
-        >
-          <MenuItem value={'30 - 34'}>30 - 34</MenuItem>
-          <MenuItem value={'35 - 39'}>35 - 39</MenuItem>
-        </Select>
+        {select.helper && <FormHelperText>{select.helper}</FormHelperText>}
       </FormControl>
+    )}
     </form>
   );
 }

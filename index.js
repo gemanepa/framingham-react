@@ -30,7 +30,7 @@ function App() {
         </form>
         <br/>
         {fruta}
-        
+
         <Form />
 
       </>

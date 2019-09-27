@@ -1,6 +1,9 @@
 import React, { useState, Component } from 'react';
 import { render } from 'react-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Button from '@material-ui/core/Button';
 import Hello from './Hello';
+import Form from './Form'
 import './style.css';
 
 function App() {
@@ -9,8 +12,13 @@ function App() {
 
 
   return (
-      <div>
+      <>
+      <CssBaseline />
         <Hello name={name} />
+        <Button variant="contained" color="primary">
+          Hello World
+        </Button>
+        <br/><br/>
 
         <form>
           <select id="frutas" value={fruta} onChange={(event) => setFruta(event.target.value)}>
@@ -22,7 +30,10 @@ function App() {
         </form>
         <br/>
         {fruta}
-      </div>
+        
+        <Form />
+
+      </>
   );
 }
 

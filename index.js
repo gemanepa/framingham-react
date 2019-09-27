@@ -4,17 +4,14 @@ import Hello from './Hello';
 import './style.css';
 
 function App() {
-  // Declare a new state variable, which we'll call "count"
-  const [name, setName] = useState('React');
+  const [name, setName] = useState('React Hooks');
   const [fruta, setFruta] = useState('grapefruit');
 
 
   return (
       <div>
         <Hello name={name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
+
         <form>
           <select id="frutas" value={fruta} onChange={(event) => setFruta(event.target.value)}>
             <option value="grapefruit">Grapefruit</option>
@@ -23,6 +20,7 @@ function App() {
             <option value="mango">Mango</option>
           </select>
         </form>
+        <br/>
         {fruta}
       </div>
   );

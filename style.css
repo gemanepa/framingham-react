@@ -1,3 +1,21 @@
 h1, p {
   font-family: Lato;
 }
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  overflow: hidden;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#root {
+  background-color: transparent;
+  color: #4689C8;
+  font-weight: 600;
+  width: 100%;
+  min-height: 100vh;
+}

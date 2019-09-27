@@ -47,7 +47,7 @@ export default function SimpleSelect() {
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor={select.name}>{select.label}</InputLabel>
         <Select
-          value={values.age}
+          value={values[select.name]}
           onChange={handleChange}
           inputProps={{
             name: select.name,

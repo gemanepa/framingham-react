@@ -1,43 +1,31 @@
-import React, { Component } from 'react';
+import React, { useState, Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React',
-      frutas: 'grapefruit'
-    };
+function App() {
+  // Declare a new state variable, which we'll call "count"
+  const [name, setName] = useState('React');
+  const [fruta, setFruta] = useState('grapefruit');
 
-    this.handleChange = this.handleChange.bind(this);
-  }
 
-  handleChange(event) {
-    console.log(event.target.id)
-    this.setState({[event.target.id]: event.target.value});
-  }
-
-  render() {
-    return (
+  return (
       <div>
-        <Hello name={this.state.name} />
+        <Hello name={name} />
         <p>
           Start editing to see some magic happen :)
         </p>
         <form>
-          <select id="frutas" value={this.state.value} onChange={this.handleChange}>
+          <select id="frutas" value={fruta} onChange={(event) => setFruta(event.target.value)}>
             <option value="grapefruit">Grapefruit</option>
             <option value="lime">Lime</option>
             <option value="coconut">Coconut</option>
             <option value="mango">Mango</option>
           </select>
         </form>
-        {this.state.frutas}
+        {fruta}
       </div>
-    );
-  }
+  );
 }
 
 render(<App />, document.getElementById('root'));

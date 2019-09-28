@@ -2,10 +2,10 @@ import React, { useState, Component } from 'react';
 import { render } from 'react-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Button from '@material-ui/core/Button';
-import Hello from './Hello';
-import Navbar from './Navbar'
-import Form from './Form'
-import Footer from './Footer'
+
+import Navbar from './Components/Navbar'
+import Form from './Components/Form'
+import Footer from './Components/Footer'
 import LinkIcon from '@material-ui/icons/Link';
 import Paper from '@material-ui/core/Paper';
 import './style.css';

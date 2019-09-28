@@ -33,7 +33,12 @@ a:visited {
 }
 
 main {
-  width: 55vw;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+section.formsection {
+  width: 61%;
 }
 
 .checkboxes {
@@ -60,6 +65,10 @@ main {
   main {
     width: 90%;
     margin: 0 auto;
+  }
+
+  section.formsection {
+    width: 100%;
   }
 }
 

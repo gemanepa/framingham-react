@@ -41,9 +41,11 @@ function App() {
           <br/><br/>
 
             <main>
-              <Paper className={classes.root}>
-                <Form />
-              </Paper>
+              <section className="formsection">
+                <Paper className={classes.root}>
+                  <Form />
+                </Paper>
+              </section>
             </main>
           
       </>

@@ -27,10 +27,6 @@ const GreenCheckbox = withStyles({
 })(props => <Checkbox color="default" {...props} />);
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 220,
@@ -70,7 +66,7 @@ export default function Form() {
   };
 
   return (
-    <form className={classes.root} autoComplete="off">
+    <form autoComplete="off">
 
       <FormControl component="fieldset" className={classes.formControl}>
         <FormLabel component="legend">Gender</FormLabel>
@@ -79,27 +75,30 @@ export default function Form() {
           <FormControlLabel value="male" control={<Radio />} label="Male" />
         </RadioGroup>
       </FormControl>
-
+      
       {selects.map(select =>
-        <FormControl className={classes.formControl}>
-          <InputLabel htmlFor={select.name}>{select.label}</InputLabel>
-          <Select
-            value={selectsVals[select.name]}
-            onChange={handleSelectChange}
-            inputProps={{
-              name: select.name,
-              id: select.name,
-            }}
-          >
-          {select.values.map(val => 
-            <MenuItem value={val}>{val}</MenuItem>
-          )}
-          </Select>
-          {select.helper && <FormHelperText>{select.helper}</FormHelperText>}
-        </FormControl>
+        <>
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor={select.name}>{select.label}</InputLabel>
+            <Select
+              value={selectsVals[select.name]}
+              onChange={handleSelectChange}
+              inputProps={{
+                name: select.name,
+                id: select.name,
+              }}
+            >
+            {select.values.map(val => 
+              <MenuItem value={val}>{val}</MenuItem>
+            )}
+            </Select>
+            {select.helper && <FormHelperText>{select.helper}</FormHelperText>}
+          </FormControl>
+          {(select.name == 'age' || select.name == 'totaldl' || select.name == 'wt') && <br />}
+        </>
       )}
 
-      <FormGroup row>
+      <FormGroup row className="checkboxes">
         <FormControlLabel
           control={
             <Checkbox checked={checkboxVals.checkedA} onChange={handleCheckboxChange('checkedA')} value="checkedA" />

@@ -17,20 +17,22 @@ function App() {
       <>
       <CssBaseline />
         <Navbar />
-        <h1>Framingham Risk Score Calculator</h1>
-        
-        <h3>
-         <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf">
-        Using Canadian CardioVascular Society Guidelines
-        <LinkIcon />
-        </a>
-        </h3>
+        <header className="appHeader">
+          <h1>CardioRiesgo Framingham</h1>
+          <h2>Framingham Risk Score Calculator</h2>
+          <h5>
+          <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf">
+          Using Canadian CardioVascular Society Guidelines
+          <LinkIcon fontSize="small" />
+          </a>
+          </h5>
+        </header>
+
 
         <br/><br/>
-
-
-        <Form />
-
+        <main>
+          <Form />
+        </main>
       </>
   );
 }

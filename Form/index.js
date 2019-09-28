@@ -15,7 +15,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Select from '@material-ui/core/Select';
 import { checkboxes, selects } from './data.js'
-
+import Button from '@material-ui/core/Button';
 
 const GreenCheckbox = withStyles({
   root: {
@@ -35,6 +35,13 @@ const useStyles = makeStyles(theme => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  calcButton: {
+    margin: theme.spacing(1),
+    width: window.innerWidth > 1199 ? '40%' : undefined
+  },
+  resetButton: {
+    margin: theme.spacing(1),
+  }
 }));
 
 function needsBr(name, width){
@@ -114,6 +121,17 @@ export default function Form() {
           label={checkbox.label}
         />)}
       </FormGroup>
+      <br />
+
+      <div className="formbuttons">
+        <Button variant="contained" color="secondary" className={classes.resetButton}>
+          Reset
+        </Button>
+
+        <Button variant="contained" color="primary" className={classes.calcButton}>
+          Calculate
+        </Button>
+      </div>
     </form>
   );
 }

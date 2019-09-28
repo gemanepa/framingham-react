@@ -2,6 +2,17 @@ h1, p {
   font-family: Lato;
 }
 
+.formsection h2 {
+  color: #4689C8;
+  text-align: center;
+  margin: 0;
+}
+.formsection h5 {
+    margin-top: 0px;
+    color: #4689C8;
+    text-align: center;
+}
+
 body {
   width: 100vw;
   overflow-x: hidden;
@@ -35,10 +46,18 @@ a:visited {
 main {
   width: 90vw;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 76vh;
 }
 
 section.formsection {
   width: 61%;
+}
+
+section.aboutsection {
+  width: 30%;
 }
 
 .checkboxes {
@@ -46,8 +65,17 @@ section.formsection {
   margin: 0 auto;
 }
 
+.formbuttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 
 @media (max-width: 1199px) {
+  header h5 {
+    margin-top: 5px;
+  }
   form {
     display:flex;
     flex-direction: column;
@@ -65,10 +93,17 @@ section.formsection {
   main {
     width: 90%;
     margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  section.formsection {
+  section.formsection, section.aboutsection {
     width: 100%;
+  }
+
+  .formbuttons {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
@@ -78,4 +113,14 @@ section.formsection {
     display: flex;
     justify-content: flex-start;
   }
+}
+
+
+
+
+footer {
+  height: auto;
+  background-color: #3f51b5;
+  margin: auto;
+  text-align: center;
 }

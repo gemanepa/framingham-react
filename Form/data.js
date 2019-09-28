@@ -35,3 +35,19 @@
       helper: 'cms (inches)'
     }
   ]
+
+  export const checkboxes = [
+    {
+      checkboxKey: "smoking",
+      label: "Fumad@r"
+    },
+    {
+      checkboxKey: "diabetes",
+      label: "Diabetes o Glucemia alta en ayunas"
+    },
+    {
+      checkboxKey: "treatment",
+      label: "Hipertension en tratamiento"
+    },
+    
+  ]

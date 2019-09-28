@@ -14,7 +14,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Select from '@material-ui/core/Select';
-import { selects } from './data.js'
+import { checkboxes, selects } from './data.js'
+
 
 const GreenCheckbox = withStyles({
   root: {
@@ -36,6 +37,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function needsBr(name, width){
+  if((name == 'age' || name == 'totaldl' || name == 'wt') && width > 1199) {
+    return true
+  }
+  return false
+}
+
 export default function Form() {
   const classes = useStyles();
 
@@ -56,9 +64,9 @@ export default function Form() {
 
   // Checkbox Logic
   const [checkboxVals, setCheckboxState] = React.useState({
-    checkedA: false,
-    checkedB: false,
-    checkedG: false,
+    smokingCheckbox: false,
+    diabetesCheckbox: false,
+    treamentCheckbox: false,
   });
 
   const handleCheckboxChange = name => event => {
@@ -67,7 +75,7 @@ export default function Form() {
 
   return (
     <form autoComplete="off">
-
+      
       <FormControl component="fieldset" className={classes.formControl}>
         <FormLabel component="legend">Gender</FormLabel>
         <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={event => setRadioVal(event.target.value)} row>
@@ -75,7 +83,6 @@ export default function Form() {
           <FormControlLabel value="male" control={<Radio />} label="Male" />
         </RadioGroup>
       </FormControl>
-      
       {selects.map(select =>
         <>
           <FormControl className={classes.formControl}>
@@ -94,39 +101,18 @@ export default function Form() {
             </Select>
             {select.helper && <FormHelperText>{select.helper}</FormHelperText>}
           </FormControl>
-          {(select.name == 'age' || select.name == 'totaldl' || select.name == 'wt') && <br />}
+          {needsBr(select.name, window.innerWidth) && <br />}
         </>
       )}
 
       <FormGroup row className="checkboxes">
+      {checkboxes.map(checkbox =>
         <FormControlLabel
           control={
-            <Checkbox checked={checkboxVals.checkedA} onChange={handleCheckboxChange('checkedA')} value="checkedA" />
+            <Checkbox checked={checkboxVals.checkedA} onChange={handleCheckboxChange(checkbox.checkboxKey)} value={checkbox.checkboxKey} />
           }
-          label="Secondary"
-        />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={checkboxVals.checkedB}
-              onChange={handleCheckboxChange('checkedB')}
-              value="checkedB"
-              color="primary"
-            />
-          }
-          label="Primary"
-        />
-
-        <FormControlLabel
-          control={
-            <GreenCheckbox
-              checked={checkboxVals.checkedG}
-              onChange={handleCheckboxChange('checkedG')}
-              value="checkedG"
-            />
-          }
-          label="Custom color"
-        />
+          label={checkbox.label}
+        />)}
       </FormGroup>
     </form>
   );

@@ -51,7 +51,7 @@ export default function Form() {
   const [labelWidth, setLabelWidth] = React.useState(0);
 
   //Radio logic
-  const [radioVal, setRadioVal] = React.useState('female');
+  const [radioVal, setRadioVal] = React.useState('');
 
   //Selects logic
   const [selectsVals, setSelectsVals] = React.useState({ });

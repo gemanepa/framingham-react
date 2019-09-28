@@ -74,7 +74,7 @@ export default function Form() {
 
       <FormControl component="fieldset" className={classes.formControl}>
         <FormLabel component="legend">Gender</FormLabel>
-        <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={event => setRadioVal(event.target.value)}>
+        <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={event => setRadioVal(event.target.value)} row>
           <FormControlLabel value="female" control={<Radio />} label="Female" />
           <FormControlLabel value="male" control={<Radio />} label="Male" />
         </RadioGroup>

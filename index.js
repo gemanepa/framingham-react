@@ -3,7 +3,9 @@ import { render } from 'react-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Button from '@material-ui/core/Button';
 import Hello from './Hello';
+import Navbar from './Navbar/Navbar.js'
 import Form from './Form'
+import LinkIcon from '@material-ui/icons/Link';
 import './style.css';
 
 function App() {
@@ -14,22 +16,18 @@ function App() {
   return (
       <>
       <CssBaseline />
-        <Hello name={name} />
-        <Button variant="contained" color="primary">
-          Hello World
-        </Button>
+        <Navbar />
+        <h1>Framingham Risk Score Calculator</h1>
+        
+        <h3>
+         <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf">
+        Using Canadian CardioVascular Society Guidelines
+        <LinkIcon />
+        </a>
+        </h3>
+
         <br/><br/>
 
-        <form>
-          <select id="frutas" value={fruta} onChange={(event) => setFruta(event.target.value)}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
-          </select>
-        </form>
-        <br/>
-        {fruta}
 
         <Form />
 

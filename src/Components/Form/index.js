@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
   calcButton: {
     margin: theme.spacing(1),
-    width: window.innerWidth > 1199 ? '40%' : undefined
+    width: (window && window.innerWidth > 1199) ? '40%' : undefined
   },
   resetButton: {
     margin: theme.spacing(1),
@@ -94,7 +94,7 @@ export default function Form() {
             </Select>
             {select.helper && <FormHelperText>{select.helper}</FormHelperText>}
           </FormControl>
-          {needsBr(select.name, window.innerWidth) && <br />}
+          {window && needsBr(select.name, window.innerWidth) && <br />}
         </>
       )}
 

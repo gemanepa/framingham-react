@@ -29,7 +29,7 @@ function App() {
           </header>
 
 
-          {window.innerWidth < 1200 && <br/>}
+          {window && window.innerWidth < 1200 && <br/>}
 
             <main>
               <section className="formsection">

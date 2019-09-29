@@ -1,33 +1,21 @@
 {
-  "name": "framingham-react-pwa",
-  "version": "0.0.0",
-  "author": "gemanepa",
+  "name": "nextjs",
+  "version": "4.0.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "4.4.3",
+    "@material-ui/core": "latest",
     "@material-ui/icons": "^4.4.3",
-    "react": "16.10.0",
-    "react-dom": "16.10.0"
+    "@material-ui/styles": "latest",
+    "clsx": "latest",
+    "next": "latest",
+    "next-images": "^1.2.0",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "react-scripts": "latest"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   }
 }

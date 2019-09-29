@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import applogo from '../../media/applogo.png'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,9 +26,8 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            CardioRiesgo Framingham
-          </Typography>
+          <img src={applogo} alt="CR Framingham" className="navlogo" />
+          <Typography variant="h6" className={classes.title} />
           <Button color="inherit">About</Button>
         </Toolbar>
       </AppBar>

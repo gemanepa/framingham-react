@@ -1,6 +1,5 @@
 import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -8,7 +7,6 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import Radio from '@material-ui/core/Radio';
@@ -17,15 +15,6 @@ import Select from '@material-ui/core/Select';
 import { checkboxes, selects } from './data.js'
 import Button from '@material-ui/core/Button';
 
-const GreenCheckbox = withStyles({
-  root: {
-    color: green[400],
-    '&$checked': {
-      color: green[600],
-    },
-  },
-  checked: {},
-})(props => <Checkbox color="default" {...props} />);
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -45,7 +34,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function needsBr(name, width){
-  if((name == 'age' || name == 'totaldl' || name == 'wt') && width > 1199) {
+  if((name === 'age' || name === 'totaldl' || name === 'wt') && width > 1199) {
     return true
   }
   return false
@@ -53,9 +42,6 @@ function needsBr(name, width){
 
 export default function Form() {
   const classes = useStyles();
-
-  const inputLabel = React.useRef(null);
-  const [labelWidth, setLabelWidth] = React.useState(0);
 
   //Radio logic
   const [radioVal, setRadioVal] = React.useState('');

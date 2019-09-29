@@ -1,6 +1,7 @@
 {
-  "name": "react",
+  "name": "framingham-react-pwa",
   "version": "0.0.0",
+  "author": "gemanepa",
   "private": true,
   "dependencies": {
     "@material-ui/core": "4.4.3",
@@ -16,5 +17,17 @@
   },
   "devDependencies": {
     "react-scripts": "latest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

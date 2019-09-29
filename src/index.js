@@ -1,7 +1,6 @@
-import React, { useState, Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Button from '@material-ui/core/Button';
 
 import Navbar from './Components/Navbar'
 import Form from './Components/Form'
@@ -19,8 +18,6 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const classes = useStyles();
-  const [name, setName] = useState('React Hooks');
-  const [fruta, setFruta] = useState('grapefruit');
 
   return (
       <>
@@ -39,7 +36,7 @@ function App() {
                 <Paper className={classes.root}>
                   <h2>Framingham Risk Score Calculator</h2>
                   <h5>
-                    <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noreferrer">
+                    <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
                     Using 2017 Canadian CardioVascular Society Guidelines
                     <LinkIcon fontSize="small" />
                     </a>

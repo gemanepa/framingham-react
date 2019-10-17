@@ -61,6 +61,16 @@ export default function Form(props) {
     setCheckboxState({ ...checkboxVals, [name]: event.target.checked });
   };
 
+  function validateSubmittedData(data) {
+    if(!data.gender || !data.age || !data.hdl || !data.ldl || !data.totaldl || !data.ta || !data.wt) {
+      alert('Falta validacion')
+      return false
+    } else if (data.diabetes == undefined || data.smoking == undefined || data.treatment == undefined) {
+      alert('???')
+      return false
+    }
+    return true
+  }
   function resetButtonHandler() {
       setRadioVal('');
       setSelectsVals({ });
@@ -69,7 +79,7 @@ export default function Form(props) {
 
   function calcButtonHandler(){
     const data = {
-      genre: radioVal,
+      gender: radioVal,
       age: selectsVals.age,
       hdl: selectsVals.hdl,
       ldl: selectsVals.ldl,
@@ -80,7 +90,7 @@ export default function Form(props) {
       smoking: checkboxVals.smoking,
       treatment: checkboxVals.treatment
     }
-    props.datasubmittedHandler(data)
+    if(validateSubmittedData(data)) { props.datasubmittedHandler(data) }
   }
   return (
     <>

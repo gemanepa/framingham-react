@@ -6,6 +6,7 @@ import Form from './../src/Form'
 import Footer from './../src/Footer'
 import LinkIcon from '@material-ui/icons/Link';
 import Paper from '@material-ui/core/Paper';
+import FraminghamCalculator from '../src/FraminghamCalculator'
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -20,9 +21,10 @@ export default function Index() {
 
   // Handles data submitted in Form componented when Calculate button is pressed
   function datasubmittedHandler(data){
-    console.log('Me llamaron')
-    console.log(data)
+    FraminghamCalculator(data)
+    return true
   }
+
   return (
     <>
     <CssBaseline />

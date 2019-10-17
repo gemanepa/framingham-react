@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
 
   
 
-export default function Form() {
+export default function Form(props) {
   const classes = useStyles();
 
   //Radio logic
@@ -61,12 +61,27 @@ export default function Form() {
     setCheckboxState({ ...checkboxVals, [name]: event.target.checked });
   };
 
-  function reset() {
+  function resetButtonHandler() {
       setRadioVal('');
       setSelectsVals({ });
       setCheckboxState({ ...checkboxVals, smoking: false, diabetes: false, treatment: false });
   }
 
+  function calcButtonHandler(){
+    const data = {
+      genre: radioVal,
+      age: selectsVals.age,
+      hdl: selectsVals.hdl,
+      ldl: selectsVals.ldl,
+      totaldl: selectsVals.totaldl,
+      ta: selectsVals.ta,
+      wt: selectsVals.wt,
+      diabetes: checkboxVals.diabetes,
+      smoking: checkboxVals.smoking,
+      treatment: checkboxVals.treatment
+    }
+    props.datasubmittedHandler(data)
+  }
   return (
     <>
     <form autoComplete="off">
@@ -113,17 +128,17 @@ export default function Form() {
       <br />
 
       <div className="formbuttons">
-        <Button onClick={reset} variant="contained" color="secondary" className={classes.resetButton}>
+        <Button onClick={resetButtonHandler} variant="contained" color="secondary" className={classes.resetButton}>
           Reset
         </Button>
 
         {(typeof window !== 'undefined' && window.innerWidth < 1200 &&
-        <Button variant="contained" color="primary" className={classes.resetButton}>
+        <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.resetButton}>
             Calculate
         </Button>)}
 
         {(typeof window !== 'undefined' && window.innerWidth > 1199 &&
-        <Button variant="contained" color="primary" className={classes.calcButton}>
+        <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.calcButton}>
             Calculate
           </Button>)}
       </div>

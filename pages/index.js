@@ -17,6 +17,12 @@ const useStyles = makeStyles(theme => ({
 
 export default function Index() {
   const classes = useStyles();
+
+  // Handles data submitted in Form componented when Calculate button is pressed
+  function datasubmittedHandler(data){
+    console.log('Me llamaron')
+    console.log(data)
+  }
   return (
     <>
     <CssBaseline />
@@ -33,7 +39,7 @@ export default function Index() {
               <LinkIcon fontSize="small" />
               </a>
             </h5>
-            <Form />
+            <Form datasubmittedHandler={datasubmittedHandler} />
           </Paper>
         </section>
 

@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+  
 
 export default function Form() {
   const classes = useStyles();
@@ -51,14 +52,20 @@ export default function Form() {
 
   // Checkbox Logic
   const [checkboxVals, setCheckboxState] = React.useState({
-    smokingCheckbox: false,
-    diabetesCheckbox: false,
-    treamentCheckbox: false,
+    smoking: false,
+    diabetes: false,
+    treatment: false,
   });
 
   const handleCheckboxChange = name => event => {
     setCheckboxState({ ...checkboxVals, [name]: event.target.checked });
   };
+
+  function reset() {
+      setRadioVal('');
+      setSelectsVals({ });
+      setCheckboxState({ ...checkboxVals, smoking: false, diabetes: false, treatment: false });
+  }
 
   return (
     <>
@@ -98,7 +105,7 @@ export default function Form() {
       {checkboxes.map(checkbox =>
         <FormControlLabel
           control={
-            <Checkbox checked={checkboxVals.checkedA} onChange={handleCheckboxChange(checkbox.checkboxKey)} value={checkbox.checkboxKey} />
+            <Checkbox onChange={handleCheckboxChange(checkbox.checkboxKey)} checked={checkboxVals[checkbox.checkboxKey]} />
           }
           label={checkbox.label}
         />)}
@@ -106,7 +113,7 @@ export default function Form() {
       <br />
 
       <div className="formbuttons">
-        <Button variant="contained" color="secondary" className={classes.resetButton}>
+        <Button onClick={reset} variant="contained" color="secondary" className={classes.resetButton}>
           Reset
         </Button>
 

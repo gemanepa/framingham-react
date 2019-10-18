@@ -2924,6 +2924,298 @@ function calculateWomenAgePoints(ageRangeSelected) {
 
 /***/ }),
 
+/***/ "./src/FraminghamCalculator/cvd-calc.js":
+/*!**********************************************!*\
+  !*** ./src/FraminghamCalculator/cvd-calc.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return calculateCVD; });
+function calculateCVD(score, gender) {
+  if (gender === 'male') {
+    return calculateMenCVD(score);
+  } else {
+    return calculateWomenCVD(score);
+  }
+}
+
+function calculateMenCVD(Score) {
+  let cvd = "0%";
+
+  switch (Score) {
+    case -5:
+      cvd = "< 1%";
+      break;
+
+    case -4:
+      cvd = "< 1%";
+      break;
+
+    case -3:
+      cvd = "< 1%";
+      break;
+
+    case -2:
+      cvd = "1.1%";
+      break;
+
+    case -1:
+      cvd = "1.4%";
+      break;
+
+    case 0:
+      cvd = "1.6%";
+      break;
+
+    case 1:
+      cvd = "1.9%";
+      break;
+
+    case 2:
+      cvd = "2.3%";
+      break;
+
+    case 3:
+      cvd = "2.8%";
+      break;
+
+    case 4:
+      cvd = "3.3%";
+      break;
+
+    case 5:
+      cvd = "3.9%";
+      break;
+
+    case 6:
+      cvd = "4.7%";
+      break;
+
+    case 7:
+      cvd = "5.6%";
+      break;
+
+    case 8:
+      cvd = "6.7%";
+      break;
+
+    case 9:
+      cvd = "7.9%";
+      break;
+
+    case 10:
+      cvd = "9.4%";
+      break;
+
+    case 11:
+      cvd = "11.2%";
+      break;
+
+    case 12:
+      cvd = "13.3%";
+      break;
+
+    case 13:
+      cvd = "15.6%";
+      break;
+
+    case 14:
+      cvd = "18.4%";
+      break;
+
+    case 15:
+      cvd = "21.6%";
+      break;
+
+    case 16:
+      cvd = "25.3%";
+      break;
+
+    case 17:
+      cvd = "29.4%";
+      break;
+
+    case 18:
+      cvd = "> 30%";
+      break;
+
+    case 19:
+      cvd = "> 30%";
+      break;
+
+    case 20:
+      cvd = "> 30%";
+      break;
+
+    case 21:
+      cvd = "> 30%";
+      break;
+
+    case 22:
+      cvd = "> 30%";
+      break;
+
+    case 23:
+      cvd = "> 30%";
+      break;
+
+    case 24:
+      cvd = "> 30%";
+      break;
+
+    case 25:
+      cvd = "> 30%";
+      break;
+
+    case 26:
+      cvd = "> 30%";
+      break;
+  }
+
+  return cvd;
+}
+
+function calculateWomenCVD(Score) {
+  let cvd = "0%";
+
+  switch (Score) {
+    case -5:
+      cvd = "< 1%";
+      break;
+
+    case -4:
+      cvd = "< 1%";
+      break;
+
+    case -3:
+      cvd = "< 1%";
+      break;
+
+    case -2:
+      cvd = "< 1%";
+      break;
+
+    case -1:
+      cvd = "1.0%";
+      break;
+
+    case 0:
+      cvd = "1.2%";
+      break;
+
+    case 1:
+      cvd = "1.5%";
+      break;
+
+    case 2:
+      cvd = "1.7%";
+      break;
+
+    case 3:
+      cvd = "2.0%";
+      break;
+
+    case 4:
+      cvd = "2.4%";
+      break;
+
+    case 5:
+      cvd = "2.8%";
+      break;
+
+    case 6:
+      cvd = "3.3%";
+      break;
+
+    case 7:
+      cvd = "3.9%";
+      break;
+
+    case 8:
+      cvd = "4.5%";
+      break;
+
+    case 9:
+      cvd = "5.3%";
+      break;
+
+    case 10:
+      cvd = "6.3%";
+      break;
+
+    case 11:
+      cvd = "7.3%";
+      break;
+
+    case 12:
+      cvd = "8.6%";
+      break;
+
+    case 13:
+      cvd = "10.0%";
+      break;
+
+    case 14:
+      cvd = "11.7%";
+      break;
+
+    case 15:
+      cvd = "13.7%";
+      break;
+
+    case 16:
+      cvd = "15.9%";
+      break;
+
+    case 17:
+      cvd = "18.51%";
+      break;
+
+    case 18:
+      cvd = "21.5%";
+      break;
+
+    case 19:
+      cvd = "24.8%";
+      break;
+
+    case 20:
+      cvd = "27.5%";
+      break;
+
+    case 21:
+      cvd = "> 30%";
+      break;
+
+    case 22:
+      cvd = "> 30%";
+      break;
+
+    case 23:
+      cvd = "> 30%";
+      break;
+
+    case 24:
+      cvd = "> 30%";
+      break;
+
+    case 25:
+      cvd = "> 30%";
+      break;
+
+    case 26:
+      cvd = "> 30%";
+      break;
+  }
+
+  return cvd;
+}
+
+/***/ }),
+
 /***/ "./src/FraminghamCalculator/hdl-points-calc.js":
 /*!*****************************************************!*\
   !*** ./src/FraminghamCalculator/hdl-points-calc.js ***!
@@ -3000,6 +3292,298 @@ function calculateWomenHDLPoints(hdlRangeSelected) {
 
 /***/ }),
 
+/***/ "./src/FraminghamCalculator/heartage-calc.js":
+/*!***************************************************!*\
+  !*** ./src/FraminghamCalculator/heartage-calc.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return calculateHeartAge; });
+function calculateHeartAge(score, gender) {
+  if (gender === 'male') {
+    return calculateMenHeartAge(score);
+  } else {
+    return calculateWomenHeartAge(score);
+  }
+}
+
+function calculateMenHeartAge(Score) {
+  let heartage = '0%';
+
+  switch (Score) {
+    case -5:
+      heartage = "< 30";
+      break;
+
+    case -4:
+      heartage = "< 30";
+      break;
+
+    case -3:
+      heartage = "< 30";
+      break;
+
+    case -2:
+      heartage = "< 30";
+      break;
+
+    case -1:
+      heartage = "< 30";
+      break;
+
+    case 0:
+      heartage = "30";
+      break;
+
+    case 1:
+      heartage = "31";
+      break;
+
+    case 2:
+      heartage = "34";
+      break;
+
+    case 3:
+      heartage = "36";
+      break;
+
+    case 4:
+      heartage = "38";
+      break;
+
+    case 5:
+      heartage = "40";
+      break;
+
+    case 6:
+      heartage = "42";
+      break;
+
+    case 7:
+      heartage = "45";
+      break;
+
+    case 8:
+      heartage = "48";
+      break;
+
+    case 9:
+      heartage = "51";
+      break;
+
+    case 10:
+      heartage = "54";
+      break;
+
+    case 11:
+      heartage = "57";
+      break;
+
+    case 12:
+      heartage = "60";
+      break;
+
+    case 13:
+      heartage = "64";
+      break;
+
+    case 14:
+      heartage = "68";
+      break;
+
+    case 15:
+      heartage = "72";
+      break;
+
+    case 16:
+      heartage = "76";
+      break;
+
+    case 17:
+      heartage = "> 80";
+      break;
+
+    case 18:
+      heartage = "> 80";
+      break;
+
+    case 19:
+      heartage = "> 80";
+      break;
+
+    case 20:
+      heartage = "> 80";
+      break;
+
+    case 21:
+      heartage = "> 80";
+      break;
+
+    case 22:
+      heartage = "> 80";
+      break;
+
+    case 23:
+      heartage = "> 80";
+      break;
+
+    case 24:
+      heartage = "> 80";
+      break;
+
+    case 25:
+      heartage = "> 80";
+      break;
+
+    case 26:
+      heartage = "> 80";
+      break;
+  }
+
+  return heartage;
+}
+
+function calculateWomenHeartAge(Score) {
+  let heartage = "0%";
+
+  switch (Score) {
+    case -5:
+      heartage = "< 30";
+      break;
+
+    case -4:
+      heartage = "< 30";
+      break;
+
+    case -3:
+      heartage = "< 30";
+      break;
+
+    case -2:
+      heartage = "< 30";
+      break;
+
+    case -1:
+      heartage = "< 30";
+      break;
+
+    case 0:
+      heartage = "< 30";
+      break;
+
+    case 1:
+      heartage = "31";
+      break;
+
+    case 2:
+      heartage = "34";
+      break;
+
+    case 3:
+      heartage = "36";
+      break;
+
+    case 4:
+      heartage = "39";
+      break;
+
+    case 5:
+      heartage = "42";
+      break;
+
+    case 6:
+      heartage = "45";
+      break;
+
+    case 7:
+      heartage = "48";
+      break;
+
+    case 8:
+      heartage = "51";
+      break;
+
+    case 9:
+      heartage = "55";
+      break;
+
+    case 10:
+      heartage = "59";
+      break;
+
+    case 11:
+      heartage = "64";
+      break;
+
+    case 12:
+      heartage = "68";
+      break;
+
+    case 13:
+      heartage = "73";
+      break;
+
+    case 14:
+      heartage = "79";
+      break;
+
+    case 15:
+      heartage = "> 80";
+      break;
+
+    case 16:
+      heartage = "> 80";
+      break;
+
+    case 17:
+      heartage = "> 80";
+      break;
+
+    case 18:
+      heartage = "> 80";
+      break;
+
+    case 19:
+      heartage = "> 80";
+      break;
+
+    case 20:
+      heartage = "> 80";
+      break;
+
+    case 21:
+      heartage = "> 80";
+      break;
+
+    case 22:
+      heartage = "> 80";
+      break;
+
+    case 23:
+      heartage = "> 80";
+      break;
+
+    case 24:
+      heartage = "> 80";
+      break;
+
+    case 25:
+      heartage = "> 80";
+      break;
+
+    case 26:
+      heartage = "> 80";
+      break;
+  }
+
+  return heartage;
+}
+
+/***/ }),
+
 /***/ "./src/FraminghamCalculator/index.js":
 /*!*******************************************!*\
   !*** ./src/FraminghamCalculator/index.js ***!
@@ -3014,6 +3598,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hdl_points_calc__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hdl-points-calc */ "./src/FraminghamCalculator/hdl-points-calc.js");
 /* harmony import */ var _totaldl_points_calc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./totaldl-points-calc */ "./src/FraminghamCalculator/totaldl-points-calc.js");
 /* harmony import */ var _ta_points_calc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ta-points-calc */ "./src/FraminghamCalculator/ta-points-calc.js");
+/* harmony import */ var _smoking_points_calc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./smoking-points-calc */ "./src/FraminghamCalculator/smoking-points-calc.js");
+/* harmony import */ var _cvd_calc__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cvd-calc */ "./src/FraminghamCalculator/cvd-calc.js");
+/* harmony import */ var _heartage_calc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./heartage-calc */ "./src/FraminghamCalculator/heartage-calc.js");
+/* harmony import */ var _risk_calc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./risk-calc */ "./src/FraminghamCalculator/risk-calc.js");
+/* harmony import */ var _needstreatment_calc__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./needstreatment-calc */ "./src/FraminghamCalculator/needstreatment-calc.js");
+
+
+
+
+
 
 
 
@@ -3030,20 +3624,167 @@ function FraminghamCalculator(data) {
     totaldl,
     treatment,
     wt
-  } = data;
+  } = data; //Points Calculation
+
   const agePoints = Object(_age_points_calc__WEBPACK_IMPORTED_MODULE_0__["default"])(age, gender);
   const hdlPoints = Object(_hdl_points_calc__WEBPACK_IMPORTED_MODULE_1__["default"])(hdl, gender);
-  const totalDLPoints = Object(_totaldl_points_calc__WEBPACK_IMPORTED_MODULE_2__["default"])(totaldl, gender);
-  const TAPoints = Object(_ta_points_calc__WEBPACK_IMPORTED_MODULE_3__["default"])(ta, treatment, gender);
+  const dlPoints = Object(_totaldl_points_calc__WEBPACK_IMPORTED_MODULE_2__["default"])(totaldl, gender);
+  const taPoints = Object(_ta_points_calc__WEBPACK_IMPORTED_MODULE_3__["default"])(ta, treatment, gender);
+  const smokingPoints = Object(_smoking_points_calc__WEBPACK_IMPORTED_MODULE_4__["default"])(smoking, gender);
+  const score = agePoints + hdlPoints + dlPoints + taPoints + smokingPoints; // Framingham Score Calculations
+
+  const cvd = Object(_cvd_calc__WEBPACK_IMPORTED_MODULE_5__["default"])(score, gender);
+  const heartage = Object(_heartage_calc__WEBPACK_IMPORTED_MODULE_6__["default"])(score, gender);
+  const risklevel = Object(_risk_calc__WEBPACK_IMPORTED_MODULE_7__["default"])(score, gender);
+  const needstreatment = Object(_needstreatment_calc__WEBPACK_IMPORTED_MODULE_8__["default"])(gender, diabetes, smoking, ldl, wt, agePoints, hdlPoints, smokingPoints, risklevel);
+  console.log('==================================');
   console.log('agePoints');
   console.log(agePoints);
   console.log('hdlPoints');
   console.log(hdlPoints);
   console.log('totalDLPoints');
-  console.log(totalDLPoints);
-  console.log('TAPoints');
-  console.log(TAPoints);
+  console.log(dlPoints);
+  console.log('taPoints');
+  console.log(taPoints);
+  console.log('smokingPoints');
+  console.log(smokingPoints);
+  console.log('cvd');
+  console.log(cvd);
+  console.log('heartage');
+  console.log(heartage);
+  console.log('risklevel');
+  console.log(risklevel);
+  console.log('needstreatment');
+  console.log(needstreatment);
   return data;
+}
+
+/***/ }),
+
+/***/ "./src/FraminghamCalculator/needstreatment-calc.js":
+/*!*********************************************************!*\
+  !*** ./src/FraminghamCalculator/needstreatment-calc.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return needsTreatment; });
+function needsTreatment(gender, diabetes, smoking, ldl, wt, agePoints, hdlPoints, smokingPoints, risklevel) {
+  const risklevels = {
+    low: risklevelLow(gender, diabetes, agePoints),
+    intermediate: risklevelIntermediate(gender, ldl, diabetes, wt, agePoints, hdlPoints, smokingPoints),
+    high: risklevelHigh()
+  };
+
+  if (risklevel) {
+    return risklevels[risklevel];
+  }
+
+  return 'unknown';
+}
+
+function risklevelLow(gender, diabetes, agePoints) {
+  const maleConditional = gender === 'male' && agePoints >= 5 && diabetes;
+  const femaleConditional = gender === 'female' && agePoints >= 4 && diabetes;
+
+  if (maleConditional || femaleConditional) {
+    return 'treatmentLowDiabetes';
+  } else {
+    return 'patientnotrequirestreatment';
+  }
+}
+
+function risklevelIntermediate(gender, ldl, diabetes, wt, agePoints, hdlPoints, smokingPoints) {
+  const hdl = hdlPoints == 2;
+  const smoking = smokingPoints > 1;
+  const waist = wt.includes('> 102') || wt.includes('> 88');
+  const lowdl = ldl.includes('> 135');
+  const maleConditional = gender === 'male' && agePoints >= 8 && (hdl || smoking || diabetes || waist);
+  const femaleConditional = gender === 'female' && agePoints >= 9 && (hdl || smoking || diabetes || waist);
+
+  if (maleConditional || femaleConditional) {
+    return 'intermediatewithfactors';
+  } else if (lowdl) {
+    return 'treatment_intermediate_ldl';
+  } else {
+    return 'intermediatenofactors';
+  }
+}
+
+function risklevelHigh() {
+  return true;
+}
+
+/***/ }),
+
+/***/ "./src/FraminghamCalculator/risk-calc.js":
+/*!***********************************************!*\
+  !*** ./src/FraminghamCalculator/risk-calc.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return calculateRiskLevel; });
+function calculateRiskLevel(score, gender) {
+  if (gender === 'male') {
+    return calculateMenRiskLevel(score);
+  } else {
+    return calculateWomenRiskLevel(score);
+  }
+}
+
+function calculateMenRiskLevel(Score) {
+  let risklevel = 'unknown';
+
+  if (Score <= 10) {
+    risklevel = 'low';
+  } else if (Score >= 11 && Score <= 14) {
+    risklevel = 'intermediate';
+  } else if (Score >= 15) {
+    risklevel = 'high';
+  }
+
+  return risklevel;
+}
+
+function calculateWomenRiskLevel(Score) {
+  let risklevel = 'unknown';
+
+  if (Score <= 12) {
+    risklevel = 'low';
+  } else if (Score >= 13 && Score <= 17) {
+    risklevel = 'intermediate';
+  } else if (Score >= 18) {
+    risklevel = 'high';
+  }
+
+  return risklevel;
+}
+
+/***/ }),
+
+/***/ "./src/FraminghamCalculator/smoking-points-calc.js":
+/*!*********************************************************!*\
+  !*** ./src/FraminghamCalculator/smoking-points-calc.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getSmokingPoints; });
+function getSmokingPoints(smoking, gender) {
+  if (!smoking) {
+    return 0;
+  } else if (smoking && gender === 'male') {
+    return 4;
+  } else if (smoking && gender === 'female') {
+    return 3;
+  }
 }
 
 /***/ }),

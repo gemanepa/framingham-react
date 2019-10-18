@@ -3013,6 +3013,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _age_points_calc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./age-points-calc */ "./src/FraminghamCalculator/age-points-calc.js");
 /* harmony import */ var _hdl_points_calc__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hdl-points-calc */ "./src/FraminghamCalculator/hdl-points-calc.js");
 /* harmony import */ var _totaldl_points_calc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./totaldl-points-calc */ "./src/FraminghamCalculator/totaldl-points-calc.js");
+/* harmony import */ var _ta_points_calc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ta-points-calc */ "./src/FraminghamCalculator/ta-points-calc.js");
+
 
 
 
@@ -3031,14 +3033,185 @@ function FraminghamCalculator(data) {
   } = data;
   const agePoints = Object(_age_points_calc__WEBPACK_IMPORTED_MODULE_0__["default"])(age, gender);
   const hdlPoints = Object(_hdl_points_calc__WEBPACK_IMPORTED_MODULE_1__["default"])(hdl, gender);
-  const totalDLPoints = Object(_totaldl_points_calc__WEBPACK_IMPORTED_MODULE_2__["default"])(ta, gender);
+  const totalDLPoints = Object(_totaldl_points_calc__WEBPACK_IMPORTED_MODULE_2__["default"])(totaldl, gender);
+  const TAPoints = Object(_ta_points_calc__WEBPACK_IMPORTED_MODULE_3__["default"])(ta, treatment, gender);
   console.log('agePoints');
   console.log(agePoints);
   console.log('hdlPoints');
   console.log(hdlPoints);
   console.log('totalDLPoints');
   console.log(totalDLPoints);
+  console.log('TAPoints');
+  console.log(TAPoints);
   return data;
+}
+
+/***/ }),
+
+/***/ "./src/FraminghamCalculator/ta-points-calc.js":
+/*!****************************************************!*\
+  !*** ./src/FraminghamCalculator/ta-points-calc.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getTAPoints; });
+function getTAPoints(ta, treatment, gender) {
+  if (gender === 'male') {
+    return calculateMenTAPoints(ta, treatment);
+  } else {
+    return calculateWomenTAPoints(ta, treatment);
+  }
+}
+
+function calculateMenTAPoints(taRangeSelected, isOnTreatment) {
+  let taPoints = 0;
+
+  switch (taRangeSelected) {
+    case "< 120":
+      if (!isOnTreatment) {
+        taPoints = -2;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 0;
+      }
+
+      break;
+
+    case "120 - 129":
+      if (!isOnTreatment) {
+        taPoints = 0;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 2;
+      }
+
+      break;
+
+    case "130 - 139":
+      if (!isOnTreatment) {
+        taPoints = 1;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 3;
+      }
+
+      break;
+
+    case "140 - 149":
+      if (!isOnTreatment) {
+        taPoints = 2;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 4;
+      }
+
+      break;
+
+    case "150 - 159":
+      if (!isOnTreatment) {
+        taPoints = 2;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 4;
+      }
+
+      break;
+
+    case "160+":
+      if (!isOnTreatment) {
+        taPoints = 3;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 5;
+      }
+
+      break;
+  }
+
+  return taPoints;
+}
+
+function calculateWomenTAPoints(taRangeSelected, isOnTreatment) {
+  let taPoints = 0;
+
+  switch (taRangeSelected) {
+    case "< 120":
+      if (!isOnTreatment) {
+        taPoints = -3;
+      }
+
+      if (isOnTreatment) {
+        taPoints = -1;
+      }
+
+      break;
+
+    case "120 - 129":
+      if (!isOnTreatment) {
+        taPoints = 0;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 2;
+      }
+
+      break;
+
+    case "130 - 139":
+      if (!isOnTreatment) {
+        taPoints = 1;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 3;
+      }
+
+      break;
+
+    case "140 - 149":
+      if (!isOnTreatment) {
+        taPoints = 2;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 5;
+      }
+
+      break;
+
+    case "150 - 159":
+      if (!isOnTreatment) {
+        taPoints = 4;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 6;
+      }
+
+      break;
+
+    case "160+":
+      if (!isOnTreatment) {
+        taPoints = 5;
+      }
+
+      if (isOnTreatment) {
+        taPoints = 7;
+      }
+
+      break;
+  }
+
+  return taPoints;
 }
 
 /***/ }),

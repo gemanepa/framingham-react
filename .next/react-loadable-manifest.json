@@ -7,18 +7,18 @@
       "publicPath": "static/chunks/0.js"
     }
   ],
-  "./en.js": [
+  "./en.json": [
     {
-      "id": "./src/i18n/en.js",
-      "name": "./src/i18n/en.js",
+      "id": "./src/i18n/en.json",
+      "name": "./src/i18n/en.json",
       "file": "static/chunks/3.js",
       "publicPath": "static/chunks/3.js"
     }
   ],
-  "./es.js": [
+  "./es.json": [
     {
-      "id": "./src/i18n/es.js",
-      "name": "./src/i18n/es.js",
+      "id": "./src/i18n/es.json",
+      "name": "./src/i18n/es.json",
       "file": "static/chunks/4.js",
       "publicPath": "static/chunks/4.js"
     }

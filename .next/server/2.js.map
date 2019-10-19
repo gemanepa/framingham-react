@@ -1,1 +1,1 @@
-{"version":3,"file":"2.js","sources":["webpack:///./src/i18n/en.js"],"sourcesContent":["const en = {\n  \"headerTitle\": \"Framingham CardioRisk\"\n}\n\nexport default en"],"mappings":";;;;;;;;;;;AAAA;AAAA;AACA;AADA;AAIA;;;;A","sourceRoot":""}
+{"version":3,"file":"2.js","sources":[],"mappings":";;;;;;;;;;;;;;A","sourceRoot":""}

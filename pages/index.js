@@ -22,7 +22,7 @@ export default function Index() {
   let [translations, setTranslations] = React.useState({})
   let language; router.query.lang ? language = router.query.lang : language = 'en'
 
-  import(`./../src/i18n/${language}.js`).then(strings => {
+  import(`./../src/i18n/${language}.json`).then(strings => {
     setTranslations(strings.default)
   });
 
@@ -42,7 +42,7 @@ export default function Index() {
     <>
       <CssBaseline />
       <Navbar />
-      <Header headerTitle={translations.headerTitle} />
+      <Header navbar_title={translations.navbar_title} />
 
       <main>
         <section className="formsection">
@@ -54,7 +54,7 @@ export default function Index() {
               <LinkIcon fontSize="small" />
               </a>
             </h5>
-            <Form datasubmittedHandler={datasubmittedHandler} />
+            <Form datasubmittedHandler={datasubmittedHandler} translations={translations} />
           </Paper>
         </section>
 
@@ -65,12 +65,12 @@ export default function Index() {
             </p>
           </Paper>}
           {results && <Paper className={classes.root} >
-          <h3>Results</h3>
-            <p>Score: {results.score}</p>
-            <p>CVD: {results.cvd}</p>
-            <p>Heart Age: {results.heartage} years old</p>
-            <p>Risk Level: {results.risklevel}</p>
-            <p>Treatment: {results.needstreatment}</p>
+          <h3>{translations.results}</h3>
+            <p>{translations.score}: {results.score}</p>
+            <p>{translations.cvd}: {results.cvd}</p>
+            <p>{translations.heartage}: {results.heartage}</p>
+            <p>{translations.risk}: {results.risklevel}</p>
+            <p>{translations.treatment}: {results.needstreatment}</p>
           </Paper>}
         </section>
       </main>

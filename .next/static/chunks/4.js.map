@@ -1,1 +1,1 @@
-{"version":3,"file":"static/chunks/4.js","sources":["webpack:///./src/i18n/es.js"],"sourcesContent":["const es = {\n  \"headerTitle\": \"CardioRiesgo Framingham\"\n}\n\nexport default es"],"mappings":";;;;;;;;;;AAAA;AAAA;AACA;AADA;AAIA;;;;A","sourceRoot":""}
+{"version":3,"file":"static/chunks/4.js","sources":[],"mappings":";;;;;;;;;;;;;A","sourceRoot":""}

@@ -4,7 +4,7 @@ export default function Header(props){
   return(
   <>
     <header className="appHeader">
-      <h1>{props.headerTitle}</h1>
+      <h1>{props.navbar_title}</h1>
     </header>
     <style jsx>{`
       h1 {

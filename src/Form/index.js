@@ -36,6 +36,7 @@ const useStyles = makeStyles(theme => ({
   
 
 export default function Form(props) {
+  let { translations } = props;
   const classes = useStyles();
 
   // Validations
@@ -129,7 +130,7 @@ export default function Form(props) {
       wt: selectsVals.wt,
       diabetes: checkboxVals.diabetes,
       smoking: checkboxVals.smoking,
-      treatment: checkboxVals.treatment
+      treatment: checkboxVals.hypertension_in_treatment
     }
     if(validateSubmittedData(data)) { props.datasubmittedHandler(data) }
   }
@@ -138,11 +139,11 @@ export default function Form(props) {
     <form autoComplete="off">
       
       <FormControl component="fieldset" className={classes.formControl} error={errors.gender} >
-        <FormLabel component="legend">Gender</FormLabel>
+        <FormLabel component="legend">{translations.gender}</FormLabel>
         <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={event => handleRadioChange(event)} row>
           <div className={errors.gender ? 'error' : ''}>
-          <FormControlLabel value="female" control={<Radio />} label="Female" />
-          <FormControlLabel value="male" control={<Radio />} label="Male" />
+          <FormControlLabel value="female" control={<Radio />} label={translations.woman} />
+          <FormControlLabel value="male" control={<Radio />} label={translations.man} />
           </div>
 
         </RadioGroup>
@@ -150,7 +151,7 @@ export default function Form(props) {
       {selects.map(select =>
         <>
           <FormControl className={classes.formControl} error={errors[select.name]}>
-            <InputLabel htmlFor={select.name}>{select.label}</InputLabel>
+            <InputLabel htmlFor={select.name}>{translations[select.label]}</InputLabel>
             <Select
               value={selectsVals[select.name]}
               onChange={handleSelectChange}
@@ -187,7 +188,7 @@ export default function Form(props) {
           control={
             <Checkbox onChange={handleCheckboxChange(checkbox.checkboxKey)} checked={checkboxVals[checkbox.checkboxKey]} />
           }
-          label={checkbox.label}
+          label={translations[checkbox.checkboxKey]}
         />)}
       </FormGroup>
       <br />

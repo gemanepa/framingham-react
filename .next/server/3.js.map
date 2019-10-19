@@ -1,0 +1,1 @@
+{"version":3,"file":"3.js","sources":["webpack:///./src/i18n/es.js"],"sourcesContent":["const es = {\n  \"headerTitle\": \"CardioRiesgo Framingham\"\n}\n\nexport default es"],"mappings":";;;;;;;;;;;AAAA;AAAA;AACA;AADA;AAIA;;;;A","sourceRoot":""}

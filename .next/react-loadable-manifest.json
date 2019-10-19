@@ -6,5 +6,21 @@
       "file": "static/chunks/0.js",
       "publicPath": "static/chunks/0.js"
     }
+  ],
+  "./en.js": [
+    {
+      "id": "./src/i18n/en.js",
+      "name": "./src/i18n/en.js",
+      "file": "static/chunks/3.js",
+      "publicPath": "static/chunks/3.js"
+    }
+  ],
+  "./es.js": [
+    {
+      "id": "./src/i18n/es.js",
+      "name": "./src/i18n/es.js",
+      "file": "static/chunks/4.js",
+      "publicPath": "static/chunks/4.js"
+    }
   ]
 }

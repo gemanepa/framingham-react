@@ -8,6 +8,7 @@ import LinkIcon from '@material-ui/icons/Link';
 import Paper from '@material-ui/core/Paper';
 import FraminghamCalculator from '../src/FraminghamCalculator'
 import { makeStyles } from '@material-ui/core/styles';
+import { useRouter } from 'next/router';
 
 
 const useStyles = makeStyles(theme => ({
@@ -17,6 +18,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Index() {
+  const router = useRouter();
+  let [translations, setTranslations] = React.useState({})
+  let language; router.query.lang ? language = router.query.lang : language = 'en'
+
+  import(`./../src/i18n/${language}.js`).then(strings => {
+    setTranslations(strings.default)
+  });
+
   const classes = useStyles();
   const [results, setResults] = React.useState(false);
   const resultsEl = React.useRef(null);
@@ -26,14 +35,14 @@ export default function Index() {
     const calculation = FraminghamCalculator(data);
     setResults(calculation);
     resultsEl.current.focus();
-    window.innerWidth < 1200 && resultsEl.current.scrollIntoView()
+    window.innerWidth < 1200 && resultsEl.current.scrollIntoView();
   }
 
   return (
     <>
-    <CssBaseline />
+      <CssBaseline />
       <Navbar />
-      <Header />
+      <Header headerTitle={translations.headerTitle} />
 
       <main>
         <section className="formsection">

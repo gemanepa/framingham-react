@@ -30,7 +30,9 @@ export default function ButtonAppBar() {
         <Toolbar>
           <img src={applogo} alt="CR Framingham" className="navlogo" />
           <Typography variant="h6" className={classes.title} />
-          <Link href="/about" color="secondary"><Button color="inherit">About</Button></Link>
+          <Link href="/about" title="asdf" color="secondary"><Button color="inherit">About</Button></Link>
+          <Link href='/?lang=en' title="en" color="secondary"><Button color="inherit">EN</Button></Link>
+          <Link href='/?lang=es' title="es" color="secondary"><Button color="inherit">ES</Button></Link>
         </Toolbar>
       </AppBar>
     </div>

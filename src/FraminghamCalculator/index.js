@@ -36,6 +36,7 @@ export default function FraminghamCalculator(data){
   console.log(taPoints);
   console.log('smokingPoints');
   console.log(smokingPoints);
+  console.log('...')
   console.log('cvd');
   console.log(cvd);
   console.log('heartage');

@@ -115,9 +115,20 @@ export default function Form(props) {
                 id: select.name,
               }}
             >
-            {select.values.map(val => 
+
+            {select.name !== 'wt' && select.values.map(val => 
               <MenuItem value={val}>{val}</MenuItem>
             )}
+
+
+            {(select.name == 'wt' && !radioVal) && 
+              <MenuItem value=''>Gender required</MenuItem>
+            }
+            {(select.name == 'wt' && radioVal) && select.values[radioVal].map(val => 
+              <MenuItem value={val}>{val}</MenuItem>
+            )}
+
+
             </Select>
             {select.helper && <FormHelperText>{select.helper}</FormHelperText>}
           </FormControl>

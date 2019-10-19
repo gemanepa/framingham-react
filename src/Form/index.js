@@ -38,12 +38,28 @@ const useStyles = makeStyles(theme => ({
 export default function Form(props) {
   const classes = useStyles();
 
+  // Validations
+  const [errors, setErrors] = React.useState({
+    gender: false,
+    age: false,
+    hdl: false,
+    ldl: false,
+    totaldl: false,
+    ta: false,
+    wt: false
+  })
+
   //Radio logic
   const [radioVal, setRadioVal] = React.useState('');
+  function handleRadioChange(event) {
+    setErrors({...errors, gender: false})
+    setRadioVal(event.target.value)
+  }
 
   //Selects logic
   const [selectsVals, setSelectsVals] = React.useState({ });
   const handleSelectChange = event => {
+    setErrors({...errors, [event.target.name]: false})
     setSelectsVals(oldValues => ({
       ...oldValues,
       [event.target.name]: event.target.value,
@@ -56,14 +72,30 @@ export default function Form(props) {
     diabetes: false,
     treatment: false,
   });
-
   const handleCheckboxChange = name => event => {
     setCheckboxState({ ...checkboxVals, [name]: event.target.checked });
   };
 
   function validateSubmittedData(data) {
+    let failedVal = {
+      gender: false,
+      age: false,
+      hdl: false,
+      ldl: false,
+      totaldl: false,
+      ta: false,
+      wt: false  
+    }
+    if(!data.gender) {failedVal.gender = true}
+    if(!data.age) {failedVal.age = true}
+    if(!data.hdl) {failedVal.hdl = true}
+    if(!data.ldl) {failedVal.ldl = true}
+    if(!data.totaldl) {failedVal.totaldl = true}
+    if(!data.ta) {failedVal.ta = true}
+    if(!data.wt) {failedVal.wt = true}
+
     if(!data.gender || !data.age || !data.hdl || !data.ldl || !data.totaldl || !data.ta || !data.wt) {
-      alert('Falta validacion')
+      setErrors({...failedVal})
       return false
     } else if (data.diabetes == undefined || data.smoking == undefined || data.treatment == undefined) {
       alert('???')
@@ -75,6 +107,15 @@ export default function Form(props) {
       setRadioVal('');
       setSelectsVals({ });
       setCheckboxState({ ...checkboxVals, smoking: false, diabetes: false, treatment: false });
+      setErrors({
+        gender: false,
+        age: false,
+        hdl: false,
+        ldl: false,
+        totald: false,
+        ta: false,
+        wt: false  
+      })
   }
 
   function calcButtonHandler(){
@@ -96,16 +137,19 @@ export default function Form(props) {
     <>
     <form autoComplete="off">
       
-      <FormControl component="fieldset" className={classes.formControl}>
+      <FormControl component="fieldset" className={classes.formControl} error={errors.gender} >
         <FormLabel component="legend">Gender</FormLabel>
-        <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={event => setRadioVal(event.target.value)} row>
+        <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={event => handleRadioChange(event)} row>
+          <div className={errors.gender ? 'error' : ''}>
           <FormControlLabel value="female" control={<Radio />} label="Female" />
           <FormControlLabel value="male" control={<Radio />} label="Male" />
+          </div>
+
         </RadioGroup>
       </FormControl>
       {selects.map(select =>
         <>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} error={errors[select.name]}>
             <InputLabel htmlFor={select.name}>{select.label}</InputLabel>
             <Select
               value={selectsVals[select.name]}
@@ -173,6 +217,10 @@ export default function Form(props) {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
+      }
+
+      .error {
+        color: #ff1744;
       }
       
       @media (min-width: 1200px){

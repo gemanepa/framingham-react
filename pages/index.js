@@ -26,7 +26,7 @@ export default function Index() {
     const calculation = FraminghamCalculator(data);
     setResults(calculation);
     resultsEl.current.focus();
-    resultsEl.current.scrollIntoView();
+    window.innerWidth < 1200 && resultsEl.current.scrollIntoView()
   }
 
   return (
@@ -131,6 +131,9 @@ export default function Index() {
           justify-content: center;
         }
 
+        section {
+          margin-bottom: 30px;
+        }
         section.formsection, section.aboutsection {
           width: 100%;
         }

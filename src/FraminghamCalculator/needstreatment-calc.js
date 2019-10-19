@@ -34,5 +34,5 @@ function risklevelIntermediate(gender, ldl, diabetes, wt, agePoints, hdlPoints, 
 }
 
 function risklevelHigh(){
-    return true
+    return 'risk level high needs following treatment'
 }

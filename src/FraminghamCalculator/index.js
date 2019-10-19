@@ -46,5 +46,11 @@ export default function FraminghamCalculator(data){
   console.log('needstreatment');
   console.log(needstreatment);
 
-  return data
+  return {
+    score: score,
+    cvd: cvd,
+    heartage: heartage,
+    risklevel: risklevel,
+    needstreatment: needstreatment
+  }
 }

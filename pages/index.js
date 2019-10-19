@@ -12,17 +12,21 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(3, 2.5),
   },
 }));
 
 export default function Index() {
   const classes = useStyles();
+  const [results, setResults] = React.useState(false);
+  const resultsEl = React.useRef(null);
 
   // Handles data submitted in Form componented when Calculate button is pressed
   function datasubmittedHandler(data){
-    FraminghamCalculator(data)
-    return true
+    const calculation = FraminghamCalculator(data);
+    setResults(calculation);
+    resultsEl.current.focus();
+    resultsEl.current.scrollIntoView();
   }
 
   return (
@@ -45,12 +49,20 @@ export default function Index() {
           </Paper>
         </section>
 
-        <section className="aboutsection">
-          <Paper className={classes.root}>
+        <section ref={resultsEl} className="aboutsection" aria-live='assertive'>
+          {!results &&<Paper className={classes.root}>
             <p>
             The Framingham Scale allows to determine the risk of suffering any cardiovascular event in 10 years, assessing factors such as age, sex, blood pressure, diabetes, and smoking, assigning a score to each of them and stratifying the patient in low, medium, and high cardiovascular risk. It also allows to calculate the vascular age, which gives an estimate of the vascular damage of the patient through the variation of years between it and its chronological age.
             </p>
-          </Paper>
+          </Paper>}
+          {results && <Paper className={classes.root} >
+          <h3>Results</h3>
+            <p>Score: {results.score}</p>
+            <p>CVD: {results.cvd}</p>
+            <p>Heart Age: {results.heartage} years old</p>
+            <p>Risk Level: {results.risklevel}</p>
+            <p>Treatment: {results.needstreatment}</p>
+          </Paper>}
         </section>
       </main>
       < Footer />

@@ -15,6 +15,8 @@ import Select from '@material-ui/core/Select';
 import { checkboxes, selects } from './data.js'
 import Button from '@material-ui/core/Button';
 
+import DeleteIcon from '@material-ui/icons/Delete';
+import SendIcon from '@material-ui/icons/Send';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -71,7 +73,7 @@ export default function Form(props) {
   const [checkboxVals, setCheckboxState] = React.useState({
     smoking: false,
     diabetes: false,
-    treatment: false,
+    hypertension_in_treatment: false,
   });
   const handleCheckboxChange = name => event => {
     setCheckboxState({ ...checkboxVals, [name]: event.target.checked });
@@ -107,7 +109,7 @@ export default function Form(props) {
   function resetButtonHandler() {
       setRadioVal('');
       setSelectsVals({ });
-      setCheckboxState({ ...checkboxVals, smoking: false, diabetes: false, treatment: false });
+      setCheckboxState({ ...checkboxVals, smoking: false, diabetes: false, hypertension_in_treatment: false });
       setErrors({
         gender: false,
         age: false,
@@ -117,6 +119,7 @@ export default function Form(props) {
         ta: false,
         wt: false  
       })
+      props.resetResults();
   }
 
   function calcButtonHandler(){
@@ -194,18 +197,18 @@ export default function Form(props) {
       <br />
 
       <div className="formbuttons">
-        <Button onClick={resetButtonHandler} variant="contained" color="secondary" className={classes.resetButton}>
-          Reset
+        <Button onClick={resetButtonHandler} variant="contained" color="secondary" className={classes.resetButton} >
+          <DeleteIcon />
         </Button>
 
         {(typeof window !== 'undefined' && window.innerWidth < 1200 &&
         <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.resetButton}>
-            Calculate
+          <SendIcon/>
         </Button>)}
 
         {(typeof window !== 'undefined' && window.innerWidth > 1199 &&
         <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.calcButton}>
-            Calculate
+          <SendIcon/>
           </Button>)}
       </div>
     </form>

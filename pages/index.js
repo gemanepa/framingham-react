@@ -38,6 +38,10 @@ export default function Index() {
     window.innerWidth < 1200 && resultsEl.current.scrollIntoView();
   }
 
+  function resetResults(){
+    setResults(false);
+  }
+
   return (
     <>
       <CssBaseline />
@@ -54,7 +58,7 @@ export default function Index() {
               <LinkIcon fontSize="small" />
               </a>
             </h5>
-            <Form datasubmittedHandler={datasubmittedHandler} translations={translations} />
+            <Form datasubmittedHandler={datasubmittedHandler} resetResults={resetResults} translations={translations} />
           </Paper>
         </section>
 

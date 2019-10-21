@@ -8,7 +8,7 @@ import calculateHeartAge from './heartage-calc';
 import calculateRiskLevel from './risk-calc';
 import needsTreatment from './needstreatment-calc';
 
-export default function FraminghamCalculator(data){
+export default function FraminghamCalculator(data, translations){
   const { age, diabetes, gender, hdl, ldl, smoking, ta, totaldl, treatment, wt } = data;
 
   //Points Calculation
@@ -16,14 +16,14 @@ export default function FraminghamCalculator(data){
   const hdlPoints = getHDLPoints(hdl, gender);
   const dlPoints = getTotalDLPoints(totaldl, gender);
   const taPoints = getTAPoints(ta, treatment, gender);
-  const smokingPoints = getSmokingPoints(smoking, gender)
+  const smokingPoints = getSmokingPoints(smoking, gender);
   const score = agePoints + hdlPoints + dlPoints + taPoints + smokingPoints;
 
   // Framingham Score Calculations
   const cvd = calculateCVD(score, gender);
   const heartage = calculateHeartAge(score, gender);
   const risklevel = calculateRiskLevel(score, gender);
-  const needstreatment = needsTreatment(gender, diabetes, smoking, ldl, wt, agePoints, hdlPoints, smokingPoints, risklevel);
+  const needstreatment = needsTreatment(gender, diabetes, smoking, ldl, wt, agePoints, hdlPoints, smokingPoints, risklevel, translations);
 
   console.log('==================================')
   console.log('agePoints');
@@ -50,7 +50,7 @@ export default function FraminghamCalculator(data){
     score: score,
     cvd: cvd,
     heartage: heartage,
-    risklevel: risklevel,
-    needstreatment: needstreatment
+    risklevel: translations[risklevel],
+    needstreatment: translations[needstreatment]
   }
 }

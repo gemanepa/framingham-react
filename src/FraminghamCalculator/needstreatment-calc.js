@@ -15,8 +15,8 @@ function risklevelLow(gender, diabetes, agePoints){
     const maleConditional = (gender === 'male' && agePoints >= 5 && diabetes)
     const femaleConditional = (gender === 'female' && agePoints >= 4 && diabetes)
 
-    if( maleConditional || femaleConditional ) { return 'treatmentLowDiabetes' }
-    else { return 'patientnotrequirestreatment'}
+    if( maleConditional || femaleConditional ) { return 'treatment_low_diabetes' }
+    else { return 'patient_not_requires_treatment'}
 }
 
 function risklevelIntermediate(gender, ldl, diabetes, wt, agePoints, hdlPoints, smokingPoints){
@@ -28,11 +28,11 @@ function risklevelIntermediate(gender, ldl, diabetes, wt, agePoints, hdlPoints, 
     const maleConditional = (gender === 'male' && agePoints >= 8 && (hdl || smoking || diabetes || waist));
     const femaleConditional = (gender === 'female' && agePoints >=9 && (hdl || smoking || diabetes || waist));
 
-    if(maleConditional || femaleConditional){ return 'intermediatewithfactors' }
+    if(maleConditional || femaleConditional){ return 'treatment_intermediate_hasfactors' }
     else if (lowdl) {return 'treatment_intermediate_ldl' }
-    else { return 'intermediatenofactors'}
+    else { return 'treatment_intermediate_norisks'}
 }
 
 function risklevelHigh(){
-    return 'risk level high needs following treatment'
+    return 'patient_highly_requires_treatment'
 }

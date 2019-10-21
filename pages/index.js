@@ -32,7 +32,7 @@ export default function Index() {
 
   // Handles data submitted in Form componented when Calculate button is pressed
   function datasubmittedHandler(data){
-    const calculation = FraminghamCalculator(data);
+    const calculation = FraminghamCalculator(data, translations);
     setResults(calculation);
     resultsEl.current.focus();
     window.innerWidth < 1200 && resultsEl.current.scrollIntoView();

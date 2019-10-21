@@ -11,16 +11,16 @@
     {
       "id": "./src/i18n/en.json",
       "name": "./src/i18n/en.json",
-      "file": "static/chunks/3.js",
-      "publicPath": "static/chunks/3.js"
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
     }
   ],
   "./es.json": [
     {
       "id": "./src/i18n/es.json",
       "name": "./src/i18n/es.json",
-      "file": "static/chunks/4.js",
-      "publicPath": "static/chunks/4.js"
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
     }
   ]
 }

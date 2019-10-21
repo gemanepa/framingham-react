@@ -10,7 +10,6 @@ import FraminghamCalculator from '../src/FraminghamCalculator'
 import { makeStyles } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2.5),
@@ -54,7 +53,7 @@ export default function Index() {
             <h2>{translations.framingham_risk_score_calculator}</h2>
             <h5>
               <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
-              Using 2017 Canadian CardioVascular Society Guidelines
+              {translations.using_guidelines}
               <LinkIcon fontSize="small" />
               </a>
             </h5>
@@ -152,6 +151,9 @@ export default function Index() {
         height: auto;
         margin: 0 auto;
         width: 16vw;
+      }
+      .gplay-img:hover {
+        filter: invert(100%) drop-shadow(8px 8px 10px gray);
       }
 
       @media (max-width: 1199px) {

@@ -4815,6 +4815,11 @@ repeat-string@^1.6.1:
   resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
   integrity sha1-jcrkcOHIirwtYA//Sndihtp15jc=
 
+reshake@^1.2.1:
+  version "1.2.1"
+  resolved "https://packages.it.lan.com:443/artifactory/api/npm/lnpm/reshake/-/reshake-1.2.1.tgz#986d5138669c7b47b15a7431d7f2eef31b9d4f88"
+  integrity sha1-mG1ROGace0exWnQx1/Lu8xudT4g=
+
 resolve-from@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-3.0.0.tgz#b22c7af7d9d6881bc8b6e653335eebcb0a188748"

@@ -1,14 +1,18 @@
 import React from 'react';
+import Head from 'next/head'
+import { useRouter } from 'next/router';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import LinkIcon from '@material-ui/icons/Link';
+import Paper from '@material-ui/core/Paper';
 import Header from './../src/Header'
 import Navbar from './../src/Navbar'
 import Form from './../src/Form'
-import Footer from './../src/Footer'
-import LinkIcon from '@material-ui/icons/Link';
-import Paper from '@material-ui/core/Paper';
 import FraminghamCalculator from '../src/FraminghamCalculator'
+import Footer from './../src/Footer'
+import headLang from './../src/i18n/head.json'
+
 import { makeStyles } from '@material-ui/core/styles';
-import { useRouter } from 'next/router';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,7 +47,12 @@ export default function Index() {
 
   return (
     <>
-      <CssBaseline />
+      <Head>
+        <title>{headLang[language].title}</title>
+        <meta name="application-name" content={headLang[language].appname} />
+        <meta name="description" content={headLang[language].description}/>
+        <meta name="keywords" content={headLang[language].keywords} />
+      </Head>
       <Navbar />
       <Header navbar_title={translations.navbar_title} />
 

@@ -6,10 +6,11 @@ import theme from '../src/theme';
 class MyDocument extends Document {
   render() {
     return (
-      <html lang="en">
+      <html>
         <Head>
-          <meta name="description" content="Framingham CR calculates the risk of suffering cardiovascular events in 10 years"/>
-          <meta name="author" content="gemanepa"/>
+          <meta http-equiv="Content-Security-Policy" content="default-src 'self'"/>
+          <meta name="author" content="gemanepa | https://gemanepa.com"/>
+          <meta name="generator" content="NextJS" />
           <meta charSet="utf-8" />
           <meta
             name="viewport"

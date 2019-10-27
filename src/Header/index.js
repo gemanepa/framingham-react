@@ -1,5 +1,5 @@
 import React from 'react';
-import applogo from './../../static/logos/applogo.png'; 
+import applogo from './../../public/logos/applogo.png'; 
 export default function Header(props){
   return(
   <>

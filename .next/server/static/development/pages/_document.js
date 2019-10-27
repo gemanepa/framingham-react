@@ -1358,7 +1358,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
   render() {
     return __jsx("html", {
-      lang: "en",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 9
@@ -1371,8 +1370,8 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       },
       __self: this
     }, __jsx("meta", {
-      name: "description",
-      content: "Framingham CR calculates the risk of suffering cardiovascular events in 10 years",
+      "http-equiv": "Content-Security-Policy",
+      content: "default-src 'self'",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 11
@@ -1380,17 +1379,25 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       __self: this
     }), __jsx("meta", {
       name: "author",
-      content: "gemanepa",
+      content: "gemanepa | https://gemanepa.com",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 12
       },
       __self: this
     }), __jsx("meta", {
-      charSet: "utf-8",
+      name: "generator",
+      content: "NextJS",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 13
+      },
+      __self: this
+    }), __jsx("meta", {
+      charSet: "utf-8",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14
       },
       __self: this
     }), __jsx("meta", {
@@ -1398,7 +1405,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       content: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14
+        lineNumber: 15
       },
       __self: this
     }), __jsx("meta", {
@@ -1406,7 +1413,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       content: _src_theme__WEBPACK_IMPORTED_MODULE_5__["default"].palette.primary.main,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 20
       },
       __self: this
     }), __jsx("link", {
@@ -1415,7 +1422,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       href: "../static/icon.ico",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 21
       },
       __self: this
     }), __jsx("link", {
@@ -1423,25 +1430,25 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 22
       },
       __self: this
     })), __jsx("body", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 27
       },
       __self: this
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_3__["Main"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 28
       },
       __self: this
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_3__["NextScript"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 29
       },
       __self: this
     })));
@@ -1479,7 +1486,7 @@ MyDocument.getInitialProps = async ctx => {
     enhanceApp: App => props => sheets.collect(__jsx(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64
+        lineNumber: 65
       },
       __self: undefined
     })))
@@ -1492,7 +1499,7 @@ MyDocument.getInitialProps = async ctx => {
       key: "styles",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73
+        lineNumber: 74
       },
       __self: undefined
     }, initialProps.styles, sheets.getStyleElement())]

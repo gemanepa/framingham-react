@@ -5,22 +5,18 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import applogo from './../../static/logos/applogo.png';
 import enFlag from './../../static/flags/en-flag.png';
 import esFlag from './../../static/flags/es-flag.png';
 import fhsLogo from './../../static/logos/fhslogo.png';
 import nihLogo from './../../static/logos/nihlogo.png';
 import wikipediaLogo from './../../static/logos/wikipedialogo3.png';
-import languageResponseHelper from './../../static/responsive-helpers/languages.png'
-
+import languagesIcon from './../../static/icons/languages.png';
+import externalIcon from './../../static/icons/external.png'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,7 +33,8 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 0,
     marginLeft: 0,
     marginRight: 0,
-    padding: 0
+    padding: 0,
+    boxShadow: 'none'
   }
 }));
 
@@ -72,7 +69,7 @@ const StyledMenuItem = withStyles(theme => ({
   },
 }))(MenuItem);
 
-export function CustomizedMenus() {
+export function CustomizedMenus(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -88,7 +85,7 @@ export function CustomizedMenus() {
     <div>
       
       <Button 
-        title="Cambiar idioma"
+        title={props.type === 'language' ? "Cambiar idioma" : "Links externos"}
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
@@ -96,9 +93,9 @@ export function CustomizedMenus() {
         onClick={handleClick}
         className={classes.langmenuButton}>
           <img 
-          src={languageResponseHelper}
-          alt=""
-          className="langmenuimg"
+            src={props.type === 'language' ? languagesIcon : externalIcon}
+            alt=""
+            className={props.type === 'language' ? "langmenuimg" : "elinksgmenuimg"}
           />
       </Button>
       <StyledMenu
@@ -108,31 +105,82 @@ export function CustomizedMenus() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
+      { props.type === 'language' ?
+      <>
         <Link href='/?lang=en' color="secondary">
+            <StyledMenuItem onClick={handleClose}>
+              <ListItemIcon>
+                <img src={enFlag} alt="" className="navflagsimgs" />
+              </ListItemIcon>
+              <ListItemText primary="English" />
+            </StyledMenuItem>
+          </Link>
+          <Link href='/?lang=es' color="secondary">
+            <StyledMenuItem onClick={handleClose}>
+              <ListItemIcon>
+                <img src={esFlag} alt="" className="navflagsimgs" />
+              </ListItemIcon>
+              <ListItemText primary="Español" />
+            </StyledMenuItem>
+          </Link>
+      </>
+        :
+      <>
+        <a href="https://www.framinghamheartstudy.org/" target="_blank" rel="noopener noreferrer" title="Framingham Heart Study">
           <StyledMenuItem onClick={handleClose}>
             <ListItemIcon>
-              <img src={enFlag} alt="" className="navflagsimgs" />
+              <img src={fhsLogo} alt="" className="fshlogo" />
             </ListItemIcon>
-            <ListItemText primary="English" />
+            <ListItemText primary="FHS" />
           </StyledMenuItem>
-        </Link>
-        <Link href='/?lang=es' color="secondary">
+        </a>
+        <a href="https://www.nhlbi.nih.gov/science/framingham-heart-study-fhs/" target="_blank" rel="noopener noreferrer" title="National Institutes of Health">
           <StyledMenuItem onClick={handleClose}>
             <ListItemIcon>
-              <img src={esFlag} alt="" className="navflagsimgs" />
+              <img src={nihLogo} alt="" className="nihlogo" />
             </ListItemIcon>
-            <ListItemText primary="Español" />
+            <ListItemText primary="NIH" />
           </StyledMenuItem>
-        </Link>
+        </a>
+        <a href="https://en.wikipedia.org/wiki/Framingham_Heart_Study" target="_blank" rel="noopener noreferrer" title="Wikipedia">
+          <StyledMenuItem onClick={handleClose}>
+            <ListItemIcon>
+              <img src={wikipediaLogo} alt="" className="wikilogo" />
+            </ListItemIcon>
+            <ListItemText primary="Wikipedia" />
+          </StyledMenuItem>
+        </a>
+      </>
+      }
+
       </StyledMenu>
       <style jsx>{`
-        .langmenuimg:hover {
+        .langmenuimg:hover, .elinksgmenuimg:hover {
           filter: brightness(120%);
         }
+        .fshlogo {
+          height: 40px;
+          width: auto;
+        }
 
+        .nihlogo {
+          height: 30px;
+          width: auto;
+          margin-bottom: 5px;
+        }
+
+        .wikilogo {
+          height: 31px;
+          width: auto;
+          margin-bottom: 3px;
+        }
         @media (max-width: 1199px) {
           .langmenuimg {
             height: 50px;
+            width: auto;
+          }
+          .elinksgmenuimg {
+            height: 45px;
             width: auto;
           }
           .navflagsimgs {
@@ -146,6 +194,10 @@ export function CustomizedMenus() {
             min-height: 65px;
             width: auto;
           }
+          .elinksgmenuimg {
+            height: 7vh;
+            width: auto;
+          }
           .navflagsimgs {
             height: 5.5vh;
             min-height: 35px;
@@ -153,9 +205,6 @@ export function CustomizedMenus() {
             width: auto;
           }
         }
-
-
-
       `}</style>
     </div>
   );
@@ -166,148 +215,14 @@ function MobileBar() {
   const classes = useStyles();
   return (
     <>
-      <CustomizedMenus />
-
+      <CustomizedMenus type="language"/>
       <Typography variant="h6" className={classes.title} />
-
-      <img src={applogo} alt="CR Framingham" className="navlogo" />
-
-      <Typography variant="h6" className={classes.title} />
-
-      <div className="navexternallinks">
-        <a href="https://www.framinghamheartstudy.org/" target="_blank" rel="noopener noreferrer" title="Framingham Heart Study">
-          <img src={fhsLogo} alt="" />
-        </a>
-        <a href="https://www.nhlbi.nih.gov/science/framingham-heart-study-fhs/" target="_blank" rel="noopener noreferrer" title="National Institutes of Health">
-          <img src={nihLogo} alt="" />
-        </a>
-        <a href="https://en.wikipedia.org/wiki/Framingham_Heart_Study" target="_blank" rel="noopener noreferrer" title="Wikipedia">
-          <img src={wikipediaLogo} alt="" />
-        </a>
-      </div>
-      <style jsx>{`
-        @media (max-width: 1199px) {
-          .navlogo {
-            height: 50px;
-            width: auto;
-          }
-        }
-        @media (min-width: 1200px) {
-          .navlogo {
-            min-height: 85px;
-            height: 13.1vh;
-            width: auto;
-            position:absolute;
-            left: 45%;
-            top: 5%;
-          }
-        }
-        .navlogo:hover, .navexternallinks a img:hover {
-          filter: brightness(110%);
-        }
-
-        .navflagslinks, .navexternallinks a:first-child {
-          margin-right: 0.5vw;
-        }
-
-        .navflagslinks, .navexternallinks a:not(:first-child) {
-          margin-left: 10px;
-          margin-right: 10px;
-        }
-
-        .navexternallinks a:first-child img {
-          height: 40px;
-          width: auto;
-        }
-
-        .navexternallinks a:nth-child(2) img {
-          height: 30px;
-          width: auto;
-          margin-bottom: 5px;
-        }
-
-        .navexternallinks a:nth-child(3) img {
-          height: 31px;
-          width: auto;
-          margin-bottom: 3px;
-        }
-      `}</style>
+      <CustomizedMenus type="elinks"/>
     </>
   )
 }
 
-function DesktopBar() {
-  const classes = useStyles();
-  return (
-    <>
-      <Link href='/?lang=en' title="en" color="secondary" title="English">
-        <img src={enFlag} alt="" className="navflagsimgs" />
-      </Link>
-
-      <div className="navflagslinks">
-        <Link href='/?lang=es' title="es" color="secondary" title="Español">
-          <img src={esFlag} alt="" className="navflagsimgs" />
-        </Link>
-      </div>
-
-      <Typography variant="h6" className={classes.title} />
-
-      <img src={applogo} alt="CR Framingham" className="navlogo" />
-
-      <Typography variant="h6" className={classes.title} />
-
-      <div className="navexternallinks">
-        <a href="https://www.framinghamheartstudy.org/" target="_blank" rel="noopener noreferrer" title="Framingham Heart Study">
-          <img src={fhsLogo} alt="" />
-        </a>
-        <a href="https://www.nhlbi.nih.gov/science/framingham-heart-study-fhs/" target="_blank" rel="noopener noreferrer" title="National Institutes of Health">
-          <img src={nihLogo} alt="" />
-        </a>
-        <a href="https://en.wikipedia.org/wiki/Framingham_Heart_Study" target="_blank" rel="noopener noreferrer" title="Wikipedia">
-          <img src={wikipediaLogo} alt="" />
-        </a>
-      </div>
-      <style jsx>{`
-        .navlogo {
-          height: 7.6vh;
-          min-height: 50px;
-          width: auto;
-        }
-        .navlogo:hover, .navexternallinks a img:hover {
-          filter: brightness(110%);
-        }
-
-        .navflagslinks, .navexternallinks a:first-child {
-          margin-right: 0.5vw;
-        }
-
-        .navflagslinks, .navexternallinks a:not(:first-child) {
-          margin-left: 0.4vw;
-          margin-right: 0.4vw;
-        }
-
-        .navexternallinks a:first-child img {
-          height: 40px;
-          width: auto;
-        }
-
-        .navexternallinks a:nth-child(2) img {
-          height: 30px;
-          width: auto;
-          margin-bottom: 5px;
-        }
-
-        .navexternallinks a:nth-child(3) img {
-          height: 31px;
-          width: auto;
-          margin-bottom: 3px;
-        }
-      `}</style>
-    </>
-  )
-}
-
-export default function NavBar(props) {
+export default function NavBar() {
   const classes = useStyles();
 
   return (

@@ -83,7 +83,6 @@ export function CustomizedMenus(props) {
 
   return (
     <div>
-      
       <Button 
         title={props.type === 'language' ? "Cambiar idioma" : "Links externos"}
         aria-controls="customized-menu"
@@ -106,7 +105,7 @@ export function CustomizedMenus(props) {
         onClose={handleClose}
       >
       { props.type === 'language' ?
-      <>
+      <div>
         <Link href='/?lang=en' color="secondary">
             <StyledMenuItem onClick={handleClose}>
               <ListItemIcon>
@@ -123,9 +122,9 @@ export function CustomizedMenus(props) {
               <ListItemText primary="Español" />
             </StyledMenuItem>
           </Link>
-      </>
+      </div>
         :
-      <>
+      <div>
         <a href="https://www.framinghamheartstudy.org/" target="_blank" rel="noopener noreferrer" title="Framingham Heart Study">
           <StyledMenuItem onClick={handleClose}>
             <ListItemIcon>
@@ -150,7 +149,7 @@ export function CustomizedMenus(props) {
             <ListItemText primary="Wikipedia" />
           </StyledMenuItem>
         </a>
-      </>
+      </div>
       }
 
       </StyledMenu>

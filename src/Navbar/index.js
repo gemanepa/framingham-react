@@ -32,6 +32,13 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  langmenuButton: {
+    marginTop: 0,
+    marginBottom: 0,
+    marginLeft: 0,
+    marginRight: 0,
+    padding: 0
+  }
 }));
 
 const StyledMenu = withStyles({
@@ -66,6 +73,7 @@ const StyledMenuItem = withStyles(theme => ({
 }))(MenuItem);
 
 export function CustomizedMenus() {
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
@@ -78,14 +86,20 @@ export function CustomizedMenus() {
 
   return (
     <div>
-      <Button
+      
+      <Button 
+        title="Cambiar idioma"
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
         color="primary"
         onClick={handleClick}
-      >
-        Open Menu
+        className={classes.langmenuButton}>
+          <img 
+          src={languageResponseHelper}
+          alt=""
+          className="langmenuimg"
+          />
       </Button>
       <StyledMenu
         id="customized-menu"
@@ -94,28 +108,59 @@ export function CustomizedMenus() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <StyledMenuItem>
-          <ListItemIcon>
-            <SendIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Sent mail" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <DraftsIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Drafts" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <InboxIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Inbox" />
-        </StyledMenuItem>
+        <Link href='/?lang=en' color="secondary">
+          <StyledMenuItem onClick={handleClose}>
+            <ListItemIcon>
+              <img src={enFlag} alt="" className="navflagsimgs" />
+            </ListItemIcon>
+            <ListItemText primary="English" />
+          </StyledMenuItem>
+        </Link>
+        <Link href='/?lang=es' color="secondary">
+          <StyledMenuItem onClick={handleClose}>
+            <ListItemIcon>
+              <img src={esFlag} alt="" className="navflagsimgs" />
+            </ListItemIcon>
+            <ListItemText primary="Español" />
+          </StyledMenuItem>
+        </Link>
       </StyledMenu>
+      <style jsx>{`
+        .langmenuimg:hover {
+          filter: brightness(120%);
+        }
+
+        @media (max-width: 1199px) {
+          .langmenuimg {
+            height: 50px;
+            width: auto;
+          }
+          .navflagsimgs {
+            height: 40px;
+            width: auto;
+          }
+        }
+        @media (min-width: 1200px) {
+          .langmenuimg {
+            height: 10vh;
+            min-height: 65px;
+            width: auto;
+          }
+          .navflagsimgs {
+            height: 5.5vh;
+            min-height: 35px;
+            margin-top: -0.5vh;
+            width: auto;
+          }
+        }
+
+
+
+      `}</style>
     </div>
   );
 }
+
 
 function MobileBar() {
   const classes = useStyles();
@@ -141,20 +186,24 @@ function MobileBar() {
         </a>
       </div>
       <style jsx>{`
-        .navlogo {
-          height: 50px;
-          width: auto;
+        @media (max-width: 1199px) {
+          .navlogo {
+            height: 50px;
+            width: auto;
+          }
+        }
+        @media (min-width: 1200px) {
+          .navlogo {
+            min-height: 85px;
+            height: 13.1vh;
+            width: auto;
+            position:absolute;
+            left: 45%;
+            top: 5%;
+          }
         }
         .navlogo:hover, .navexternallinks a img:hover {
           filter: brightness(110%);
-        }
-        .navflagsimgs {
-          height: 40px;
-          margin-top: 6px;
-          width: auto;
-        }
-        .navflagsimgs:hover {
-          filter: brightness(120%);
         }
 
         .navflagslinks, .navexternallinks a:first-child {
@@ -227,15 +276,6 @@ function DesktopBar() {
         .navlogo:hover, .navexternallinks a img:hover {
           filter: brightness(110%);
         }
-        .navflagsimgs {
-          height: 5.5vh;
-          min-height: 35px;
-          margin-top: 1vh;
-          width: auto;
-        }
-        .navflagsimgs:hover {
-          filter: brightness(120%);
-        }
 
         .navflagslinks, .navexternallinks a:first-child {
           margin-right: 0.5vw;
@@ -275,7 +315,7 @@ export default function NavBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className="toolbar">
-          {(typeof window !== 'undefined' && window.innerWidth < 1200) ? <MobileBar /> : <DesktopBar />}
+          <MobileBar />
         </Toolbar>
       </AppBar>
     </div>

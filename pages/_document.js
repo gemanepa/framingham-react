@@ -8,7 +8,6 @@ class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <meta http-equiv="Content-Security-Policy" content="default-src 'self'"/>
           <meta name="author" content="gemanepa | https://gemanepa.com"/>
           <meta name="generator" content="NextJS" />
           <meta charSet="utf-8" />

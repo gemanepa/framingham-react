@@ -1370,19 +1370,11 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       },
       __self: this
     }, __jsx("meta", {
-      "http-equiv": "Content-Security-Policy",
-      content: "default-src 'self'",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 11
-      },
-      __self: this
-    }), __jsx("meta", {
       name: "author",
       content: "gemanepa | https://gemanepa.com",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 12
+        lineNumber: 11
       },
       __self: this
     }), __jsx("meta", {
@@ -1390,14 +1382,14 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       content: "NextJS",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
+        lineNumber: 12
       },
       __self: this
     }), __jsx("meta", {
       charSet: "utf-8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14
+        lineNumber: 13
       },
       __self: this
     }), __jsx("meta", {
@@ -1405,7 +1397,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       content: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 14
       },
       __self: this
     }), __jsx("meta", {
@@ -1413,7 +1405,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       content: _src_theme__WEBPACK_IMPORTED_MODULE_5__["default"].palette.primary.main,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 19
       },
       __self: this
     }), __jsx("link", {
@@ -1422,7 +1414,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       href: "../static/icon.ico",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 20
       },
       __self: this
     }), __jsx("link", {
@@ -1430,25 +1422,25 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
       href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 21
       },
       __self: this
     })), __jsx("body", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 26
       },
       __self: this
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_3__["Main"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 27
       },
       __self: this
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_3__["NextScript"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 28
       },
       __self: this
     })));
@@ -1486,7 +1478,7 @@ MyDocument.getInitialProps = async ctx => {
     enhanceApp: App => props => sheets.collect(__jsx(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65
+        lineNumber: 64
       },
       __self: undefined
     })))
@@ -1499,7 +1491,7 @@ MyDocument.getInitialProps = async ctx => {
       key: "styles",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 73
       },
       __self: undefined
     }, initialProps.styles, sheets.getStyleElement())]

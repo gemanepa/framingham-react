@@ -53,9 +53,9 @@ export default function Index() {
         <meta name="description" content={headLang[language].description}/>
         <meta name="keywords" content={headLang[language].keywords} />
       </Head>
+
       <Navbar />
       <Header navbar_title={translations.navbar_title} />
-
       <main>
         <section className="formsection">
           <Paper className={classes.root}>

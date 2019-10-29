@@ -1348,7 +1348,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_theme__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/theme */ "./src/theme.js");
 
 
-var _jsxFileName = "/home/gemanepa/Documents/Development/Proyectos/React/framingham-react-pwa/pages/_document.js";
+var _jsxFileName = "/home/ge.martinez/Documents/gemanepa-projects/framingham-react-pwa/pages/_document.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
@@ -1411,7 +1411,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_3___default.a {
     }), __jsx("link", {
       rel: "icon",
       type: "image/x-icon",
-      href: "../static/icon.ico",
+      href: "../public/icon.ico",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 20

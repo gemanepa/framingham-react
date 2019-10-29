@@ -17,7 +17,7 @@ class MyDocument extends Document {
           />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="icon" type="image/x-icon" href="../static/icon.ico" />
+          <link rel="icon" type="image/x-icon" href="../public/icon.ico" />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"

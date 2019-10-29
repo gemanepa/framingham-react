@@ -103,47 +103,48 @@ export function CustomizedMenus(props) {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        key={`menu-${props.type}`}
       >
       { props.type === 'language' ?
-      <div>
+      <div key={`${props.type}-items`}>
         <Link href='/?lang=en' color="secondary">
-            <StyledMenuItem onClick={handleClose}>
-              <ListItemIcon>
+            <StyledMenuItem onClick={handleClose} key={`${props.type}-en-menuitem`}>
+              <ListItemIcon key={`${props.type}-en-listitemicon`}>
                 <img src={enFlag} alt="" className="navflagsimgs" />
               </ListItemIcon>
-              <ListItemText primary="English" />
+              <ListItemText primary="English" key={`${props.type}-es-listitemtext`} />
             </StyledMenuItem>
           </Link>
           <Link href='/?lang=es' color="secondary">
-            <StyledMenuItem onClick={handleClose}>
-              <ListItemIcon>
+            <StyledMenuItem onClick={handleClose} key={`${props.type}-es-menuitem`}>
+              <ListItemIcon key={`${props.type}-es-listitemicon`}>
                 <img src={esFlag} alt="" className="navflagsimgs" />
               </ListItemIcon>
-              <ListItemText primary="Español" />
+              <ListItemText primary="Español" key={`${props.type}-es-listitemtext`} />
             </StyledMenuItem>
           </Link>
       </div>
         :
-      <div>
+      <div key={`${props.type}-items`}>
         <a href="https://www.framinghamheartstudy.org/" target="_blank" rel="noopener noreferrer" title="Framingham Heart Study">
-          <StyledMenuItem onClick={handleClose}>
-            <ListItemIcon>
+          <StyledMenuItem onClick={handleClose} key={`${props.type}-fsh-menuitem`}>
+            <ListItemIcon key={`${props.type}-fsh-listitemicon`}>
               <img src={fhsLogo} alt="" className="fshlogo" />
             </ListItemIcon>
             <ListItemText primary="FHS" />
           </StyledMenuItem>
         </a>
         <a href="https://www.nhlbi.nih.gov/science/framingham-heart-study-fhs/" target="_blank" rel="noopener noreferrer" title="National Institutes of Health">
-          <StyledMenuItem onClick={handleClose}>
-            <ListItemIcon>
+          <StyledMenuItem onClick={handleClose} key={`${props.type}-nih-menuitem`}>
+            <ListItemIcon key={`${props.type}-nih-listitemicon`}>
               <img src={nihLogo} alt="" className="nihlogo" />
             </ListItemIcon>
             <ListItemText primary="NIH" />
           </StyledMenuItem>
         </a>
         <a href="https://en.wikipedia.org/wiki/Framingham_Heart_Study" target="_blank" rel="noopener noreferrer" title="Wikipedia">
-          <StyledMenuItem onClick={handleClose}>
-            <ListItemIcon>
+          <StyledMenuItem onClick={handleClose} key={`${props.type}-wiki-menuitem`}>
+            <ListItemIcon key={`${props.type}-wiki-listitemicon`}>
               <img src={wikipediaLogo} alt="" className="wikilogo" />
             </ListItemIcon>
             <ListItemText primary="Wikipedia" />

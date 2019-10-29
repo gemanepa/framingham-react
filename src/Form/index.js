@@ -79,31 +79,20 @@ export default function Form(props) {
     setCheckboxState({ ...checkboxVals, [name]: event.target.checked });
   };
 
-  function validateSubmittedData(data) {
-    let failedVal = {
-      gender: false,
-      age: false,
-      hdl: false,
-      ldl: false,
-      totaldl: false,
-      ta: false,
-      wt: false  
-    }
-    if(!data.gender) {failedVal.gender = true}
-    if(!data.age) {failedVal.age = true}
-    if(!data.hdl) {failedVal.hdl = true}
-    if(!data.ldl) {failedVal.ldl = true}
-    if(!data.totaldl) {failedVal.totaldl = true}
-    if(!data.ta) {failedVal.ta = true}
-    if(!data.wt) {failedVal.wt = true}
+  function validateSubmittedData(requiredData) {
+    const keys = Object.keys(requiredData);
+    let failedVal = {};
+    keys.map(key => failedVal[key] = false)
 
-    if(!data.gender || !data.age || !data.hdl || !data.ldl || !data.totaldl || !data.ta || !data.wt) {
+
+    keys.map(key => requiredData[key] ? failedVal[key] = false : failedVal[key] = true)
+
+    const falsyValues = Object.values(failedVal).filter(val => val === true);
+
+    if(falsyValues.length > 0) {
       setErrors({...failedVal})
       return false
-    } else if (data.diabetes == undefined || data.smoking == undefined || data.treatment == undefined) {
-      alert('???')
-      return false
-    }
+    } 
     return true
   }
   function resetButtonHandler() {
@@ -123,19 +112,26 @@ export default function Form(props) {
   }
 
   function calcButtonHandler(){
-    const data = {
+    const requiredData = {
       gender: radioVal,
       age: selectsVals.age,
       hdl: selectsVals.hdl,
       ldl: selectsVals.ldl,
       totaldl: selectsVals.totaldl,
       ta: selectsVals.ta,
-      wt: selectsVals.wt,
+      wt: selectsVals.wt
+    }
+    const nonrequiredData = {
       diabetes: checkboxVals.diabetes,
       smoking: checkboxVals.smoking,
       treatment: checkboxVals.hypertension_in_treatment
     }
-    if(validateSubmittedData(data)) { props.datasubmittedHandler(data) }
+    const allData = {
+      ...requiredData,
+      ...nonrequiredData
+    }
+
+    if(validateSubmittedData(requiredData)) { props.datasubmittedHandler(allData) }
   }
   return (
     <>
@@ -152,8 +148,8 @@ export default function Form(props) {
         </RadioGroup>
       </FormControl>
       {selects.map(select =>
-        <>
-          <FormControl className={classes.formControl} error={errors[select.name]}>
+        <React.Fragment key={`select-${select.name}-container`}>
+          <FormControl className={classes.formControl} error={errors[select.name]} key={`select-${select.name}-formcontrol`}>
             <InputLabel htmlFor={select.name}>{translations[select.label]}</InputLabel>
             <Select
               value={selectsVals[select.name]}
@@ -182,7 +178,7 @@ export default function Form(props) {
           </FormControl>
           
           {(select.name === 'age' || select.name === 'totaldl' || select.name === 'wt') && <br className="desktopOnly"/>}
-        </>
+        </React.Fragment>
       )}
 
       <FormGroup row className="checkboxes">
@@ -192,6 +188,7 @@ export default function Form(props) {
             <Checkbox onChange={handleCheckboxChange(checkbox.checkboxKey)} checked={checkboxVals[checkbox.checkboxKey]} />
           }
           label={translations[checkbox.checkboxKey]}
+          key={`checkbox-${checkbox.checkboxKey}-label`}
         />)}
       </FormGroup>
       <br />

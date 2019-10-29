@@ -79,20 +79,23 @@ export default function Form(props) {
     setCheckboxState({ ...checkboxVals, [name]: event.target.checked });
   };
 
-  function validateSubmittedData(requiredData) {
+  function validateSubmittedData(requiredData, nonrequiredData) {
     const keys = Object.keys(requiredData);
+
+    // Required data
     let failedVal = {};
     keys.map(key => failedVal[key] = false)
-
-
     keys.map(key => requiredData[key] ? failedVal[key] = false : failedVal[key] = true)
 
     const falsyValues = Object.values(failedVal).filter(val => val === true);
+    
+    if(falsyValues.length > 0) { setErrors({...failedVal}); return false; }
 
-    if(falsyValues.length > 0) {
-      setErrors({...failedVal})
-      return false
-    } 
+    // Non-required data
+    const nonrequiredVals = Object.values(nonrequiredData).filter(val => typeof val !== 'boolean')
+    if (nonrequiredVals.length > 0) return false
+
+
     return true
   }
   function resetButtonHandler() {
@@ -131,7 +134,7 @@ export default function Form(props) {
       ...nonrequiredData
     }
 
-    if(validateSubmittedData(requiredData)) { props.datasubmittedHandler(allData) }
+    if(validateSubmittedData(requiredData, nonrequiredData)) { props.datasubmittedHandler(allData) }
   }
   return (
     <>
@@ -141,8 +144,8 @@ export default function Form(props) {
         <FormLabel component="legend">{translations.gender}</FormLabel>
         <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={event => handleRadioChange(event)} row>
           <div className={errors.gender ? 'error' : ''}>
-          <FormControlLabel value="female" control={<Radio />} label={translations.woman} />
-          <FormControlLabel value="male" control={<Radio />} label={translations.man} />
+            <FormControlLabel value="female" control={<Radio />} label={translations.woman} />
+            <FormControlLabel value="male" control={<Radio />} label={translations.man} />
           </div>
 
         </RadioGroup>

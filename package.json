@@ -7,7 +7,6 @@
     "@material-ui/icons": "^4.4.3",
     "@material-ui/styles": "latest",
     "clsx": "latest",
-    "eslint": "^6.6.0",
     "next": "latest",
     "next-images": "^1.2.0",
     "prop-types": "latest",

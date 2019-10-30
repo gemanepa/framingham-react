@@ -53,7 +53,7 @@ export default function Form(props) {
   })
 
   //Radio logic
-  const [radioVal, setRadioVal] = React.useState('');
+  const [radioVal, setRadioVal] = React.useState('undefined');
   function handleRadioChange(event) {
     setErrors({...errors, gender: false})
     setRadioVal(event.target.value)
@@ -81,12 +81,12 @@ export default function Form(props) {
 
   function validateSubmittedData(requiredData, nonrequiredData) {
     const keys = Object.keys(requiredData);
-
+    console.log(requiredData)
     // Required data
     let failedVal = {};
     keys.map(key => failedVal[key] = false)
-    keys.map(key => requiredData[key] ? failedVal[key] = false : failedVal[key] = true)
-
+    keys.map(key => (requiredData[key] && requiredData[key] !== 'undefined') ? failedVal[key] = false : failedVal[key] = true)
+    console.log(failedVal)
     const falsyValues = Object.values(failedVal).filter(val => val === true);
     
     if(falsyValues.length > 0) { setErrors({...failedVal}); return false; }
@@ -99,8 +99,15 @@ export default function Form(props) {
     return true
   }
   function resetButtonHandler() {
-      setRadioVal('');
-      setSelectsVals({ });
+      setRadioVal('undefined');
+      setSelectsVals(oldValues => ({
+        age: undefined,
+        hdl: undefined,
+        ldl: undefined,
+        totald: undefined,
+        ta: undefined,
+        wt: undefined
+      }));
       setCheckboxState({ ...checkboxVals, smoking: false, diabetes: false, hypertension_in_treatment: false });
       setErrors({
         gender: false,
@@ -115,6 +122,7 @@ export default function Form(props) {
   }
 
   function calcButtonHandler(){
+    console.log(selectsVals.wt)
     const requiredData = {
       gender: radioVal,
       age: selectsVals.age,
@@ -136,6 +144,8 @@ export default function Form(props) {
 
     if(validateSubmittedData(requiredData, nonrequiredData)) { props.datasubmittedHandler(allData) }
   }
+
+  console.log('selectsVals', selectsVals)
   return (
     <>
     <form autoComplete="off">
@@ -155,7 +165,7 @@ export default function Form(props) {
           <FormControl className={classes.formControl} error={errors[select.name]} key={`select-${select.name}-formcontrol`}>
             <InputLabel htmlFor={select.name}>{translations[select.label]}</InputLabel>
             <Select
-              value={selectsVals[select.name]}
+              value={selectsVals[select.name] ? selectsVals[select.name]: ''}
               onChange={handleSelectChange}
               inputProps={{
                 name: select.name,
@@ -168,12 +178,10 @@ export default function Form(props) {
             )}
 
 
-            {(select.name == 'wt' && !radioVal) && 
-              <MenuItem value=''>Gender required</MenuItem>
-            }
-            {(select.name == 'wt' && radioVal) && select.values[radioVal].map(val => 
-              <MenuItem value={val}>{val}</MenuItem>
+            {select.name == 'wt' && select.values[radioVal].map(val => 
+              <MenuItem value={val !== 'Gender is required'? val : 'undefined'}>{val}</MenuItem>
             )}
+
 
 
             </Select>

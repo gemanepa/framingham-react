@@ -44,7 +44,7 @@ export default function Index() {
   function resetResults(){
     setResults(false);
   }
-
+  
   return (
     <>
       <Head>
@@ -54,7 +54,7 @@ export default function Index() {
         <meta name="keywords" content={headLang[language].keywords} />
       </Head>
 
-      <Navbar />
+      <Navbar /> 
       <Header navbar_title={translations.navbar_title} />
       <main>
         <section className="formsection">
@@ -94,7 +94,7 @@ export default function Index() {
             <p>{translations.treatment}: {results.needstreatment}</p>
           </Paper>}
         </section>
-      </main>
+      </main> 
       < Footer />
 
       <style jsx>{`

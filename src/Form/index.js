@@ -100,7 +100,7 @@ export default function Form(props) {
   }
   function resetButtonHandler() {
       setRadioVal('undefined');
-      setSelectsVals(oldValues => ({
+      setSelectsVals(() => ({
         age: undefined,
         hdl: undefined,
         ldl: undefined,
@@ -145,7 +145,6 @@ export default function Form(props) {
     if(validateSubmittedData(requiredData, nonrequiredData)) { props.datasubmittedHandler(allData) }
   }
 
-  console.log('selectsVals', selectsVals)
   return (
     <>
     <form autoComplete="off">

@@ -1,3 +1,6 @@
 {
-  "ignoreTestFiles": "examples/*.spec.js"
+  "baseUrl": "http://localhost:3000/",
+  "screenshotOnRunFailure": false,
+  "trashAssetsBeforeRuns": false,
+  "video": false
 }

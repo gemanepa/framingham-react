@@ -1,50 +1,100 @@
 import React from 'react';
+import Head from 'next/head'
+import { useRouter } from 'next/router';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import LinkIcon from '@material-ui/icons/Link';
+import Paper from '@material-ui/core/Paper';
 import Header from './../src/Header'
 import Navbar from './../src/Navbar'
 import Form from './../src/Form'
+import FraminghamCalculator from '../src/FraminghamCalculator'
 import Footer from './../src/Footer'
-import LinkIcon from '@material-ui/icons/Link';
-import Paper from '@material-ui/core/Paper';
+import headLang from './../src/i18n/head.json'
+
 import { makeStyles } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(3, 2.5),
   },
 }));
 
 export default function Index() {
+  const router = useRouter();
+  let [translations, setTranslations] = React.useState({})
+  let language; router.query.lang ? language = router.query.lang : language = 'en'
+
+  import(`./../src/i18n/${language}.json`).then(strings => {
+    setTranslations(strings.default)
+  });
+
   const classes = useStyles();
+  const [results, setResults] = React.useState(false);
+  const resultsEl = React.useRef(null);
+
+  // Handles data submitted in Form componented when Calculate button is pressed
+  function datasubmittedHandler(data){
+    const calculation = FraminghamCalculator(data, translations);
+    setResults(calculation);
+    resultsEl.current.focus();
+    window.innerWidth < 1200 && resultsEl.current.scrollIntoView();
+  }
+
+  function resetResults(){
+    setResults(false);
+  }
+  
   return (
     <>
-    <CssBaseline />
-      <Navbar />
-      <Header />
+      <Head>
+        <title>{headLang[language].title}</title>
+        <meta name="application-name" content={headLang[language].appname} />
+        <meta name="description" content={headLang[language].description}/>
+        <meta name="keywords" content={headLang[language].keywords} />
+      </Head>
 
+      <Navbar /> 
+      <Header navbar_title={translations.navbar_title} />
       <main>
         <section className="formsection">
           <Paper className={classes.root}>
-            <h2>Framingham Risk Score Calculator</h2>
+            <h2>{translations.framingham_risk_score_calculator}</h2>
             <h5>
               <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
-              Using 2017 Canadian CardioVascular Society Guidelines
+              {translations.using_guidelines}
               <LinkIcon fontSize="small" />
               </a>
             </h5>
-            <Form />
+            <Form datasubmittedHandler={datasubmittedHandler} resetResults={resetResults} translations={translations} />
           </Paper>
         </section>
 
-        <section className="aboutsection">
-          <Paper className={classes.root}>
-            <p>
-            The Framingham Scale allows to determine the risk of suffering any cardiovascular event in 10 years, assessing factors such as age, sex, blood pressure, diabetes, and smoking, assigning a score to each of them and stratifying the patient in low, medium, and high cardiovascular risk. It also allows to calculate the vascular age, which gives an estimate of the vascular damage of the patient through the variation of years between it and its chronological age.
-            </p>
-          </Paper>
+        <section ref={resultsEl} className="aboutsection" aria-live='assertive'>
+          {!results && <>
+            <Paper className={classes.root}>
+              <p>
+              The Framingham Scale allows to determine the risk of suffering any cardiovascular event in 10 years, assessing factors such as age, sex, blood pressure, diabetes, and smoking, assigning a score to each of them and stratifying the patient in low, medium, and high cardiovascular risk. It also allows to calculate the vascular age, which gives an estimate of the vascular damage of the patient through the variation of years between it and its chronological age.
+              </p>
+            </Paper>
+            <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" target="_blank" rel="noopener noreferrer">
+            <img
+              className="gplay-img"
+              alt="Google Play Android App"
+              src={`https://play.google.com/intl/en_us/badges/static/images/badges/${language}_badge_web_generic.png`}
+            />
+            </a>
+          </>}
+          {results && <Paper className={classes.root} >
+          <h3>{translations.results}</h3>
+            <p>{translations.score}: {results.score}</p>
+            <p>{translations.cvd}: {results.cvd}</p>
+            <p>{translations.heartage}: {results.heartage}</p>
+            <p>{translations.risk}: {results.risklevel}</p>
+            <p>{translations.treatment}: {results.needstreatment}</p>
+          </Paper>}
         </section>
-      </main>
+      </main> 
       < Footer />
 
       <style jsx>{`
@@ -100,8 +150,20 @@ export default function Index() {
 
       section.aboutsection {
         width: 30%;
+        display: flex;
+        flex-direction: column;
       }
-
+      @media (min-width: 1200px) {
+        section.aboutsection a {margin-left: 45%;}
+      }
+      .gplay-img {
+        height: auto;
+        margin: 0 auto;
+        width: 16vw;
+      }
+      .gplay-img:hover {
+        filter: invert(100%) drop-shadow(8px 8px 10px gray);
+      }
 
       @media (max-width: 1199px) {
         main {
@@ -111,7 +173,14 @@ export default function Index() {
           justify-content: center;
         }
 
+        section {
+          margin-bottom: 30px;
+        }
         section.formsection, section.aboutsection {
+          width: 100%;
+        }
+
+        .gplay-img {
           width: 100%;
         }
       }

@@ -6,10 +6,10 @@ import theme from '../src/theme';
 class MyDocument extends Document {
   render() {
     return (
-      <html lang="en">
+      <html>
         <Head>
-          <meta name="description" content="Framingham CR calculates the risk of suffering cardiovascular events in 10 years"/>
-          <meta name="author" content="gemanepa"/>
+          <meta name="author" content="gemanepa | https://gemanepa.com"/>
+          <meta name="generator" content="NextJS" />
           <meta charSet="utf-8" />
           <meta
             name="viewport"
@@ -17,7 +17,7 @@ class MyDocument extends Document {
           />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="icon" type="image/x-icon" href="../static/icon.ico" />
+          <link rel="icon" type="image/x-icon" href="../public/icon.ico" />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"

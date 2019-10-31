@@ -23,4 +23,13 @@ module.exports = {
   ],
   rules: {
   },
+  "overrides": [
+    {
+      "files": ["test/*.spec.js", "cypress/integration/*.spec.js"], // Or *.test.js
+      "rules": {
+        "no-undef": "off",
+        "no-unused-expressions": "off"
+      }
+    }
+  ],
 };

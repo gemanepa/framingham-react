@@ -34,7 +34,7 @@
       values: {
         male: ["< 102 (40)", "> 102 (40)", "Unknown"],
         female: ["< 88 (35)", "> 88 (35)", "Unknown"],
-        undefined: ["Gender is required"]
+        undefined: [""]
       },
       helper: 'cms (inches)'
     }

@@ -178,7 +178,7 @@ export default function Form(props) {
 
 
             {select.name == 'wt' && select.values[radioVal].map(val => 
-              <MenuItem value={val !== 'Gender is required'? val : 'undefined'}>{val}</MenuItem>
+              <MenuItem value={val ? val : 'undefined'}>{val ? val : translations.genderRequired}</MenuItem>
             )}
 
 

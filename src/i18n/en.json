@@ -21,6 +21,7 @@
 	"exitquestion": "Exit application?",
 	"framingham_risk_score_calculator": "Framingham CardioVascular Risk Score Calculator",
 	"gender": "Gender",
+	"genderRequired": "Gender is required",
 	"heartage": "Heart Age",
 	"high": "High",
 	"hypertension_in_treatment": "Hypertension under treatment",

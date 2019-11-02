@@ -37,6 +37,7 @@
     "cy:run": "cypress run",
     "docker:install": "docker build -t framinghamwebapp .",
     "docker:dev": "docker run -p 3000:3000 --security-opt apparmor=unconfined framinghamwebapp",
-    "docker:stop": "docker stop framinghamwebapp && docker kill framinghamwebapp"
+    "docker:stop": "docker stop framinghamwebapp",
+    "docker:kill": "docker kill framinghamwebapp"
   }
 }

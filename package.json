@@ -34,6 +34,10 @@
     "build": "next build",
     "start": "next start",
     "cy:open": "./node_modules/.bin/cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "docker:install": "docker build -t framinghamwebapp .",
+    "docker:dev": "docker run -p 3000:3000 --security-opt apparmor=unconfined framinghamwebapp",
+    "docker:stop": "docker stop framinghamwebapp",
+    "docker:kill": "docker kill framinghamwebapp"
   }
 }

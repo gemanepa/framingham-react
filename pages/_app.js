@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import App from 'next/app';
 import { ThemeProvider } from '@material-ui/styles';
@@ -17,13 +19,13 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           <Component {...pageProps} />
         </ThemeProvider>
-      </React.Fragment>
+      </>
     );
   }
 }

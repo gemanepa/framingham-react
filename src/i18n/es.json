@@ -16,6 +16,7 @@
 	"cvdexplanation": "RCV: Riesgo CardioVascular en 10 años",
 	"day": "Dia",
 	"decrease_in": "disminucion en",
+	"framingham_description": "The Framingham Scale allows to determine the risk of suffering any cardiovascular event in 10 years, assessing factors such as age, sex, blood pressure, diabetes, and smoking, assigning a score to each of them and stratifying the patient in low, medium, and high cardiovascular risk. It also allows to calculate the vascular age, which gives an estimate of the vascular damage of the patient through the variation of years between it and its chronological age.",
 	"diabetes": "Diabetes o Glucemia alta en ayunas",
 	"exit": "Salir",
 	"exitquestion": "Salir de aplicacion?",

@@ -1,19 +1,21 @@
 import React from 'react';
-import developerlogo from './../../public/logos/developerlogo.png'
+import developerlogo from '../../public/logos/developerlogo.png';
 
 export default function Footer() {
-
   return (
     <>
       <footer>
-          <a
-            href="https://gemanepa.com"
-            target="_blank" rel="noopener noreferrer"
-            title="Developed by gemanepa.com">
-            <img src={developerlogo} alt="gemanepa" />
-          </a>
+        <a
+          href="https://gemanepa.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Developed by gemanepa.com"
+        >
+          <img src={developerlogo} alt="gemanepa" />
+        </a>
       </footer>
-      <style jsx>{`
+      <style jsx>
+        {`
       footer {
           height: 30px;
           background-color: #3f51b5;
@@ -27,7 +29,9 @@ export default function Footer() {
           height: 25px;
           width: auto;
         }
-        `}</style>
+        `}
+
+      </style>
     </>
   );
 }

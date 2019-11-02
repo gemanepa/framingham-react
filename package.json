@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.3.4",
+    "babel-eslint": "latest",
     "babel-jest": "24.1.0",
     "cypress": "^3.6.0",
     "enzyme": "3.4.3",
@@ -38,6 +39,8 @@
     "docker:install": "docker build -t framinghamwebapp .",
     "docker:dev": "docker run -p 3000:3000 --security-opt apparmor=unconfined framinghamwebapp",
     "docker:stop": "docker stop framinghamwebapp",
-    "docker:kill": "docker kill framinghamwebapp"
+    "docker:kill": "docker rm framinghamwebapp",
+    "lint:check": "eslint pages && eslint src",
+    "lint:fix": "eslint pages --fix && eslint src --fix"
   }
 }

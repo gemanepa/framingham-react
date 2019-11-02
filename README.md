@@ -22,22 +22,27 @@ A Progressive Web App made with React NextJS
  -  [Docker](https://docs.docker.com/install/)
 
 ## Running app outside Docker container
--`yarn` installs required node modules for running the application
--`yarn dev` runs the app in development mode
--`yarn build` builds app for production
--`yarn build:run`runs production build
--`yarn lint:check` highlights all lint errors in application
--`yarn lint:fix` solve all lint errors that can be solved automatically
--`yarn cy:open` opens cypress without running any e2e test
--`yarn cy:run` runs cypress end to end tests
+
+ - `yarn` installs required node modules for running the application
+ - `yarn dev` runs the app in development mode
+ - `yarn build` builds app for production 
+ - `yarn build:run`runs production build    
+ - `yarn lint:check` highlights all lint errors in application    
+ - `yarn lint:fix` solve all lint errors that can be solved automatically    
+ - `yarn cy:open` opens cypress without running any e2e test
+ - `yarn cy:run` runs cypress end to end tests
 
 ## Running inside Docker container
--`yarn docker:install` builds docker container and install node modules inside
--`yarn docker:dev` runs the app in development mode
--`yarn docker:rebuild` rebuilds the container with the new files modifications
--`yarn docker:stop` stops running container
--`yarn docker:rm` removes container
+
+ - `yarn docker:install` builds docker container and install node
+   modules inside 
+ - `yarn docker:dev` runs the app in development mode
+ - `yarn docker:rebuild` rebuilds the container with the new files   
+   modifications
+ - `yarn docker:stop` stops running container
+ - `yarn docker:rm` removes container
 
 ## Android App Brother 
 ![enter image description here](https://i.imgur.com/8Gm6fK5.png)
+
 [Github Repository](https://github.com/gemanepa/framingham-android) | [Google Play Store](https://play.google.com/store/apps/details?id=com.gemanepa.framingham)

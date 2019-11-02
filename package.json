@@ -36,11 +36,12 @@
     "start": "next start",
     "cy:open": "./node_modules/.bin/cypress open",
     "cy:run": "cypress run",
+    "lint:check": "eslint pages && eslint src",
+    "lint:fix": "eslint pages --fix && eslint src --fix",
     "docker:install": "docker build -t framinghamwebapp .",
     "docker:dev": "docker run -p 3000:3000 --security-opt apparmor=unconfined framinghamwebapp",
+    "docker:rebuild": "docker build -t framinghamwebapp .",
     "docker:stop": "docker stop framinghamwebapp",
-    "docker:kill": "docker rm framinghamwebapp",
-    "lint:check": "eslint pages && eslint src",
-    "lint:fix": "eslint pages --fix && eslint src --fix"
+    "docker:rm": "docker rm framinghamwebapp"
   }
 }

@@ -1,7 +1,7 @@
 # Framingham CardioRisk
 ![enter image description here](https://i.imgur.com/VPkYo89.png)
 
-A Progressive Web App made with React NextJS
+*A Progressive Web App made with React NextJS*
 
 
 ## Tech Stack
@@ -34,8 +34,7 @@ A Progressive Web App made with React NextJS
 
 ## Running inside Docker container
 
- - `yarn docker:install` builds docker container and install node
-   modules inside 
+ - `yarn docker:install` builds docker container and install node modules inside 
  - `yarn docker:dev` runs the app in development mode
  - `yarn docker:rebuild` rebuilds the container with the new files   
    modifications

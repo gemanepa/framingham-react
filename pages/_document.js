@@ -27,7 +27,7 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          <Main asdf={this.state.asdf} />
+          <Main />
           <NextScript />
         </body>
       </html>

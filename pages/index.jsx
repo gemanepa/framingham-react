@@ -29,7 +29,6 @@ export default function Index() {
   import(`./../src/i18n/${language}.json`).then((strings) => {
     setTranslations(strings.default);
   });
-
   const classes = useStyles();
   const [results, setResults] = React.useState(false);
   const resultsEl = React.useRef(null);

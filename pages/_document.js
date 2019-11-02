@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
@@ -6,9 +8,10 @@ import theme from '../src/theme';
 class MyDocument extends Document {
   render() {
     return (
+      // eslint-disable-next-line jsx-a11y/html-has-lang
       <html>
         <Head>
-          <meta name="author" content="gemanepa | https://gemanepa.com"/>
+          <meta name="author" content="gemanepa | https://gemanepa.com" />
           <meta name="generator" content="NextJS" />
           <meta charSet="utf-8" />
           <meta
@@ -17,14 +20,14 @@ class MyDocument extends Document {
           />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="icon" type="image/x-icon" href="../public/icon.ico" />
+          <link rel="icon" type="image/x-icon" href="icon.ico" />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
         <body>
-          <Main />
+          <Main asdf={this.state.asdf} />
           <NextScript />
         </body>
       </html>
@@ -32,7 +35,7 @@ class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = async ctx => {
+MyDocument.getInitialProps = async (ctx) => {
   // Resolution order
   //
   // On the server:
@@ -59,10 +62,9 @@ MyDocument.getInitialProps = async ctx => {
   const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 
-  ctx.renderPage = () =>
-    originalRenderPage({
-      enhanceApp: App => props => sheets.collect(<App {...props} />),
-    });
+  ctx.renderPage = () => originalRenderPage({
+    enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+  });
 
   const initialProps = await Document.getInitialProps(ctx);
 

@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
@@ -6,12 +6,15 @@ import { useRouter } from 'next/router';
 import NextLink from 'next/link';
 import MuiLink from '@material-ui/core/Link';
 
-const NextComposed = React.forwardRef(function NextComposed(props, ref) {
-  const { as, href, prefetch, ...other } = props;
+const NextComposed = React.forwardRef((props, ref) => {
+  const {
+    as, href, prefetch, ...other
+  } = props;
 
   return (
+    // eslint-disable-next-line react/jsx-filename-extension
     <NextLink href={href} prefetch={prefetch} as={as}>
-      <a ref={ref} {...other} />
+      <a ref={ref} {...other} /* eslint-disable-line */ />
     </NextLink>
   );
 });
@@ -35,14 +38,15 @@ function Link(props) {
   const router = useRouter();
 
   const className = clsx(classNameProps, {
-    [activeClassName]: router.pathname === props.href && activeClassName,
+    // eslint-disable-line react/destructuring-assignment
+    [activeClassName]: router.pathname === props.href  /* eslint-disable-line */ && activeClassName,
   });
 
   if (naked) {
-    return <NextComposed className={className} ref={innerRef} {...other} />;
+    return <NextComposed className={className} ref={innerRef} {...other}  /* eslint-disable-line *//>;
   }
 
-  return <MuiLink component={NextComposed} className={className} ref={innerRef} {...other} />;
+  return <MuiLink component={NextComposed} className={className} ref={innerRef} {...other}  /* eslint-disable-line */ />;
 }
 
 Link.propTypes = {
@@ -56,4 +60,4 @@ Link.propTypes = {
   prefetch: PropTypes.bool,
 };
 
-export default React.forwardRef((props, ref) => <Link {...props} innerRef={ref} />);
+export default React.forwardRef((props, ref) => <Link {...props} innerRef={ref}  /* eslint-disable-line */ />);

@@ -24,6 +24,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    "default-case": "off"
   },
   "overrides": [
     {

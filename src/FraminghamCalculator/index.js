@@ -8,10 +8,12 @@ import calculateHeartAge from './heartage-calc';
 import calculateRiskLevel from './risk-calc';
 import needsTreatment from './needstreatment-calc';
 
-export default function FraminghamCalculator(data, translations){
-  const { age, diabetes, gender, hdl, ldl, smoking, ta, totaldl, treatment, wt } = data;
+export default function FraminghamCalculator(data, translations) {
+  const {
+    age, diabetes, gender, hdl, ldl, smoking, ta, totaldl, treatment, wt,
+  } = data;
 
-  //Points Calculation
+  // Points Calculation
   const agePoints = getAgePoints(age, gender);
   const hdlPoints = getHDLPoints(hdl, gender);
   const dlPoints = getTotalDLPoints(totaldl, gender);
@@ -23,34 +25,23 @@ export default function FraminghamCalculator(data, translations){
   const cvd = calculateCVD(score, gender);
   const heartage = calculateHeartAge(score, gender);
   const risklevel = calculateRiskLevel(score, gender);
-  const needstreatment = needsTreatment(gender, diabetes, smoking, ldl, wt, agePoints, hdlPoints, smokingPoints, risklevel, translations);
-
-  console.log('==================================')
-  console.log('agePoints');
-  console.log(agePoints)
-  console.log('hdlPoints');
-  console.log(hdlPoints);
-  console.log('totalDLPoints');
-  console.log(dlPoints);
-  console.log('taPoints');
-  console.log(taPoints);
-  console.log('smokingPoints');
-  console.log(smokingPoints);
-  console.log('...')
-  console.log('cvd');
-  console.log(cvd);
-  console.log('heartage');
-  console.log(heartage);
-  console.log('risklevel');
-  console.log(risklevel);
-  console.log('needstreatment');
-  console.log(needstreatment);
+  const needstreatment = needsTreatment(
+    gender,
+    diabetes,
+    ldl,
+    wt,
+    agePoints,
+    hdlPoints,
+    smokingPoints,
+    risklevel,
+    translations,
+  );
 
   return {
-    score: score,
-    cvd: cvd,
-    heartage: heartage,
+    score,
+    cvd,
+    heartage,
     risklevel: translations[risklevel],
-    needstreatment: translations[needstreatment]
-  }
+    needstreatment: translations[needstreatment],
+  };
 }

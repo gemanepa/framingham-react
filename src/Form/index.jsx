@@ -20,19 +20,31 @@ import SendIcon from '@material-ui/icons/Send';
 import { checkboxes, selects } from './data';
 
 const useStyles = makeStyles((theme) => ({
-  formControl: {
+  defaultFormControl: {
     margin: theme.spacing(1),
-    minWidth: 220,
+    minWidth: 230,
+  },
+  cholesterolFormControls: {
+    margin: theme.spacing(1),
+    minWidth: 170,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
   calcButton: {
     margin: theme.spacing(1),
-    width: '40%',
+    width: window.innerWidth > 1199 ? '40%' : null,
+    backgroundColor: '#4689c8',
+    '&:hover': {
+      background: '#005c97',
+    },
   },
   resetButton: {
     margin: theme.spacing(1),
+    backgroundColor: '#4689c8',
+    '&:hover': {
+      background: 'red',
+    },
   },
 }));
 
@@ -152,7 +164,7 @@ export default function Form(props) {
     <>
       <form autoComplete="off">
 
-        <FormControl component="fieldset" className={classes.formControl} error={errors.gender}>
+        <FormControl component="fieldset" className={classes.defaultFormControl} error={errors.gender}>
           <FormLabel component="legend">{translations.gender}</FormLabel>
           <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={(event) => handleRadioChange(event)} row>
             <div className={errors.gender ? 'error' : ''}>
@@ -164,7 +176,11 @@ export default function Form(props) {
         </FormControl>
         {selects.map((select) => (
           <React.Fragment key={`select-${select.name}-container`}>
-            <FormControl className={classes.formControl} error={errors[select.name]} key={`select-${select.name}-formcontrol`}>
+            <FormControl
+              className={(!select.label.includes('colesterol') && window.innerWidth > 1199) ? classes.defaultFormControl : classes.cholesterolFormControls}
+              error={errors[select.name]}
+              key={`select-${select.name}-formcontrol`}
+            >
               <InputLabel htmlFor={select.name}>{translations[select.label]}</InputLabel>
               <Select
                 value={selectsVals[select.name] ? selectsVals[select.name] : ''}
@@ -189,7 +205,7 @@ export default function Form(props) {
           </React.Fragment>
         ))}
 
-        <FormGroup row className="checkboxes">
+        <FormGroup column={window.innerWidth > 1200} row={window.innerWidth > 1200}>
           {checkboxes.map((checkbox) => (
             <FormControlLabel
               control={(
@@ -200,6 +216,13 @@ export default function Form(props) {
               )}
               label={translations[checkbox.checkboxKey]}
               key={`checkbox-${checkbox.checkboxKey}-label`}
+              className="checkboxDefault"
+              style={window.innerWidth > 1200 ? {
+                width: 'auto',
+                maxWidth: '32.25%',
+                marginRight: '8%',
+                marginLeft: checkbox.checkboxKey !== 'smoking' ? null : '-6%',
+              } : null}
             />
           ))}
         </FormGroup>
@@ -210,27 +233,18 @@ export default function Form(props) {
             <DeleteIcon />
           </Button>
 
-          {(typeof window !== 'undefined' && window.innerWidth < 1200
-        && (
-        <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.resetButton}>
-          <SendIcon />
-        </Button>
-        ))}
-
-          {(typeof window !== 'undefined' && window.innerWidth > 1199
+          {typeof window !== 'undefined'
         && (
         <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.calcButton}>
           <SendIcon />
         </Button>
-        ))}
+        )}
+
         </div>
       </form>
       <style jsx>
         {`
-      .checkboxes {
-          justify-content: space-around;
-          margin: 0 auto;
-        };
+
       .formbuttons {
           display: flex;
           flex-direction: row;
@@ -241,11 +255,7 @@ export default function Form(props) {
         color: #ff1744;
       }
       
-      @media (min-width: 1200px){
-        .mobileOnly {
-          display: none;
-        }
-      }
+
       @media (max-width: 1199px) {
         .desktopOnly {
           display: none;
@@ -260,9 +270,6 @@ export default function Form(props) {
           justify-content: center;
         }
 
-        .checkboxes {
-          margin: 0 auto;
-        }
 
         .formbuttons {
           display: flex;
@@ -270,13 +277,6 @@ export default function Form(props) {
         }
       }
 
-      @media only screen and (max-width: 499) {
-        .checkboxes {
-          flex-direction: column;
-          display: flex;
-          justify-content: flex-start;
-        }
-      }
     `}
 
       </style>

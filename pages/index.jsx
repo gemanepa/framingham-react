@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Header from '../src/Header';
 import Navbar from '../src/Navbar';
+import NavButtons from '../src/NavButtons';
 import Form from '../src/Form';
 import FraminghamCalculator from '../src/FraminghamCalculator';
 import Footer from '../src/Footer';
@@ -13,8 +14,16 @@ import headLang from '../src/i18n/head.json';
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(3, 2.5),
+  paperMobile: {
+    padding: theme.spacing(3, 3),
+    height: 'auto',
+    width: '100%',
+  },
+  paperDesktop: {
+    padding: theme.spacing(3, 3),
+    width: '90%',
+    height: 'auto',
+    margin: '5% auto',
   },
 }));
 
@@ -68,14 +77,13 @@ export default function Index() {
         <meta name="description" content={headLang[language].description} />
         <meta name="keywords" content={headLang[language].keywords} />
       </Head>
-
+      {/*
       <Navbar />
 
-      {translations.navbar_title && <Header navbarTitle={translations.navbar_title} />}
       <main>
         <section className="formsection">
-          <Paper className={classes.root}>
-            <h2>{translations.framingham_risk_score_calculator}</h2>
+          <Paper className={(window && window.innerWidth > 1199) ? classes.paperDesktop}>
+            <h2>{translations.risk_score_calculator}</h2>
             <h5>
               <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
                 {translations.using_guidelines}
@@ -95,8 +103,8 @@ export default function Index() {
         <section ref={resultsEl} className="aboutsection" aria-live="assertive">
           {!results && (
             <>
-              <Paper className={classes.root}>
-                <p>{translations.framingham_description}</p>
+              <Paper className={(window && window.innerWidth > 1199) ? classes.paperDesktop}>
+                <p>{translations.expanded_description}</p>
               </Paper>
               <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" target="_blank" rel="noopener noreferrer">
                 <img
@@ -108,7 +116,7 @@ export default function Index() {
             </>
           )}
           {results && (
-          <Paper className={classes.root}>
+          <Paper className={(window && window.innerWidth > 1199) ? classes.paperDesktop}>
             <h3>{translations.results}</h3>
             <p>
               {translations.score}
@@ -144,6 +152,44 @@ export default function Index() {
           )}
         </section>
       </main>
+      */}
+
+      <main>
+        <section className="aboutsection">
+          {translations.navbar_title
+          && (
+          <Header
+            navbarTitle={translations.navbar_title}
+            briefDescription={translations.brief_description}
+          />
+          )}
+          {typeof window !== 'undefined'
+          && <NavButtons />}
+        </section>
+        <section className="formsection" id="calc">
+          {typeof window !== 'undefined'
+        && (
+        <Paper
+          className={(window.innerWidth > 1199) ? classes.paperDesktop : classes.paperMobile}
+        >
+          <h2>{translations.risk_score_calculator}</h2>
+          <h5>
+            <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
+              {translations.using_guidelines}
+              <LinkIcon fontSize="small" />
+            </a>
+          </h5>
+          {translations.age && (
+          <Form
+            datasubmittedHandler={datasubmittedHandler}
+            resetResults={resetResults}
+            translations={formTranslations}
+          />
+          )}
+        </Paper>
+        )}
+        </section>
+      </main>
       <Footer />
 
       <style jsx>
@@ -152,67 +198,58 @@ export default function Index() {
         font-family: Lato;
       }
 
-      body {
-        width: 100vw;
-        overflow-x: hidden;
-        min-height: 100vh;
-        height: auto;
-        margin: 0;
-        padding: 0;
-        border: 0;
-      }
-      #root {
-        background-color: transparent;
-        color: #4689C8;
-        font-weight: 600;
-        width: 100%;
-        min-height: 100vh;
-        height: auto;
-      }
-
       a:visited {
         color: #4689C8
       }
 
       main {
-        width: 90vw;
+        background-color: transparent;
+        width: 100%;
+        height: auto;
         margin: 0 auto;
         display: flex;
+        padding: 0;
+        border: 0;
         flex-direction: row;
-        justify-content: space-around;
-        min-height: 76vh;
+        justify-content: center;
+        overflow-x: hidden;
       }
 
-      section.formsection {
-        width: 61%;
+      section.aboutsection {
+        background-color: transparent;
+        height:auto;
+        width: 50%;
+        margin: 0;
+        padding: 0;
+        border: 0;
       }
+
+
+
+      section.formsection {
+        background-color: transparent;
+        height: auto;
+        width: 50%;
+        margin: 0;
+        margin-top: 1%;
+        padding: 0;
+        border: 0;
+      }
+
       section.formsection h2 {
         color: #4689C8;
         text-align: center;
         margin: 0;
+        font-weight: 600;
+        text-shadow: 1px 1px #4689c8;
+        font-size: 200%;
       }
 
       section.formsection h5 {
           margin-top: 0px;
           color: #4689C8;
           text-align: center;
-      }
-
-      section.aboutsection {
-        width: 30%;
-        display: flex;
-        flex-direction: column;
-      }
-      @media (min-width: 1200px) {
-        section.aboutsection a {margin-left: 45%;}
-      }
-      .gplay-img {
-        height: auto;
-        margin: 0 auto;
-        width: 16vw;
-      }
-      .gplay-img:hover {
-        filter: invert(100%) drop-shadow(8px 8px 10px gray);
+          font-weight: 600;
       }
 
       @media (max-width: 1199px) {
@@ -220,18 +257,32 @@ export default function Index() {
           width: 90%;
           margin: 0 auto;
           flex-direction: column;
-          justify-content: center;
         }
 
-        section {
+        main section.aboutsection, section.formsection {
           margin-bottom: 30px;
-        }
-        section.formsection, section.aboutsection {
           width: 100%;
         }
 
         .gplay-img {
           width: 100%;
+        }
+      }
+      @media (min-width: 1200px) {
+        main {
+          min-height: 100vh;
+        }
+
+        section.aboutsection {
+          min-height: 100%,
+        }
+
+        section.formsection {
+          min-height: 100%
+        }
+
+        section.formsection h2 {
+          margin-bottom: -1.5%;
         }
       }
       `}

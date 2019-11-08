@@ -6,6 +6,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import InfoIcon from '@material-ui/icons/Info';
 import TranslateIcon from '@material-ui/icons/Translate';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
+import ButtonWithDropdownMenu from './withDropdownMenu';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -47,26 +48,11 @@ export default function IconLabelButtons() {
           >
             <span>Info</span>
           </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            className={classes.button}
-            startIcon={<ExitToAppIcon />}
-          >
-            <span>Elinks</span>
-          </Button>
+          <ButtonWithDropdownMenu text="Elinks" starticon={<ExitToAppIcon />} menuType="elinks" />
         </div>
         <div className="secondrow">
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            className={classes.button}
-            startIcon={<TranslateIcon />}
-          >
-            <span>Traducir</span>
-          </Button>
+          <ButtonWithDropdownMenu text="Traducir" starticon={<TranslateIcon />} menuType="language" />
+
           <Button
             variant="contained"
             color="secondary"

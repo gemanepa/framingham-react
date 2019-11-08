@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     backgroundColor: '#4689c8',
+    textShadow: '1px 1px #005c97',
     '&:hover': {
       background: '#005c97',
     },

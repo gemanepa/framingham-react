@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     backgroundColor: '#4689c8',
+    textShadow: '1px 1px #005c97',
     '&:hover': {
       background: '#005c97',
     },
@@ -60,7 +61,9 @@ export default function IconLabelButtons() {
             className={classes.button}
             startIcon={<AndroidIcon />}
           >
-            <span>Android App</span>
+            <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" className="anchor">
+              <span>Android App</span>
+            </a>
           </Button>
         </div>
       </nav>
@@ -78,8 +81,11 @@ export default function IconLabelButtons() {
         justify-content: center;
       }
 
-      .navbuttons span {
-        text-shadow: 1px 1px #005c97;
+      .anchor, .anchor:visited, .anchor:focus {
+        width: auto;
+        height: auto;
+        text-decoration: none;
+        color: inherit;
       }
 
       @media (max-width: 1199px) {

@@ -9,7 +9,7 @@ class MyDocument extends Document {
   render() {
     return (
       // eslint-disable-next-line jsx-a11y/html-has-lang
-      <html>
+      <html style={{ scrollBehavior: 'smooth' }}>
         <Head>
           <meta name="author" content="gemanepa | https://gemanepa.com" />
           <meta name="generator" content="NextJS" />
@@ -26,7 +26,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <body style={{ backgroundColor: '#7cb9fb', scrollBehavior: 'smooth' }}>
+        <body style={{ backgroundColor: '#7cb9fb' }}>
           <Main />
           <NextScript />
         </body>

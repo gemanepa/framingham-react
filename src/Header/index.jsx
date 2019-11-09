@@ -3,9 +3,18 @@ import PropTypes from 'prop-types';
 import applogo from '../../public/logos/applogo.jpg';
 
 export default function Header(props) {
-  const { briefDescription, navbarTitle } = props;
+  const { briefDescription, lang, navbarTitle } = props;
   const firstString = navbarTitle.split(' ')[0];
   const secondString = navbarTitle.split(' ')[1];
+
+  function handleSubheaderPadding() {
+    const horizontalPadding = {
+      en: '25%',
+      es: '12%',
+    };
+
+    return `5% ${horizontalPadding[lang]}`;
+  }
   return (
     <>
       <header className="appHeader">
@@ -40,7 +49,7 @@ export default function Header(props) {
           text-shadow: 2px 2px #4689c8;
           font-size: 240%;
           text-align: center;
-          padding: 5% 10%;
+          padding: ${handleSubheaderPadding()};
         }
       @media (max-width: 1199px) {
         .navlogo {
@@ -88,7 +97,12 @@ export default function Header(props) {
   );
 }
 
+Header.defaultProps = {
+  lang: 'en',
+};
+
 Header.propTypes = {
   briefDescription: PropTypes.string.isRequired,
   navbarTitle: PropTypes.string.isRequired,
+  lang: PropTypes.string,
 };

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import LinkIcon from '@material-ui/icons/Link';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Header from '../src/Header';
 import Navbar from '../src/Navbar';
@@ -22,8 +24,16 @@ const useStyles = makeStyles((theme) => ({
   paperDesktop: {
     padding: theme.spacing(3, 3),
     width: '90%',
-    height: '80vh',
+    minHeight: '80vh',
     margin: '5% auto',
+  },
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor: '#4689c8',
+    textShadow: '1px 1px #005c97',
+    '&:hover': {
+      background: '#005c97',
+    },
   },
 }));
 
@@ -40,18 +50,31 @@ export default function Index() {
   });
   const classes = useStyles();
   const [results, setResults] = React.useState(false);
+  const [showResults, setShowResults] = React.useState(false);
+  const [formData, saveFormData] = React.useState(false);
   const resultsEl = React.useRef(null);
+
+  const [animationClass, setAnimationClass] = useState(false);
 
   // Handles data submitted in Form componented when Calculate button is pressed
   function datasubmittedHandler(data) {
     const calculation = FraminghamCalculator(data, translations);
-    setResults(calculation);
     resultsEl.current.focus();
+    saveFormData(data);
+    setResults(calculation);
     if (window.innerWidth < 1200) { resultsEl.current.scrollIntoView(); }
+    setTimeout(() => setShowResults(true), 500);
+    setAnimationClass(true);
   }
 
   function resetResults() {
     setResults(false);
+  }
+
+  function goBack(e) {
+    e.preventDefault();
+    setAnimationClass(false);
+    setTimeout(() => setShowResults(false), 500);
   }
 
   const formTranslations = {
@@ -87,67 +110,85 @@ export default function Index() {
                   <Header
                     navbarTitle={translations.navbar_title}
                     briefDescription={translations.brief_description}
+                    lang={router.query.lang}
                   />
                   )}
                   <NavButtons />
                 </section>
                 <section className="formsection" ref={resultsEl} id="calc">
-                  {!results
+                  {!showResults
                     ? (
-                      <Paper
-                        className={window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile}
-                      >
-                        <h2>{translations.risk_score_calculator}</h2>
-                        <h5>
-                          <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
-                            {translations.using_guidelines}
-                            <LinkIcon fontSize="small" />
-                          </a>
-                        </h5>
-                        {translations.age && (
-                        <Form
-                          datasubmittedHandler={datasubmittedHandler}
-                          resetResults={resetResults}
-                          translations={formTranslations}
-                        />
-                        )}
-                      </Paper>
+                      <div className={!animationClass ? 'opening-animation' : 'closing-animation'}>
+                        <Paper
+                          className={`${window.innerWidth > 1199
+                            ? classes.paperDesktop : classes.paperMobile} `}
+                        >
+                          <h2>{translations.risk_score_calculator}</h2>
+                          <h5>
+                            <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
+                              {translations.using_guidelines}
+                              <LinkIcon fontSize="small" />
+                            </a>
+                          </h5>
+                          {translations.age && (
+                          <Form
+                            datasubmittedHandler={datasubmittedHandler}
+                            resetResults={resetResults}
+                            translations={formTranslations}
+                            previousData={formData}
+                          />
+                          )}
+                        </Paper>
+                      </div>
                     )
                     : (
-                      <Paper
-                        className={window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile}
-                      >
-                        <h2>{translations.results}</h2>
-                        <h3>
-                          {translations.score}
-                      :
-                          {' '}
-                          {results.score}
-                        </h3>
-                        <h3>
-                          {translations.cvd}
-                      :
-                          {' '}
-                          {results.cvd}
-                        </h3>
-                        <h3>
-                          {translations.heartage}
-                      :
-                          {' '}
-                          {results.heartage}
-                        </h3>
-                        <h3>
-                          {translations.risk}
-                      :
-                          {' '}
-                          {results.risklevel}
-                        </h3>
-                        <h3>
-                          {translations.treatment}
-                          <br />
-                          {results.needstreatment}
-                        </h3>
-                      </Paper>
+                      <div className={animationClass ? 'opening-animation' : 'closing-animation'}>
+                        <Paper
+                          className={`${window.innerWidth > 1199
+                            ? classes.paperDesktop : classes.paperMobile} ${animationClass.results}`}
+                        >
+                          <Button
+                            variant="contained"
+                            color="secondary"
+                            size="large"
+                            onClick={(e) => goBack(e)}
+                            className={classes.button}
+                            startIcon={<ArrowBackIcon />}
+                          >
+                            <span>Back</span>
+                          </Button>
+                          <h2 className="resultsh2">{translations.results}</h2>
+                          <h3>
+                            {translations.score}
+                            :
+                            {' '}
+                            {results.score}
+                          </h3>
+                          <h3>
+                            {translations.cvd}
+                            :
+                            {' '}
+                            {results.cvd}
+                          </h3>
+                          <h3>
+                            {translations.heartage}
+                            :
+                            {' '}
+                            {results.heartage}
+                          </h3>
+                          <h3>
+                            {translations.risk}
+                            :
+                            {' '}
+                            {results.risklevel}
+                          </h3>
+                          <h3>
+                            {translations.treatment}
+                            <br />
+                            {results.needstreatment}
+                          </h3>
+                        </Paper>
+                      </div>
                     )}
                 </section>
               </main>
@@ -186,8 +227,6 @@ export default function Index() {
         border: 0;
       }
 
-
-
       section.formsection {
         background-color: transparent;
         height: auto;
@@ -195,7 +234,7 @@ export default function Index() {
         margin: 0;
         margin-top: 1%;
         padding: 0;
-        border: 0;
+        border: 0;;
       }
 
       section.formsection h2 {
@@ -205,6 +244,10 @@ export default function Index() {
         font-weight: 600;
         text-shadow: 1px 1px #4689c8;
         font-size: 200%;
+      }
+
+      section.formsection h2.resultsh2 {
+        margin-top: -5%;
       }
 
       section.formsection h3 {
@@ -253,6 +296,63 @@ export default function Index() {
           margin-bottom: -1.5%;
         }
       }
+
+      @keyframes flipInX {
+        from {
+          transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+          animation-timing-function: ease-in;
+          opacity: 0;
+        }
+      
+        40% {
+          transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+          animation-timing-function: ease-in;
+        }
+      
+        60% {
+          transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+          opacity: 1;
+        }
+      
+        80% {
+          transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+        }
+      
+        to {
+          transform: perspective(400px);
+        }
+      }
+      
+      @keyframes flipOutX {
+        from {
+          transform: perspective(400px);
+        }
+      
+        30% {
+          transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+          opacity: 1;
+        }
+      
+        to {
+          transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+          opacity: 0;
+        }
+      }
+
+      .opening-animation {
+        backface-visibility: visible !important;
+        animation-name: flipInX;
+        animation-fill-mode: forwards;
+        animation-duration: 0.75s;
+      }
+
+      .closing-animation {
+        animation-fill-mode: forwards;
+        animation-name: flipOutX;
+        animation-duration: 0.50s;
+        backface-visibility: visible !important;
+      }
+
       `}
 
       </style>

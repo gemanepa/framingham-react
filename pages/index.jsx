@@ -95,11 +95,7 @@ export default function Index() {
                   {!results
                     ? (
                       <Paper
-                        className={
-                      (window.innerWidth > 1199)
-                        ? classes.paperDesktop
-                        : classes.paperMobile
-                      }
+                        className={window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile}
                       >
                         <h2>{translations.risk_score_calculator}</h2>
                         <h5>
@@ -119,43 +115,38 @@ export default function Index() {
                     )
                     : (
                       <Paper
-                        className={
-                      (window.innerWidth > 1199)
-                        ? classes.paperDesktop
-                        : classes.paperMobile
-                    }
+                        className={window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile}
                       >
-                        <h3>{translations.results}</h3>
-                        <p>
+                        <h2>{translations.results}</h2>
+                        <h3>
                           {translations.score}
                       :
                           {' '}
                           {results.score}
-                        </p>
-                        <p>
+                        </h3>
+                        <h3>
                           {translations.cvd}
                       :
                           {' '}
                           {results.cvd}
-                        </p>
-                        <p>
+                        </h3>
+                        <h3>
                           {translations.heartage}
                       :
                           {' '}
                           {results.heartage}
-                        </p>
-                        <p>
+                        </h3>
+                        <h3>
                           {translations.risk}
                       :
                           {' '}
                           {results.risklevel}
-                        </p>
-                        <p>
+                        </h3>
+                        <h3>
                           {translations.treatment}
-                      :
-                          {' '}
+                          <br />
                           {results.needstreatment}
-                        </p>
+                        </h3>
                       </Paper>
                     )}
                 </section>
@@ -163,82 +154,6 @@ export default function Index() {
               <Footer />
             </>
           )}
-      {/*
-      <Navbar />
-
-      <main>
-        <section className="formsection">
-          <Paper className={(window && window.innerWidth > 1199) ? classes.paperDesktop}>
-            <h2>{translations.risk_score_calculator}</h2>
-            <h5>
-              <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
-                {translations.using_guidelines}
-                <LinkIcon fontSize="small" />
-              </a>
-            </h5>
-            {translations.age && (
-            <Form
-              datasubmittedHandler={datasubmittedHandler}
-              resetResults={resetResults}
-              translations={formTranslations}
-            />
-            )}
-          </Paper>
-        </section>
-
-        <section ref={resultsEl} className="aboutsection" aria-live="assertive">
-          {!results && (
-            <>
-              <Paper className={(window && window.innerWidth > 1199) ? classes.paperDesktop}>
-                <p>{translations.expanded_description}</p>
-              </Paper>
-              <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" target="_blank" rel="noopener noreferrer">
-                <img
-                  className="gplay-img"
-                  alt="Google Play Android App"
-                  src={`https://play.google.com/intl/en_us/badges/static/images/badges/${language}_badge_web_generic.png`}
-                />
-              </a>
-            </>
-          )}
-          {results && (
-          <Paper className={(window && window.innerWidth > 1199) ? classes.paperDesktop}>
-            <h3>{translations.results}</h3>
-            <p>
-              {translations.score}
-              :
-              {' '}
-              {results.score}
-            </p>
-            <p>
-              {translations.cvd}
-              :
-              {' '}
-              {results.cvd}
-            </p>
-            <p>
-              {translations.heartage}
-              :
-              {' '}
-              {results.heartage}
-            </p>
-            <p>
-              {translations.risk}
-              :
-              {' '}
-              {results.risklevel}
-            </p>
-            <p>
-              {translations.treatment}
-              :
-              {' '}
-              {results.needstreatment}
-            </p>
-          </Paper>
-          )}
-        </section>
-      </main>
-      */}
       <style jsx>
         {`
       p {
@@ -290,6 +205,12 @@ export default function Index() {
         font-weight: 600;
         text-shadow: 1px 1px #4689c8;
         font-size: 200%;
+      }
+
+      section.formsection h3 {
+          color: #4689C8;
+          font-weight: 600;
+          font-size: 170%;
       }
 
       section.formsection h5 {

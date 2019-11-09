@@ -42,13 +42,13 @@ export const selects = [
 
 export const checkboxes = [
   {
+    checkboxKey: 'hypertension_in_treatment',
+  },
+  {
     checkboxKey: 'smoking',
   },
   {
     checkboxKey: 'diabetes',
-  },
-  {
-    checkboxKey: 'hypertension_in_treatment',
   },
 
 ];

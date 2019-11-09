@@ -1,54 +1,86 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import applogo from '../../public/logos/applogo.png';
+import applogo from '../../public/logos/applogo.jpg';
 
 export default function Header(props) {
-  const { navbarTitle } = props;
-
+  const { briefDescription, navbarTitle } = props;
+  const firstString = navbarTitle.split(' ')[0];
+  const secondString = navbarTitle.split(' ')[1];
   return (
     <>
       <header className="appHeader">
         <img src={applogo} alt="CR Framingham" className="navlogo" />
-        <h1>{ navbarTitle }</h1>
+        <h1>
+          <span>{ firstString }</span>
+          <span>{ secondString }</span>
+        </h1>
       </header>
+      <h2 className="subheader">{briefDescription}</h2>
       <style jsx>
         {`
+        h1 {
+          margin-top: 0;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          position: relative;
+          color: white;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          text-shadow: 2px 2px #4689c8;
+          font-size: 340%;
+        };
+        .appHeader {
+          color: #4689C8;
+          font-weight: 600;
+        };
+        h2.subheader {
+          color: white;
+          text-shadow: 2px 2px #4689c8;
+          font-size: 240%;
+          text-align: center;
+          padding: 5% 10%;
+        }
       @media (max-width: 1199px) {
         .navlogo {
-          height: 85px;
-          width: 85px;
+          height: 50%;
+          width: 50%;
           margin: 0 auto;
           z-index: 999;
         }
         .appHeader {
-          margin-top: -45px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         };
       }
       @media (min-width: 1200px) {
         .navlogo {
-          min-height: 85px;
-          height: 85px;
-          width: 85px;
+          height: 35%;
+          width: 35%;
           margin: 0 auto;
-          z-index: 999;
+          position: relative;
         }
 
         .appHeader {
-          margin-top: -7vh;
+          margin-top: 7vh;
+          display: flex;
+          flex-direction: row;
+          padding-left: 80px;
+          padding-right: 80px;
         };
+
+        h1 {
+          padding-top: 5.5%;
+        }
+
+        h2.subheader {
+          margin-top: -0.5vh;
+          margin-bottom: -0.5vh;
+        }
       }
-      .navlogo:hover {
-        filter: brightness(110%);
-      }
-      h1 {
-        margin-top: 0;
-        font-family: Lato;
-      };
-      .appHeader {
-          text-align: center;
-          color: #4689C8;
-          font-weight: 600;
-        };
+
     `}
 
       </style>
@@ -57,5 +89,6 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
+  briefDescription: PropTypes.string.isRequired,
   navbarTitle: PropTypes.string.isRequired,
 };

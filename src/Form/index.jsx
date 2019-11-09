@@ -233,29 +233,22 @@ export default function Form(props) {
             <DeleteIcon />
           </Button>
 
-          {typeof window !== 'undefined'
-        && (
-        <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.calcButton}>
-          <SendIcon />
-        </Button>
-        )}
-
+          <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.calcButton}>
+            <SendIcon />
+          </Button>
         </div>
       </form>
       <style jsx>
         {`
-
       .formbuttons {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
       }
-
       .error {
         color: #ff1744;
       }
       
-
       @media (max-width: 1199px) {
         .desktopOnly {
           display: none;
@@ -265,20 +258,15 @@ export default function Form(props) {
           flex-direction: column;
           justify-content: center;
         }
-
         form div {
           justify-content: center;
         }
-
-
         .formbuttons {
           display: flex;
           flex-direction: column-reverse;
         }
       }
-
     `}
-
       </style>
     </>
   );

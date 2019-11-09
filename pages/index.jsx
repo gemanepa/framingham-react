@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   paperDesktop: {
     padding: theme.spacing(3, 3),
     width: '90%',
-    height: 'auto',
+    height: '80vh',
     margin: '5% auto',
   },
 }));
@@ -77,6 +77,92 @@ export default function Index() {
         <meta name="description" content={headLang[language].description} />
         <meta name="keywords" content={headLang[language].keywords} />
       </Head>
+      {typeof window !== 'undefined'
+          && (
+            <>
+              <main>
+                <section className="aboutsection">
+                  {translations.navbar_title
+                  && (
+                  <Header
+                    navbarTitle={translations.navbar_title}
+                    briefDescription={translations.brief_description}
+                  />
+                  )}
+                  <NavButtons />
+                </section>
+                <section className="formsection" ref={resultsEl} id="calc">
+                  {!results
+                    ? (
+                      <Paper
+                        className={
+                      (window.innerWidth > 1199)
+                        ? classes.paperDesktop
+                        : classes.paperMobile
+                      }
+                      >
+                        <h2>{translations.risk_score_calculator}</h2>
+                        <h5>
+                          <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
+                            {translations.using_guidelines}
+                            <LinkIcon fontSize="small" />
+                          </a>
+                        </h5>
+                        {translations.age && (
+                        <Form
+                          datasubmittedHandler={datasubmittedHandler}
+                          resetResults={resetResults}
+                          translations={formTranslations}
+                        />
+                        )}
+                      </Paper>
+                    )
+                    : (
+                      <Paper
+                        className={
+                      (window.innerWidth > 1199)
+                        ? classes.paperDesktop
+                        : classes.paperMobile
+                    }
+                      >
+                        <h3>{translations.results}</h3>
+                        <p>
+                          {translations.score}
+                      :
+                          {' '}
+                          {results.score}
+                        </p>
+                        <p>
+                          {translations.cvd}
+                      :
+                          {' '}
+                          {results.cvd}
+                        </p>
+                        <p>
+                          {translations.heartage}
+                      :
+                          {' '}
+                          {results.heartage}
+                        </p>
+                        <p>
+                          {translations.risk}
+                      :
+                          {' '}
+                          {results.risklevel}
+                        </p>
+                        <p>
+                          {translations.treatment}
+                      :
+                          {' '}
+                          {results.needstreatment}
+                        </p>
+                      </Paper>
+                    )}
+                </section>
+              </main>
+              <Footer />
+            </>
+          )}
       {/*
       <Navbar />
 
@@ -153,45 +239,6 @@ export default function Index() {
         </section>
       </main>
       */}
-
-      <main>
-        <section className="aboutsection">
-          {translations.navbar_title
-          && (
-          <Header
-            navbarTitle={translations.navbar_title}
-            briefDescription={translations.brief_description}
-          />
-          )}
-          {typeof window !== 'undefined'
-          && <NavButtons />}
-        </section>
-        <section className="formsection" id="calc">
-          {typeof window !== 'undefined'
-        && (
-        <Paper
-          className={(window.innerWidth > 1199) ? classes.paperDesktop : classes.paperMobile}
-        >
-          <h2>{translations.risk_score_calculator}</h2>
-          <h5>
-            <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
-              {translations.using_guidelines}
-              <LinkIcon fontSize="small" />
-            </a>
-          </h5>
-          {translations.age && (
-          <Form
-            datasubmittedHandler={datasubmittedHandler}
-            resetResults={resetResults}
-            translations={formTranslations}
-          />
-          )}
-        </Paper>
-        )}
-        </section>
-      </main>
-      <Footer />
-
       <style jsx>
         {`
       p {

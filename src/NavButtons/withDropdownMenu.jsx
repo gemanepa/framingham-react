@@ -101,7 +101,7 @@ export default function CustomizedMenus(props) {
         className={classes.button}
         startIcon={starticon}
       >
-        <span>{text}</span>
+        <span className={menuType === 'language' ? "disappear" : ""}>{text}</span>
       </Button>
       <StyledMenu
         id="customized-menu"
@@ -212,6 +212,30 @@ export default function CustomizedMenus(props) {
             margin-top: -0.5vh;
             width: auto;
           }
+        }
+
+        @keyframes blur {
+          from {
+            opacity: 0;
+          }
+
+          10% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 1;
+          }
+          to {
+            opacity: 0;
+          }
+        }
+  
+        .disappear {
+          min-width: 55%;
+          animation-name: blur;
+          animation-fill-mode: forwards;
+          animation-iteration-count: infinite;
+          animation-duration: 5s;
         }
       `}
       </style>

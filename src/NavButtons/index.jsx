@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import useInterval from '../hooks/useInterval'
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import AndroidIcon from '@material-ui/icons/Android';
@@ -20,8 +21,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function IconLabelButtons() {
+export default function IconLabelButtons(props) {
   const classes = useStyles();
+
+  function translateStringsIteration() {
+    const translateStrings = ['Translate', 'Traducir', 'Translate', 'Traducir']
+    let [count, setCount] = useState(0);
+
+    useInterval(() => {
+      if(count === 3) {
+        setCount(0)
+      } else {setCount(count + 1) }
+      ;
+    }, 5000);
+    return translateStrings[count]
+  }
 
   return (
     <>
@@ -52,7 +66,11 @@ export default function IconLabelButtons() {
           <ButtonWithDropdownMenu text="Elinks" starticon={<ExitToAppIcon />} menuType="elinks" />
         </div>
         <div className="secondrow">
-          <ButtonWithDropdownMenu text="Traducir" starticon={<TranslateIcon />} menuType="language" />
+          <ButtonWithDropdownMenu
+            text={translateStringsIteration()}
+            starticon={<TranslateIcon />}
+            menuType="language"
+          />
 
           <Button
             variant="contained"
@@ -93,6 +111,8 @@ export default function IconLabelButtons() {
           flex-direction: column;
         }
       }
+
+
         `}
       </style>
     </>

@@ -113,7 +113,9 @@ export default function Index() {
                     lang={router.query.lang}
                   />
                   )}
-                  <NavButtons />
+                  <NavButtons
+                    info={translations.info}
+                  />
                 </section>
                 <section className="formsection" ref={resultsEl} id="calc">
                   {!showResults

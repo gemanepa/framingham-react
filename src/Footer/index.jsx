@@ -18,7 +18,7 @@ export default function Footer() {
         {`
       footer {
           height: 30px;
-          background-color: #3f51b5;
+          background-color: #4689c8;
           margin: auto;
           text-align: center;
           overflow: hidden;

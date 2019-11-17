@@ -217,7 +217,7 @@ export default function Index() {
         border: 0;
         flex-direction: row;
         justify-content: center;
-        overflow-x: hidden;
+        overflow: hidden;
       }
 
       section.aboutsection {
@@ -236,7 +236,7 @@ export default function Index() {
         margin: 0;
         margin-top: 1%;
         padding: 0;
-        border: 0;;
+        border: 0;
       }
 
       section.formsection h2 {

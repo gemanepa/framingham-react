@@ -101,6 +101,7 @@ export default function CustomizedMenus(props) {
         className={classes.button}
         startIcon={starticon}
       >
+        {menuType === 'language' && <div className="predisappear" />}
         <span className={menuType === 'language' ? "disappear" : ""}>{text}</span>
       </Button>
       <StyledMenu
@@ -231,12 +232,32 @@ export default function CustomizedMenus(props) {
         }
   
         .disappear {
-          min-width: 55%;
+          position: absolute;
           animation-name: blur;
           animation-fill-mode: forwards;
           animation-iteration-count: infinite;
           animation-duration: 5s;
         }
+
+        @media (max-width: 600px) {
+          .predisappear {
+            min-width: 105px;
+          }
+        }
+        @media (min-width: 601px) and (max-width: 1199px){
+          .predisappear {
+            min-width: 16.5%;
+          }
+        }
+        @media (min-width: 1200px) {
+          .predisappear {
+            min-width: 60%;
+          }
+        }
+
+
+
+
       `}
       </style>
     </>

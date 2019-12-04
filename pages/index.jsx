@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import LinkIcon from '@material-ui/icons/Link';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import Head from '../src/components/Head'
 import Header from '../src/Header';
-import Navbar from '../src/Navbar';
 import NavButtons from '../src/NavButtons';
 import Form from '../src/Form';
 import FraminghamCalculator from '../src/FraminghamCalculator';
@@ -39,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Index() {
   const router = useRouter();
-  const [translations, setTranslations] = React.useState({});
+  const [translations, setTranslations] = React.useState(undefined);
   let language;
   if (router.query.lang) {
     language = router.query.lang;
@@ -94,25 +93,17 @@ export default function Index() {
 
   return (
     <>
-      <Head>
-        <title>{headLang[language].title}</title>
-        <meta name="application-name" content={headLang[language].appname} />
-        <meta name="description" content={headLang[language].description} />
-        <meta name="keywords" content={headLang[language].keywords} />
-      </Head>
-      {typeof window !== 'undefined'
+      <Head translations={headLang[language]}/>
+      {(typeof window !== 'undefined' && translations)
           && (
             <>
               <main>
-                <section className="aboutsection">
-                  {translations.navbar_title
-                  && (
+                <section className="introsection">
                   <Header
                     navbarTitle={translations.navbar_title}
                     briefDescription={translations.brief_description}
                     lang={router.query.lang}
                   />
-                  )}
                   <NavButtons
                     androidapp={translations.androidapp}
                     calculate={translations.calculate}
@@ -223,7 +214,7 @@ export default function Index() {
         overflow: hidden;
       }
 
-      section.aboutsection {
+      section.introsection {
         background-color: transparent;
         height:auto;
         width: 50%;
@@ -275,7 +266,7 @@ export default function Index() {
           flex-direction: column;
         }
 
-        main section.aboutsection, section.formsection {
+        main section.introsection, section.formsection {
           margin-bottom: 30px;
           width: 100%;
         }
@@ -289,7 +280,7 @@ export default function Index() {
           min-height: 100vh;
         }
 
-        section.aboutsection {
+        section.introsection {
           min-height: 100%,
         }
 

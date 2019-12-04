@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function IconLabelButtons(props) {
+  const { androidapp, calculate, elinks, info } = props
   const classes = useStyles();
 
   function translateStringsIteration() {
@@ -50,8 +51,9 @@ export default function IconLabelButtons(props) {
             className={classes.button}
             href="#calc"
             startIcon={<LocalHospitalIcon />}
+            data-test="NavButtons_calculate"
           >
-            <span>Calculate</span>
+            <span>{calculate}</span>
           </Button>
           )}
           <Button
@@ -60,10 +62,15 @@ export default function IconLabelButtons(props) {
             size="large"
             className={classes.button}
             startIcon={<InfoIcon />}
+            data-test="NavButtons_info"
           >
-            <span>Info</span>
+            <span>{info}</span>
           </Button>
-          <ButtonWithDropdownMenu text="Elinks" starticon={<ExitToAppIcon />} menuType="elinks" />
+          <ButtonWithDropdownMenu
+          text={elinks}
+          starticon={<ExitToAppIcon />}
+          menuType="elinks"
+          />
         </div>
         <div className="secondrow">
           <ButtonWithDropdownMenu
@@ -78,9 +85,10 @@ export default function IconLabelButtons(props) {
             size="large"
             className={classes.button}
             startIcon={<AndroidIcon />}
+            data-test="NavButtons_androidapp"
           >
             <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" className="anchor">
-              <span>Android App</span>
+              <span>{androidapp}</span>
             </a>
           </Button>
         </div>

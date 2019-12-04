@@ -56,7 +56,7 @@ export default function Index() {
 
   const [animationClass, setAnimationClass] = useState(false);
 
-  // Handles data submitted in Form componented when Calculate button is pressed
+  // Handles data submitted in Form component when Calculate button is pressed
   function datasubmittedHandler(data) {
     const calculation = FraminghamCalculator(data, translations);
     resultsEl.current.focus();
@@ -114,6 +114,9 @@ export default function Index() {
                   />
                   )}
                   <NavButtons
+                    androidapp={translations.androidapp}
+                    calculate={translations.calculate}
+                    elinks={translations.elinks}
                     info={translations.info}
                   />
                 </section>

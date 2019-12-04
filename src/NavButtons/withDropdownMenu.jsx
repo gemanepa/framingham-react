@@ -100,6 +100,7 @@ export default function CustomizedMenus(props) {
         onClick={handleClick}
         className={classes.button}
         startIcon={starticon}
+        data-test={`NavButtons_${menuType}`}
       >
         {menuType === 'language' && <div className="predisappear" />}
         <span className={menuType === 'language' ? "disappear" : ""}>{text}</span>
@@ -251,7 +252,7 @@ export default function CustomizedMenus(props) {
         }
         @media (min-width: 1200px) {
           .predisappear {
-            min-width: 60%;
+            min-width: 67.5%;
           }
         }
       `}

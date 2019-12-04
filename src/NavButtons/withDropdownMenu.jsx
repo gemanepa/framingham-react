@@ -254,10 +254,6 @@ export default function CustomizedMenus(props) {
             min-width: 60%;
           }
         }
-
-
-
-
       `}
       </style>
     </>

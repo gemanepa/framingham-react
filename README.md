@@ -17,29 +17,31 @@
 ## Software Requisites for Running Properly
 
  - [NodeJS](https://nodejs.org/en/download/current/)
- - [Yarn](https://yarnpkg.com/lang/en/docs/install)
  - [ESLint CLI](https://eslint.org/docs/user-guide/command-line-interface)  (`npm install eslint babel-eslint --global`) + [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
  -  [Docker](https://docs.docker.com/install/)
 
 ## Running app outside Docker container
 
- - `yarn` installs required node modules for running the application
- - `yarn dev` runs the app in development mode
- - `yarn build` builds app for production 
- - `yarn build:run`runs production build    
- - `yarn lint:check` highlights all lint errors in application    
- - `yarn lint:fix` solve all lint errors that can be solved automatically    
- - `yarn cy:open` opens cypress without running any e2e test
- - `yarn cy:run` runs cypress end to end tests
+ - `npm install` installs required node modules for running the application
+ - `npm run dev` runs the app in development mode
+ 
+ - `npm run build` builds app for production 
+ - `npm run build:run`runs production build    
+ - `npm run lint:check` highlights all lint errors in application    
+ - `npm run lint:fix` solve all lint errors that can be solved automatically    
+ - `npm run test` runs unitary and end-to-end tests
+ - `npm run test:u` runs unitary tests only
+ - `npm run test:e2e` runs end-to-end tests only headlessly in an electron browser
+ - `npm run cypress:open` runs [cypress](https://www.cypress.io/) interactive mode, allowing to run end-to-end tests individually with a non-headless electron browser
 
 ## Running inside Docker container
 
- - `yarn docker:install` builds docker container and install node modules inside 
- - `yarn docker:dev` runs the app in development mode
- - `yarn docker:rebuild` rebuilds the container with the new files   
+ - `npm run docker:install` builds docker container and install node modules inside 
+ - `npm run docker:dev` runs the app in development mode
+ - `npm run docker:rebuild` rebuilds the container with the new files   
    modifications
- - `yarn docker:stop` stops running container
- - `yarn docker:rm` removes container
+ - `npm run docker:stop` stops running container
+ - `npm run docker:rm` removes container
 
 ## Android App Brother 
 ![enter image description here](https://i.imgur.com/8Gm6fK5.png)

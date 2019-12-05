@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import applogo from '../../public/logos/applogo.jpg';
 
+
 export default function Header(props) {
-  const { briefDescription, lang, navbarTitle } = props;
+  const { translations, lang } = props;
+  const { briefDescription, navbarTitle } = translations;
+
   const firstString = navbarTitle.split(' ')[0];
   const secondString = navbarTitle.split(' ')[1];
 
@@ -91,18 +94,20 @@ export default function Header(props) {
       }
 
     `}
-
       </style>
     </>
   );
 }
 
 Header.defaultProps = {
+  translations: {},
   lang: 'en',
 };
 
 Header.propTypes = {
-  briefDescription: PropTypes.string.isRequired,
-  navbarTitle: PropTypes.string.isRequired,
+  translations: {
+    briefDescription: PropTypes.string.isRequired,
+    navbarTitle: PropTypes.string.isRequired,
+  },
   lang: PropTypes.string,
 };

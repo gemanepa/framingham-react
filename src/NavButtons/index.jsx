@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useInterval from '../hooks/useInterval'
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import AndroidIcon from '@material-ui/icons/Android';
@@ -8,6 +8,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import TranslateIcon from '@material-ui/icons/Translate';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import ButtonWithDropdownMenu from './withDropdownMenu';
+import useInterval from '../hooks/useInterval';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -22,20 +23,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function IconLabelButtons(props) {
-  const { androidapp, calculate, elinks, info } = props
+  const { translations } = props;
+  const {
+    androidapp, calculate, elinks, info
+  } = translations;
   const classes = useStyles();
 
   function translateStringsIteration() {
-    const translateStrings = ['Translate', 'Traducir', 'Translate', 'Traducir']
-    let [count, setCount] = useState(0);
+    const translateStrings = ['Translate', 'Traducir', 'Translate', 'Traducir'];
+    const [count, setCount] = useState(0);
 
     useInterval(() => {
-      if(count === 3) {
-        setCount(0)
-      } else {setCount(count + 1) }
-      ;
+      if (count === 3) {
+        setCount(0);
+      } else { setCount(count + 1); }
     }, 5000);
-    return translateStrings[count]
+    return translateStrings[count];
   }
 
   return (
@@ -67,9 +70,9 @@ export default function IconLabelButtons(props) {
             <span>{info}</span>
           </Button>
           <ButtonWithDropdownMenu
-          text={elinks}
-          starticon={<ExitToAppIcon />}
-          menuType="elinks"
+            text={elinks}
+            starticon={<ExitToAppIcon />}
+            menuType="elinks"
           />
         </div>
         <div className="secondrow">
@@ -95,34 +98,45 @@ export default function IconLabelButtons(props) {
       </nav>
       <style jsx>
         {`
-      .navbuttons {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
+          .navbuttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
 
-      .navbuttons .firstrow, .navbuttons .secondrow {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      }
+          .navbuttons .firstrow, .navbuttons .secondrow {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
 
-      .anchor, .anchor:visited, .anchor:focus {
-        width: auto;
-        height: auto;
-        text-decoration: none;
-        color: inherit;
-      }
+          .anchor, .anchor:visited, .anchor:focus {
+            width: auto;
+            height: auto;
+            text-decoration: none;
+            color: inherit;
+          }
 
-      @media (max-width: 1199px) {
-        .navbuttons .firstrow, .navbuttons .secondrow {
-          flex-direction: column;
-        }
-      }
-
-
-        `}
+          @media (max-width: 1199px) {
+            .navbuttons .firstrow, .navbuttons .secondrow {
+              flex-direction: column;
+            }
+          }
+      `}
       </style>
     </>
   );
 }
+
+IconLabelButtons.defaultProps = {
+  translations: {}
+};
+
+IconLabelButtons.propTypes = {
+  translations: {
+    androidapp: PropTypes.string.isRequired,
+    calculate: PropTypes.string.isRequired,
+    elinks: PropTypes.string.isRequired,
+    info: PropTypes.string.isRequired,
+  }
+};

@@ -169,7 +169,7 @@ export default function Form(props) {
     };
 
     if (validateSubmittedData(requiredData, nonrequiredData)) {
-      props.datasubmittedHandler(allData);
+      props.datasubmittedHandler(allData, translations.calc);
     }
   }
 

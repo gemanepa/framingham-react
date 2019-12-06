@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import applogo from '../../public/logos/applogo.jpg';
+import applogo from '../../../public/logos/applogo.jpg';
 
 
 export default function Header(props) {

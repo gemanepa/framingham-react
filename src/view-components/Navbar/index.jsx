@@ -9,7 +9,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Link from '../Link';
+import Link from '../../Link';
 import enFlag from '../../public/flags/en-flag.png';
 import esFlag from '../../public/flags/es-flag.png';
 import fhsLogo from '../../public/logos/fhslogo.png';

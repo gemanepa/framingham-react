@@ -8,7 +8,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import TranslateIcon from '@material-ui/icons/Translate';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import ButtonWithDropdownMenu from './withDropdownMenu';
-import useInterval from '../hooks/useInterval';
+import useInterval from '../helpers/useIntervalHook';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -52,7 +52,7 @@ export default function IconLabelButtons(props) {
             color="secondary"
             size="large"
             className={classes.button}
-            href="#calc"
+            href="#maincontainer"
             startIcon={<LocalHospitalIcon />}
             data-test="NavButtons_calculate"
           >

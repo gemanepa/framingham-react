@@ -10,7 +10,7 @@ import headLang from '../src/i18n/head.json';
 
 export default function Index() {
   const router = useRouter();
-  const [translations, setTranslations] = React.useState(undefined);
+  const [translations, setTranslations] = React.useState(false);
   const language = router.query.lang ? router.query.lang : 'en';
 
   import(`./../src/i18n/${language}.json`).then((strings) => {

@@ -147,10 +147,10 @@ CalcInput.propTypes = {
     waist_circumference: PropTypes.string.isRequired,
     woman: PropTypes.string.isRequired,
     using_guidelines: PropTypes.string.isRequired,
-    calc: {
+    calc: PropTypes.exact({
       low: PropTypes.string.isRequired,
       intermediate: PropTypes.string.isRequired,
       high: PropTypes.string.isRequired
-    }
+    }).isRequired
   }).isRequired
 };

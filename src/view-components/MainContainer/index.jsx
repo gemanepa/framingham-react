@@ -141,8 +141,8 @@ MainContainer.propTypes = {
         low: PropTypes.string.isRequired,
         intermediate: PropTypes.string.isRequired,
         high: PropTypes.string.isRequired
-      }),
-    }),
+      }).isRequired,
+    }).isRequired,
     r3sults: PropTypes.exact({
       score: PropTypes.string.isRequired,
       cvd: PropTypes.string.isRequired,
@@ -150,6 +150,6 @@ MainContainer.propTypes = {
       results: PropTypes.string.isRequired,
       risk: PropTypes.string.isRequired,
       treatment: PropTypes.string.isRequired
-    })
+    }).isRequired
   }).isRequired
 };

@@ -60,7 +60,7 @@ export default function Index() {
                       low: translations.low,
                       intermediate: translations.intermediate,
                       high: translations.high
-                    },
+                    }
                   },
                   r3sults: {
                     score: translations.score,

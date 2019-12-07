@@ -122,7 +122,7 @@ export default function MainContainer(props) {
 
 MainContainer.propTypes = {
   translations: PropTypes.exact({
-    calcinput: {
+    calcinput: PropTypes.exact({
       age: PropTypes.string.isRequired,
       arterial_pression: PropTypes.string.isRequired,
       colesterol_hdl: PropTypes.string.isRequired,
@@ -137,19 +137,19 @@ MainContainer.propTypes = {
       waist_circumference: PropTypes.string.isRequired,
       woman: PropTypes.string.isRequired,
       using_guidelines: PropTypes.string.isRequired,
-      calc: {
+      calc: PropTypes.exact({
         low: PropTypes.string.isRequired,
         intermediate: PropTypes.string.isRequired,
         high: PropTypes.string.isRequired
-      },
-    },
-    r3sults: {
+      }),
+    }),
+    r3sults: PropTypes.exact({
       score: PropTypes.string.isRequired,
       cvd: PropTypes.string.isRequired,
       heartage: PropTypes.string.isRequired,
       results: PropTypes.string.isRequired,
       risk: PropTypes.string.isRequired,
       treatment: PropTypes.string.isRequired
-    }
+    })
   }).isRequired
 };

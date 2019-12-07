@@ -133,8 +133,7 @@ export default function Index() {
               min-height: 100%,
             }
           }
-      `}
-
+        `}
       </style>
     </>
 

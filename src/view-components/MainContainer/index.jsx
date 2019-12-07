@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import LinkIcon from '@material-ui/icons/Link';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import Form from '../Form';
 import FraminghamCalculator from '../../calclogic-handlers';
+import TypeCalcInput from './containerType/calcinput';
 
 const useStyles = makeStyles((theme) => ({
   paperMobile: {
@@ -29,11 +28,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function containerType(type) {
+  const types = {
+    calcinput: 'asdf',
+    results: 'asdf'
+  };
+  return types[type];
+}
+
 export default function MainContainer(props) {
   const { translations } = props;
   const classes = useStyles();
   const [results, setResults] = React.useState(false);
-  const [showResults, setShowResults] = React.useState(false);
+  const [containerType, setContainerType] = React.useState('calcinput');
   const [formData, saveFormData] = React.useState(false);
   const resultsEl = React.useRef(null);
 
@@ -47,42 +54,35 @@ export default function MainContainer(props) {
     saveFormData(data);
     setResults(calculation);
     if (window.innerWidth < 1200) { resultsEl.current.scrollIntoView(); }
-    setTimeout(() => setShowResults(true), 500);
+    setTimeout(() => setContainerType(true), 500);
     setAnimationClass(true);
   }
 
-  function resetResults() {
+  // Cleans input fields from data
+  function cleanCalcInputs() {
     setResults(false);
   }
 
+  // Goes from results container to calcinput container
   function goBack(e) {
     e.preventDefault();
     setAnimationClass(false);
-    setTimeout(() => setShowResults(false), 500);
+    setTimeout(() => setContainerType('calcinput'), 500);
   }
 
   return (
     <>
       <main ref={resultsEl} id="maincontainer">
-        {!showResults
+        {containerType === 'calcinput'
           ? (
-            <div className={!animationClass ? 'opening-animation' : 'closing-animation'}>
-              <Paper className={`${window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile} `}>
-                <h2>{translations.datainput.risk_score_calculator}</h2>
-                <h5>
-                  <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
-                    {translations.datainput.using_guidelines}
-                    <LinkIcon fontSize="small" />
-                  </a>
-                </h5>
-                <Form
-                  datasubmittedHandler={datasubmittedHandler}
-                  resetResults={resetResults}
-                  translations={translations.datainput}
-                  previousData={formData}
-                />
-              </Paper>
-            </div>
+            <TypeCalcInput
+              animationClass={animationClass}
+              classes={classes}
+              cleanCalcInputs={cleanCalcInputs}
+              datasubmittedHandler={datasubmittedHandler}
+              formData={formData}
+              translations={translations.calcinput}
+            />
           )
           : (
             <div className={animationClass ? 'opening-animation' : 'closing-animation'}>

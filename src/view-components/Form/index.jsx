@@ -145,7 +145,7 @@ export default function Form(props) {
       ta: false,
       wt: false,
     });
-    props.resetResults();
+    props.cleanCalcInputs();
   }
 
   function calcButtonHandler() {
@@ -287,7 +287,7 @@ export default function Form(props) {
 
 Form.propTypes = {
   datasubmittedHandler: PropTypes.func.isRequired,
-  resetResults: PropTypes.func.isRequired,
+  cleanCalcInputs: PropTypes.func.isRequired,
   translations: PropTypes.exact({ // eslint-disable-line react/require-default-props
     age: PropTypes.string.isRequired,
     arterial_pression: PropTypes.string.isRequired,

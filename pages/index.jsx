@@ -41,7 +41,7 @@ export default function Index() {
                   />
                 </div>
                 <MainContainer translations={{
-                  datainput: {
+                  calcinput: {
                     age: translations.age,
                     arterial_pression: translations.arterial_pression,
                     colesterol_hdl: translations.colesterol_hdl,

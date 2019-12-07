@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from '../src/view-components/Head';
 import Header from '../src/view-components/Header';
@@ -11,6 +11,8 @@ import headLang from '../src/i18n/head.json';
 export default function Index() {
   const router = useRouter();
   const [translations, setTranslations] = React.useState(false);
+  const [containerType, setContainerType] = React.useState('calcinput');
+  const [animationClass, setAnimationClass] = useState(false);
   const language = router.query.lang ? router.query.lang : 'en';
 
   import(`./../src/i18n/${language}.json`).then((strings) => {
@@ -32,45 +34,50 @@ export default function Index() {
                     }}
                     lang={language}
                   />
-                  <NavButtons translations={{
-                    androidapp: translations.androidapp,
-                    calculate: translations.calculate,
-                    elinks: translations.elinks,
-                    info: translations.info
-                  }}
+                  <NavButtons
+                    containerType={{ get: containerType, set: setContainerType }}
+                    translations={{
+                      androidapp: translations.androidapp,
+                      calculate: translations.calculate,
+                      elinks: translations.elinks,
+                      info: translations.info
+                    }}
                   />
                 </div>
-                <MainContainer translations={{
-                  calcinput: {
-                    age: translations.age,
-                    arterial_pression: translations.arterial_pression,
-                    colesterol_hdl: translations.colesterol_hdl,
-                    colesterol_ldl: translations.colesterol_ldl,
-                    colesterol_total: translations.colesterol_total,
-                    diabetes: translations.diabetes,
-                    gender: translations.gender,
-                    hypertension_in_treatment: translations.hypertension_in_treatment,
-                    man: translations.man,
-                    risk_score_calculator: translations.risk_score_calculator,
-                    smoking: translations.smoking,
-                    waist_circumference: translations.waist_circumference,
-                    woman: translations.woman,
-                    using_guidelines: translations.using_guidelines,
-                    calc: {
-                      low: translations.low,
-                      intermediate: translations.intermediate,
-                      high: translations.high
+                <MainContainer
+                  animationClass={{ get: animationClass, set: setAnimationClass }}
+                  containerType={{ get: containerType, set: setContainerType }}
+                  translations={{
+                    calcinput: {
+                      age: translations.age,
+                      arterial_pression: translations.arterial_pression,
+                      colesterol_hdl: translations.colesterol_hdl,
+                      colesterol_ldl: translations.colesterol_ldl,
+                      colesterol_total: translations.colesterol_total,
+                      diabetes: translations.diabetes,
+                      gender: translations.gender,
+                      hypertension_in_treatment: translations.hypertension_in_treatment,
+                      man: translations.man,
+                      risk_score_calculator: translations.risk_score_calculator,
+                      smoking: translations.smoking,
+                      waist_circumference: translations.waist_circumference,
+                      woman: translations.woman,
+                      using_guidelines: translations.using_guidelines,
+                      calc: {
+                        low: translations.low,
+                        intermediate: translations.intermediate,
+                        high: translations.high
+                      }
+                    },
+                    r3sults: {
+                      score: translations.score,
+                      cvd: translations.cvd,
+                      heartage: translations.heartage,
+                      results: translations.results,
+                      risk: translations.risk,
+                      treatment: translations.treatment
                     }
-                  },
-                  r3sults: {
-                    score: translations.score,
-                    cvd: translations.cvd,
-                    heartage: translations.heartage,
-                    results: translations.results,
-                    risk: translations.risk,
-                    treatment: translations.treatment
-                  }
-                }}
+                  }}
                 />
               </div>
               <Footer />

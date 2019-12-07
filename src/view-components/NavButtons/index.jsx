@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function IconLabelButtons(props) {
-  const { translations } = props;
+  const { containerType, translations } = props;
   const {
     androidapp, calculate, elinks, info
   } = translations;
@@ -45,28 +45,48 @@ export default function IconLabelButtons(props) {
         <div className="firstrow">
           {(window.innerWidth < 1200)
           && (
+            <>
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                className={classes.button}
+                href="#maincontainer"
+                startIcon={<LocalHospitalIcon />}
+                data-test="NavButtons_calculate"
+                onClick={() => containerType.set('calcinput')}
+              >
+                <span>{calculate}</span>
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                className={classes.button}
+                href="#maincontainer"
+                startIcon={<InfoIcon />}
+                data-test="NavButtons_info"
+                onClick={() => containerType.set('info')}
+              >
+                <span>{info}</span>
+              </Button>
+            </>
+          )}
+
+          {(window.innerWidth > 1200)
+          && (
           <Button
             variant="contained"
             color="secondary"
             size="large"
             className={classes.button}
-            href="#maincontainer"
-            startIcon={<LocalHospitalIcon />}
-            data-test="NavButtons_calculate"
+            startIcon={containerType.get !== 'info' ? <InfoIcon /> : <LocalHospitalIcon />}
+            data-test="NavButtons_info"
+            onClick={() => containerType.set(containerType.get !== 'info' ? 'info' : 'calcinput')}
           >
-            <span>{calculate}</span>
+            <span>{containerType.get !== 'info' ? info : calculate}</span>
           </Button>
           )}
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            className={classes.button}
-            startIcon={<InfoIcon />}
-            data-test="NavButtons_info"
-          >
-            <span>{info}</span>
-          </Button>
           <ButtonWithDropdownMenu
             text={elinks}
             menuType="elinks"

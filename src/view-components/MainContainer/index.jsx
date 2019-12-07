@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import FraminghamCalculator from '../../calclogic-handlers';
 import TypeCalcInput from './containerType/calcinput';
 import TypeResults from './containerType/results';
+import TypeInfo from './containerType/info';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -29,14 +30,11 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function MainContainer(props) {
-  const { translations } = props;
+  const { animationClass, translations, containerType } = props;
   const classes = useStyles();
   const [results, setResults] = React.useState({});
-  const [containerType, setContainerType] = React.useState('calcinput');
   const [formData, saveFormData] = React.useState(false);
   const mainContainer = React.useRef(null);
-
-  const [animationClass, setAnimationClass] = useState(false);
 
   // Handles data submitted in Form component when Calculate button is pressed
   function datasubmittedHandler(data, trnslations) {
@@ -46,8 +44,8 @@ export default function MainContainer(props) {
     saveFormData(data);
     setResults(calculation);
     if (window.innerWidth < 1200) { mainContainer.current.scrollIntoView(); }
-    setTimeout(() => setContainerType('results'), 500);
-    setAnimationClass(true);
+    setTimeout(() => containerType.set('results'), 500);
+    animationClass.set(true);
   }
 
 
@@ -61,8 +59,8 @@ export default function MainContainer(props) {
   @param e: event object */
   function goBack(e) {
     e.preventDefault();
-    setAnimationClass(false);
-    setTimeout(() => setContainerType('calcinput'), 500);
+    animationClass.set(false);
+    setTimeout(() => containerType.set('calcinput'), 500);
   }
 
 
@@ -73,7 +71,7 @@ export default function MainContainer(props) {
     const types = {
       calcinput: (
         <TypeCalcInput
-          animationClass={animationClass}
+          animationClass={animationClass.get}
           classes={classes}
           cleanCalcInputs={cleanCalcInputs}
           datasubmittedHandler={datasubmittedHandler}
@@ -83,11 +81,17 @@ export default function MainContainer(props) {
       ),
       results: (
         <TypeResults
-          animationClass={animationClass}
+          animationClass={animationClass.get}
           classes={classes}
           goBack={goBack}
           results={results}
           translations={translations.r3sults}
+        />
+      ),
+      info: (
+        <TypeInfo
+          animationClass={animationClass.get}
+          classes={classes}
         />
       )
     };
@@ -97,7 +101,7 @@ export default function MainContainer(props) {
   return (
     <>
       <main ref={mainContainer} id="maincontainer">
-        {containerTypeHandler(containerType)}
+        {containerTypeHandler(containerType.get)}
       </main>
       <style jsx>
         {`

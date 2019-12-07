@@ -14,7 +14,7 @@
     "React"
   ],
   "dependencies": {
-    "@material-ui/core": "latest",
+    "@material-ui/core": "^4.7.2",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "latest",
     "clsx": "latest",
@@ -25,7 +25,7 @@
     "react-dom": "latest"
   },
   "devDependencies": {
-    "@babel/core": "7.7.4",
+    "@babel/core": "7.7.5",
     "babel-eslint": "latest",
     "babel-jest": "24.9.0",
     "cypress": "^3.7.0",

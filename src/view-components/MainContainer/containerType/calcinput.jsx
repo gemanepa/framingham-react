@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LinkIcon from '@material-ui/icons/Link';
 import Paper from '@material-ui/core/Paper';
 import Form from '../../Form';
@@ -7,6 +8,7 @@ export default function CalcInput(props) {
   const {
     animationClass, classes, cleanCalcInputs, datasubmittedHandler, formData, translations
   } = props;
+
   return (
     <>
       <section id="calcinput" className={!animationClass ? 'opening-animation' : 'closing-animation'}>
@@ -116,3 +118,39 @@ export default function CalcInput(props) {
     </>
   );
 }
+
+CalcInput.propTypes = {
+  animationClass: PropTypes.oneOf([true, false]).isRequired,
+  classes: PropTypes.exact({
+    button: PropTypes.string.isRequired,
+    paperDesktop: PropTypes.string.isRequired,
+    paperMobile: PropTypes.string.isRequired,
+  }).isRequired,
+  cleanCalcInputs: PropTypes.func.isRequired,
+  datasubmittedHandler: PropTypes.func.isRequired,
+  formData: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]).isRequired,
+  translations: PropTypes.exact({
+    age: PropTypes.string.isRequired,
+    arterial_pression: PropTypes.string.isRequired,
+    colesterol_hdl: PropTypes.string.isRequired,
+    colesterol_ldl: PropTypes.string.isRequired,
+    colesterol_total: PropTypes.string.isRequired,
+    diabetes: PropTypes.string.isRequired,
+    gender: PropTypes.string.isRequired,
+    hypertension_in_treatment: PropTypes.string.isRequired,
+    man: PropTypes.string.isRequired,
+    risk_score_calculator: PropTypes.string.isRequired,
+    smoking: PropTypes.string.isRequired,
+    waist_circumference: PropTypes.string.isRequired,
+    woman: PropTypes.string.isRequired,
+    using_guidelines: PropTypes.string.isRequired,
+    calc: {
+      low: PropTypes.string.isRequired,
+      intermediate: PropTypes.string.isRequired,
+      high: PropTypes.string.isRequired
+    }
+  }).isRequired
+};

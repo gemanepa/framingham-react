@@ -1,21 +1,11 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import FraminghamCalculator from '../../calclogic-handlers';
 import TypeCalcInput from './containerType/calcinput';
 import TypeResults from './containerType/results';
 
 const useStyles = makeStyles((theme) => ({
-  paperMobile: {
-    padding: theme.spacing(3, 3),
-    height: 'auto',
-    width: '100%',
-  },
-  paperDesktop: {
-    padding: theme.spacing(3, 3),
-    width: '90%',
-    minHeight: '80vh',
-    margin: '5% auto',
-  },
   button: {
     margin: theme.spacing(1),
     backgroundColor: '#4689c8',
@@ -24,16 +14,27 @@ const useStyles = makeStyles((theme) => ({
       background: '#005c97',
     },
   },
+  paperDesktop: {
+    padding: theme.spacing(3, 3),
+    width: '90%',
+    minHeight: '80vh',
+    margin: '5% auto',
+  },
+  paperMobile: {
+    padding: theme.spacing(3, 3),
+    height: 'auto',
+    width: '100%',
+  }
 }));
 
 
 export default function MainContainer(props) {
   const { translations } = props;
   const classes = useStyles();
-  const [results, setResults] = React.useState(false);
+  const [results, setResults] = React.useState({});
   const [containerType, setContainerType] = React.useState('calcinput');
   const [formData, saveFormData] = React.useState(false);
-  const resultsEl = React.useRef(null);
+  const mainContainer = React.useRef(null);
 
   const [animationClass, setAnimationClass] = useState(false);
 
@@ -41,26 +42,33 @@ export default function MainContainer(props) {
   function datasubmittedHandler(data, trnslations) {
     const calculation = FraminghamCalculator(data, trnslations);
 
-    resultsEl.current.focus();
+    mainContainer.current.focus();
     saveFormData(data);
     setResults(calculation);
-    if (window.innerWidth < 1200) { resultsEl.current.scrollIntoView(); }
+    if (window.innerWidth < 1200) { mainContainer.current.scrollIntoView(); }
     setTimeout(() => setContainerType('results'), 500);
     setAnimationClass(true);
   }
 
-  // Cleans input fields from data
+
+  /* Cleans input fields from data */
   function cleanCalcInputs() {
     setResults(false);
   }
 
-  // Goes from results container to calcinput container
+
+  /* Handles coming back from results container to calcinput container
+  @param e: event object */
   function goBack(e) {
     e.preventDefault();
     setAnimationClass(false);
     setTimeout(() => setContainerType('calcinput'), 500);
   }
 
+
+  /* Handles which containerType to render depending of containerType state
+  @param type: "calcinput" || "results"
+  @returns React Component: <TypeCalcInput /> || <TypeResults /> */
   function containerTypeHandler(type) {
     const types = {
       calcinput: (
@@ -88,7 +96,7 @@ export default function MainContainer(props) {
 
   return (
     <>
-      <main ref={resultsEl} id="maincontainer">
+      <main ref={mainContainer} id="maincontainer">
         {containerTypeHandler(containerType)}
       </main>
       <style jsx>
@@ -111,3 +119,37 @@ export default function MainContainer(props) {
     </>
   );
 }
+
+MainContainer.propTypes = {
+  translations: PropTypes.exact({
+    calcinput: {
+      age: PropTypes.string.isRequired,
+      arterial_pression: PropTypes.string.isRequired,
+      colesterol_hdl: PropTypes.string.isRequired,
+      colesterol_ldl: PropTypes.string.isRequired,
+      colesterol_total: PropTypes.string.isRequired,
+      diabetes: PropTypes.string.isRequired,
+      gender: PropTypes.string.isRequired,
+      hypertension_in_treatment: PropTypes.string.isRequired,
+      man: PropTypes.string.isRequired,
+      risk_score_calculator: PropTypes.string.isRequired,
+      smoking: PropTypes.string.isRequired,
+      waist_circumference: PropTypes.string.isRequired,
+      woman: PropTypes.string.isRequired,
+      using_guidelines: PropTypes.string.isRequired,
+      calc: {
+        low: PropTypes.string.isRequired,
+        intermediate: PropTypes.string.isRequired,
+        high: PropTypes.string.isRequired
+      },
+    },
+    r3sults: {
+      score: PropTypes.string.isRequired,
+      cvd: PropTypes.string.isRequired,
+      heartage: PropTypes.string.isRequired,
+      results: PropTypes.string.isRequired,
+      risk: PropTypes.string.isRequired,
+      treatment: PropTypes.string.isRequired
+    }
+  }).isRequired
+};

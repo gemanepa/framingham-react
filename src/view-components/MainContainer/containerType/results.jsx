@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export default function Results(props) {
-  const { animationClass, classes, results, translations, goBack } = props;
+  const { animationClass, classes, goBack, results, translations } = props;
+
   return (
     <>
       <section id="results" className={animationClass ? 'opening-animation' : 'closing-animation'}>
@@ -142,3 +144,28 @@ export default function Results(props) {
     </>
   );
 }
+
+Results.propTypes = {
+  animationClass: PropTypes.oneOf([true, false]).isRequired,
+  classes: PropTypes.exact({
+    button: PropTypes.string.isRequired,
+    paperDesktop: PropTypes.string.isRequired,
+    paperMobile: PropTypes.string.isRequired,
+  }).isRequired,
+  goBack: PropTypes.func.isRequired,
+  results: PropTypes.exact({
+    cvd: PropTypes.string,
+    heartage: PropTypes.string,
+    needstreatment: PropTypes.string,
+    risklevel: PropTypes.string,
+    score: PropTypes.number
+  }).isRequired,
+  translations: PropTypes.exact({
+    score: PropTypes.string.isRequired,
+    cvd: PropTypes.string.isRequired,
+    heartage: PropTypes.string.isRequired,
+    results: PropTypes.string.isRequired,
+    risk: PropTypes.string.isRequired,
+    treatment: PropTypes.string.isRequired
+  }).isRequired
+};

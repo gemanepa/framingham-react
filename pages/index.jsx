@@ -30,7 +30,7 @@ export default function Index() {
                       briefDescription: translations.brief_description,
                       navbarTitle: translations.navbar_title,
                     }}
-                    lang={router.query.lang}
+                    lang={language}
                   />
                   <NavButtons translations={{
                     androidapp: translations.androidapp,

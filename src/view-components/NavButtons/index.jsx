@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import AndroidIcon from '@material-ui/icons/Android';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import InfoIcon from '@material-ui/icons/Info';
-import TranslateIcon from '@material-ui/icons/Translate';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import ButtonWithDropdownMenu from './withDropdownMenu';
 import useInterval from '../helpers/useIntervalHook';
@@ -71,14 +69,12 @@ export default function IconLabelButtons(props) {
           </Button>
           <ButtonWithDropdownMenu
             text={elinks}
-            starticon={<ExitToAppIcon />}
             menuType="elinks"
           />
         </div>
         <div className="secondrow">
           <ButtonWithDropdownMenu
             text={translateStringsIteration()}
-            starticon={<TranslateIcon />}
             menuType="language"
           />
 
@@ -128,15 +124,11 @@ export default function IconLabelButtons(props) {
   );
 }
 
-IconLabelButtons.defaultProps = {
-  translations: {}
-};
-
 IconLabelButtons.propTypes = {
-  translations: {
+  translations: PropTypes.exact({
     androidapp: PropTypes.string.isRequired,
     calculate: PropTypes.string.isRequired,
     elinks: PropTypes.string.isRequired,
     info: PropTypes.string.isRequired,
-  }
+  }).isRequired
 };

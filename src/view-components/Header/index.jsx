@@ -99,15 +99,10 @@ export default function Header(props) {
   );
 }
 
-Header.defaultProps = {
-  translations: {},
-  lang: 'en',
-};
-
 Header.propTypes = {
-  translations: {
+  lang: PropTypes.string.isRequired,
+  translations: PropTypes.exact({
     briefDescription: PropTypes.string.isRequired,
     navbarTitle: PropTypes.string.isRequired,
-  },
-  lang: PropTypes.string,
+  }).isRequired
 };

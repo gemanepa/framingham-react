@@ -218,7 +218,7 @@ export default function Form(props) {
           </React.Fragment>
         ))}
 
-        <FormGroup column={window.innerWidth > 1200} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? {display: 'flex', justifyContent: 'space-between' } : {marginTop: '20px', marginBottom: '20px' }}>
+        <FormGroup column={`${window.innerWidth > 1200}`} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? {display: 'flex', justifyContent: 'space-between' } : {marginTop: '20px', marginBottom: '20px' }}>
           {checkboxes.map((checkbox) => (
             <FormControlLabel
               control={(
@@ -288,7 +288,7 @@ export default function Form(props) {
 Form.propTypes = {
   datasubmittedHandler: PropTypes.func.isRequired,
   cleanCalcInputs: PropTypes.func.isRequired,
-  translations: PropTypes.exact({ // eslint-disable-line react/require-default-props
+  translations: PropTypes.exact({
     age: PropTypes.string.isRequired,
     arterial_pression: PropTypes.string.isRequired,
     colesterol_hdl: PropTypes.string.isRequired,
@@ -298,8 +298,15 @@ Form.propTypes = {
     gender: PropTypes.string.isRequired,
     hypertension_in_treatment: PropTypes.string.isRequired,
     man: PropTypes.string.isRequired,
+    risk_score_calculator: PropTypes.string.isRequired,
     smoking: PropTypes.string.isRequired,
     waist_circumference: PropTypes.string.isRequired,
     woman: PropTypes.string.isRequired,
-  }),
+    using_guidelines: PropTypes.string.isRequired,
+    calc: {
+      low: PropTypes.string.isRequired,
+      intermediate: PropTypes.string.isRequired,
+      high: PropTypes.string.isRequired
+    }
+  }).isRequired
 };

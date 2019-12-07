@@ -77,7 +77,7 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 export default function CustomizedMenus(props) {
-  const { menuType, starticon, text } = props;
+  const { menuType, text } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -99,7 +99,7 @@ export default function CustomizedMenus(props) {
         size="large"
         onClick={handleClick}
         className={classes.button}
-        startIcon={starticon}
+        startIcon={menuType === 'language' ? <TranslateIcon /> : <ExitToAppIcon />}
         data-test={`NavButtons_${menuType}`}
       >
         {menuType === 'language' && <div className="predisappear" />}
@@ -264,6 +264,5 @@ export default function CustomizedMenus(props) {
 
 CustomizedMenus.propTypes = {
   menuType: PropTypes.oneOf(['language', 'elinks']).isRequired,
-  text: PropTypes.string.isRequired,
-  starticon: PropTypes.oneOf([<ExitToAppIcon />, <TranslateIcon />]).isRequired,
+  text: PropTypes.string.isRequired
 };

@@ -9,11 +9,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Link from '../Link';
-import enFlag from '../../public/flags/en-flag.png';
-import esFlag from '../../public/flags/es-flag.png';
-import fhsLogo from '../../public/logos/fhslogo.png';
-import nihLogo from '../../public/logos/nihlogo.png';
-import wikipediaLogo from '../../public/logos/wikipedialogo3.png';
+import enFlag from '../../../public/flags/en-flag.png';
+import esFlag from '../../../public/flags/es-flag.png';
+import fhsLogo from '../../../public/logos/fhslogo.png';
+import nihLogo from '../../../public/logos/nihlogo.png';
+import wikipediaLogo from '../../../public/logos/wikipedialogo3.png';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -77,7 +77,7 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 export default function CustomizedMenus(props) {
-  const { menuType, starticon, text } = props;
+  const { menuType, text } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -99,9 +99,11 @@ export default function CustomizedMenus(props) {
         size="large"
         onClick={handleClick}
         className={classes.button}
-        startIcon={starticon}
+        startIcon={menuType === 'language' ? <TranslateIcon /> : <ExitToAppIcon />}
+        data-test={`NavButtons_${menuType}`}
       >
-        <span>{text}</span>
+        {menuType === 'language' && <div className="predisappear" />}
+        <span className={menuType === 'language' ? "disappear" : ""}>{text}</span>
       </Button>
       <StyledMenu
         id="customized-menu"
@@ -213,6 +215,46 @@ export default function CustomizedMenus(props) {
             width: auto;
           }
         }
+
+        @keyframes blur {
+          from {
+            opacity: 0;
+          }
+
+          10% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 1;
+          }
+          to {
+            opacity: 0;
+          }
+        }
+  
+        .disappear {
+          position: absolute;
+          animation-name: blur;
+          animation-fill-mode: forwards;
+          animation-iteration-count: infinite;
+          animation-duration: 5s;
+        }
+
+        @media (max-width: 600px) {
+          .predisappear {
+            min-width: 105px;
+          }
+        }
+        @media (min-width: 601px) and (max-width: 1199px){
+          .predisappear {
+            min-width: 16.5%;
+          }
+        }
+        @media (min-width: 1200px) {
+          .predisappear {
+            min-width: 67.5%;
+          }
+        }
       `}
       </style>
     </>
@@ -222,6 +264,5 @@ export default function CustomizedMenus(props) {
 
 CustomizedMenus.propTypes = {
   menuType: PropTypes.oneOf(['language', 'elinks']).isRequired,
-  text: PropTypes.string.isRequired,
-  starticon: PropTypes.oneOf([<ExitToAppIcon />, <TranslateIcon />]).isRequired,
+  text: PropTypes.string.isRequired
 };

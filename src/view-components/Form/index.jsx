@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Form(props) {
-  const { translations } = props;
+  const { translations, previousData } = props;
   const classes = useStyles();
 
   // Validations
@@ -65,14 +65,21 @@ export default function Form(props) {
   });
 
   // Radio logic
-  const [radioVal, setRadioVal] = React.useState('undefined');
+  const [radioVal, setRadioVal] = !previousData ? React.useState('undefined') : React.useState(previousData.gender);
   function handleRadioChange(event) {
     setErrors({ ...errors, gender: false });
     setRadioVal(event.target.value);
   }
 
   // Selects logic
-  const [selectsVals, setSelectsVals] = React.useState({ });
+  const [selectsVals, setSelectsVals] = !previousData ? React.useState({ }) : React.useState({
+    age: previousData.age,
+    hdl: previousData.hdl,
+    ldl: previousData.ldl,
+    totaldl: previousData.totaldl,
+    ta: previousData.ta,
+    wt: previousData.wt,
+  });
   const handleSelectChange = (event) => {
     setErrors({ ...errors, [event.target.name]: false });
     setSelectsVals((oldValues) => ({
@@ -81,12 +88,18 @@ export default function Form(props) {
     }));
   };
 
+
   // Checkbox Logic
-  const [checkboxVals, setCheckboxState] = React.useState({
-    smoking: false,
-    diabetes: false,
-    hypertension_in_treatment: false,
-  });
+  const [checkboxVals, setCheckboxState] = !previousData
+    ? React.useState({
+      smoking: false,
+      diabetes: false,
+      hypertension_in_treatment: false,
+    }) : React.useState({
+      smoking: previousData.smoking,
+      diabetes: previousData.diabetes,
+      hypertension_in_treatment: previousData.treatment,
+    });
   const handleCheckboxChange = (name) => (event) => {
     setCheckboxState({ ...checkboxVals, [name]: event.target.checked });
   };
@@ -116,7 +129,7 @@ export default function Form(props) {
       age: undefined,
       hdl: undefined,
       ldl: undefined,
-      totald: undefined,
+      totaldl: undefined,
       ta: undefined,
       wt: undefined,
     }));
@@ -128,11 +141,11 @@ export default function Form(props) {
       age: false,
       hdl: false,
       ldl: false,
-      totald: false,
+      totaldl: false,
       ta: false,
       wt: false,
     });
-    props.resetResults();
+    props.cleanCalcInputs();
   }
 
   function calcButtonHandler() {
@@ -156,7 +169,7 @@ export default function Form(props) {
     };
 
     if (validateSubmittedData(requiredData, nonrequiredData)) {
-      props.datasubmittedHandler(allData);
+      props.datasubmittedHandler(allData, translations.calc);
     }
   }
 
@@ -191,10 +204,10 @@ export default function Form(props) {
                 }}
               >
 
-                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem`}>{val}</MenuItem>)}
+                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem-${val}`}>{val}</MenuItem>)}
 
 
-                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem`}>{val || translations.genderRequired}</MenuItem>)}
+                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem-${val}`}>{val || translations.genderRequired}</MenuItem>)}
 
 
               </Select>
@@ -205,7 +218,7 @@ export default function Form(props) {
           </React.Fragment>
         ))}
 
-        <FormGroup column={window.innerWidth > 1200} row={window.innerWidth > 1200}>
+        <FormGroup column={`${window.innerWidth > 1200}`} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? {display: 'flex', justifyContent: 'space-between' } : {marginTop: '20px', marginBottom: '20px' }}>
           {checkboxes.map((checkbox) => (
             <FormControlLabel
               control={(
@@ -220,8 +233,8 @@ export default function Form(props) {
               style={window.innerWidth > 1200 ? {
                 width: 'auto',
                 maxWidth: '32.25%',
-                marginRight: '8%',
-                marginLeft: checkbox.checkboxKey !== 'smoking' ? null : '-6%',
+                marginRight: checkbox.checkboxKey !== 'smoking' ? '8%' : '5%',
+                marginLeft: checkbox.checkboxKey !== 'smoking' ? null : '-10%',
               } : null}
             />
           ))}
@@ -274,8 +287,8 @@ export default function Form(props) {
 
 Form.propTypes = {
   datasubmittedHandler: PropTypes.func.isRequired,
-  resetResults: PropTypes.func.isRequired,
-  translations: PropTypes.exact({ // eslint-disable-line react/require-default-props
+  cleanCalcInputs: PropTypes.func.isRequired,
+  translations: PropTypes.exact({
     age: PropTypes.string.isRequired,
     arterial_pression: PropTypes.string.isRequired,
     colesterol_hdl: PropTypes.string.isRequired,
@@ -285,8 +298,19 @@ Form.propTypes = {
     gender: PropTypes.string.isRequired,
     hypertension_in_treatment: PropTypes.string.isRequired,
     man: PropTypes.string.isRequired,
+    risk_score_calculator: PropTypes.string.isRequired,
     smoking: PropTypes.string.isRequired,
     waist_circumference: PropTypes.string.isRequired,
     woman: PropTypes.string.isRequired,
-  }),
+    using_guidelines: PropTypes.string.isRequired,
+    calc: PropTypes.exact({
+      low: PropTypes.string.isRequired,
+      intermediate: PropTypes.string.isRequired,
+      high: PropTypes.string.isRequired
+    })
+  }).isRequired,
+  previousData: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]).isRequired,
 };

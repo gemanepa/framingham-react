@@ -24,7 +24,9 @@ module.exports = {
     'react',
   ],
   rules: {
-    "default-case": "off"
+    "default-case": "off",
+    "linebreak-style": "off",
+    "comma-dangle": 0
   },
   "overrides": [
     {

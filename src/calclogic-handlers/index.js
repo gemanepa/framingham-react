@@ -33,8 +33,7 @@ export default function FraminghamCalculator(data, translations) {
     agePoints,
     hdlPoints,
     smokingPoints,
-    risklevel,
-    translations,
+    risklevel
   );
 
   return {

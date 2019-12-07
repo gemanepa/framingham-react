@@ -145,7 +145,7 @@ export default function Form(props) {
       ta: false,
       wt: false,
     });
-    props.resetResults();
+    props.cleanCalcInputs();
   }
 
   function calcButtonHandler() {
@@ -169,7 +169,7 @@ export default function Form(props) {
     };
 
     if (validateSubmittedData(requiredData, nonrequiredData)) {
-      props.datasubmittedHandler(allData);
+      props.datasubmittedHandler(allData, translations.calc);
     }
   }
 
@@ -204,10 +204,10 @@ export default function Form(props) {
                 }}
               >
 
-                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem`}>{val}</MenuItem>)}
+                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem-${val}`}>{val}</MenuItem>)}
 
 
-                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem`}>{val || translations.genderRequired}</MenuItem>)}
+                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem-${val}`}>{val || translations.genderRequired}</MenuItem>)}
 
 
               </Select>
@@ -218,7 +218,7 @@ export default function Form(props) {
           </React.Fragment>
         ))}
 
-        <FormGroup column={window.innerWidth > 1200} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? {display: 'flex', justifyContent: 'space-between' } : {marginTop: '20px', marginBottom: '20px' }}>
+        <FormGroup column={`${window.innerWidth > 1200}`} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? {display: 'flex', justifyContent: 'space-between' } : {marginTop: '20px', marginBottom: '20px' }}>
           {checkboxes.map((checkbox) => (
             <FormControlLabel
               control={(
@@ -287,8 +287,8 @@ export default function Form(props) {
 
 Form.propTypes = {
   datasubmittedHandler: PropTypes.func.isRequired,
-  resetResults: PropTypes.func.isRequired,
-  translations: PropTypes.exact({ // eslint-disable-line react/require-default-props
+  cleanCalcInputs: PropTypes.func.isRequired,
+  translations: PropTypes.exact({
     age: PropTypes.string.isRequired,
     arterial_pression: PropTypes.string.isRequired,
     colesterol_hdl: PropTypes.string.isRequired,
@@ -298,8 +298,19 @@ Form.propTypes = {
     gender: PropTypes.string.isRequired,
     hypertension_in_treatment: PropTypes.string.isRequired,
     man: PropTypes.string.isRequired,
+    risk_score_calculator: PropTypes.string.isRequired,
     smoking: PropTypes.string.isRequired,
     waist_circumference: PropTypes.string.isRequired,
     woman: PropTypes.string.isRequired,
-  }),
+    using_guidelines: PropTypes.string.isRequired,
+    calc: PropTypes.exact({
+      low: PropTypes.string.isRequired,
+      intermediate: PropTypes.string.isRequired,
+      high: PropTypes.string.isRequired
+    })
+  }).isRequired,
+  previousData: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ]).isRequired,
 };

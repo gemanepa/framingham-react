@@ -86,7 +86,7 @@ export default function IconLabelButtons(props) {
             startIcon={<AndroidIcon />}
             data-test="NavButtons_androidapp"
           >
-            <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" className="anchor">
+            <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" className="anchor" rel="noopener noreferrer" target="_blank">
               <span>{androidapp}</span>
             </a>
           </Button>

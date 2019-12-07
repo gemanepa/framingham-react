@@ -1,34 +1,62 @@
 import React from 'react';
-import LinkIcon from '@material-ui/icons/Link';
 import Paper from '@material-ui/core/Paper';
-import Form from '../../Form';
+import Button from '@material-ui/core/Button';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-export default function CalcInput(props) {
-  const {
-    animationClass, classes, cleanCalcInputs, datasubmittedHandler, formData, translations
-  } = props;
+export default function Results(props) {
+  const { animationClass, classes, results, translations, goBack } = props;
   return (
     <>
-      <section id="calcinput" className={!animationClass ? 'opening-animation' : 'closing-animation'}>
-        <Paper className={`${window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile} `}>
-          <h2>{translations.risk_score_calculator}</h2>
-          <h5>
-            <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
-              {translations.using_guidelines}
-              <LinkIcon fontSize="small" />
-            </a>
-          </h5>
-          <Form
-            datasubmittedHandler={datasubmittedHandler}
-            cleanCalcInputs={cleanCalcInputs}
-            translations={translations}
-            previousData={formData}
-          />
+      <section id="results" className={animationClass ? 'opening-animation' : 'closing-animation'}>
+        <Paper
+          className={`${window.innerWidth > 1199
+            ? classes.paperDesktop : classes.paperMobile} ${animationClass.results}`}
+        >
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={(e) => goBack(e)}
+            className={classes.button}
+            startIcon={<ArrowBackIcon />}
+          >
+            <span>Back</span>
+          </Button>
+          <h2 className="resultsh2">{translations.results}</h2>
+          <h3>
+            {translations.score}
+            :
+            {' '}
+            {results.score}
+          </h3>
+          <h3>
+            {translations.cvd}
+            :
+            {' '}
+            {results.cvd}
+          </h3>
+          <h3>
+            {translations.heartage}
+            :
+            {' '}
+            {results.heartage}
+          </h3>
+          <h3>
+            {translations.risk}
+            :
+            {' '}
+            {results.risklevel}
+          </h3>
+          <h3>
+            {translations.treatment}
+            <br />
+            {results.needstreatment}
+          </h3>
         </Paper>
       </section>
       <style jsx>
         {`
-            section#calcinput h2 {
+            section#results h2 {
               color: #4689C8;
               text-align: center;
               margin: 0;
@@ -37,24 +65,22 @@ export default function CalcInput(props) {
               font-size: 200%;
             }
   
-            section#calcinput h3 {
+            section#results h2.resultsh2 {
+              margin-top: -5%;
+            }
+  
+            section#results h3 {
                 color: #4689C8;
                 font-weight: 600;
                 font-size: 170%;
             }
   
-            section#calcinput h5 {
-                margin-top: 0px;
-                color: #4689C8;
-                text-align: center;
-                font-weight: 600;
-            }
-            
             @media (min-width: 1200px) {
-              section#calcinput h2 {
-                  margin-bottom: -1.5%;
+              section#results h2 {
+                margin-bottom: -1.5%;
               }
             }
+            
   
             @keyframes flipOutX {
                 from {

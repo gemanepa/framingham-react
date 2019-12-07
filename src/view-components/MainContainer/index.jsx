@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import FraminghamCalculator from '../../calclogic-handlers';
 import TypeCalcInput from './containerType/calcinput';
+import TypeResults from './containerType/results';
 
 const useStyles = makeStyles((theme) => ({
   paperMobile: {
@@ -28,13 +26,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function containerType(type) {
-  const types = {
-    calcinput: 'asdf',
-    results: 'asdf'
-  };
-  return types[type];
-}
 
 export default function MainContainer(props) {
   const { translations } = props;
@@ -54,7 +45,7 @@ export default function MainContainer(props) {
     saveFormData(data);
     setResults(calculation);
     if (window.innerWidth < 1200) { resultsEl.current.scrollIntoView(); }
-    setTimeout(() => setContainerType(true), 500);
+    setTimeout(() => setContainerType('results'), 500);
     setAnimationClass(true);
   }
 
@@ -70,98 +61,38 @@ export default function MainContainer(props) {
     setTimeout(() => setContainerType('calcinput'), 500);
   }
 
+  function containerTypeHandler(type) {
+    const types = {
+      calcinput: (
+        <TypeCalcInput
+          animationClass={animationClass}
+          classes={classes}
+          cleanCalcInputs={cleanCalcInputs}
+          datasubmittedHandler={datasubmittedHandler}
+          formData={formData}
+          translations={translations.calcinput}
+        />
+      ),
+      results: (
+        <TypeResults
+          animationClass={animationClass}
+          classes={classes}
+          goBack={goBack}
+          results={results}
+          translations={translations.r3sults}
+        />
+      )
+    };
+    return types[type];
+  }
+
   return (
     <>
       <main ref={resultsEl} id="maincontainer">
-        {containerType === 'calcinput'
-          ? (
-            <TypeCalcInput
-              animationClass={animationClass}
-              classes={classes}
-              cleanCalcInputs={cleanCalcInputs}
-              datasubmittedHandler={datasubmittedHandler}
-              formData={formData}
-              translations={translations.calcinput}
-            />
-          )
-          : (
-            <div className={animationClass ? 'opening-animation' : 'closing-animation'}>
-              <Paper
-                className={`${window.innerWidth > 1199
-                  ? classes.paperDesktop : classes.paperMobile} ${animationClass.results}`}
-              >
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  size="large"
-                  onClick={(e) => goBack(e)}
-                  className={classes.button}
-                  startIcon={<ArrowBackIcon />}
-                >
-                  <span>Back</span>
-                </Button>
-                <h2 className="resultsh2">{translations.r3sults.results}</h2>
-                <h3>
-                  {translations.r3sults.score}
-                    :
-                  {' '}
-                  {results.score}
-                </h3>
-                <h3>
-                  {translations.r3sults.cvd}
-                    :
-                  {' '}
-                  {results.cvd}
-                </h3>
-                <h3>
-                  {translations.r3sults.heartage}
-                    :
-                  {' '}
-                  {results.heartage}
-                </h3>
-                <h3>
-                  {translations.r3sults.risk}
-                    :
-                  {' '}
-                  {results.risklevel}
-                </h3>
-                <h3>
-                  {translations.r3sults.treatment}
-                  <br />
-                  {results.needstreatment}
-                </h3>
-              </Paper>
-            </div>
-          )}
+        {containerTypeHandler(containerType)}
       </main>
       <style jsx>
         {`
-            main#maincontainer h2 {
-              color: #4689C8;
-              text-align: center;
-              margin: 0;
-              font-weight: 600;
-              text-shadow: 1px 1px #4689c8;
-              font-size: 200%;
-            }
-  
-            main#maincontainer h2.resultsh2 {
-              margin-top: -5%;
-            }
-  
-            main#maincontainer h3 {
-                color: #4689C8;
-                font-weight: 600;
-                font-size: 170%;
-            }
-  
-            main#maincontainer h5 {
-                margin-top: 0px;
-                color: #4689C8;
-                text-align: center;
-                font-weight: 600;
-            }
-  
             @media (max-width: 1199px) {
               main#maincontainer {
                 margin-bottom: 30px;
@@ -174,67 +105,6 @@ export default function MainContainer(props) {
                 min-height: 100%;
                 width: 49.5%;
               }
-  
-              main#maincontainer h2 {
-                margin-bottom: -1.5%;
-              }
-            }
-            
-  
-            @keyframes flipOutX {
-                from {
-                  transform: perspective(400px);
-                }
-              
-                30% {
-                  transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-                  opacity: 1;
-                }
-              
-                to {
-                  transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-                  opacity: 0;
-                }
-              }
-            
-            @keyframes flipInX {
-              from {
-                transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-                animation-timing-function: ease-in;
-                opacity: 0;
-              }
-            
-              40% {
-                transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-                animation-timing-function: ease-in;
-              }
-            
-              60% {
-                transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-                opacity: 1;
-              }
-            
-              80% {
-                transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-              }
-            
-              to {
-                transform: perspective(400px);
-              }
-            }
-  
-            .opening-animation {
-              backface-visibility: visible !important;
-              animation-name: flipInX;
-              animation-fill-mode: forwards;
-              animation-duration: 0.75s;
-            }
-  
-            .closing-animation {
-              animation-fill-mode: forwards;
-              animation-name: flipOutX;
-              animation-duration: 0.50s;
-              backface-visibility: visible !important;
             }
         `}
       </style>

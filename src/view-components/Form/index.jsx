@@ -204,10 +204,10 @@ export default function Form(props) {
                 }}
               >
 
-                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem`}>{val}</MenuItem>)}
+                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem-${val}`}>{val}</MenuItem>)}
 
 
-                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem`}>{val || translations.genderRequired}</MenuItem>)}
+                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem-${val}`}>{val || translations.genderRequired}</MenuItem>)}
 
 
               </Select>

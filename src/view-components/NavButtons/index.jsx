@@ -53,7 +53,7 @@ export default function IconLabelButtons(props) {
                 className={classes.button}
                 href="#maincontainer"
                 startIcon={<LocalHospitalIcon />}
-                data-test="NavButtons_calculate"
+                data-test="NavButtons_calculateBtn"
                 onClick={() => containerType.set('calcinput')}
               >
                 <span>{calculate}</span>
@@ -65,7 +65,7 @@ export default function IconLabelButtons(props) {
                 className={classes.button}
                 href="#maincontainer"
                 startIcon={<InfoIcon />}
-                data-test="NavButtons_info"
+                data-test="NavButtons_infoBtn"
                 onClick={() => containerType.set('info')}
               >
                 <span>{info}</span>
@@ -81,7 +81,7 @@ export default function IconLabelButtons(props) {
             size="large"
             className={classes.button}
             startIcon={containerType.get !== 'info' ? <InfoIcon /> : <LocalHospitalIcon />}
-            data-test="NavButtons_info"
+            data-test={containerType.get === 'info' ? 'NavButtons_infoBtn' : 'NavButtons_calcBtn'}
             onClick={() => containerType.set(containerType.get !== 'info' ? 'info' : 'calcinput')}
           >
             <span>{containerType.get !== 'info' ? info : calculate}</span>
@@ -104,9 +104,9 @@ export default function IconLabelButtons(props) {
             size="large"
             className={classes.button}
             startIcon={<AndroidIcon />}
-            data-test="NavButtons_androidapp"
+            data-test="NavButtons_androidappBtn"
           >
-            <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" className="anchor" rel="noopener noreferrer" target="_blank">
+            <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" className="anchor" rel="noopener noreferrer" target="_blank" data-test="NavButtons_androidappLink">
               <span>{androidapp}</span>
             </a>
           </Button>

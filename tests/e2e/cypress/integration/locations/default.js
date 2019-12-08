@@ -1,4 +1,5 @@
-// / <reference types="Cypress" />
+/* eslint-disable no-undef */ /* eslint-disable spaced-comment */
+/// <reference types="Cypress" />
 
 context('Location | Default Version', () => {
   beforeEach(() => {

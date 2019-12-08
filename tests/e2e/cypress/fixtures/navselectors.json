@@ -1,12 +1,15 @@
 {
     "static": {
+      "ci_elinksccs": "[data-test=\"CalcInput_elinkCCS\"]",
       "nb_androidbtn": "[data-test=\"NavButtons_androidappBtn\"]",
       "nb_androidlink": "[data-test=\"NavButtons_androidappLink\"]",
       "nb_elinksbtn": "[data-test=\"NavButtons_elinksBtn\"]",
       "nb_elinksfh": "[data-test=\"NavButtons_elinks_FHS\"]",
       "nb_elinksnih": "[data-test=\"NavButtons_elinks_NIH\"]",
       "nb_elinkswiki": "[data-test=\"NavButtons_elinks_Wiki\"]",
-      "ci_elinksccs": "[data-test=\"CalcInput_elinkCCS\"]"
+      "nb_languagebtn": "[data-test=\"NavButtons_languageBtn\"]",
+      "nb_languageen": "[data-test=\"Navbuttons_languages_en\"]",
+      "nb_languagees": "[data-test=\"Navbuttons_languages_es\"]"
     },
     "dynamic": {
       "main-docs":"[data-cy=\"SearchChips_valueButton\"]",

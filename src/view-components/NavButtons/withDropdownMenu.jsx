@@ -116,7 +116,7 @@ export default function CustomizedMenus(props) {
         { menuType === 'language'
           ? (
             <div key={`${menuType}-items`}>
-              <Link href="/?lang=en" color="secondary">
+              <Link href="/?lang=en" color="secondary" data-test="Navbuttons_languages_en">
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-en-menuitem`}>
                   <ListItemIcon key={`${menuType}-en-listitemicon`}>
                     <img src={enFlag} alt="" className="navflagsimgs" />
@@ -124,7 +124,7 @@ export default function CustomizedMenus(props) {
                   <ListItemText primary="English" key={`${menuType}-es-listitemtext`} />
                 </StyledMenuItem>
               </Link>
-              <Link href="/?lang=es" color="secondary">
+              <Link href="/?lang=es" color="secondary" data-test="Navbuttons_languages_es">
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-es-menuitem`}>
                   <ListItemIcon key={`${menuType}-es-listitemicon`}>
                     <img src={esFlag} alt="" className="navflagsimgs" />

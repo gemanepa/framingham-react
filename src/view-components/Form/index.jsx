@@ -181,8 +181,8 @@ export default function Form(props) {
           <FormLabel component="legend">{translations.gender}</FormLabel>
           <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={(event) => handleRadioChange(event)} row>
             <div className={errors.gender ? 'error' : ''}>
-              <FormControlLabel value="female" control={<Radio />} label={translations.woman} />
-              <FormControlLabel value="male" control={<Radio />} label={translations.man} />
+              <FormControlLabel value="female" control={<Radio />} label={translations.woman} data-test="Form_gender_female" />
+              <FormControlLabel value="male" control={<Radio />} label={translations.man} data-test="Form_gender_male" />
             </div>
 
           </RadioGroup>
@@ -202,12 +202,13 @@ export default function Form(props) {
                   name: select.name,
                   id: select.name,
                 }}
+                data-test={`Form_${select.name}Select`}
               >
 
-                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem-${val}`}>{val}</MenuItem>)}
+                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem-${val}`} data-test={`Form_${select.name}_${val.replace(/ /g, '')}`}>{val}</MenuItem>)}
 
 
-                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem-${val}`}>{val || translations.genderRequired}</MenuItem>)}
+                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem-${val}`} data-test={`Form_${select.name}_${val.replace(/ /g, '') || translations.genderRequired.replace(/ /g, '')}`}>{val || translations.genderRequired}</MenuItem>)}
 
 
               </Select>
@@ -229,6 +230,7 @@ export default function Form(props) {
               )}
               label={translations[checkbox.checkboxKey]}
               key={`checkbox-${checkbox.checkboxKey}-label`}
+              data-test={`Form_${checkbox.checkboxKey}Checkbox`}
               className="checkboxDefault"
               style={window.innerWidth > 1200 ? {
                 width: 'auto',
@@ -242,11 +244,11 @@ export default function Form(props) {
         <br />
 
         <div className="formbuttons">
-          <Button onClick={resetButtonHandler} variant="contained" color="secondary" className={classes.resetButton}>
+          <Button onClick={resetButtonHandler} variant="contained" color="secondary" className={classes.resetButton} data-test="Form_ResetButton">
             <DeleteIcon />
           </Button>
 
-          <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.calcButton}>
+          <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.calcButton} data-test="Form_SendButton">
             <SendIcon />
           </Button>
         </div>

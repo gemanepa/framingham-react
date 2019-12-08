@@ -1,6 +1,28 @@
 {
     "static": {
       "ci_elinksccs": "[data-test=\"CalcInput_elinkCCS\"]",
+      "form_gender_female": "[data-test=\"Form_gender_female\"]",
+      "form_gender_male": "[data-test=\"Form_gender_male\"]",
+      "form_age_select": "[data-test=\"Form_ageSelect\"] > div",
+      "form_age_menuitem": "[data-test=\"Form_age_30-34\"]",
+      "form_hdl_select": "[data-test=\"Form_hdlSelect\"] > div",
+      "form_hdl_menuitem": "[data-test=\"Form_hdl_<35.0\"]",
+      "form_ldl_select": "[data-test=\"Form_ldlSelect\"] > div",
+      "form_ldl_menuitem": "[data-test=\"Form_ldl_<80.0\"]",
+      "form_totaldl_select": "[data-test=\"Form_totaldlSelect\"] > div",
+      "form_totaldl_menuitem": "[data-test=\"Form_totaldl_<158\"]",
+      "form_ta_select": "[data-test=\"Form_taSelect\"] > div",
+      "form_ta_menuitem": "[data-test=\"Form_ta_<120\"]",
+      "form_wt_select": "[data-test=\"Form_wtSelect\"] > div",
+      "form_wt_menuitem": "[data-test=\"Form_wt_<88(35)\"]",
+      "form_treatment_checkbox": "[data-test=\"Form_hypertension_in_treatmentCheckbox\"] > span > span > input",
+      "form_smoking_checkbox": "[data-test=\"Form_smokingCheckbox\"] > span > span > input",
+      "form_diabetes_checkbox": "[data-test=\"Form_diabetesCheckbox\"] > span > span > input",
+      "form_sendbtn": "[data-test=\"Form_SendButton\"]",
+      "form_resetbtn": "[data-test=\"Form_ResetButton\"]",
+      "mc_calcinput": "[data-test=\"CalcInput_Container\"]",
+      "mc_results": "[data-test=\"Results_Container\"]",
+      "mc_info": "[data-test=\"Info_Container\"]",
       "nb_androidbtn": "[data-test=\"NavButtons_androidappBtn\"]",
       "nb_androidlink": "[data-test=\"NavButtons_androidappLink\"]",
       "nb_elinksbtn": "[data-test=\"NavButtons_elinksBtn\"]",
@@ -11,14 +33,6 @@
       "nb_languageen": "[data-test=\"Navbuttons_languages_en\"]",
       "nb_languagees": "[data-test=\"Navbuttons_languages_es\"]",
       "nb_infobtn": "[data-test=\"NavButtons_infoBtn\"]",
-      "nb_calcbtn": "[data-test=\"NavButtons_calcBtn\"]",
-      "mc_calcinput": "[data-test=\"CalcInput_Container\"]",
-      "mc_results": "[data-test=\"Results_Container\"]",
-      "mc_info": "[data-test=\"Info_Container\"]"
-    },
-    "dynamic": {
-      "main-docs":"[data-cy=\"SearchChips_valueButton\"]",
-      "docs-link": "[data-cy=\"SearchOption_valueLink\"]",
-      "about-patron": "[data-cy=\"Patron_valueLink\"]"
+      "nb_calcbtn": "[data-test=\"NavButtons_calcBtn\"]"
     }
   }

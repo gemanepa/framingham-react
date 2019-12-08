@@ -11,7 +11,7 @@ export default function Results(props) {
 
   return (
     <>
-      <section id="results" className="opening-animation">
+      <section id="results" className="opening-animation" data-test="Results_Container">
         <Paper
           className={`${window.innerWidth > 1199
             ? classes.paperDesktop : classes.paperMobile}`}
@@ -23,6 +23,7 @@ export default function Results(props) {
             onClick={() => containerType.set('calcinput')}
             className={classes.button}
             startIcon={<ArrowBackIcon />}
+            data-test="Results_Goback"
           >
             <span>Back</span>
           </Button>

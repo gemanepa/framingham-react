@@ -9,7 +9,12 @@
       "nb_elinkswiki": "[data-test=\"NavButtons_elinks_Wiki\"]",
       "nb_languagebtn": "[data-test=\"NavButtons_languageBtn\"]",
       "nb_languageen": "[data-test=\"Navbuttons_languages_en\"]",
-      "nb_languagees": "[data-test=\"Navbuttons_languages_es\"]"
+      "nb_languagees": "[data-test=\"Navbuttons_languages_es\"]",
+      "nb_infobtn": "[data-test=\"NavButtons_infoBtn\"]",
+      "nb_calcbtn": "[data-test=\"NavButtons_calcBtn\"]",
+      "mc_calcinput": "[data-test=\"CalcInput_Container\"]",
+      "mc_results": "[data-test=\"Results_Container\"]",
+      "mc_info": "[data-test=\"Info_Container\"]"
     },
     "dynamic": {
       "main-docs":"[data-cy=\"SearchChips_valueButton\"]",

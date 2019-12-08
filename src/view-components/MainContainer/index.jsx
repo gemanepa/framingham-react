@@ -126,6 +126,7 @@ MainContainer.propTypes = {
       colesterol_total: PropTypes.string.isRequired,
       diabetes: PropTypes.string.isRequired,
       gender: PropTypes.string.isRequired,
+      genderRequired: PropTypes.string.isRequired,
       hypertension_in_treatment: PropTypes.string.isRequired,
       man: PropTypes.string.isRequired,
       risk_score_calculator: PropTypes.string.isRequired,

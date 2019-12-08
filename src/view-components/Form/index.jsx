@@ -218,7 +218,7 @@ export default function Form(props) {
           </React.Fragment>
         ))}
 
-        <FormGroup column={`${window.innerWidth > 1200}`} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? {display: 'flex', justifyContent: 'space-between' } : {marginTop: '20px', marginBottom: '20px' }}>
+        <FormGroup column={`${window.innerWidth > 1200}`} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? { display: 'flex', justifyContent: 'space-between' } : { marginTop: '20px', marginBottom: '20px' }}>
           {checkboxes.map((checkbox) => (
             <FormControlLabel
               control={(
@@ -296,6 +296,7 @@ Form.propTypes = {
     colesterol_total: PropTypes.string.isRequired,
     diabetes: PropTypes.string.isRequired,
     gender: PropTypes.string.isRequired,
+    genderRequired: PropTypes.string.isRequired,
     hypertension_in_treatment: PropTypes.string.isRequired,
     man: PropTypes.string.isRequired,
     risk_score_calculator: PropTypes.string.isRequired,

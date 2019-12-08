@@ -53,7 +53,7 @@ export default function IconLabelButtons(props) {
                 className={classes.button}
                 href="#maincontainer"
                 startIcon={<LocalHospitalIcon />}
-                data-test="NavButtons_calculateBtn"
+                data-test="NavButtons_calcBtn"
                 onClick={() => containerType.set('calcinput')}
               >
                 <span>{calculate}</span>

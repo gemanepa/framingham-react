@@ -54,6 +54,7 @@ export default function Index() {
                       colesterol_total: translations.colesterol_total,
                       diabetes: translations.diabetes,
                       gender: translations.gender,
+                      genderRequired: translations.genderRequired,
                       hypertension_in_treatment: translations.hypertension_in_treatment,
                       man: translations.man,
                       risk_score_calculator: translations.risk_score_calculator,

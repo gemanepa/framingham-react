@@ -17,7 +17,7 @@ export default function CalcInput(props) {
 
   return (
     <>
-      <section id="calcinput" className={animationClass}>
+      <section id="calcinput" className={animationClass} data-test="CalcInput_Container">
         <Paper className={`${window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile} `}>
           <h2>{translations.risk_score_calculator}</h2>
           <h5>
@@ -145,6 +145,7 @@ CalcInput.propTypes = {
     colesterol_total: PropTypes.string.isRequired,
     diabetes: PropTypes.string.isRequired,
     gender: PropTypes.string.isRequired,
+    genderRequired: PropTypes.string.isRequired,
     hypertension_in_treatment: PropTypes.string.isRequired,
     man: PropTypes.string.isRequired,
     risk_score_calculator: PropTypes.string.isRequired,

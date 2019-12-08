@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */ /* eslint-disable spaced-comment */
 /// <reference types="Cypress" />
 
-context('Navigation | Languages', () => {
+context('Navigation | Switching Languages', () => {
   beforeEach(() => {
     cy.visit('/');
   });

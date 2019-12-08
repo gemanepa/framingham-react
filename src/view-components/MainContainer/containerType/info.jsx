@@ -9,7 +9,7 @@ export default function Info(props) {
 
   return (
     <>
-      <section id="info" className="opening-animation">
+      <section id="info" className="opening-animation" data-test="Info_Container">
         <Paper className={`${window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile} `}>
           <Button
             variant="contained"
@@ -18,6 +18,7 @@ export default function Info(props) {
             onClick={() => containerType.set('calcinput')}
             className={classes.button}
             startIcon={<ArrowBackIcon />}
+            data-test="Info_Goback"
           >
             <span>Back</span>
           </Button>

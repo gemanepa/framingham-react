@@ -1,13 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export default function Info(props) {
-  const {animationClass, classes } = props;
+  const { classes, containerType } = props;
 
   return (
     <>
-      <section id="info" className={!animationClass ? 'opening-animation' : 'closing-animation'}>
+      <section id="info" className="opening-animation">
         <Paper className={`${window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile} `}>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={() => containerType.set('calcinput')}
+            className={classes.button}
+            startIcon={<ArrowBackIcon />}
+          >
+            <span>Back</span>
+          </Button>
           <h2>ASDF</h2>
           <h5>
             LALALALALLALA
@@ -43,23 +56,7 @@ export default function Info(props) {
                   margin-bottom: -1.5%;
               }
             }
-  
-            @keyframes flipOutX {
-                from {
-                  transform: perspective(400px);
-                }
-              
-                30% {
-                  transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-                  opacity: 1;
-                }
-              
-                to {
-                  transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-                  opacity: 0;
-                }
-              }
-            
+
             @keyframes flipInX {
               from {
                 transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -92,15 +89,20 @@ export default function Info(props) {
               animation-fill-mode: forwards;
               animation-duration: 0.75s;
             }
-  
-            .closing-animation {
-              animation-fill-mode: forwards;
-              animation-name: flipOutX;
-              animation-duration: 0.50s;
-              backface-visibility: visible !important;
-            }
         `}
       </style>
     </>
   );
 }
+
+Info.propTypes = {
+  classes: PropTypes.exact({
+    button: PropTypes.string.isRequired,
+    paperDesktop: PropTypes.string.isRequired,
+    paperMobile: PropTypes.string.isRequired,
+  }).isRequired,
+  containerType: PropTypes.exact({
+    get: PropTypes.string.isRequired,
+    set: PropTypes.func.isRequired,
+  }).isRequired,
+};

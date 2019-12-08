@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import Head from '../src/view-components/Head';
 import Header from '../src/view-components/Header';
@@ -12,7 +12,6 @@ export default function Index() {
   const router = useRouter();
   const [translations, setTranslations] = React.useState(false);
   const [containerType, setContainerType] = React.useState('calcinput');
-  const [animationClass, setAnimationClass] = useState(false);
   const language = router.query.lang ? router.query.lang : 'en';
 
   import(`./../src/i18n/${language}.json`).then((strings) => {
@@ -45,7 +44,6 @@ export default function Index() {
                   />
                 </div>
                 <MainContainer
-                  animationClass={{ get: animationClass, set: setAnimationClass }}
                   containerType={{ get: containerType, set: setContainerType }}
                   translations={{
                     calcinput: {

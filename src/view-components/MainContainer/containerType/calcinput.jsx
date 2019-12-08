@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import LinkIcon from '@material-ui/icons/Link';
 import Paper from '@material-ui/core/Paper';
 import Form from '../../Form';
 
 export default function CalcInput(props) {
+  const [animationClass, setAnimationClass] = useState('opening-animation');
   const {
-    animationClass, classes, cleanCalcInputs, datasubmittedHandler, formData, translations
+    classes, cleanCalcInputs, datasubmittedHandler, formData, translations
   } = props;
+
+  function datasubmittedAnimationMiddleware(data, trnslations) {
+    setAnimationClass('closing-animation');
+    datasubmittedHandler(data, trnslations);
+  }
 
   return (
     <>
-      <section id="calcinput" className={!animationClass ? 'opening-animation' : 'closing-animation'}>
+      <section id="calcinput" className={animationClass}>
         <Paper className={`${window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile} `}>
           <h2>{translations.risk_score_calculator}</h2>
           <h5>
@@ -21,7 +27,7 @@ export default function CalcInput(props) {
             </a>
           </h5>
           <Form
-            datasubmittedHandler={datasubmittedHandler}
+            datasubmittedHandler={datasubmittedAnimationMiddleware}
             cleanCalcInputs={cleanCalcInputs}
             translations={translations}
             previousData={formData}
@@ -120,7 +126,6 @@ export default function CalcInput(props) {
 }
 
 CalcInput.propTypes = {
-  animationClass: PropTypes.oneOf([true, false]).isRequired,
   classes: PropTypes.exact({
     button: PropTypes.string.isRequired,
     paperDesktop: PropTypes.string.isRequired,

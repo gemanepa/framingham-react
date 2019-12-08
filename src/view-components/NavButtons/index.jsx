@@ -145,6 +145,10 @@ export default function IconLabelButtons(props) {
 }
 
 IconLabelButtons.propTypes = {
+  containerType: PropTypes.exact({
+    get: PropTypes.string.isRequired,
+    set: PropTypes.func.isRequired,
+  }).isRequired,
   translations: PropTypes.exact({
     androidapp: PropTypes.string.isRequired,
     calculate: PropTypes.string.isRequired,

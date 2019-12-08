@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import FraminghamCalculator from '../../calclogic-handlers';
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function MainContainer(props) {
-  const { animationClass, translations, containerType } = props;
+  const { translations, containerType } = props;
   const classes = useStyles();
   const [results, setResults] = React.useState({});
   const [formData, saveFormData] = React.useState(false);
@@ -45,22 +45,12 @@ export default function MainContainer(props) {
     setResults(calculation);
     if (window.innerWidth < 1200) { mainContainer.current.scrollIntoView(); }
     setTimeout(() => containerType.set('results'), 500);
-    animationClass.set(true);
   }
 
 
   /* Cleans input fields from data */
   function cleanCalcInputs() {
     setResults(false);
-  }
-
-
-  /* Handles coming back from results container to calcinput container
-  @param e: event object */
-  function goBack(e) {
-    e.preventDefault();
-    animationClass.set(false);
-    setTimeout(() => containerType.set('calcinput'), 500);
   }
 
 
@@ -71,7 +61,6 @@ export default function MainContainer(props) {
     const types = {
       calcinput: (
         <TypeCalcInput
-          animationClass={animationClass.get}
           classes={classes}
           cleanCalcInputs={cleanCalcInputs}
           datasubmittedHandler={datasubmittedHandler}
@@ -81,17 +70,16 @@ export default function MainContainer(props) {
       ),
       results: (
         <TypeResults
-          animationClass={animationClass.get}
           classes={classes}
-          goBack={goBack}
+          containerType={containerType}
           results={results}
           translations={translations.r3sults}
         />
       ),
       info: (
         <TypeInfo
-          animationClass={animationClass.get}
           classes={classes}
+          containerType={containerType}
         />
       )
     };
@@ -125,6 +113,10 @@ export default function MainContainer(props) {
 }
 
 MainContainer.propTypes = {
+  containerType: PropTypes.exact({
+    get: PropTypes.string.isRequired,
+    set: PropTypes.func.isRequired,
+  }).isRequired,
   translations: PropTypes.exact({
     calcinput: PropTypes.exact({
       age: PropTypes.string.isRequired,

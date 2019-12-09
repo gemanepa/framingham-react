@@ -15,11 +15,13 @@
       "form_ta_menuitem": "[data-test=\"Form_ta_<120\"]",
       "form_wt_select": "[data-test=\"Form_wtSelect\"] > div",
       "form_wt_menuitem": "[data-test=\"Form_wt_<88(35)\"]",
+      "form_wt_menuitem_nogender": "[data-test=\"Form_wt_Genderisrequired\"]",
       "form_treatment_checkbox": "[data-test=\"Form_hypertension_in_treatmentCheckbox\"] > span > span > input",
       "form_smoking_checkbox": "[data-test=\"Form_smokingCheckbox\"] > span > span > input",
       "form_diabetes_checkbox": "[data-test=\"Form_diabetesCheckbox\"] > span > span > input",
       "form_sendbtn": "[data-test=\"Form_SendButton\"]",
       "form_resetbtn": "[data-test=\"Form_ResetButton\"]",
+      "info_goback": "[data-test=\"Info_Goback\"]",
       "mc_calcinput": "[data-test=\"CalcInput_Container\"]",
       "mc_results": "[data-test=\"Results_Container\"]",
       "mc_info": "[data-test=\"Info_Container\"]",
@@ -33,6 +35,7 @@
       "nb_languageen": "[data-test=\"Navbuttons_languages_en\"]",
       "nb_languagees": "[data-test=\"Navbuttons_languages_es\"]",
       "nb_infobtn": "[data-test=\"NavButtons_infoBtn\"]",
-      "nb_calcbtn": "[data-test=\"NavButtons_calcBtn\"]"
+      "nb_calcbtn": "[data-test=\"NavButtons_calcBtn\"]",
+      "results_goback": "[data-test=\"Results_Goback\"]"
     }
   }

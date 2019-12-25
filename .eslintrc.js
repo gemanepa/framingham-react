@@ -26,7 +26,9 @@ module.exports = {
   rules: {
     "default-case": "off",
     "linebreak-style": "off",
-    "comma-dangle": 0
+    "camelcase": {properties: "never"},
+    "comma-dangle": 0,
+    "max-len": ["error", { "code": 120 }]
   },
   "overrides": [
     {

@@ -33,7 +33,8 @@ export default function FraminghamCalculator(data, translations) {
     agePoints,
     hdlPoints,
     smokingPoints,
-    risklevel
+    risklevel,
+    translations
   );
 
   return {
@@ -41,6 +42,6 @@ export default function FraminghamCalculator(data, translations) {
     cvd,
     heartage,
     risklevel: translations[risklevel],
-    needstreatment: translations[needstreatment],
+    needstreatment,
   };
 }

@@ -69,6 +69,10 @@ export default function Form(props) {
   function handleRadioChange(event) {
     setErrors({ ...errors, gender: false });
     setRadioVal(event.target.value);
+    setSelectsVals((oldValues) => ({
+      ...oldValues,
+      wt: undefined,
+    }));
   }
 
   // Selects logic

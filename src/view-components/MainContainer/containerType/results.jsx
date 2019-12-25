@@ -55,7 +55,7 @@ export default function Results(props) {
           <h3>
             {translations.treatment}
             <br />
-            {results.needstreatment}
+            {results.needstreatment.split('\n').map ((item, i) => <div key={i}>{item}</div>)}
           </h3>
         </Paper>
       </section>

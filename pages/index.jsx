@@ -63,9 +63,30 @@ export default function Index() {
                       woman: translations.woman,
                       using_guidelines: translations.using_guidelines,
                       calc: {
-                        low: translations.low,
+                        abdominal_aortic_aneurysm: translations.abdominal_aortic_aneurysm,
+                        age: translations.age,
+                        alternative_target: translations.alternative_target,
+                        aterosclerosis: translations.aterosclerosis,
+                        chronic_kidney_disease: translations.chronic_kidney_disease,
+                        decrease_in: translations.decrease_in,
+                        diabetes: translations.diabetes,
+                        high: translations.high,
                         intermediate: translations.intermediate,
-                        high: translations.high
+                        low: translations.low,
+                        or: translations.or,
+                        patient_highly_requires_treatment: translations.patient_highly_requires_treatment,
+                        patient_not_requires_treatment: translations.patient_not_requires_treatment,
+                        primary_target: translations.primary_target,
+                        smoking: translations.smoking,
+                        so_treatment_is_recommended: translations.so_treatment_is_recommended,
+                        statins_only_indicated: translations.statins_only_indicated,
+                        treatment_intermediate_hasfactors: translations.treatment_intermediate_hasfactors,
+                        treatment_intermediate_ldl: translations.treatment_intermediate_ldl,
+                        treatment_intermediate_norisks: translations.treatment_intermediate_norisks,
+                        treatment_low_diabetes: translations.treatment_low_diabetes,
+                        unknown: translations.unknown,
+                        waist_circumference: translations.waist_circumference,
+                        years: translations.years
                       }
                     },
                     r3sults: {

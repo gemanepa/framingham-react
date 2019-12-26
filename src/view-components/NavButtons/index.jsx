@@ -81,7 +81,7 @@ export default function IconLabelButtons(props) {
             size="large"
             className={classes.button}
             startIcon={containerType.get !== 'info' ? <InfoIcon /> : <LocalHospitalIcon />}
-            data-test={containerType.get === 'info' ? 'NavButtons_infoBtn' : 'NavButtons_calcBtn'}
+            data-test={containerType.get !== 'info' ? 'NavButtons_infoBtn' : 'NavButtons_calcBtn'}
             onClick={() => containerType.set(containerType.get !== 'info' ? 'info' : 'calcinput')}
           >
             <span>{containerType.get !== 'info' ? info : calculate}</span>

@@ -3,6 +3,7 @@
 
 context('i18n | en', () => {
     beforeEach(() => {
+      cy.viewport('macbook-15')
       cy.visit('/?lang=es');
     });
   
@@ -19,6 +20,18 @@ context('i18n | en', () => {
         cy.get(object.i18n.appHeader_title).last().contains('Framingham');
         cy.get(object.i18n.subheader).contains('Determina el riesgo de enfermedades cardiovasculares en 10 años') ;
       });
+    });
+
+    it('Should have es sentences in NavButtons component', () => {
+        cy.fixture('selectors').then((object) => {
+          cy.get(object.static.nb_infobtn).click({ force: true });
+    
+          cy.get(object.static.nb_calcbtn).contains('Calcular');
+
+          cy.viewport('iphone-6')
+          cy.reload()
+          cy.get(object.static.nb_calcbtn).contains('Calcular');
+        });
     });
 
     it('Should have es labels in Form component', () => {

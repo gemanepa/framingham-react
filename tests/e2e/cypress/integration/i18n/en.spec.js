@@ -3,6 +3,7 @@
 
 context('i18n | en', () => {
     beforeEach(() => {
+      cy.viewport('macbook-15')
       cy.visit('/?lang=en');
     });
   
@@ -19,6 +20,18 @@ context('i18n | en', () => {
         cy.get(object.i18n.appHeader_title).last().contains('CardioRisk');
         cy.get(object.i18n.subheader).contains('Determine the risk of cardiovascular diseases in 10 years') ;
       });
+    });
+
+    it('Should have en sentences in NavButtons component', () => {
+        cy.fixture('selectors').then((object) => {
+          cy.get(object.static.nb_infobtn).click({ force: true });
+    
+          cy.get(object.static.nb_calcbtn).contains('Calculate');
+
+          cy.viewport('iphone-6')
+          cy.reload()
+          cy.get(object.static.nb_calcbtn).contains('Calculate');
+        });
     });
 
     it('Should have en labels in Form component', () => {

@@ -27,32 +27,32 @@ export default function Results(props) {
           >
             <span>Back</span>
           </Button>
-          <h2 className="resultsh2">{translations.results}</h2>
-          <h3>
+          <h2 className="resultsh2" data-test="Results_Title">{translations.results}</h2>
+          <h3 data-test="Results_Score">
             {translations.score}
             :
             {' '}
             {results.score}
           </h3>
-          <h3>
+          <h3 data-test="Results_CVD">
             {translations.cvd}
             :
             {' '}
             {results.cvd}
           </h3>
-          <h3>
+          <h3 data-test="Results_Heartage">
             {translations.heartage}
             :
             {' '}
             {results.heartage}
           </h3>
-          <h3>
+          <h3 data-test="Results_Risk">
             {translations.risk}
             :
             {' '}
             {results.risklevel}
           </h3>
-          <h3>
+          <h3 data-test="Results_Treatment">
             {translations.treatment}
             <br />
             {results.needstreatment.split('\n').map ((item, i) => <div key={i}>{item}</div>)}

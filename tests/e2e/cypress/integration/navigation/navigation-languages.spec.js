@@ -7,7 +7,7 @@ context('Navigation | Switching Languages', () => {
   });
 
   it('should be in english site', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       const selectorBtn = cy.get(object.static.nb_languagebtn);
       selectorBtn.should('be.visible');
       selectorBtn.click({ force: true });
@@ -22,7 +22,7 @@ context('Navigation | Switching Languages', () => {
   });
 
   it('should be in spanish site', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       const selectorBtn = cy.get(object.static.nb_languagebtn);
       selectorBtn.should('be.visible');
       selectorBtn.click({ force: true });

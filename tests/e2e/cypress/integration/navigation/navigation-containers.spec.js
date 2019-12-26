@@ -7,7 +7,7 @@ context('Navigation | Switching Container Types', () => {
   });
 
   it('should render Info from NavButton, then CalcInput from NavButton', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       //CalcInput Container and Info NavButton should be visible
       cy.get(object.static.mc_calcinput).should('be.visible');
       cy.get(object.static.mc_info).should('not.exist');
@@ -33,7 +33,7 @@ context('Navigation | Switching Container Types', () => {
   });
 
   it('should render Results after filling Form, then CalcInput from GoBack btn', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.mc_calcinput).should('be.visible');
       cy.get(object.static.form_gender_female).click({ force: true });
       cy.get(object.static.form_age_select).click({ force: true });
@@ -61,7 +61,7 @@ context('Navigation | Switching Container Types', () => {
   });
 
   it('should render Results after filling Form, then Info from NavButton, then CalcInput from GoBack btn', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.mc_calcinput).should('be.visible');
       cy.get(object.static.form_gender_female).click({ force: true });
       cy.get(object.static.form_age_select).click({ force: true });

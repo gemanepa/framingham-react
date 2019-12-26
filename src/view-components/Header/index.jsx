@@ -20,14 +20,14 @@ export default function Header(props) {
   }
   return (
     <>
-      <header className="appHeader">
+      <header className="appHeader" data-test="appHeader">
         <img src={applogo} alt="CR Framingham" className="navlogo" />
         <h1>
           <span>{ firstString }</span>
           <span>{ secondString }</span>
         </h1>
       </header>
-      <h2 className="subheader">{briefDescription}</h2>
+      <h2 className="subheader" data-test="subheader" >{briefDescription}</h2>
       <style jsx>
         {`
         h1 {

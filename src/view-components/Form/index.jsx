@@ -198,7 +198,7 @@ export default function Form(props) {
               error={errors[select.name]}
               key={`select-${select.name}-formcontrol`}
             >
-              <InputLabel htmlFor={select.name}>{translations[select.label]}</InputLabel>
+              <InputLabel htmlFor={select.name} data-test={`Form_label_${select.name}`}>{translations[select.label]}</InputLabel>
               <Select
                 value={selectsVals[select.name] ? selectsVals[select.name] : ''}
                 onChange={handleSelectChange}

@@ -37,5 +37,20 @@
       "nb_infobtn": "[data-test=\"NavButtons_infoBtn\"]",
       "nb_calcbtn": "[data-test=\"NavButtons_calcBtn\"]",
       "results_goback": "[data-test=\"Results_Goback\"]"
+    },
+    "i18n": {
+      "appHeader_title": "[data-test=\"appHeader\"] > h1 > span",
+      "form_gender_female": "[data-test=\"Form_gender_female\"] > .MuiTypography-root",
+      "form_gender_male": "[data-test=\"Form_gender_male\"] > .MuiTypography-root",
+      "form_label_age": "[data-test=\"Form_label_age\"]",
+      "form_label_hdl": "[data-test=\"Form_label_hdl\"]",
+      "form_label_ldl": "[data-test=\"Form_label_ldl\"]",
+      "form_label_totaldl": "[data-test=\"Form_label_totaldl\"]",
+      "form_label_ta": "[data-test=\"Form_label_ta\"]",
+      "form_label_wt": "[data-test=\"Form_label_wt\"]",
+      "form_treatment_checkbox": "[data-test=\"Form_hypertension_in_treatmentCheckbox\"] > .MuiTypography-root",
+      "form_smoking_checkbox": "[data-test=\"Form_smokingCheckbox\"] > .MuiTypography-root",
+      "form_diabetes_checkbox": "[data-test=\"Form_diabetesCheckbox\"] > .MuiTypography-root",
+      "subheader": "[data-test=\"subheader\"]"
     }
   }

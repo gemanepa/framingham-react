@@ -7,7 +7,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should show results after filling form', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.mc_calcinput).should('be.visible');
       cy.get(object.static.form_gender_female).click({ force: true });
       cy.get(object.static.form_age_select).click({ force: true });
@@ -33,7 +33,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should fail all inputs validations', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_sendbtn).click({ force: true });
 
       cy.get('.Mui-error').then(($lis) => { expect($lis).to.have.length(18); });
@@ -41,7 +41,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should fail all inputs validations except gender', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_gender_female).click({ force: true });
       cy.get(object.static.form_sendbtn).click({ force: true });
       cy.get('.Mui-error').then(($lis) => { expect($lis).to.have.length(17); });
@@ -49,7 +49,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should fail all inputs validations except age', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_age_select).click({ force: true });
       cy.get(object.static.form_age_menuitem).click({ force: true });
       cy.get(object.static.form_sendbtn).click({ force: true });
@@ -58,7 +58,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should fail all inputs validations except hdl', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_ldl_select).click({ force: true });
       cy.get(object.static.form_ldl_menuitem).click({ force: true });
       cy.get(object.static.form_sendbtn).click({ force: true });
@@ -67,7 +67,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should fail all inputs validations except ldl', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_age_select).click({ force: true });
       cy.get(object.static.form_age_menuitem).click({ force: true });
       cy.get(object.static.form_sendbtn).click({ force: true });
@@ -76,7 +76,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should fail all inputs validations except totaldl', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_totaldl_select).click({ force: true });
       cy.get(object.static.form_totaldl_menuitem).click({ force: true });
       cy.get(object.static.form_sendbtn).click({ force: true });
@@ -85,7 +85,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should fail all inputs validations except ta', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_ta_select).click({ force: true });
       cy.get(object.static.form_ta_menuitem).click({ force: true });
       cy.get(object.static.form_sendbtn).click({ force: true });
@@ -94,7 +94,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should fail all inputs validations except wt when gender selected', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_gender_female).click({ force: true });
       cy.get(object.static.form_wt_select).click({ force: true });
       cy.get(object.static.form_wt_menuitem).click({ force: true });
@@ -104,7 +104,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should fail all inputs validations when wt selected with no gender', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_wt_select).click({ force: true });
       cy.get(object.static.form_wt_menuitem_nogender).click({ force: true });
       cy.get(object.static.form_sendbtn).click({ force: true });
@@ -113,7 +113,7 @@ context('Navigation | Form', () => {
   });
 
   it('Should clean all fields', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       cy.get(object.static.mc_calcinput).should('be.visible');
       cy.get(object.static.form_gender_female).click({ force: true });
       cy.get(object.static.form_age_select).click({ force: true });

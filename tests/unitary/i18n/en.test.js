@@ -16,7 +16,7 @@ test('en body props vals', () => {
         "app_name": "Framingham CR",
         "arterial_pression": "Systolic Arterial Pressure",
         "aterosclerosis": "Clinical Atherosclerosis",
-        "brief_description": "Determine the risk of cardiovascular diseases in 10 years.",
+        "brief_description": "Determine the risk of cardiovascular diseases in 10 years",
         "calculate": "Calculate",
         "chronic_kidney_disease": "Chronic Kidney Disease",
         "colesterol_hdl": "HDL Cholesterol",

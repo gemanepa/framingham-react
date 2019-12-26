@@ -7,7 +7,7 @@ context('Navigation | Elinks', () => {
   });
 
   it('should be linking to android app', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       const selectorBtn = cy.get(object.static.nb_androidbtn);
       selectorBtn.should('be.visible');
       selectorBtn.contains('Android App');
@@ -20,7 +20,7 @@ context('Navigation | Elinks', () => {
   });
 
   it('should be linking to Wikipedia', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       const selectorBtn = cy.get(object.static.nb_elinksbtn);
       selectorBtn.should('be.visible');
       selectorBtn.contains('Elinks');
@@ -38,7 +38,7 @@ context('Navigation | Elinks', () => {
   });
 
   it('should be linking to FHS', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       const selectorBtn = cy.get(object.static.nb_elinksbtn);
       selectorBtn.should('be.visible');
       selectorBtn.contains('Elinks');
@@ -56,7 +56,7 @@ context('Navigation | Elinks', () => {
   });
 
   it('should be linking to NIH', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       const selectorBtn = cy.get(object.static.nb_elinksbtn);
       selectorBtn.should('be.visible');
       selectorBtn.contains('Elinks');
@@ -74,7 +74,7 @@ context('Navigation | Elinks', () => {
   });
 
   it('should be linking to CCS', () => {
-    cy.fixture('navselectors').then((object) => {
+    cy.fixture('selectors').then((object) => {
       const selectorLink = cy.get(object.static.ci_elinksccs);
       selectorLink.should('be.visible');
       selectorLink.should('have.attr', 'href', 'https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf');

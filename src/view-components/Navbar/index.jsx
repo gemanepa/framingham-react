@@ -147,7 +147,7 @@ export function CustomizedMenus(props) {
                   <ListItemText primary="NIH" />
                 </StyledMenuItem>
               </a>
-              <a href="https://en.wikipedia.org/wiki/Framingham_Heart_Study" target="_blank" rel="noopener noreferrer" title="Wikipedia">
+              <a href="https://en.wikipedia.org/wiki/Framingham_Risk_Score" target="_blank" rel="noopener noreferrer" title="Wikipedia">
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-wiki-menuitem`}>
                   <ListItemIcon key={`${menuType}-wiki-listitemicon`}>
                     <img src={wikipediaLogo} alt="" className="wikilogo" />

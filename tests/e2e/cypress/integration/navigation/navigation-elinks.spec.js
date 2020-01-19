@@ -29,7 +29,7 @@ context('Navigation | Elinks', () => {
 
       const selectorLink = cy.get(object.static.nb_elinkswiki);
       selectorLink.should('exist');
-      selectorLink.should('have.attr', 'href', 'https://en.wikipedia.org/wiki/Framingham_Heart_Study');
+      selectorLink.should('have.attr', 'href', 'https://en.wikipedia.org/wiki/Framingham_Risk_Score');
       selectorLink.should('have.attr', 'title', 'Wikipedia');
       selectorLink.should('have.attr', 'target', '_blank');
       selectorLink.should('have.attr', 'rel', 'noopener noreferrer');

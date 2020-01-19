@@ -1,27 +1,4 @@
 
-/*
-                        abdominal_aortic_aneurysm: translations.abdominal_aortic_aneurysm,
-                        age: translations.age,
-                        alternative_target: translations.alternative_target,
-                        aterosclerosis: translations.aterosclerosis,
-                        chronic_kidney_disease: translations.chronic_kidney_disease,
-                        decrease_in: translations.decrease_in,
-                        high: translations.high,
-                        intermediate: translations.intermediate,
-                        low: translations.low,
-                        or: translations.or,
-                        patient_highly_requires_treatment: translations.patient_highly_requires_treatment,
-                        patient_not_requires_treatment: translations.patient_not_requires_treatment,
-                        primary_target: translations.primary_target,
-                        statins_only_indicated: translations.statins_only_indicated,
-                        treatment_intermediate_hasfactors: translations.treatment_intermediate_hasfactors,
-                        treatment_intermediate_ldl: translations.treatment_intermediate_ldl,
-                        treatment_intermediate_norisks: translations.treatment_intermediate_norisks,
-                        treatment_low_diabetes: translations.treatment_low_diabetes,
-                        unknown: translations.unknown,
-                        years: translations.years
-*/
-
 
 function risklevelLow(gender, diabetes, agePoints, translations) {
   const { age, abdominal_aortic_aneurysm, aterosclerosis, chronic_kidney_disease, or, patient_not_requires_treatment, statins_only_indicated, treatment_low_diabetes, years } = translations;

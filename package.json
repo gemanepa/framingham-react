@@ -56,6 +56,6 @@
     "start": "next start",
     "test": "npm run test:u && npm run test:e2e",
     "test:u": "jest tests/unitary",
-    "test:e2e": "npm run cypress:run"
+    "test:e2e": "npm run cy:run"
   }
 }

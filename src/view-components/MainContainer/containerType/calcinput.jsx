@@ -19,7 +19,7 @@ export default function CalcInput(props) {
     <>
       <section id="calcinput" className={animationClass} data-test="CalcInput_Container">
         <Paper className={`${window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile} `}>
-          <h2>{translations.risk_score_calculator}</h2>
+          <h2 data-test="CalcInput_Header">{translations.risk_score_calculator}</h2>
           <h5>
             <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer" data-test="CalcInput_elinkCCS">
               {translations.using_guidelines}

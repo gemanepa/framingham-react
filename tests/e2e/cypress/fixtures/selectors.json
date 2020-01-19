@@ -40,6 +40,7 @@
     },
     "i18n": {
       "appHeader_title": "[data-test=\"appHeader\"] > h1 > span",
+      "mc_calcheader": "[data-test=\"CalcInput_Header\"]",
       "form_gender_female": "[data-test=\"Form_gender_female\"] > .MuiTypography-root",
       "form_gender_male": "[data-test=\"Form_gender_male\"] > .MuiTypography-root",
       "form_label_age": "[data-test=\"Form_label_age\"]",
@@ -48,9 +49,25 @@
       "form_label_totaldl": "[data-test=\"Form_label_totaldl\"]",
       "form_label_ta": "[data-test=\"Form_label_ta\"]",
       "form_label_wt": "[data-test=\"Form_label_wt\"]",
+      "form_age_menuitem_50_54": "[data-test=\"Form_age_50-54\"]",
+      "form_age_menuitem_60_64": "[data-test=\"Form_age_60-64\"]",
+      "form_hdl_menuitem_35_45": "[data-test=\"Form_hdl_35.0-45.9\"]",
+      "form_ldl_menuitem_80": "[data-test=\"Form_ldl_<80.0\"]",
+      "form_ldl_menuitem_135": "[data-test=\"Form_ldl_>135.0\"]",
+      "form_totaldl_menuitem_158_200": "[data-test=\"Form_totaldl_158-200\"]",
+      "form_totaldl_menuitem_240_278": "[data-test=\"Form_totaldl_240-278\"]",
+      "form_ta_menuitem_120_129": "[data-test=\"Form_ta_120-129\"]",
+      "form_wt_menuitem_morethan102": "[data-test=\"Form_wt_>102(40)\"]",
+      "form_wt_menuitem_lessthan102": "[data-test=\"Form_wt_<102(40)\"]",
       "form_treatment_checkbox": "[data-test=\"Form_hypertension_in_treatmentCheckbox\"] > .MuiTypography-root",
       "form_smoking_checkbox": "[data-test=\"Form_smokingCheckbox\"] > .MuiTypography-root",
       "form_diabetes_checkbox": "[data-test=\"Form_diabetesCheckbox\"] > .MuiTypography-root",
-      "subheader": "[data-test=\"subheader\"]"
+      "subheader": "[data-test=\"subheader\"]",
+      "results_title": "[data-test=\"Results_Title\"]",
+      "results_score": "[data-test=\"Results_Score\"]",
+      "results_cvd": "[data-test=\"Results_CVD\"]",
+      "results_heartage": "[data-test=\"Results_Heartage\"]",
+      "results_risk": "[data-test=\"Results_Risk\"]",
+      "results_treatment": "[data-test=\"Results_Treatment\"]"
     }
   }

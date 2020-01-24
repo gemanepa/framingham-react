@@ -52,7 +52,6 @@ export default function Header(props) {
           text-shadow: 2px 2px #4689c8;
           font-size: 240%;
           text-align: center;
-          padding: ${handleSubheaderPadding()};
         }
       @media (max-width: 1199px) {
         .navlogo {
@@ -90,6 +89,7 @@ export default function Header(props) {
         h2.subheader {
           margin-top: -0.5vh;
           margin-bottom: -0.5vh;
+          padding: ${handleSubheaderPadding()};
         }
       }
 

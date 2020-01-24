@@ -223,7 +223,7 @@ export default function Form(props) {
           </React.Fragment>
         ))}
 
-        <FormGroup column={`${window.innerWidth > 1200}`} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? { display: 'flex', justifyContent: 'space-between' } : { marginTop: '20px', marginBottom: '20px' }}>
+        <FormGroup column={`${window.innerWidth > 1200}`} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? { display: 'flex', justifyContent: 'space-between', marginTop: '3vh' } : { marginTop: '20px', marginBottom: '20px' }}>
           {checkboxes.map((checkbox) => (
             <FormControlLabel
               control={(

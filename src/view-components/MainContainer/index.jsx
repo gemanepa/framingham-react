@@ -6,31 +6,34 @@ import TypeCalcInput from './containerType/calcinput';
 import TypeResults from './containerType/results';
 import TypeInfo from './containerType/info';
 
-const useStyles = makeStyles((theme) => ({
-  button: {
-    margin: theme.spacing(1),
-    backgroundColor: '#4689c8',
-    textShadow: '1px 1px #005c97',
-    '&:hover': {
-      background: '#005c97',
-    },
-  },
-  paperDesktop: {
-    padding: theme.spacing(3, 3),
-    width: '90%',
-    minHeight: '80vh',
-    margin: '5% auto',
-  },
-  paperMobile: {
-    padding: theme.spacing(3, 3),
-    height: 'auto',
-    width: '100%',
-  }
-}));
+
 
 
 export default function MainContainer(props) {
   const { translations, containerType } = props;
+
+  const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+      backgroundColor: '#4689c8',
+      textShadow: '1px 1px #005c97',
+      '&:hover': {
+        background: '#005c97',
+      },
+    },
+    paperDesktop: {
+      padding: () => containerType.get === 'calcinput' ? '34px 24px 24px 50px' : theme.spacing(3, 3),
+      width: '90%',
+      minHeight: '80vh',
+      margin: '5% auto'
+    },
+    paperMobile: {
+      padding: theme.spacing(3, 3),
+      height: 'auto',
+      width: '100%',
+    }
+  }));
+
   const classes = useStyles();
   const [results, setResults] = React.useState({});
   const [formData, saveFormData] = React.useState(false);

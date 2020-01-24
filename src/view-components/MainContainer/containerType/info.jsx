@@ -36,7 +36,8 @@ export default function Info(props) {
               font-weight: 600;
               text-shadow: 1px 1px #4689c8;
               font-size: 200%;
-              margin-bottom: 2.5%!important;
+              margin-top: 15px;
+              margin-bottom: 15px;
             }
   
             section#info h3 {
@@ -55,6 +56,7 @@ export default function Info(props) {
             @media (min-width: 1200px) {
               section#info h2 {
                   margin-top: -5%!important;
+                  margin-bottom: 2.5%!important;
               }
             }
 

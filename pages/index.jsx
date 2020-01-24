@@ -89,6 +89,21 @@ export default function Index() {
                         years: translations.years
                       }
                     },
+                    info: {
+                      back: translations.back,
+                      background: translations.background,
+                      background_text1: translations.background_text1,
+                      background_text2: translations.background_text2,
+                      background_text3: translations.background_text3,
+                      validation: translations.validation,
+                      validation_text: translations.validation_text,
+                      usefulness: translations.usefulness,
+                      usefulness_text_start: translations.usefulness_text_start,
+                      usefulness_text_lowrisk: translations.usefulness_text_lowrisk,
+                      usefulness_text_intermediaterisk: translations.usefulness_text_intermediaterisk,
+                      usefulness_text_highrisk: translations.usefulness_text_highrisk,
+                      usefulness_text_end: translations.usefulness_text_end
+                    },
                     r3sults: {
                       score: translations.score,
                       cvd: translations.cvd,

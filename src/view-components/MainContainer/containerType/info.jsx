@@ -6,7 +6,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ExpansionPanel from '../../ExpansionPanel'
 
 export default function Info(props) {
-  const { classes, containerType } = props;
+  const { classes, containerType, translations } = props;
 
   return (
     <>
@@ -21,10 +21,10 @@ export default function Info(props) {
             startIcon={<ArrowBackIcon />}
             data-test="Info_Goback"
           >
-            <span>Back</span>
+            <span>{translations.back}</span>
           </Button>
           <h2>Info</h2>
-          <ExpansionPanel />
+          <ExpansionPanel translations={translations} />
         </Paper>
       </section>
       <style jsx>

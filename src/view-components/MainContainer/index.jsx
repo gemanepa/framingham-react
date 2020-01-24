@@ -83,6 +83,7 @@ export default function MainContainer(props) {
         <TypeInfo
           classes={classes}
           containerType={containerType}
+          translations={translations.info}
         />
       )
     };

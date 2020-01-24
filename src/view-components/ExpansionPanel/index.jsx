@@ -50,7 +50,8 @@ const ExpansionPanelDetails = withStyles(theme => ({
   },
 }))(MuiExpansionPanelDetails);
 
-export default function CustomizedExpansionPanels() {
+export default function CustomizedExpansionPanels(props) {
+  const { translations } = props;
   const [expanded, setExpanded] = React.useState('panel1');
 
   const handleChange = panel => (event, newExpanded) => {
@@ -61,36 +62,41 @@ export default function CustomizedExpansionPanels() {
     <div>
       <ExpansionPanel square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <ExpansionPanelSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>Usefulness</Typography>
+          <Typography>{translations.usefulness}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-          Coronary heart disease (CHD) risk at 10 years in percent can be calculated with the help of the Framingham Risk Score. Individuals with low risk have 10% or less CHD risk at 10 years, with intermediate risk 10-20%, and with high risk 20% or more. However it should be remembered that these categorisations are arbitrary.
-         </Typography>
+          {translations.usefulness_text_start}
+          <ul>
+            <li>{translations.usefulness_text_lowrisk}</li>
+            <li>{translations.usefulness_text_intermediaterisk}</li>
+            <li>{translations.usefulness_text_highrisk}</li>
+          </ul>
+          <i>{translations.usefulness_text_end}</i>
+          </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <ExpansionPanelSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>Background</Typography>
+          <Typography>{translations.background}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-          An individual's risk for future cardiovascular events is modifiable by lifestyle changes and preventive medical treatment. 
+          {translations.background_text1}
           <br /><br />
-          Lifestyle changes can include stopping smoking, healthy diet, regular exercise, etc. Preventive medical treatment can include a statin, mini dose aspirin, treatment for hypertension, etc.
+          {translations.background_text2}
           <br /><br />
-          It is important to be able to predict the risk of an individual patient in order to decide when to initiate lifestyle modification and preventive medical treatment and multiple risk models for the prediction of cardiovascular risk of individual patients have been developed. 
-          One such key risk model is the Framingham Risk Score.
+          {translations.background_text3} 
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <ExpansionPanelSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>Validation</Typography>
+        <Typography>{translations.validation}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-          The Framingham Risk Score has been validated in the US, both in men and women, both in European Americans and African Americans.
+          {translations.validation_text}
           <a href="https://pubmed.ncbi.nlm.nih.gov/11448281-validation-of-the-framingham-coronary-heart-disease-prediction-scores-results-of-a-multiple-ethnic-groups-investigation/" target="_blank" rel="noopener noreferrer" data-test="Info_ValidationElink">
             <LinkIcon fontSize="small" />
           </a>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ExpansionPanel from '../../ExpansionPanel'
 
 export default function Info(props) {
   const { classes, containerType } = props;
@@ -22,10 +23,8 @@ export default function Info(props) {
           >
             <span>Back</span>
           </Button>
-          <h2>ASDF</h2>
-          <h5>
-            LALALALALLALA
-          </h5>
+          <h2>Info</h2>
+          <ExpansionPanel />
         </Paper>
       </section>
       <style jsx>
@@ -37,6 +36,7 @@ export default function Info(props) {
               font-weight: 600;
               text-shadow: 1px 1px #4689c8;
               font-size: 200%;
+              margin-bottom: 2.5%!important;
             }
   
             section#info h3 {
@@ -54,7 +54,7 @@ export default function Info(props) {
             
             @media (min-width: 1200px) {
               section#info h2 {
-                  margin-bottom: -1.5%;
+                  margin-top: -5%!important;
               }
             }
 

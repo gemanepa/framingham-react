@@ -19,6 +19,7 @@ export default function Info(props) {
             onClick={() => containerType.set('calcinput')}
             className={classes.button}
             startIcon={<ArrowBackIcon />}
+            href="#maincontainer"
             data-test="Info_Goback"
           >
             <span>{translations.back}</span>

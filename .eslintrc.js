@@ -30,9 +30,9 @@ module.exports = {
     "comma-dangle": 0,
     "max-len": ["error", { "code": 120 }]
   },
-  "overrides": [
+  overrides: [
     {
-      "files": ["test/*.spec.js", "cypress/integration/*.spec.js"], // Or *.test.js
+      "ignorePatterns": [".next/", "node_modules/"],
       "rules": {
         "no-undef": "off",
         "no-unused-expressions": "off"

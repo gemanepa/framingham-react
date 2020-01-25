@@ -69,6 +69,10 @@ export default function Form(props) {
   function handleRadioChange(event) {
     setErrors({ ...errors, gender: false });
     setRadioVal(event.target.value);
+    setSelectsVals((oldValues) => ({
+      ...oldValues,
+      wt: undefined,
+    }));
   }
 
   // Selects logic
@@ -181,8 +185,8 @@ export default function Form(props) {
           <FormLabel component="legend">{translations.gender}</FormLabel>
           <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={(event) => handleRadioChange(event)} row>
             <div className={errors.gender ? 'error' : ''}>
-              <FormControlLabel value="female" control={<Radio />} label={translations.woman} />
-              <FormControlLabel value="male" control={<Radio />} label={translations.man} />
+              <FormControlLabel value="female" control={<Radio />} label={translations.woman} data-test="Form_gender_female" />
+              <FormControlLabel value="male" control={<Radio />} label={translations.man} data-test="Form_gender_male" />
             </div>
 
           </RadioGroup>
@@ -194,7 +198,7 @@ export default function Form(props) {
               error={errors[select.name]}
               key={`select-${select.name}-formcontrol`}
             >
-              <InputLabel htmlFor={select.name}>{translations[select.label]}</InputLabel>
+              <InputLabel htmlFor={select.name} data-test={`Form_label_${select.name}`}>{translations[select.label]}</InputLabel>
               <Select
                 value={selectsVals[select.name] ? selectsVals[select.name] : ''}
                 onChange={handleSelectChange}
@@ -202,12 +206,13 @@ export default function Form(props) {
                   name: select.name,
                   id: select.name,
                 }}
+                data-test={`Form_${select.name}Select`}
               >
 
-                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem-${val}`}>{val}</MenuItem>)}
+                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem-${val}`} data-test={`Form_${select.name}_${val.replace(/ /g, '')}`}>{val}</MenuItem>)}
 
 
-                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem-${val}`}>{val || translations.genderRequired}</MenuItem>)}
+                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem-${val}`} data-test={`Form_${select.name}_${val.replace(/ /g, '') || translations.genderRequired.replace(/ /g, '')}`}>{val || translations.genderRequired}</MenuItem>)}
 
 
               </Select>
@@ -218,7 +223,7 @@ export default function Form(props) {
           </React.Fragment>
         ))}
 
-        <FormGroup column={`${window.innerWidth > 1200}`} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? {display: 'flex', justifyContent: 'space-between' } : {marginTop: '20px', marginBottom: '20px' }}>
+        <FormGroup column={`${window.innerWidth > 1200}`} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? { display: 'flex', justifyContent: 'space-between', marginTop: '3vh' } : { marginTop: '20px', marginBottom: '20px' }}>
           {checkboxes.map((checkbox) => (
             <FormControlLabel
               control={(
@@ -229,6 +234,7 @@ export default function Form(props) {
               )}
               label={translations[checkbox.checkboxKey]}
               key={`checkbox-${checkbox.checkboxKey}-label`}
+              data-test={`Form_${checkbox.checkboxKey}Checkbox`}
               className="checkboxDefault"
               style={window.innerWidth > 1200 ? {
                 width: 'auto',
@@ -242,11 +248,11 @@ export default function Form(props) {
         <br />
 
         <div className="formbuttons">
-          <Button onClick={resetButtonHandler} variant="contained" color="secondary" className={classes.resetButton}>
+          <Button onClick={resetButtonHandler} variant="contained" color="secondary" className={classes.resetButton} data-test="Form_ResetButton">
             <DeleteIcon />
           </Button>
 
-          <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.calcButton}>
+          <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.calcButton} data-test="Form_SendButton">
             <SendIcon />
           </Button>
         </div>
@@ -296,6 +302,7 @@ Form.propTypes = {
     colesterol_total: PropTypes.string.isRequired,
     diabetes: PropTypes.string.isRequired,
     gender: PropTypes.string.isRequired,
+    genderRequired: PropTypes.string.isRequired,
     hypertension_in_treatment: PropTypes.string.isRequired,
     man: PropTypes.string.isRequired,
     risk_score_calculator: PropTypes.string.isRequired,

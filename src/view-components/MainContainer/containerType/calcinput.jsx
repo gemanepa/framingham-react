@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import LinkIcon from '@material-ui/icons/Link';
 import Paper from '@material-ui/core/Paper';
 import Form from '../../Form';
 
 export default function CalcInput(props) {
+  const [animationClass, setAnimationClass] = useState('opening-animation');
   const {
-    animationClass, classes, cleanCalcInputs, datasubmittedHandler, formData, translations
+    classes, cleanCalcInputs, datasubmittedHandler, formData, translations
   } = props;
+
+  function datasubmittedAnimationMiddleware(data, trnslations) {
+    setAnimationClass('closing-animation');
+    datasubmittedHandler(data, trnslations);
+  }
 
   return (
     <>
-      <section id="calcinput" className={!animationClass ? 'opening-animation' : 'closing-animation'}>
+      <section id="calcinput" className={animationClass} data-test="CalcInput_Container">
         <Paper className={`${window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile} `}>
-          <h2>{translations.risk_score_calculator}</h2>
+          <h2 data-test="CalcInput_Header">{translations.risk_score_calculator}</h2>
           <h5>
-            <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer" data-test="CalcInput_elinkCCS">
               {translations.using_guidelines}
               <LinkIcon fontSize="small" />
             </a>
           </h5>
           <Form
-            datasubmittedHandler={datasubmittedHandler}
+            datasubmittedHandler={datasubmittedAnimationMiddleware}
             cleanCalcInputs={cleanCalcInputs}
             translations={translations}
             previousData={formData}
@@ -120,7 +126,6 @@ export default function CalcInput(props) {
 }
 
 CalcInput.propTypes = {
-  animationClass: PropTypes.oneOf([true, false]).isRequired,
   classes: PropTypes.exact({
     button: PropTypes.string.isRequired,
     paperDesktop: PropTypes.string.isRequired,
@@ -140,6 +145,7 @@ CalcInput.propTypes = {
     colesterol_total: PropTypes.string.isRequired,
     diabetes: PropTypes.string.isRequired,
     gender: PropTypes.string.isRequired,
+    genderRequired: PropTypes.string.isRequired,
     hypertension_in_treatment: PropTypes.string.isRequired,
     man: PropTypes.string.isRequired,
     risk_score_calculator: PropTypes.string.isRequired,

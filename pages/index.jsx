@@ -11,6 +11,7 @@ import headLang from '../src/i18n/head.json';
 export default function Index() {
   const router = useRouter();
   const [translations, setTranslations] = React.useState(false);
+  const [containerType, setContainerType] = React.useState('calcinput');
   const language = router.query.lang ? router.query.lang : 'en';
 
   import(`./../src/i18n/${language}.json`).then((strings) => {
@@ -32,45 +33,86 @@ export default function Index() {
                     }}
                     lang={language}
                   />
-                  <NavButtons translations={{
-                    androidapp: translations.androidapp,
-                    calculate: translations.calculate,
-                    elinks: translations.elinks,
-                    info: translations.info
-                  }}
+                  <NavButtons
+                    containerType={{ get: containerType, set: setContainerType }}
+                    translations={{
+                      androidapp: translations.androidapp,
+                      calculate: translations.calculate,
+                      elinks: translations.elinks,
+                      info: translations.info
+                    }}
                   />
                 </div>
-                <MainContainer translations={{
-                  calcinput: {
-                    age: translations.age,
-                    arterial_pression: translations.arterial_pression,
-                    colesterol_hdl: translations.colesterol_hdl,
-                    colesterol_ldl: translations.colesterol_ldl,
-                    colesterol_total: translations.colesterol_total,
-                    diabetes: translations.diabetes,
-                    gender: translations.gender,
-                    hypertension_in_treatment: translations.hypertension_in_treatment,
-                    man: translations.man,
-                    risk_score_calculator: translations.risk_score_calculator,
-                    smoking: translations.smoking,
-                    waist_circumference: translations.waist_circumference,
-                    woman: translations.woman,
-                    using_guidelines: translations.using_guidelines,
-                    calc: {
-                      low: translations.low,
-                      intermediate: translations.intermediate,
-                      high: translations.high
+                <MainContainer
+                  containerType={{ get: containerType, set: setContainerType }}
+                  translations={{
+                    calcinput: {
+                      age: translations.age,
+                      arterial_pression: translations.arterial_pression,
+                      colesterol_hdl: translations.colesterol_hdl,
+                      colesterol_ldl: translations.colesterol_ldl,
+                      colesterol_total: translations.colesterol_total,
+                      diabetes: translations.diabetes,
+                      gender: translations.gender,
+                      genderRequired: translations.genderRequired,
+                      hypertension_in_treatment: translations.hypertension_in_treatment,
+                      man: translations.man,
+                      risk_score_calculator: translations.risk_score_calculator,
+                      smoking: translations.smoking,
+                      waist_circumference: translations.waist_circumference,
+                      woman: translations.woman,
+                      using_guidelines: translations.using_guidelines,
+                      calc: {
+                        abdominal_aortic_aneurysm: translations.abdominal_aortic_aneurysm,
+                        age: translations.age,
+                        alternative_target: translations.alternative_target,
+                        aterosclerosis: translations.aterosclerosis,
+                        chronic_kidney_disease: translations.chronic_kidney_disease,
+                        decrease_in: translations.decrease_in,
+                        diabetes: translations.diabetes,
+                        high: translations.high,
+                        intermediate: translations.intermediate,
+                        low: translations.low,
+                        or: translations.or,
+                        patient_highly_requires_treatment: translations.patient_highly_requires_treatment,
+                        patient_not_requires_treatment: translations.patient_not_requires_treatment,
+                        primary_target: translations.primary_target,
+                        smoking: translations.smoking,
+                        so_treatment_is_recommended: translations.so_treatment_is_recommended,
+                        statins_only_indicated: translations.statins_only_indicated,
+                        treatment_intermediate_hasfactors: translations.treatment_intermediate_hasfactors,
+                        treatment_intermediate_ldl: translations.treatment_intermediate_ldl,
+                        treatment_intermediate_norisks: translations.treatment_intermediate_norisks,
+                        treatment_low_diabetes: translations.treatment_low_diabetes,
+                        unknown: translations.unknown,
+                        waist_circumference: translations.waist_circumference,
+                        years: translations.years
+                      }
+                    },
+                    info: {
+                      back: translations.back,
+                      background: translations.background,
+                      background_text1: translations.background_text1,
+                      background_text2: translations.background_text2,
+                      background_text3: translations.background_text3,
+                      validation: translations.validation,
+                      validation_text: translations.validation_text,
+                      usefulness: translations.usefulness,
+                      usefulness_text_start: translations.usefulness_text_start,
+                      usefulness_text_lowrisk: translations.usefulness_text_lowrisk,
+                      usefulness_text_intermediaterisk: translations.usefulness_text_intermediaterisk,
+                      usefulness_text_highrisk: translations.usefulness_text_highrisk,
+                      usefulness_text_end: translations.usefulness_text_end
+                    },
+                    r3sults: {
+                      score: translations.score,
+                      cvd: translations.cvd,
+                      heartage: translations.heartage,
+                      results: translations.results,
+                      risk: translations.risk,
+                      treatment: translations.treatment
                     }
-                  },
-                  r3sults: {
-                    score: translations.score,
-                    cvd: translations.cvd,
-                    heartage: translations.heartage,
-                    results: translations.results,
-                    risk: translations.risk,
-                    treatment: translations.treatment
-                  }
-                }}
+                  }}
                 />
               </div>
               <Footer />

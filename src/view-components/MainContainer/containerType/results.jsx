@@ -5,54 +5,57 @@ import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export default function Results(props) {
-  const { animationClass, classes, goBack, results, translations } = props;
+  const {
+    classes, containerType, results, translations
+  } = props;
 
   return (
     <>
-      <section id="results" className={animationClass ? 'opening-animation' : 'closing-animation'}>
+      <section id="results" className="opening-animation" data-test="Results_Container">
         <Paper
           className={`${window.innerWidth > 1199
-            ? classes.paperDesktop : classes.paperMobile} ${animationClass.results}`}
+            ? classes.paperDesktop : classes.paperMobile}`}
         >
           <Button
             variant="contained"
             color="secondary"
             size="large"
-            onClick={(e) => goBack(e)}
+            onClick={() => containerType.set('calcinput')}
             className={classes.button}
             startIcon={<ArrowBackIcon />}
+            data-test="Results_Goback"
           >
             <span>Back</span>
           </Button>
-          <h2 className="resultsh2">{translations.results}</h2>
-          <h3>
+          <h2 className="resultsh2" data-test="Results_Title">{translations.results}</h2>
+          <h3 data-test="Results_Score">
             {translations.score}
             :
             {' '}
             {results.score}
           </h3>
-          <h3>
+          <h3 data-test="Results_CVD">
             {translations.cvd}
             :
             {' '}
             {results.cvd}
           </h3>
-          <h3>
+          <h3 data-test="Results_Heartage">
             {translations.heartage}
             :
             {' '}
             {results.heartage}
           </h3>
-          <h3>
+          <h3 data-test="Results_Risk">
             {translations.risk}
             :
             {' '}
             {results.risklevel}
           </h3>
-          <h3>
+          <h3 data-test="Results_Treatment">
             {translations.treatment}
             <br />
-            {results.needstreatment}
+            {results.needstreatment.split('\n').map ((item, i) => <div key={i}>{item}</div>)}
           </h3>
         </Paper>
       </section>
@@ -82,63 +85,39 @@ export default function Results(props) {
                 margin-bottom: -1.5%;
               }
             }
-            
-  
-            @keyframes flipOutX {
-                from {
-                  transform: perspective(400px);
-                }
-              
-                30% {
-                  transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-                  opacity: 1;
-                }
-              
-                to {
-                  transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-                  opacity: 0;
-                }
-              }
-            
-            @keyframes flipInX {
-              from {
-                transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-                animation-timing-function: ease-in;
-                opacity: 0;
-              }
-            
-              40% {
-                transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-                animation-timing-function: ease-in;
-              }
-            
-              60% {
-                transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-                opacity: 1;
-              }
-            
-              80% {
-                transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-              }
-            
-              to {
-                transform: perspective(400px);
-              }
+          
+          @keyframes flipInX {
+            from {
+              transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+              animation-timing-function: ease-in;
+              opacity: 0;
             }
-  
-            .opening-animation {
-              backface-visibility: visible !important;
-              animation-name: flipInX;
-              animation-fill-mode: forwards;
-              animation-duration: 0.75s;
+          
+            40% {
+              transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+              animation-timing-function: ease-in;
             }
-  
-            .closing-animation {
-              animation-fill-mode: forwards;
-              animation-name: flipOutX;
-              animation-duration: 0.50s;
-              backface-visibility: visible !important;
+          
+            60% {
+              transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+              opacity: 1;
             }
+          
+            80% {
+              transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+            }
+          
+            to {
+              transform: perspective(400px);
+            }
+          }
+
+          .opening-animation {
+            backface-visibility: visible !important;
+            animation-name: flipInX;
+            animation-fill-mode: forwards;
+            animation-duration: 0.75s;
+          }
         `}
       </style>
     </>
@@ -146,13 +125,15 @@ export default function Results(props) {
 }
 
 Results.propTypes = {
-  animationClass: PropTypes.oneOf([true, false]).isRequired,
   classes: PropTypes.exact({
     button: PropTypes.string.isRequired,
     paperDesktop: PropTypes.string.isRequired,
     paperMobile: PropTypes.string.isRequired,
   }).isRequired,
-  goBack: PropTypes.func.isRequired,
+  containerType: PropTypes.exact({
+    get: PropTypes.string.isRequired,
+    set: PropTypes.func.isRequired,
+  }).isRequired,
   results: PropTypes.exact({
     cvd: PropTypes.string,
     heartage: PropTypes.string,

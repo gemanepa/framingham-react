@@ -1,42 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import FraminghamCalculator from '../../calclogic-handlers';
 import TypeCalcInput from './containerType/calcinput';
 import TypeResults from './containerType/results';
+import TypeInfo from './containerType/info';
 
-const useStyles = makeStyles((theme) => ({
-  button: {
-    margin: theme.spacing(1),
-    backgroundColor: '#4689c8',
-    textShadow: '1px 1px #005c97',
-    '&:hover': {
-      background: '#005c97',
-    },
-  },
-  paperDesktop: {
-    padding: theme.spacing(3, 3),
-    width: '90%',
-    minHeight: '80vh',
-    margin: '5% auto',
-  },
-  paperMobile: {
-    padding: theme.spacing(3, 3),
-    height: 'auto',
-    width: '100%',
-  }
-}));
+
 
 
 export default function MainContainer(props) {
-  const { translations } = props;
+  const { translations, containerType } = props;
+
+  const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+      backgroundColor: '#4689c8',
+      textShadow: '1px 1px #005c97',
+      '&:hover': {
+        background: '#005c97',
+      },
+    },
+    paperDesktop: {
+      padding: () => containerType.get === 'calcinput' ? '34px 24px 24px 50px' : theme.spacing(3, 3),
+      width: '90%',
+      minHeight: '80vh',
+      margin: '5% auto'
+    },
+    paperMobile: {
+      padding: theme.spacing(3, 3),
+      height: 'auto',
+      width: '100%',
+    }
+  }));
+
   const classes = useStyles();
   const [results, setResults] = React.useState({});
-  const [containerType, setContainerType] = React.useState('calcinput');
   const [formData, saveFormData] = React.useState(false);
   const mainContainer = React.useRef(null);
-
-  const [animationClass, setAnimationClass] = useState(false);
 
   // Handles data submitted in Form component when Calculate button is pressed
   function datasubmittedHandler(data, trnslations) {
@@ -46,23 +47,13 @@ export default function MainContainer(props) {
     saveFormData(data);
     setResults(calculation);
     if (window.innerWidth < 1200) { mainContainer.current.scrollIntoView(); }
-    setTimeout(() => setContainerType('results'), 500);
-    setAnimationClass(true);
+    setTimeout(() => containerType.set('results'), 500);
   }
 
 
   /* Cleans input fields from data */
   function cleanCalcInputs() {
     setResults(false);
-  }
-
-
-  /* Handles coming back from results container to calcinput container
-  @param e: event object */
-  function goBack(e) {
-    e.preventDefault();
-    setAnimationClass(false);
-    setTimeout(() => setContainerType('calcinput'), 500);
   }
 
 
@@ -73,7 +64,6 @@ export default function MainContainer(props) {
     const types = {
       calcinput: (
         <TypeCalcInput
-          animationClass={animationClass}
           classes={classes}
           cleanCalcInputs={cleanCalcInputs}
           datasubmittedHandler={datasubmittedHandler}
@@ -83,11 +73,17 @@ export default function MainContainer(props) {
       ),
       results: (
         <TypeResults
-          animationClass={animationClass}
           classes={classes}
-          goBack={goBack}
+          containerType={containerType}
           results={results}
           translations={translations.r3sults}
+        />
+      ),
+      info: (
+        <TypeInfo
+          classes={classes}
+          containerType={containerType}
+          translations={translations.info}
         />
       )
     };
@@ -97,7 +93,7 @@ export default function MainContainer(props) {
   return (
     <>
       <main ref={mainContainer} id="maincontainer">
-        {containerTypeHandler(containerType)}
+        {containerTypeHandler(containerType.get)}
       </main>
       <style jsx>
         {`
@@ -121,6 +117,10 @@ export default function MainContainer(props) {
 }
 
 MainContainer.propTypes = {
+  containerType: PropTypes.exact({
+    get: PropTypes.string.isRequired,
+    set: PropTypes.func.isRequired,
+  }).isRequired,
   translations: PropTypes.exact({
     calcinput: PropTypes.exact({
       age: PropTypes.string.isRequired,
@@ -130,6 +130,7 @@ MainContainer.propTypes = {
       colesterol_total: PropTypes.string.isRequired,
       diabetes: PropTypes.string.isRequired,
       gender: PropTypes.string.isRequired,
+      genderRequired: PropTypes.string.isRequired,
       hypertension_in_treatment: PropTypes.string.isRequired,
       man: PropTypes.string.isRequired,
       risk_score_calculator: PropTypes.string.isRequired,

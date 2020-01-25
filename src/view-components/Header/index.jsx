@@ -20,14 +20,14 @@ export default function Header(props) {
   }
   return (
     <>
-      <header className="appHeader">
+      <header className="appHeader" data-test="appHeader">
         <img src={applogo} alt="CR Framingham" className="navlogo" />
         <h1>
           <span>{ firstString }</span>
           <span>{ secondString }</span>
         </h1>
       </header>
-      <h2 className="subheader">{briefDescription}</h2>
+      <h2 className="subheader" data-test="subheader" >{briefDescription}</h2>
       <style jsx>
         {`
         h1 {
@@ -52,7 +52,6 @@ export default function Header(props) {
           text-shadow: 2px 2px #4689c8;
           font-size: 240%;
           text-align: center;
-          padding: ${handleSubheaderPadding()};
         }
       @media (max-width: 1199px) {
         .navlogo {
@@ -90,6 +89,7 @@ export default function Header(props) {
         h2.subheader {
           margin-top: -0.5vh;
           margin-bottom: -0.5vh;
+          padding: ${handleSubheaderPadding()};
         }
       }
 

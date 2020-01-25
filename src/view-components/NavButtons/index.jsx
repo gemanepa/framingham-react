@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function IconLabelButtons(props) {
-  const { translations } = props;
+  const { containerType, translations } = props;
   const {
     androidapp, calculate, elinks, info
   } = translations;
@@ -45,28 +45,48 @@ export default function IconLabelButtons(props) {
         <div className="firstrow">
           {(window.innerWidth < 1200)
           && (
+            <>
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                className={classes.button}
+                href="#maincontainer"
+                startIcon={<LocalHospitalIcon />}
+                data-test="NavButtons_calcBtn"
+                onClick={() => containerType.set('calcinput')}
+              >
+                <span>{calculate}</span>
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                className={classes.button}
+                href="#maincontainer"
+                startIcon={<InfoIcon />}
+                data-test="NavButtons_infoBtn"
+                onClick={() => containerType.set('info')}
+              >
+                <span>{info}</span>
+              </Button>
+            </>
+          )}
+
+          {(window.innerWidth > 1200)
+          && (
           <Button
             variant="contained"
             color="secondary"
             size="large"
             className={classes.button}
-            href="#maincontainer"
-            startIcon={<LocalHospitalIcon />}
-            data-test="NavButtons_calculate"
+            startIcon={containerType.get !== 'info' ? <InfoIcon /> : <LocalHospitalIcon />}
+            data-test={containerType.get !== 'info' ? 'NavButtons_infoBtn' : 'NavButtons_calcBtn'}
+            onClick={() => containerType.set(containerType.get !== 'info' ? 'info' : 'calcinput')}
           >
-            <span>{calculate}</span>
+            <span>{containerType.get !== 'info' ? info : calculate}</span>
           </Button>
           )}
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            className={classes.button}
-            startIcon={<InfoIcon />}
-            data-test="NavButtons_info"
-          >
-            <span>{info}</span>
-          </Button>
           <ButtonWithDropdownMenu
             text={elinks}
             menuType="elinks"
@@ -84,9 +104,9 @@ export default function IconLabelButtons(props) {
             size="large"
             className={classes.button}
             startIcon={<AndroidIcon />}
-            data-test="NavButtons_androidapp"
+            data-test="NavButtons_androidappBtn"
           >
-            <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" className="anchor">
+            <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" className="anchor" rel="noopener noreferrer" target="_blank" data-test="NavButtons_androidappLink">
               <span>{androidapp}</span>
             </a>
           </Button>
@@ -125,6 +145,10 @@ export default function IconLabelButtons(props) {
 }
 
 IconLabelButtons.propTypes = {
+  containerType: PropTypes.exact({
+    get: PropTypes.string.isRequired,
+    set: PropTypes.func.isRequired,
+  }).isRequired,
   translations: PropTypes.exact({
     androidapp: PropTypes.string.isRequired,
     calculate: PropTypes.string.isRequired,

@@ -25,7 +25,7 @@ export default function Results(props) {
             startIcon={<ArrowBackIcon />}
             data-test="Results_Goback"
           >
-            <span>Back</span>
+          <span>{translations.back}</span>
           </Button>
           <h2 className="resultsh2" data-test="Results_Title">{translations.results}</h2>
           <h3 data-test="Results_Score">
@@ -70,19 +70,22 @@ export default function Results(props) {
               font-size: 200%;
             }
   
-            section#results h2.resultsh2 {
-              margin-top: -5%;
-            }
-  
             section#results h3 {
                 color: #4689C8;
                 font-weight: 600;
                 font-size: 170%;
             }
-  
+
             @media (min-width: 1200px) {
               section#results h2 {
                 margin-bottom: -1.5%;
+                margin-top: -5%;
+              }
+            }
+
+            @media (max-width: 1199px) {
+              section#results h2 {
+                margin-top: 2%;
               }
             }
           

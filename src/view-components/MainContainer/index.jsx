@@ -7,8 +7,6 @@ import TypeResults from './containerType/results';
 import TypeInfo from './containerType/info';
 
 
-
-
 export default function MainContainer(props) {
   const { translations, containerType } = props;
 

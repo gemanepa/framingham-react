@@ -72,21 +72,21 @@ export default function CustomizedExpansionPanels(props) {
             <li>{translations.usefulness_text_intermediaterisk}</li>
             <li>{translations.usefulness_text_highrisk}</li>
           </ul>
-          <i>{translations.usefulness_text_end}</i>
+          {translations.usefulness_text_end}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <ExpansionPanelSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>{translations.background}</Typography>
+          <Typography>{translations.purpose}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-          {translations.background_text1}
+          {translations.purpose_text1}
           <br /><br />
-          {translations.background_text2}
+          {translations.purpose_text2}
           <br /><br />
-          {translations.background_text3} 
+          {translations.purpose_text3} 
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

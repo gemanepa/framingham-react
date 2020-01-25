@@ -7,6 +7,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import ButtonWithDropdownMenu from './withDropdownMenu';
 import useInterval from '../helpers/useIntervalHook';
+import Link from '../Link';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
       background: '#005c97',
     },
     width: window.innerWidth > 1199 ? '30%' : null,
+    cursor: 'pointer'
   },
 }));
 
@@ -28,7 +30,7 @@ export default function IconLabelButtons(props) {
   const classes = useStyles();
 
   function translateStringsIteration() {
-    const translateStrings = ['Translate', 'Traducir', 'Translate', 'Traducir'];
+    const translateStrings = ['Translate', 'Traducir', 'Traduzir', 'Tradurre'];
     const [count, setCount] = useState(0);
 
     useInterval(() => {
@@ -105,10 +107,11 @@ export default function IconLabelButtons(props) {
             className={classes.button}
             startIcon={<AndroidIcon />}
             data-test="NavButtons_androidappBtn"
+            href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham"
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <a href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham" className="anchor" rel="noopener noreferrer" target="_blank" data-test="NavButtons_androidappLink">
-              <span>{androidapp}</span>
-            </a>
+            <span>{androidapp}</span>
           </Button>
         </div>
       </nav>
@@ -119,7 +122,7 @@ export default function IconLabelButtons(props) {
             flex-direction: column;
             justify-content: center;
           }
-
+          
           .navbuttons .firstrow, .navbuttons .secondrow {
             display: flex;
             flex-direction: row;

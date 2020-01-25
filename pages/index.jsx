@@ -105,6 +105,7 @@ export default function Index() {
                       usefulness_text_end: translations.usefulness_text_end
                     },
                     r3sults: {
+                      back: translations.back,
                       score: translations.score,
                       cvd: translations.cvd,
                       heartage: translations.heartage,

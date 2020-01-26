@@ -1,63 +1,63 @@
 /* eslint-disable no-undef */ /* eslint-disable spaced-comment */
 /// <reference types="Cypress" />
 
-context('i18n | EN', () => {
+context('i18n | PT', () => {
   beforeEach(() => {
     cy.viewport('macbook-15');
-    cy.visit('/?lang=en');
+    cy.visit('/?lang=pt');
   });
 
-  it('Should have EN sentences in Head component', () => {
-    cy.get('head title').should('contain', 'Framingham CardioVascular Risk Score Calculator');
-    cy.get('head meta[name="application-name"]').should('have.attr', 'content', 'Framingham CardioRisk');
-    cy.get('head meta[name="description"]').should('have.attr', 'content', 'Framingham CR calculates the individual risk of suffering cardiovascular events in 10 years');
-    cy.get('head meta[name="keywords"]').should('have.attr', 'content', 'framingham, calculator, risk, score, heart, cardiovascular, coronary, disease, study, calculation');
+  it('Should have PT sentences in Head component', () => {
+    cy.get('head title').should('contain', 'Framingham Calculadora Risco CardioVascular');
+    cy.get('head meta[name="application-name"]').should('have.attr', 'content', 'CardioRisco Framingham');
+    cy.get('head meta[name="description"]').should('have.attr', 'content', 'A Escala de Framingham permite determinar o risco individual de sofrer qualquer evento cardiovascular em 10 anos');
+    cy.get('head meta[name="keywords"]').should('have.attr', 'content', 'framingham, calculadora, risco, coração, doença coronariana, cardiovascular, cálculo');
   });
 
-  it('Should have EN sentences in Header component', () => {
+  it('Should have PT sentences in Header component', () => {
     cy.fixture('selectors').then((object) => {
       cy.get(object.i18n.appHeader_title).first().contains('Framingham');
-      cy.get(object.i18n.appHeader_title).last().contains('CardioRisk');
-      cy.get(object.i18n.subheader).contains('Calculate the individual risk of cardiovascular disease in 10 years');
+      cy.get(object.i18n.appHeader_title).last().contains('CardioRico');
+      cy.get(object.i18n.subheader).contains('Calcular o risco individual de doença cardiovascular em 10 anos');
     });
   });
 
-  it('Should have EN sentences in NavButtons component', () => {
+  it('Should have PT sentences in NavButtons component', () => {
     cy.fixture('selectors').then((object) => {
       cy.get(object.static.nb_infobtn).click({ force: true });
 
-      cy.get(object.static.nb_calcbtn).contains('Calculate');
+      cy.get(object.static.nb_calcbtn).contains('Calcular');
 
       cy.viewport('iphone-6');
       cy.reload();
-      cy.get(object.static.nb_calcbtn).contains('Calculate');
+      cy.get(object.static.nb_calcbtn).contains('Calcular');
     });
   });
 
-  it('Should have EN sentences in CalcInput component header & subheader link', () => {
+  it('Should have PT sentences in CalcInput component header & subheader link', () => {
     cy.fixture('selectors').then((object) => {
-      cy.get(object.i18n.mc_calcheader).contains('Risk Score Calculator');
-      cy.get(object.static.ci_elinksccs).contains('Using 2017 Canadian CardioVascular Society Guidelines');
+      cy.get(object.i18n.mc_calcheader).contains('Calculadora de Risco');
+      cy.get(object.static.ci_elinksccs).contains('Usando 2017 Canadian CardioVascular Society Guidelines');
     });
   });
 
-  it('Should have EN sentences in Form component input labels', () => {
+  it('Should have PT sentences in Form component input labels', () => {
     cy.fixture('selectors').then((object) => {
-      cy.get(object.i18n.form_gender_female).contains('Woman');
-      cy.get(object.i18n.form_gender_male).contains('Man');
-      cy.get(object.i18n.form_label_age).contains('Age');
-      cy.get(object.i18n.form_label_hdl).contains('HDL Cholesterol');
-      cy.get(object.i18n.form_label_ldl).contains('LDL Cholesterol');
-      cy.get(object.i18n.form_label_totaldl).contains('Total Cholesterol');
-      cy.get(object.i18n.form_label_ta).contains('Systolic Arterial Pressure');
-      cy.get(object.i18n.form_label_wt).contains('Waist Circumference');
-      cy.get(object.i18n.form_treatment_checkbox).contains('Hypertension under treatment');
-      cy.get(object.i18n.form_smoking_checkbox).contains('Smoking');
-      cy.get(object.i18n.form_diabetes_checkbox).contains('Diabetes or Impaired fasting glucose');
+      cy.get(object.i18n.form_gender_female).contains('Mulher');
+      cy.get(object.i18n.form_gender_male).contains('Homen');
+      cy.get(object.i18n.form_label_age).contains('Idade');
+      cy.get(object.i18n.form_label_hdl).contains('Colesterol HDL');
+      cy.get(object.i18n.form_label_ldl).contains('Colesterol LDL');
+      cy.get(object.i18n.form_label_totaldl).contains('Colesterol Total');
+      cy.get(object.i18n.form_label_ta).contains('Pressão Arterial Sistólica');
+      cy.get(object.i18n.form_label_wt).contains('Circunferência da Cintura');
+      cy.get(object.i18n.form_treatment_checkbox).contains('Hipertensão sob tratamento');
+      cy.get(object.i18n.form_smoking_checkbox).contains('Tabagismo');
+      cy.get(object.i18n.form_diabetes_checkbox).contains('Diabetes ou anomalia da glicemia');
     });
   });
 
-  it('Should have EN sentences in Results component type low', () => {
+  it('Should have PT sentences in Results component type low', () => {
     cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_gender_female).click({ force: true });
       cy.get(object.static.form_age_select).click({ force: true });
@@ -77,9 +77,9 @@ context('i18n | EN', () => {
       cy.get(object.static.form_diabetes_checkbox).click({ force: true });
       cy.get(object.static.form_sendbtn).click({ force: true });
 
-      cy.get(object.i18n.results_title).contains('Results');
-      cy.get(object.i18n.results_score).contains('Score: 4');
-      cy.get(object.i18n.results_cvd).contains('CVD: 2.4%');
+      cy.get(object.i18n.results_title).contains('Resultados');
+      cy.get(object.i18n.results_score).contains('Pontos: 4');
+      cy.get(object.i18n.results_cvd).contains('RCV: 2.4%');
       cy.get(object.i18n.results_heartage).contains('Heart Age: 39');
       cy.get(object.i18n.results_risk).contains('Risk: Low');
       cy.get(object.i18n.results_treatment).contains('Treatment:');
@@ -90,7 +90,7 @@ context('i18n | EN', () => {
     });
   });
 
-  it('Should have EN sentences in Results component type intermediate with risk factors (1)', () => {
+  it('Should have PT sentences in Results component type intermediate with risk factors (1)', () => {
     cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_gender_male).click({ force: true });
       cy.get(object.static.form_age_select).click({ force: true });
@@ -119,7 +119,7 @@ context('i18n | EN', () => {
     });
   });
 
-  it('Should have EN sentences in Results component type intermediate with risk factors (2)', () => {
+  it('Should have PT sentences in Results component type intermediate with risk factors (2)', () => {
     cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_gender_male).click({ force: true });
       cy.get(object.static.form_age_select).click({ force: true });
@@ -146,7 +146,7 @@ context('i18n | EN', () => {
     });
   });
 
-  it('Should have EN sentences in Results component type intermediate with high LDL', () => {
+  it('Should have PT sentences in Results component type intermediate with high LDL', () => {
     cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_gender_male).click({ force: true });
       cy.get(object.static.form_age_select).click({ force: true });
@@ -173,7 +173,7 @@ context('i18n | EN', () => {
     });
   });
 
-  it('Should have EN sentences in Results component type intermediate with no risks', () => {
+  it('Should have PT sentences in Results component type intermediate with no risks', () => {
     cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_gender_male).click({ force: true });
       cy.get(object.static.form_age_select).click({ force: true });
@@ -200,7 +200,7 @@ context('i18n | EN', () => {
     });
   });
 
-  it('Should have EN sentences in Results component type high', () => {
+  it('Should have PT sentences in Results component type high', () => {
     cy.fixture('selectors').then((object) => {
       cy.get(object.static.form_gender_male).click({ force: true });
       cy.get(object.static.form_age_select).click({ force: true });
@@ -233,7 +233,7 @@ context('i18n | EN', () => {
     });
   });
 
-  it('Should have EN sentences in Info container', () => {
+  it('Should have PT sentences in Info container', () => {
     cy.fixture('selectors').then((object) => {
       cy.get(object.static.nb_infobtn).should('be.visible');
       cy.get(object.static.nb_infobtn).click({ force: true });

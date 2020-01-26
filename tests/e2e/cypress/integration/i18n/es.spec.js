@@ -235,4 +235,29 @@ context('i18n | ES', () => {
       cy.get(object.i18n.results_treatment).contains('Objetivo Alternativo: Non-HDL-C ≤2.6 mmol/L');
     });
   });
+
+  it('Should have ES sentences in Info container', () => {
+    cy.fixture('selectors').then((object) => {
+      cy.get(object.static.nb_infobtn).should('be.visible');
+      cy.get(object.static.nb_infobtn).click({ force: true });
+
+      cy.get(object.static.info_goback).contains('Atras');
+      cy.get(object.i18n.mc_infoheader).contains('Info');
+
+      cy.get(object.i18n.mc_infopsuse).contains('Utilidad');
+      cy.get(object.i18n.mc_infopduse).contains('La escala de Framingham permite determinar el riesgo de sufrir cualquier evento cardiovascular en 10 años evaluando factores como la edad, el sexo, la presión arterial, la diabetes y el tabaquismo, asignando un puntaje a cada uno de ellos y estratificando al paciente en niveles de riesgo cardiovascular bajo, medio y alto.');
+      cy.get(object.i18n.mc_infopduse).contains('Riesgo Bajo = 10% o menos');
+      cy.get(object.i18n.mc_infopduse).contains('Riesgo Intermedio = 10-20%');
+      cy.get(object.i18n.mc_infopduse).contains('Riesgo Alto = 20% o más');
+      cy.get(object.i18n.mc_infopduse).contains('La escala de Framingham también permite calcular la edad vascular, lo que da una estimación del daño vascular del paciente a través de la diferencia de años entre el resultado y la edad cronológica del paciente.');
+
+      cy.get(object.i18n.mc_infopspur).contains('Proposito');
+      cy.get(object.i18n.mc_infopdpur).contains('El riesgo de un individuo para futuros eventos cardiovasculares es modificable por los cambios en el estilo de vida y el tratamiento médico preventivo.');
+      cy.get(object.i18n.mc_infopdpur).contains('Los cambios en el estilo de vida pueden incluir dejar de fumar, una dieta saludable, ejercicio regular, etc. El tratamiento médico preventivo puede incluir una estatina, una mini dosis de aspirina, un tratamiento para la hipertensión, etc.');
+      cy.get(object.i18n.mc_infopdpur).contains('Es importante poder predecir el riesgo de un paciente para decidir cuándo iniciar la modificación del estilo de vida y el tratamiento médico preventivo por lo que se han desarrollado multiples modelos para la predicción del riesgo cardiovascular de pacientes individuales. Uno de estos modelos de riesgo clave es el Framingham Risk Score.');
+
+      cy.get(object.i18n.mc_infopsval).contains('Validacion');
+      cy.get(object.i18n.mc_infopdval).contains('El Framingham Risk Score ha sido validado en los EE. UU., tanto en hombres como en mujeres, tanto en europeos como en afroamericanos.');
+    });
+  });
 });

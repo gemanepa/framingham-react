@@ -26,7 +26,7 @@ export default function Results(props) {
             href="#maincontainer"
             data-test="Results_Goback"
           >
-          <span>{translations.back}</span>
+            <span>{translations.back}</span>
           </Button>
           <h2 className="resultsh2" data-test="Results_Title">{translations.results}</h2>
           <h3 data-test="Results_Score">
@@ -40,6 +40,10 @@ export default function Results(props) {
             :
             {' '}
             {results.cvd}
+            <i>
+              *
+              {translations.cvdexplanation}
+            </i>
           </h3>
           <h3 data-test="Results_Heartage">
             {translations.heartage}
@@ -56,7 +60,7 @@ export default function Results(props) {
           <h3 data-test="Results_Treatment">
             {translations.treatment}
             <br />
-            {results.needstreatment.split('\n').map ((item, i) => <div key={i}>{item}</div>)}
+            {results.needstreatment.split('\n').map((item, i) => <div key={i}>{item}</div>)}
           </h3>
         </Paper>
       </section>
@@ -77,10 +81,19 @@ export default function Results(props) {
                 font-size: 170%;
             }
 
+            section#results h3 i {
+              font-size: 50%;
+              float: right;
+            }
+
             @media (min-width: 1200px) {
               section#results h2 {
                 margin-bottom: -1.5%;
                 margin-top: -5%;
+              }
+
+              section#results h3 i {
+                margin-top: 3%;
               }
             }
 

@@ -11,8 +11,6 @@ context('Navigation | Elinks', () => {
 
     selectorBtn.should('be.visible');
     selectorBtn.contains('Android App');
-    selectorBtn.should('have.attr', 'target', '_blank');
-    selectorBtn.should('have.attr', 'rel', 'noopener noreferrer');
   });
 
   it('should be linking to Wikipedia', () => {

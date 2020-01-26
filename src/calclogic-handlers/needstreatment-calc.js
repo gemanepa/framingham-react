@@ -42,13 +42,7 @@ function risklevelIntermediate(gender, ldl, hasDiabetes, wt, agePoints, hdlPoint
   const femaleConditional = (gender === 'female' && agePoints >= 9 && (hdl || isSmoker || hasDiabetes || hasHighWaist));
 
   if (maleConditional || femaleConditional) {
-    return `${treatment_intermediate_hasfactors} (${hdl ? `${low} HDL` : ''}
-    ${(hdl && (isSmoker || hasDiabetes || hasHighWaist)) ? ', ' : ''}
-    ${isSmoker ? smoking : ''}${(isSmoker && (hasDiabetes || hasHighWaist)) ? ', ' : ''}
-    ${hasDiabetes ? diabetes : ''}
-    ${(hasDiabetes && hasHighWaist) ? ', ' : ''}
-    ${hasHighWaist ? waist_circumference : ''}) 
-    ${so_treatment_is_recommended}`;
+    return `${treatment_intermediate_hasfactors} (${hdl ? `${low} HDL` : ''}${(hdl && (isSmoker || hasDiabetes || hasHighWaist)) ? ', ' : ''}${isSmoker ? smoking : ''}${(isSmoker && (hasDiabetes || hasHighWaist)) ? ', ' : ''}${hasDiabetes ? diabetes : ''}${(hasDiabetes && hasHighWaist) ? ', ' : ''}${hasHighWaist ? waist_circumference : ''}) ${so_treatment_is_recommended}`;
   }
 
   if (lowdl) { return treatment_intermediate_ldl; }

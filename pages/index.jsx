@@ -108,6 +108,7 @@ export default function Index() {
                       back: translations.back,
                       score: translations.score,
                       cvd: translations.cvd,
+                      cvdexplanation: translations.cvdexplanation,
                       heartage: translations.heartage,
                       results: translations.results,
                       risk: translations.risk,

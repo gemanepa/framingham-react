@@ -7,6 +7,8 @@ import theme from '../src/view-components/helpers/materialui-theme';
 
 class MyDocument extends Document {
   render() {
+    if (typeof window !== 'undefined') console.log('window.location.pathname ', window.location.pathname);
+
     return (
       // eslint-disable-next-line jsx-a11y/html-has-lang
       <html style={{ scrollBehavior: 'smooth' }}>

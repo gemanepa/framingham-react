@@ -2,12 +2,14 @@ const i18nEn = require('../../../src/i18n/en.json');
 const i18nEs = require('../../../src/i18n/es.json');
 const i18nPt = require('../../../src/i18n/pt.json');
 const i18nIt = require('../../../src/i18n/it.json');
+const i18nEnCypress = require('../../e2e/cypress/fixtures/i18nEN.json');
 
 test('en body length', () => {
   expect(Object.keys(i18nEn).length).toEqual(69);
   expect(Object.keys(i18nEn).length).toEqual(Object.keys(i18nEs).length);
   expect(Object.keys(i18nEn).length).toEqual(Object.keys(i18nPt).length);
   expect(Object.keys(i18nEn).length).toEqual(Object.keys(i18nIt).length);
+  expect(Object.keys(i18nEn).length).toEqual(Object.keys(i18nEnCypress).length);
 });
 
 test('en body props vals', () => {
@@ -84,4 +86,5 @@ test('en body props vals', () => {
       years: 'years old'
     }
   );
+  expect(i18nEn).toEqual(i18nEnCypress);
 });

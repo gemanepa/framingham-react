@@ -1,6 +1,7 @@
 const {
   en, es, pt, it
 } = require('../../../src/i18n/head.json');
+const i18nHeadCypress = require('../../e2e/cypress/fixtures/i18nHead.json');
 
 test('en head', () => {
   expect(en).toEqual(
@@ -11,6 +12,7 @@ test('en head', () => {
       title: 'Framingham CardioVascular Risk Score Calculator'
     },
   );
+  expect(en).toEqual(i18nHeadCypress.en);
 });
 
 test('es head', () => {
@@ -22,6 +24,7 @@ test('es head', () => {
       title: 'Framingham Calculadora Riesgo CardioVascular'
     }
   );
+  expect(es).toEqual(i18nHeadCypress.es);
 });
 
 test('pt head', () => {
@@ -33,6 +36,7 @@ test('pt head', () => {
       title: 'Framingham Calculadora Risco CardioVascular'
     }
   );
+  expect(pt).toEqual(i18nHeadCypress.pt);
 });
 
 test('it head', () => {
@@ -44,4 +48,5 @@ test('it head', () => {
       title: 'Framingham Calcolatore Rischio Cardiovascolare'
     }
   );
+  expect(it).toEqual(i18nHeadCypress.it);
 });

@@ -2,12 +2,14 @@ const i18nEn = require('../../../src/i18n/en.json');
 const i18nEs = require('../../../src/i18n/es.json');
 const i18nPt = require('../../../src/i18n/pt.json');
 const i18nIt = require('../../../src/i18n/it.json');
+const i18nPtCypress = require('../../e2e/cypress/fixtures/i18nPT.json');
 
 test('pt body length', () => {
   expect(Object.keys(i18nPt).length).toEqual(69);
   expect(Object.keys(i18nPt).length).toEqual(Object.keys(i18nEs).length);
   expect(Object.keys(i18nPt).length).toEqual(Object.keys(i18nEn).length);
   expect(Object.keys(i18nPt).length).toEqual(Object.keys(i18nIt).length);
+  expect(Object.keys(i18nPt).length).toEqual(Object.keys(i18nPtCypress).length);
 });
 
 test('pt body props vals', () => {
@@ -28,7 +30,7 @@ test('pt body props vals', () => {
       colesterol_ldl: 'Colesterol LDL',
       colesterol_total: 'Colesterol Total',
       cvd: 'RCV',
-      cvdexplanation: 'Risco CardioVascular em 10 anos',
+      cvdexplanation: 'RCV: Risco CardioVascular em 10 anos',
       day: 'Dia',
       decrease_in: 'diminuição de',
       diabetes: 'Diabetes ou anomalia da glicemia',
@@ -84,4 +86,5 @@ test('pt body props vals', () => {
       years: 'anos'
     }
   );
+  expect(i18nPt).toEqual(i18nPtCypress);
 });

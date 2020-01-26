@@ -40,7 +40,7 @@ export default function Results(props) {
             :
             {' '}
             {results.cvd}
-            <i>
+            <i data-test="Results_CVDExplained">
               *
               {translations.cvdexplanation}
             </i>

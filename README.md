@@ -2,7 +2,7 @@
 ![enter image description here](https://i.imgur.com/VPkYo89.png)
 
 *A Progressive Web App made with React NextJS*
-
+Live version: https://framinghamcalc.now.sh/
 
 ## Tech Stack
 
@@ -10,8 +10,10 @@
  - [NextJS](https://nextjs.org/)
  - [Docker](https://www.docker.com/)
  - [Material UI](https://material-ui.com/)
+ - [Jest](https://jestjs.io/)
  - [Cypress](https://www.cypress.io/)
  - [ESLint](https://eslint.org/)
+ - [ZEIT](https://zeit.co/)
 
 
 ## Software Requisites for Running Properly

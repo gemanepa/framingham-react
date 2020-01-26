@@ -7,16 +7,10 @@ context('Navigation | Elinks', () => {
   });
 
   it('should be linking to android app', () => {
-    cy.fixture('selectors').then((object) => {
-      const selectorBtn = cy.get(object.static.nb_androidbtn);
-      selectorBtn.should('be.visible');
-      selectorBtn.contains('Android App');
+    const selectorBtn = cy.get('[href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham"]');
 
-      const selectorLink = cy.get(object.static.nb_androidlink);
-      selectorLink.should('have.attr', 'target', '_blank');
-      selectorLink.should('have.attr', 'rel', 'noopener noreferrer');
-      selectorLink.should('have.attr', 'href', 'https://play.google.com/store/apps/details?id=com.gemanepa.framingham');
-    });
+    selectorBtn.should('be.visible');
+    selectorBtn.contains('Android App');
   });
 
   it('should be linking to Wikipedia', () => {

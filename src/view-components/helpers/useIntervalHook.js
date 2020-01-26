@@ -9,7 +9,7 @@ export default function useInterval(callback, delay) {
   }, [callback]);
 
   // Set up the interval.
-  useEffect(() => {
+  useEffect(() => { // eslint-disable-line consistent-return
     function tick() {
       savedCallback.current();
     }

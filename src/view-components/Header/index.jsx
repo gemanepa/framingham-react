@@ -13,7 +13,9 @@ export default function Header(props) {
   function handleSubheaderPadding() {
     const horizontalPadding = {
       en: '25%',
-      es: '12%',
+      es: '17%',
+      pt: '22%',
+      it: '22%',
     };
 
     return `5% ${horizontalPadding[lang]}`;
@@ -27,7 +29,7 @@ export default function Header(props) {
           <span>{ secondString }</span>
         </h1>
       </header>
-      <h2 className="subheader" data-test="subheader" >{briefDescription}</h2>
+      <h2 className="subheader" data-test="subheader">{briefDescription}</h2>
       <style jsx>
         {`
         h1 {

@@ -22,7 +22,7 @@ import { checkboxes, selects } from './data';
 const useStyles = makeStyles((theme) => ({
   defaultFormControl: {
     margin: theme.spacing(1),
-    minWidth: 230,
+    minWidth: 250,
   },
   cholesterolFormControls: {
     margin: theme.spacing(1),

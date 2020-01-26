@@ -26,7 +26,6 @@
       "mc_results": "[data-test=\"Results_Container\"]",
       "mc_info": "[data-test=\"Info_Container\"]",
       "nb_androidbtn": "[data-test=\"NavButtons_androidappBtn\"]",
-      "nb_androidlink": "[data-test=\"NavButtons_androidappLink\"]",
       "nb_elinksbtn": "[data-test=\"NavButtons_elinksBtn\"]",
       "nb_elinksfh": "[data-test=\"NavButtons_elinks_FHS\"]",
       "nb_elinksnih": "[data-test=\"NavButtons_elinks_NIH\"]",

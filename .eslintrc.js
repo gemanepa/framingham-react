@@ -26,16 +26,18 @@ module.exports = {
   rules: {
     "default-case": "off",
     "linebreak-style": "off",
-    "camelcase": {properties: "never"},
+    "camelcase": "off",
     "comma-dangle": 0,
     "max-len": ["error", { "code": 120 }]
   },
-  overrides: [
+  ignorePatterns: [".next/", "node_modules/"],
+  "overrides": [
     {
-      "ignorePatterns": [".next/", "node_modules/"],
+      "files": ["tests/**/*.js"],
       "rules": {
         "no-undef": "off",
-        "no-unused-expressions": "off"
+        "no-unused-expressions": "off",
+        "max-len": "off"
       }
     }
   ],

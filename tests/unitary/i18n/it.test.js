@@ -2,6 +2,7 @@ const i18nEn = require('../../../src/i18n/en.json');
 const i18nEs = require('../../../src/i18n/es.json');
 const i18nPt = require('../../../src/i18n/pt.json');
 const i18nIt = require('../../../src/i18n/it.json');
+const i18nFr = require('../../../src/i18n/fr.json');
 const i18nItCypress = require('../../e2e/cypress/fixtures/i18nIT.json');
 
 test('it body length', () => {
@@ -9,8 +10,8 @@ test('it body length', () => {
   expect(Object.keys(i18nIt).length).toEqual(Object.keys(i18nEs).length);
   expect(Object.keys(i18nIt).length).toEqual(Object.keys(i18nPt).length);
   expect(Object.keys(i18nIt).length).toEqual(Object.keys(i18nEn).length);
+  expect(Object.keys(i18nIt).length).toEqual(Object.keys(i18nFr).length);
   expect(Object.keys(i18nIt).length).toEqual(Object.keys(i18nItCypress).length);
-
 });
 
 test('it body props vals', () => {

@@ -13,7 +13,9 @@ Live version: https://framinghamcalc.now.sh/
  - [Jest](https://jestjs.io/)
  - [Cypress](https://www.cypress.io/)
  - [ESLint](https://eslint.org/)
+ - [Google Analytics](https://github.com/react-ga/react-ga)
  - [ZEIT](https://zeit.co/)
+
 
 
 ## Software Requisites for Running Properly

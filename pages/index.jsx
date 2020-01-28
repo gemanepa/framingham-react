@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import { useRouter } from 'next/router';
 import Head from '../src/view-components/Head';
 import Header from '../src/view-components/Header';
@@ -17,6 +18,11 @@ export default function Index() {
   import(`./../src/i18n/${language}.json`).then((strings) => {
     setTranslations(strings.default);
   });
+
+  if (process.env.NODE_ENV !== 'development' && process.env.NODE_ENV !== 'test') {
+    ReactGA.initialize('UA-157152731-1');
+    ReactGA.pageview(router.asPath);
+  }
 
   return (
     <>

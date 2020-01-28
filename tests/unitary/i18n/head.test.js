@@ -1,5 +1,5 @@
 const {
-  en, es, pt, it
+  en, es, pt, it, fr
 } = require('../../../src/i18n/head.json');
 const i18nHeadCypress = require('../../e2e/cypress/fixtures/i18nHead.json');
 
@@ -45,8 +45,20 @@ test('it head', () => {
       appname: 'CardioRischio Framingham',
       description: 'La Scala di Framingham calcola il rischio individuale di subire eventi cardiovascolari in 10 anni',
       keywords: 'framingham, calcolatrice, rischio, cuore, coronarico, malattia, cardiovascolare, calcolo',
-      title: 'Framingham Calcolatore Rischio Cardiovascolare'
+      title: 'Framingham Calcolatore Rischio CardioVascolare'
     }
   );
   expect(it).toEqual(i18nHeadCypress.it);
+});
+
+test('fr head', () => {
+  expect(fr).toEqual(
+    {
+      appname: 'CardioRisque Framingham',
+      description: "L'échelle de Framingham permet de déterminer le risque individuel de souffrir d'un événement cardiovasculaire dans 10 ans",
+      keywords: 'framingham, calculator, risque, coeur, coronaire, maladie, cardiovasculaire, calcul',
+      title: 'Framingham Calculateur Risque CardioVasculaire'
+    }
+  );
+  expect(fr).toEqual(i18nHeadCypress.fr);
 });

@@ -1,20 +1,40 @@
+const { arraysEqual } = require('../../helpers/arraysEqual');
 const i18nEn = require('../../../src/i18n/en.json');
 const i18nEs = require('../../../src/i18n/es.json');
 const i18nPt = require('../../../src/i18n/pt.json');
 const i18nIt = require('../../../src/i18n/it.json');
 const i18nFr = require('../../../src/i18n/fr.json');
+const i18nDe = require('../../../src/i18n/de.json');
 const i18nFrCypress = require('../../e2e/cypress/fixtures/i18nFR.json');
 
-test('it body length', () => {
-  expect(Object.keys(i18nFr).length).toEqual(69);
-  expect(Object.keys(i18nFr).length).toEqual(Object.keys(i18nEs).length);
-  expect(Object.keys(i18nFr).length).toEqual(Object.keys(i18nPt).length);
-  expect(Object.keys(i18nFr).length).toEqual(Object.keys(i18nEn).length);
-  expect(Object.keys(i18nFr).length).toEqual(Object.keys(i18nIt).length);
-  expect(Object.keys(i18nFr).length).toEqual(Object.keys(i18nFrCypress).length);
+const enKeys = Object.keys(i18nEn);
+const esKeys = Object.keys(i18nEs);
+const deKeys = Object.keys(i18nDe);
+const frKeys = Object.keys(i18nFr);
+const itKeys = Object.keys(i18nIt);
+const ptKeys = Object.keys(i18nPt);
+const i18nFrCypressKeys = Object.keys(i18nFrCypress);
+
+test('fr body length', () => {
+  expect(frKeys.length).toEqual(69);
+  expect(frKeys.length).toEqual(deKeys.length);
+  expect(frKeys.length).toEqual(enKeys.length);
+  expect(frKeys.length).toEqual(ptKeys.length);
+  expect(frKeys.length).toEqual(itKeys.length);
+  expect(frKeys.length).toEqual(esKeys.length);
+  expect(frKeys.length).toEqual(i18nFrCypressKeys.length);
 });
 
-test('it body props vals', () => {
+test('fr body keys', () => {
+  expect(arraysEqual(frKeys, deKeys)).toEqual(true);
+  expect(arraysEqual(frKeys, enKeys)).toEqual(true);
+  expect(arraysEqual(frKeys, esKeys)).toEqual(true);
+  expect(arraysEqual(frKeys, itKeys)).toEqual(true);
+  expect(arraysEqual(frKeys, ptKeys)).toEqual(true);
+  expect(arraysEqual(frKeys, i18nFrCypressKeys)).toEqual(true);
+});
+
+test('fr body props vals', () => {
   expect(i18nFr).toEqual(
     {
       abdominal_aortic_aneurysm: "Anévrisme de l'aorte abdominale",

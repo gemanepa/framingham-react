@@ -11,11 +11,17 @@
     "keywords": "framingham, calculadora, riesgo, corazon, coronario, enfermedad, cardiovascular, calculo",
     "title": "Framingham Calculadora Riesgo CardioVascular"
   },
-  "pt": {
-    "appname": "CardioRisco Framingham",
-    "description": "A Escala de Framingham permite determinar o risco individual de sofrer qualquer evento cardiovascular em 10 anos",
-    "keywords": "framingham, calculadora, risco, coração, doença coronariana, cardiovascular, cálculo",
-    "title": "Framingham Calculadora Risco CardioVascular"
+  "de": {
+    "appname": "Framingham HerzRisiko",
+    "description": "Mit der Framingham-Skala kann das individuelle Risiko für kardiovaskuläre Ereignisse in 10 Jahren bestimmt werden",
+    "keywords": "framingham, rechner, riske, partitur, herz, kardiovaskulär, koronar, krankheit",
+    "title": "Framingham CardioVascular Risk Score Rechner"
+  },
+  "fr": {
+    "appname": "CardioRisque Framingham",
+    "description": "L'échelle de Framingham permet de déterminer le risque individuel de souffrir d'un événement cardiovasculaire dans 10 ans",
+    "keywords": "framingham, calculator, risque, coeur, coronaire, maladie, cardiovasculaire, calcul",
+    "title": "Framingham Calculateur Risque CardioVasculaire"
   },
   "it": {
     "appname": "CardioRischio Framingham",
@@ -23,10 +29,10 @@
     "keywords": "framingham, calcolatrice, rischio, cuore, coronarico, malattia, cardiovascolare, calcolo",
     "title": "Framingham Calcolatore Rischio CardioVascolare"
   },
-  "fr": {
-    "appname": "CardioRisque Framingham",
-    "description": "L'échelle de Framingham permet de déterminer le risque individuel de souffrir d'un événement cardiovasculaire dans 10 ans",
-    "keywords": "framingham, calculator, risque, coeur, coronaire, maladie, cardiovasculaire, calcul",
-    "title": "Framingham Calculateur Risque CardioVasculaire"
+  "pt": {
+    "appname": "CardioRisco Framingham",
+    "description": "A Escala de Framingham permite determinar o risco individual de sofrer qualquer evento cardiovascular em 10 anos",
+    "keywords": "framingham, calculadora, risco, coração, doença coronariana, cardiovascular, cálculo",
+    "title": "Framingham Calculadora Risco CardioVascular"
   }
 }

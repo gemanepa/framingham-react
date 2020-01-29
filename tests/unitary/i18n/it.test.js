@@ -1,17 +1,37 @@
+const { arraysEqual } = require('../../helpers/arraysEqual');
 const i18nEn = require('../../../src/i18n/en.json');
 const i18nEs = require('../../../src/i18n/es.json');
 const i18nPt = require('../../../src/i18n/pt.json');
 const i18nIt = require('../../../src/i18n/it.json');
 const i18nFr = require('../../../src/i18n/fr.json');
+const i18nDe = require('../../../src/i18n/de.json');
 const i18nItCypress = require('../../e2e/cypress/fixtures/i18nIT.json');
 
+const enKeys = Object.keys(i18nEn);
+const esKeys = Object.keys(i18nEs);
+const deKeys = Object.keys(i18nDe);
+const frKeys = Object.keys(i18nFr);
+const itKeys = Object.keys(i18nIt);
+const ptKeys = Object.keys(i18nPt);
+const i18nItCypressKeys = Object.keys(i18nItCypress);
+
 test('it body length', () => {
-  expect(Object.keys(i18nIt).length).toEqual(69);
-  expect(Object.keys(i18nIt).length).toEqual(Object.keys(i18nEs).length);
-  expect(Object.keys(i18nIt).length).toEqual(Object.keys(i18nPt).length);
-  expect(Object.keys(i18nIt).length).toEqual(Object.keys(i18nEn).length);
-  expect(Object.keys(i18nIt).length).toEqual(Object.keys(i18nFr).length);
-  expect(Object.keys(i18nIt).length).toEqual(Object.keys(i18nItCypress).length);
+  expect(itKeys.length).toEqual(69);
+  expect(itKeys.length).toEqual(deKeys.length);
+  expect(itKeys.length).toEqual(enKeys.length);
+  expect(itKeys.length).toEqual(ptKeys.length);
+  expect(itKeys.length).toEqual(frKeys.length);
+  expect(itKeys.length).toEqual(esKeys.length);
+  expect(itKeys.length).toEqual(i18nItCypressKeys.length);
+});
+
+test('it body keys', () => {
+  expect(arraysEqual(itKeys, deKeys)).toEqual(true);
+  expect(arraysEqual(itKeys, enKeys)).toEqual(true);
+  expect(arraysEqual(itKeys, esKeys)).toEqual(true);
+  expect(arraysEqual(itKeys, frKeys)).toEqual(true);
+  expect(arraysEqual(itKeys, ptKeys)).toEqual(true);
+  expect(arraysEqual(itKeys, i18nItCypressKeys)).toEqual(true);
 });
 
 test('it body props vals', () => {

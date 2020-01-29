@@ -11,9 +11,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Link from '../Link';
 import enFlag from '../../../public/flags/en-flag.png';
 import esFlag from '../../../public/flags/es-flag.png';
+import deFlag from '../../../public/flags/de-flag.png';
 import frFlag from '../../../public/flags/fr-flag.png';
-import ptFlag from '../../../public/flags/pt-flag.png';
 import itFlag from '../../../public/flags/it-flag.png';
+import ptFlag from '../../../public/flags/pt-flag.png';
 import fhsLogo from '../../../public/logos/fhslogo.png';
 import nihLogo from '../../../public/logos/nihlogo.png';
 import wikipediaLogo from '../../../public/logos/wikipedialogo3.png';
@@ -133,6 +134,14 @@ export default function CustomizedMenus(props) {
                     <img src={esFlag} alt="" className="navflagsimgs" />
                   </ListItemIcon>
                   <ListItemText primary="Español" key={`${menuType}-es-listitemtext`} />
+                </StyledMenuItem>
+              </Link>
+              <Link href="/?lang=de" color="secondary" data-test="Navbuttons_languages_de">
+                <StyledMenuItem onClick={handleClose} key={`${menuType}-de-menuitem`}>
+                  <ListItemIcon key={`${menuType}-de-listitemicon`}>
+                    <img src={deFlag} alt="" className="navflagsimgs" />
+                  </ListItemIcon>
+                  <ListItemText primary="Deutsch" key={`${menuType}-de-listitemtext`} />
                 </StyledMenuItem>
               </Link>
               <Link href="/?lang=fr" color="secondary" data-test="Navbuttons_languages_fr">

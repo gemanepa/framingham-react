@@ -7,31 +7,58 @@ const i18nFr = require('../../../src/i18n/fr.json');
 const i18nDe = require('../../../src/i18n/de.json');
 const i18nEnCypress = require('../../e2e/cypress/fixtures/i18nEN.json');
 
-const enKeys = Object.keys(i18nEn.body);
-const esKeys = Object.keys(i18nEs.body);
-const deKeys = Object.keys(i18nDe.body);
-const frKeys = Object.keys(i18nFr.body);
-const itKeys = Object.keys(i18nIt.body);
-const ptKeys = Object.keys(i18nPt.body);
-const i18nEnCypressKeys = Object.keys(i18nEnCypress.body);
+const enBodyKeys = Object.keys(i18nEn.body);
+const esBodyKeys = Object.keys(i18nEs.body);
+const deBodyKeys = Object.keys(i18nDe.body);
+const frBodyKeys = Object.keys(i18nFr.body);
+const itBodyKeys = Object.keys(i18nIt.body);
+const ptBodyKeys = Object.keys(i18nPt.body);
+const i18nEnBodyCypressKeys = Object.keys(i18nEnCypress.body);
 
 test('en body length', () => {
-  expect(enKeys.length).toEqual(69);
-  expect(enKeys.length).toEqual(deKeys.length);
-  expect(enKeys.length).toEqual(esKeys.length);
-  expect(enKeys.length).toEqual(ptKeys.length);
-  expect(enKeys.length).toEqual(itKeys.length);
-  expect(enKeys.length).toEqual(frKeys.length);
-  expect(enKeys.length).toEqual(i18nEnCypressKeys.length);
+  expect(enBodyKeys.length).toEqual(69);
+  expect(enBodyKeys.length).toEqual(deBodyKeys.length);
+  expect(enBodyKeys.length).toEqual(esBodyKeys.length);
+  expect(enBodyKeys.length).toEqual(ptBodyKeys.length);
+  expect(enBodyKeys.length).toEqual(itBodyKeys.length);
+  expect(enBodyKeys.length).toEqual(frBodyKeys.length);
+  expect(enBodyKeys.length).toEqual(i18nEnBodyCypressKeys.length);
 });
 
 test('en body keys', () => {
-  expect(arraysEqual(enKeys, deKeys)).toEqual(true);
-  expect(arraysEqual(enKeys, esKeys)).toEqual(true);
-  expect(arraysEqual(enKeys, frKeys)).toEqual(true);
-  expect(arraysEqual(enKeys, itKeys)).toEqual(true);
-  expect(arraysEqual(enKeys, ptKeys)).toEqual(true);
-  expect(arraysEqual(enKeys, i18nEnCypressKeys)).toEqual(true);
+  expect(arraysEqual(enBodyKeys, deBodyKeys)).toEqual(true);
+  expect(arraysEqual(enBodyKeys, esBodyKeys)).toEqual(true);
+  expect(arraysEqual(enBodyKeys, frBodyKeys)).toEqual(true);
+  expect(arraysEqual(enBodyKeys, itBodyKeys)).toEqual(true);
+  expect(arraysEqual(enBodyKeys, ptBodyKeys)).toEqual(true);
+  expect(arraysEqual(enBodyKeys, i18nEnBodyCypressKeys)).toEqual(true);
+});
+
+const enHeadKeys = Object.keys(i18nEn.head);
+const esHeadKeys = Object.keys(i18nEs.head);
+const deHeadKeys = Object.keys(i18nDe.head);
+const frHeadKeys = Object.keys(i18nFr.head);
+const itHeadKeys = Object.keys(i18nIt.head);
+const ptHeadKeys = Object.keys(i18nPt.head);
+const i18nEnHeadCypressKeys = Object.keys(i18nEnCypress.head);
+
+test('en head length', () => {
+  expect(enHeadKeys.length).toEqual(4);
+  expect(enHeadKeys.length).toEqual(deHeadKeys.length);
+  expect(enHeadKeys.length).toEqual(esHeadKeys.length);
+  expect(enHeadKeys.length).toEqual(ptHeadKeys.length);
+  expect(enHeadKeys.length).toEqual(itHeadKeys.length);
+  expect(enHeadKeys.length).toEqual(frHeadKeys.length);
+  expect(enHeadKeys.length).toEqual(i18nEnHeadCypressKeys.length);
+});
+
+test('en head keys', () => {
+  expect(arraysEqual(enHeadKeys, deHeadKeys)).toEqual(true);
+  expect(arraysEqual(enHeadKeys, esHeadKeys)).toEqual(true);
+  expect(arraysEqual(enHeadKeys, frHeadKeys)).toEqual(true);
+  expect(arraysEqual(enHeadKeys, itHeadKeys)).toEqual(true);
+  expect(arraysEqual(enHeadKeys, ptHeadKeys)).toEqual(true);
+  expect(arraysEqual(enHeadKeys, i18nEnHeadCypressKeys)).toEqual(true);
 });
 
 test('en strings props vals', () => {

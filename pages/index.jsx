@@ -9,11 +9,13 @@ import Footer from '../src/view-components/Footer';
 import headLang from '../src/i18n/head.json';
 
 
-export default function Index() {
+export default function Index(props) {
   const router = useRouter();
-  const [translations, setTranslations] = React.useState(false);
+
+  // eslint-disable-next-line react/destructuring-assignment
+  const [translations, setTranslations] = React.useState(props.translations);
   const [containerType, setContainerType] = React.useState('calcinput');
-  const language = router.query.lang ? router.query.lang : 'en';
+  const language = router.asPath ? router.asPath.replace('/', '') : 'en';
 
   import(`./../src/i18n/${language}.json`).then((strings) => {
     setTranslations(strings.default);
@@ -189,3 +191,5 @@ export default function Index() {
 
   );
 }
+
+Index.getInitialProps = (props) => ({ translations: props.query.translations });

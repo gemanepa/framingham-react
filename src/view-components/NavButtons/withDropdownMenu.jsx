@@ -120,23 +120,7 @@ export default function CustomizedMenus(props) {
         { menuType === 'language'
           ? (
             <div key={`${menuType}-items`}>
-              <Link href="/?lang=en" color="secondary" data-test="Navbuttons_languages_en">
-                <StyledMenuItem onClick={handleClose} key={`${menuType}-en-menuitem`}>
-                  <ListItemIcon key={`${menuType}-en-listitemicon`}>
-                    <img src={enFlag} alt="" className="navflagsimgs" />
-                  </ListItemIcon>
-                  <ListItemText primary="English" key={`${menuType}-en-listitemtext`} />
-                </StyledMenuItem>
-              </Link>
-              <Link href="/?lang=es" color="secondary" data-test="Navbuttons_languages_es">
-                <StyledMenuItem onClick={handleClose} key={`${menuType}-es-menuitem`}>
-                  <ListItemIcon key={`${menuType}-es-listitemicon`}>
-                    <img src={esFlag} alt="" className="navflagsimgs" />
-                  </ListItemIcon>
-                  <ListItemText primary="Español" key={`${menuType}-es-listitemtext`} />
-                </StyledMenuItem>
-              </Link>
-              <Link href="/?lang=de" color="secondary" data-test="Navbuttons_languages_de">
+              <Link href="/?lang=de" as="/de" color="secondary" data-test="Navbuttons_languages_de">
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-de-menuitem`}>
                   <ListItemIcon key={`${menuType}-de-listitemicon`}>
                     <img src={deFlag} alt="" className="navflagsimgs" />
@@ -144,7 +128,23 @@ export default function CustomizedMenus(props) {
                   <ListItemText primary="Deutsch" key={`${menuType}-de-listitemtext`} />
                 </StyledMenuItem>
               </Link>
-              <Link href="/?lang=fr" color="secondary" data-test="Navbuttons_languages_fr">
+              <Link href="/?lang=en" as="/en" color="secondary" data-test="Navbuttons_languages_en">
+                <StyledMenuItem onClick={handleClose} key={`${menuType}-en-menuitem`}>
+                  <ListItemIcon key={`${menuType}-en-listitemicon`}>
+                    <img src={enFlag} alt="" className="navflagsimgs" />
+                  </ListItemIcon>
+                  <ListItemText primary="English" key={`${menuType}-en-listitemtext`} />
+                </StyledMenuItem>
+              </Link>
+              <Link href="/?lang=es" as="/es" color="secondary" data-test="Navbuttons_languages_es">
+                <StyledMenuItem onClick={handleClose} key={`${menuType}-es-menuitem`}>
+                  <ListItemIcon key={`${menuType}-es-listitemicon`}>
+                    <img src={esFlag} alt="" className="navflagsimgs" />
+                  </ListItemIcon>
+                  <ListItemText primary="Español" key={`${menuType}-es-listitemtext`} />
+                </StyledMenuItem>
+              </Link>
+              <Link href="/?lang=fr" as="/fr" color="secondary" data-test="Navbuttons_languages_fr">
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-fr-menuitem`}>
                   <ListItemIcon key={`${menuType}-fr-listitemicon`}>
                     <img src={frFlag} alt="" className="navflagsimgs" />
@@ -152,7 +152,7 @@ export default function CustomizedMenus(props) {
                   <ListItemText primary="Français" key={`${menuType}-fr-listitemtext`} />
                 </StyledMenuItem>
               </Link>
-              <Link href="/?lang=it" color="secondary" data-test="Navbuttons_languages_it">
+              <Link href="/?lang=it" as="/it" color="secondary" data-test="Navbuttons_languages_it">
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-it-menuitem`}>
                   <ListItemIcon key={`${menuType}-it-listitemicon`}>
                     <img src={itFlag} alt="" className="navflagsimgs" />
@@ -160,7 +160,7 @@ export default function CustomizedMenus(props) {
                   <ListItemText primary="Italiano" key={`${menuType}-it-listitemtext`} />
                 </StyledMenuItem>
               </Link>
-              <Link href="/?lang=pt" color="secondary" data-test="Navbuttons_languages_pt">
+              <Link href="/?lang=pt" as="/pt" color="secondary" data-test="Navbuttons_languages_pt">
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-pt-menuitem`}>
                   <ListItemIcon key={`${menuType}-pt-listitemicon`}>
                     <img src={ptFlag} alt="" className="navflagsimgs" />

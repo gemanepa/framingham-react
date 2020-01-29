@@ -14,10 +14,10 @@ context('Navigation | Switching Languages', () => {
 
       const selectorLink = cy.get(object.static.nb_languageen);
       selectorLink.should('exist');
-      selectorLink.should('have.attr', 'href', '/?lang=en');
+      selectorLink.should('have.attr', 'href', '/en');
       selectorLink.contains('English');
       selectorLink.click({ force: true });
-      cy.url().should('eq', 'http://localhost:3000/?lang=en');
+      cy.url().should('eq', 'http://localhost:3000/en');
     });
   });
 
@@ -29,10 +29,10 @@ context('Navigation | Switching Languages', () => {
 
       const selectorLink = cy.get(object.static.nb_languagees);
       selectorLink.should('exist');
-      selectorLink.should('have.attr', 'href', '/?lang=es');
+      selectorLink.should('have.attr', 'href', '/es');
       selectorLink.contains('Español');
       selectorLink.click({ force: true });
-      cy.url().should('eq', 'http://localhost:3000/?lang=es');
+      cy.url().should('eq', 'http://localhost:3000/es');
     });
   });
 });

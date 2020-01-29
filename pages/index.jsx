@@ -6,7 +6,6 @@ import Header from '../src/view-components/Header';
 import NavButtons from '../src/view-components/NavButtons';
 import MainContainer from '../src/view-components/MainContainer';
 import Footer from '../src/view-components/Footer';
-import headLang from '../src/i18n/head.json';
 
 
 export default function Index(props) {
@@ -28,7 +27,7 @@ export default function Index(props) {
 
   return (
     <>
-      <Head translations={headLang[language]} />
+      <Head translations={translations.head} />
       {(typeof window !== 'undefined' && translations)
           && (
             <>
@@ -36,18 +35,18 @@ export default function Index(props) {
                 <div id="appintro">
                   <Header
                     translations={{
-                      briefDescription: translations.brief_description,
-                      navbarTitle: translations.navbar_title,
+                      briefDescription: translations.body.brief_description,
+                      navbarTitle: translations.body.navbar_title,
                     }}
                     lang={language}
                   />
                   <NavButtons
                     containerType={{ get: containerType, set: setContainerType }}
                     translations={{
-                      androidapp: translations.androidapp,
-                      calculate: translations.calculate,
-                      elinks: translations.elinks,
-                      info: translations.info
+                      androidapp: translations.body.androidapp,
+                      calculate: translations.body.calculate,
+                      elinks: translations.body.elinks,
+                      info: translations.body.info
                     }}
                   />
                 </div>
@@ -55,72 +54,72 @@ export default function Index(props) {
                   containerType={{ get: containerType, set: setContainerType }}
                   translations={{
                     calcinput: {
-                      age: translations.age,
-                      arterial_pression: translations.arterial_pression,
-                      colesterol_hdl: translations.colesterol_hdl,
-                      colesterol_ldl: translations.colesterol_ldl,
-                      colesterol_total: translations.colesterol_total,
-                      diabetes: translations.diabetes,
-                      gender: translations.gender,
-                      genderRequired: translations.genderRequired,
-                      hypertension_in_treatment: translations.hypertension_in_treatment,
-                      man: translations.man,
-                      risk_score_calculator: translations.risk_score_calculator,
-                      smoking: translations.smoking,
-                      waist_circumference: translations.waist_circumference,
-                      woman: translations.woman,
-                      using_guidelines: translations.using_guidelines,
+                      age: translations.body.age,
+                      arterial_pression: translations.body.arterial_pression,
+                      colesterol_hdl: translations.body.colesterol_hdl,
+                      colesterol_ldl: translations.body.colesterol_ldl,
+                      colesterol_total: translations.body.colesterol_total,
+                      diabetes: translations.body.diabetes,
+                      gender: translations.body.gender,
+                      genderRequired: translations.body.genderRequired,
+                      hypertension_in_treatment: translations.body.hypertension_in_treatment,
+                      man: translations.body.man,
+                      risk_score_calculator: translations.body.risk_score_calculator,
+                      smoking: translations.body.smoking,
+                      waist_circumference: translations.body.waist_circumference,
+                      woman: translations.body.woman,
+                      using_guidelines: translations.body.using_guidelines,
                       calc: {
-                        abdominal_aortic_aneurysm: translations.abdominal_aortic_aneurysm,
-                        age: translations.age,
-                        alternative_target: translations.alternative_target,
-                        aterosclerosis: translations.aterosclerosis,
-                        chronic_kidney_disease: translations.chronic_kidney_disease,
-                        decrease_in: translations.decrease_in,
-                        diabetes: translations.diabetes,
-                        high: translations.high,
-                        intermediate: translations.intermediate,
-                        low: translations.low,
-                        or: translations.or,
-                        patient_highly_requires_treatment: translations.patient_highly_requires_treatment,
-                        patient_not_requires_treatment: translations.patient_not_requires_treatment,
-                        primary_target: translations.primary_target,
-                        smoking: translations.smoking,
-                        so_treatment_is_recommended: translations.so_treatment_is_recommended,
-                        statins_only_indicated: translations.statins_only_indicated,
-                        treatment_intermediate_hasfactors: translations.treatment_intermediate_hasfactors,
-                        treatment_intermediate_ldl: translations.treatment_intermediate_ldl,
-                        treatment_intermediate_norisks: translations.treatment_intermediate_norisks,
-                        treatment_low_diabetes: translations.treatment_low_diabetes,
-                        unknown: translations.unknown,
-                        waist_circumference: translations.waist_circumference,
-                        years: translations.years
+                        abdominal_aortic_aneurysm: translations.body.abdominal_aortic_aneurysm,
+                        age: translations.body.age,
+                        alternative_target: translations.body.alternative_target,
+                        aterosclerosis: translations.body.aterosclerosis,
+                        chronic_kidney_disease: translations.body.chronic_kidney_disease,
+                        decrease_in: translations.body.decrease_in,
+                        diabetes: translations.body.diabetes,
+                        high: translations.body.high,
+                        intermediate: translations.body.intermediate,
+                        low: translations.body.low,
+                        or: translations.body.or,
+                        patient_highly_requires_treatment: translations.body.patient_highly_requires_treatment,
+                        patient_not_requires_treatment: translations.body.patient_not_requires_treatment,
+                        primary_target: translations.body.primary_target,
+                        smoking: translations.body.smoking,
+                        so_treatment_is_recommended: translations.body.so_treatment_is_recommended,
+                        statins_only_indicated: translations.body.statins_only_indicated,
+                        treatment_intermediate_hasfactors: translations.body.treatment_intermediate_hasfactors,
+                        treatment_intermediate_ldl: translations.body.treatment_intermediate_ldl,
+                        treatment_intermediate_norisks: translations.body.treatment_intermediate_norisks,
+                        treatment_low_diabetes: translations.body.treatment_low_diabetes,
+                        unknown: translations.body.unknown,
+                        waist_circumference: translations.body.waist_circumference,
+                        years: translations.body.years
                       }
                     },
                     info: {
-                      back: translations.back,
-                      purpose: translations.purpose,
-                      purpose_text1: translations.purpose_text1,
-                      purpose_text2: translations.purpose_text2,
-                      purpose_text3: translations.purpose_text3,
-                      validation: translations.validation,
-                      validation_text: translations.validation_text,
-                      usefulness: translations.usefulness,
-                      usefulness_text_start: translations.usefulness_text_start,
-                      usefulness_text_lowrisk: translations.usefulness_text_lowrisk,
-                      usefulness_text_intermediaterisk: translations.usefulness_text_intermediaterisk,
-                      usefulness_text_highrisk: translations.usefulness_text_highrisk,
-                      usefulness_text_end: translations.usefulness_text_end
+                      back: translations.body.back,
+                      purpose: translations.body.purpose,
+                      purpose_text1: translations.body.purpose_text1,
+                      purpose_text2: translations.body.purpose_text2,
+                      purpose_text3: translations.body.purpose_text3,
+                      validation: translations.body.validation,
+                      validation_text: translations.body.validation_text,
+                      usefulness: translations.body.usefulness,
+                      usefulness_text_start: translations.body.usefulness_text_start,
+                      usefulness_text_lowrisk: translations.body.usefulness_text_lowrisk,
+                      usefulness_text_intermediaterisk: translations.body.usefulness_text_intermediaterisk,
+                      usefulness_text_highrisk: translations.body.usefulness_text_highrisk,
+                      usefulness_text_end: translations.body.usefulness_text_end
                     },
                     r3sults: {
-                      back: translations.back,
-                      score: translations.score,
-                      cvd: translations.cvd,
-                      cvdexplanation: translations.cvdexplanation,
-                      heartage: translations.heartage,
-                      results: translations.results,
-                      risk: translations.risk,
-                      treatment: translations.treatment
+                      back: translations.body.back,
+                      score: translations.body.score,
+                      cvd: translations.body.cvd,
+                      cvdexplanation: translations.body.cvdexplanation,
+                      heartage: translations.body.heartage,
+                      results: translations.body.results,
+                      risk: translations.body.risk,
+                      treatment: translations.body.treatment
                     }
                   }}
                 />

@@ -8,37 +8,43 @@
 
 <url>
   <loc>https://framinghamcalc.now.sh/</loc>
-  <lastmod>2020-01-26T22:16:01+00:00</lastmod>
+  <lastmod>2020-01-29T22:16:01+00:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 
 <url>
-  <loc>https://framinghamcalc.now.sh/?lang=en</loc>
-  <lastmod>2020-01-26T22:16:01+00:00</lastmod>
+  <loc>https://framinghamcalc.now.sh/en</loc>
+  <lastmod>2020-01-29T22:16:01+00:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 
 <url>
-  <loc>https://framinghamcalc.now.sh/?lang=es</loc>
-  <lastmod>2020-01-26T22:16:01+00:00</lastmod>
+  <loc>https://framinghamcalc.now.sh/es</loc>
+  <lastmod>2020-01-29T22:16:01+00:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 
 <url>
-  <loc>https://framinghamcalc.now.sh/?lang=pt</loc>
-  <lastmod>2020-01-26T22:16:01+00:00</lastmod>
+  <loc>https://framinghamcalc.now.sh/pt</loc>
+  <lastmod>2020-01-29T22:16:01+00:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 
 <url>
-  <loc>https://framinghamcalc.now.sh/?lang=it</loc>
-  <lastmod>2020-01-26T22:16:01+00:00</lastmod>
+  <loc>https://framinghamcalc.now.sh/it</loc>
+  <lastmod>2020-01-29T22:16:01+00:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 
 <url>
-  <loc>https://framinghamcalc.now.sh/?lang=fr</loc>
-  <lastmod>2020-01-27T22:16:01+00:00</lastmod>
+  <loc>https://framinghamcalc.now.sh/fr</loc>
+  <lastmod>2020-01-29T22:16:01+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+
+<url>
+  <loc>https://framinghamcalc.now.sh/de</loc>
+  <lastmod>2020-01-29T22:16:01+00:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 

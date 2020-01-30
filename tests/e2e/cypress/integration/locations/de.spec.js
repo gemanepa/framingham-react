@@ -3,7 +3,7 @@
 
 context('Location | Deutch Version', () => {
   beforeEach(() => {
-    cy.visit('/?lang=de');
+    cy.visit('/de');
   });
 
   it('cy.hash() - get the current URL hash', () => {
@@ -15,18 +15,17 @@ context('Location | Deutch Version', () => {
     // https://on.cypress.io/location
     cy.location().should((location) => {
       expect(location.hash).to.be.empty;
-      expect(location.href).to.eq('http://localhost:3000/?lang=de');
+      expect(location.href).to.eq('http://localhost:3000/de');
       expect(location.host).to.eq('localhost:3000');
       expect(location.hostname).to.eq('localhost');
       expect(location.origin).to.eq('http://localhost:3000');
-      expect(location.pathname).to.eq('/');
+      expect(location.pathname).to.eq('/de');
       expect(location.port).to.eq('3000');
-      expect(location.search).to.eq('?lang=de');
     });
   });
 
   it('cy.url() - get the current URL', () => {
     // https://on.cypress.io/url
-    cy.url().should('eq', 'http://localhost:3000/?lang=de');
+    cy.url().should('eq', 'http://localhost:3000/de');
   });
 });

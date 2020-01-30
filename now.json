@@ -1,6 +1,6 @@
 {
     "name": "framingham-react-pwa",
-    "version": 3,
+    "version": 2,
     "alias": ["framinghamcalc"],
     "builds": [{
         "src": "server.js",

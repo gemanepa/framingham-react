@@ -141,6 +141,12 @@ export default function IconLabelButtons(props) {
               flex-direction: column;
             }
           }
+
+          @media (min-width: 1200px) {
+            .navbuttons span {
+              font-size: 1.1vw;
+            }
+          }
       `}
       </style>
     </>

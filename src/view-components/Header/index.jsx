@@ -95,6 +95,7 @@ export default function Header(props) {
         h2.subheader {
           margin-top: -0.5vh;
           margin-bottom: -0.5vh;
+          font-size: 2.46vw;
           padding: ${handleSubheaderPadding()};
         }
       }

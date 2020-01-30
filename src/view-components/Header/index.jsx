@@ -88,6 +88,7 @@ export default function Header(props) {
 
         h1 {
           padding-top: 5.5%;
+          font-size: 7.175vh
         }
 
         h2.subheader {

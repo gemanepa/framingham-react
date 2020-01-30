@@ -21,9 +21,10 @@ export default function MainContainer(props) {
     },
     paperDesktop: {
       padding: () => containerType.get === 'calcinput' ? '34px 24px 24px 50px' : theme.spacing(3, 3),
-      width: '95%',
+      width: '94%',
       minHeight: '80vh',
-      margin: '5% 0'
+      margin: '5%',
+      marginLeft: '0%'
     },
     paperMobile: {
       padding: theme.spacing(3, 3),

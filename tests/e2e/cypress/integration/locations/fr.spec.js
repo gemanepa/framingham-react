@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */ /* eslint-disable spaced-comment */
 /// <reference types="Cypress" />
 
-context('Location | English Version', () => {
+context('Location | French Version', () => {
   beforeEach(() => {
-    cy.visit('/en');
+    cy.visit('/fr');
   });
 
   it('cy.hash() - get the current URL hash', () => {
@@ -15,17 +15,17 @@ context('Location | English Version', () => {
     // https://on.cypress.io/location
     cy.location().should((location) => {
       expect(location.hash).to.be.empty;
-      expect(location.href).to.eq('http://localhost:3000/en');
+      expect(location.href).to.eq('http://localhost:3000/fr');
       expect(location.host).to.eq('localhost:3000');
       expect(location.hostname).to.eq('localhost');
       expect(location.origin).to.eq('http://localhost:3000');
-      expect(location.pathname).to.eq('/en');
+      expect(location.pathname).to.eq('/fr');
       expect(location.port).to.eq('3000');
     });
   });
 
   it('cy.url() - get the current URL', () => {
     // https://on.cypress.io/url
-    cy.url().should('eq', 'http://localhost:3000/en');
+    cy.url().should('eq', 'http://localhost:3000/fr');
   });
 });

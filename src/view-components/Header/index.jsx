@@ -14,6 +14,7 @@ export default function Header(props) {
     const horizontalPadding = {
       en: '25%',
       es: '17%',
+      de: '16%',
       fr: '20.5%',
       it: '22%',
       pt: '22%'

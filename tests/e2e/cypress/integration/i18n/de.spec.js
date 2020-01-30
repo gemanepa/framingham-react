@@ -1,14 +1,14 @@
 /* eslint-disable no-undef */ /* eslint-disable spaced-comment */
 /// <reference types="Cypress" />
 
-context('i18n | IT', () => {
+context('i18n | DE', () => {
   beforeEach(() => {
     cy.viewport('macbook-15');
-    cy.visit('/it');
+    cy.visit('/de');
   });
 
-  it('Should have IT sentences in Head component', () => {
-    cy.fixture('i18nIT').then((translations) => {
+  it('Should have DE sentences in Head component', () => {
+    cy.fixture('i18nDE').then((translations) => {
       cy.get('head title').should('contain', translations.head.title);
       cy.get('head meta[name="application-name"]').should('have.attr', 'content', translations.head.appname);
       cy.get('head meta[name="description"]').should('have.attr', 'content', translations.head.description);
@@ -17,9 +17,9 @@ context('i18n | IT', () => {
   });
 
 
-  it('Should have IT sentences in Header component', () => {
+  it('Should have DE sentences in Header component', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.i18n.appHeader_title).first().contains(translations.body.navbar_title.split(' ')[0]);
         cy.get(object.i18n.appHeader_title).last().contains(translations.body.navbar_title.split(' ')[1]);
         cy.get(object.i18n.subheader).contains(translations.body.brief_description);
@@ -27,9 +27,9 @@ context('i18n | IT', () => {
     });
   });
 
-  it('Should have IT sentences in NavButtons component', () => {
+  it('Should have DE sentences in NavButtons component', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.static.nb_infobtn).click({ force: true });
 
         cy.get(object.static.nb_calcbtn).contains(translations.body.calculate);
@@ -41,18 +41,18 @@ context('i18n | IT', () => {
     });
   });
 
-  it('Should have IT sentences in CalcInput component header & subheader link', () => {
+  it('Should have DE sentences in CalcInput component header & subheader link', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.i18n.mc_calcheader).contains(translations.body.risk_score_calculator);
         cy.get(object.static.ci_elinksccs).contains(translations.body.using_guidelines);
       });
     });
   });
 
-  it('Should have IT sentences in Form component input labels', () => {
+  it('Should have DE sentences in Form component input labels', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.i18n.form_gender_female).contains(translations.body.woman);
         cy.get(object.i18n.form_gender_male).contains(translations.body.man);
         cy.get(object.i18n.form_label_age).contains(translations.body.age);
@@ -68,9 +68,9 @@ context('i18n | IT', () => {
     });
   });
 
-  it('Should have IT sentences in Results component type low', () => {
+  it('Should have DE sentences in Results component type low', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.static.form_gender_female).click({ force: true });
         cy.get(object.static.form_age_select).click({ force: true });
         cy.get(object.static.form_age_menuitem).click({ force: true });
@@ -105,9 +105,9 @@ context('i18n | IT', () => {
     });
   });
 
-  it('Should have IT sentences in Results component type intermediate with risk factors (1)', () => {
+  it('Should have DE sentences in Results component type intermediate with risk factors (1)', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.static.form_gender_male).click({ force: true });
         cy.get(object.static.form_age_select).click({ force: true });
         cy.get(object.i18n.form_age_menuitem_50_54).click({ force: true });
@@ -137,9 +137,9 @@ context('i18n | IT', () => {
     });
   });
 
-  it('Should have IT sentences in Results component type intermediate with risk factors (2)', () => {
+  it('Should have DE sentences in Results component type intermediate with risk factors (2)', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.static.form_gender_male).click({ force: true });
         cy.get(object.static.form_age_select).click({ force: true });
         cy.get(object.i18n.form_age_menuitem_50_54).click({ force: true });
@@ -167,9 +167,9 @@ context('i18n | IT', () => {
     });
   });
 
-  it('Should have IT sentences in Results component type intermediate with high LDL', () => {
+  it('Should have DE sentences in Results component type intermediate with high LDL', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.static.form_gender_male).click({ force: true });
         cy.get(object.static.form_age_select).click({ force: true });
         cy.get(object.i18n.form_age_menuitem_60_64).click({ force: true });
@@ -197,9 +197,9 @@ context('i18n | IT', () => {
     });
   });
 
-  it('Should have IT sentences in Results component type intermediate with no risks', () => {
+  it('Should have DE sentences in Results component type intermediate with no risks', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.static.form_gender_male).click({ force: true });
         cy.get(object.static.form_age_select).click({ force: true });
         cy.get(object.i18n.form_age_menuitem_60_64).click({ force: true });
@@ -227,9 +227,9 @@ context('i18n | IT', () => {
     });
   });
 
-  it('Should have IT sentences in Results component type high', () => {
+  it('Should have DE sentences in Results component type high', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.static.form_gender_male).click({ force: true });
         cy.get(object.static.form_age_select).click({ force: true });
         cy.get(object.i18n.form_age_menuitem_60_64).click({ force: true });
@@ -263,9 +263,9 @@ context('i18n | IT', () => {
     });
   });
 
-  it('Should have IT sentences in Info container', () => {
+  it('Should have DE sentences in Info container', () => {
     cy.fixture('selectors').then((object) => {
-      cy.fixture('i18nIT').then((translations) => {
+      cy.fixture('i18nDE').then((translations) => {
         cy.get(object.static.nb_infobtn).should('be.visible');
         cy.get(object.static.nb_infobtn).click({ force: true });
 

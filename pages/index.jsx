@@ -14,7 +14,7 @@ export default function Index(props) {
   // eslint-disable-next-line react/destructuring-assignment
   const [translations, setTranslations] = React.useState(props.translations);
   const [containerType, setContainerType] = React.useState('calcinput');
-  const language = router.asPath ? router.asPath.replace('/', '') : 'en';
+  const language = router.asPath.length > 1 ? router.asPath.replace('/', '') : 'en';
 
   import(`./../src/i18n/${language}.json`).then((strings) => {
     setTranslations(strings.default);

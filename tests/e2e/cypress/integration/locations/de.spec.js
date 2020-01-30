@@ -19,9 +19,8 @@ context('Location | Deutch Version', () => {
       expect(location.host).to.eq('localhost:3000');
       expect(location.hostname).to.eq('localhost');
       expect(location.origin).to.eq('http://localhost:3000');
-      expect(location.pathname).to.eq('/');
+      expect(location.pathname).to.eq('/de');
       expect(location.port).to.eq('3000');
-      expect(location.search).to.eq('?lang=de');
     });
   });
 

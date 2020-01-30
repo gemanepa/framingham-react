@@ -33,6 +33,10 @@
       "nb_languagebtn": "[data-test=\"NavButtons_languageBtn\"]",
       "nb_languageen": "[data-test=\"Navbuttons_languages_en\"]",
       "nb_languagees": "[data-test=\"Navbuttons_languages_es\"]",
+      "nb_languageit": "[data-test=\"Navbuttons_languages_it\"]",
+      "nb_languagefr": "[data-test=\"Navbuttons_languages_fr\"]",
+      "nb_languagept": "[data-test=\"Navbuttons_languages_pt\"]",
+      "nb_languagede": "[data-test=\"Navbuttons_languages_de\"]",
       "nb_infobtn": "[data-test=\"NavButtons_infoBtn\"]",
       "nb_calcbtn": "[data-test=\"NavButtons_calcBtn\"]",
       "results_goback": "[data-test=\"Results_Goback\"]"

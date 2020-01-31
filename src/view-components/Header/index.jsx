@@ -12,12 +12,12 @@ export default function Header(props) {
 
   function handleSubheaderPadding() {
     const horizontalPadding = {
-      en: '25%',
+      en: '21%',
       es: '17%',
-      de: '16%',
-      fr: '20.5%',
-      it: '22%',
-      pt: '22%'
+      de: '13%',
+      fr: '16%',
+      it: '20%',
+      pt: '20%'
     };
 
     return `5% ${horizontalPadding[lang]}`;

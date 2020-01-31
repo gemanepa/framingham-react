@@ -58,6 +58,7 @@ export default function Info(props) {
               section#info h2 {
                   margin-top: -5%!important;
                   margin-bottom: 2.5%!important;
+                  font-size: 2.05vw;
               }
             }
 

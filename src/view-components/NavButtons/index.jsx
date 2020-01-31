@@ -7,7 +7,6 @@ import InfoIcon from '@material-ui/icons/Info';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import ButtonWithDropdownMenu from './withDropdownMenu';
 import useInterval from '../helpers/useIntervalHook';
-import Link from '../Link';
 
 const useStyles = makeStyles((theme) => ({
   button: {

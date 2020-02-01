@@ -29,11 +29,11 @@ export default function IconLabelButtons(props) {
   const classes = useStyles();
 
   function translateStringsIteration() {
-    const translateStrings = ['Translate', 'Traducir', 'Traduzir', 'Traduire', 'Tradurre', 'Übersetzen'];
+    const translateStrings = ['Translate', 'Traducir', 'Traduzir', 'Traduire', 'Tradurre', 'Übersetzen', 'Vertaal'];
     const [count, setCount] = useState(0);
 
     useInterval(() => {
-      if (count === 5) {
+      if (count === 6) {
         setCount(0);
       } else { setCount(count + 1); }
     }, 5000);

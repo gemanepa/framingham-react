@@ -4,10 +4,10 @@
         "appname": "Framingham HerzRisiko",
         "description": "Mit der Framingham-Skala kann das individuelle Risiko für kardiovaskuläre Ereignisse in 10 Jahren bestimmt werden",
         "keywords": "framingham, rechner, riske, partitur, herz, kardiovaskulär, koronar, krankheit",
-        "title": "Framingham CardioVascular Risk Score Rechner"
+        "title": "Framingham Herz Kreislauf Risiko Rechner"
     },
     "body": {
-        "abdominal_aortic_aneurysm": "abdominales Aortenaneurysma",
+        "abdominal_aortic_aneurysm": "Bauchaortenaneurysma",
         "age": "Alter",
         "androidapp": "Android App",
         "alternative_target": "Alternatives Ziel",
@@ -51,7 +51,7 @@
         "purpose_text3": "Es ist wichtig, das Risiko eines einzelnen Patienten vorhersagen zu können, um zu entscheiden, wann eine Änderung des Lebensstils und eine vorbeugende medizinische Behandlung eingeleitet werden sollen. Zu diesem Zweck wurden mehrere Risikomodelle für die Vorhersage des kardiovaskulären Risikos einzelner Patienten entwickelt. Ein solches Hauptrisikomodell ist der Framingham Risk Score.",
         "results": "Ergebnisse",
         "risk": "Risiko",
-        "risk_score_calculator": "Risk Score Rechner",
+        "risk_score_calculator": "Risikorechner",
         "score": "Interpunktion",
         "send": "Senden",
         "smoking": "Raucher",

@@ -13,6 +13,9 @@ export default class MyApp extends App {
     if (jssStyles) {
       jssStyles.parentNode.removeChild(jssStyles);
     }
+    if (typeof window !== 'undefined' && typeof document !== 'undefined' && window.innerWidth > 1199) {
+      document.getElementById('dom').style.fontSize = '1.1vw';
+    }
   }
 
   render() {

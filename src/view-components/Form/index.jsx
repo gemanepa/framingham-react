@@ -22,11 +22,15 @@ import { checkboxes, selects } from './data';
 const useStyles = makeStyles((theme) => ({
   defaultFormControl: {
     margin: theme.spacing(1),
-    minWidth: '17vw',
+    minWidth: '16.9vw',
+    marginTop: '1rem',
+    marginBottom: '1rem'
   },
   cholesterolFormControls: {
     margin: theme.spacing(1),
-    minWidth: 170,
+    minWidth: '11vw',
+    marginTop: '1rem',
+    marginBottom: '1rem'
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -64,17 +68,6 @@ export default function Form(props) {
     wt: false,
   });
 
-  // Radio logic
-  const [radioVal, setRadioVal] = !previousData ? React.useState('undefined') : React.useState(previousData.gender);
-  function handleRadioChange(event) {
-    setErrors({ ...errors, gender: false });
-    setRadioVal(event.target.value);
-    setSelectsVals((oldValues) => ({
-      ...oldValues,
-      wt: undefined,
-    }));
-  }
-
   // Selects logic
   const [selectsVals, setSelectsVals] = !previousData ? React.useState({ }) : React.useState({
     age: previousData.age,
@@ -91,6 +84,18 @@ export default function Form(props) {
       [event.target.name]: event.target.value,
     }));
   };
+
+
+  // Radio logic
+  const [radioVal, setRadioVal] = !previousData ? React.useState('undefined') : React.useState(previousData.gender);
+  function handleRadioChange(event) {
+    setErrors({ ...errors, gender: false });
+    setRadioVal(event.target.value);
+    setSelectsVals((oldValues) => ({
+      ...oldValues,
+      wt: undefined,
+    }));
+  }
 
 
   // Checkbox Logic

@@ -20,8 +20,8 @@ export default function MainContainer(props) {
       },
     },
     paperDesktop: {
-      padding: containerType.get === 'calcinput' ? '1.25rem 1rem 1.25rem 1rem' : theme.spacing(3, 3),
-      minHeight: '80vh',
+      padding: containerType.get === 'results' ? '2.25rem 2rem 2.25rem 2rem' : '1.25rem 1rem 1.75rem 1rem',
+      minHeight: '72vh',
       marginTop: '5%',
       marginRight: 'auto',
       marginBottom: 'auto',
@@ -31,11 +31,11 @@ export default function MainContainer(props) {
           return '87%';
         } if (containerType.get === 'results') {
           return '94%';
-        } return '98.75%';
+        } return '92%';
       }
     },
     paperMobile: {
-      padding: '24px 18px',
+      padding: theme.spacing(3, 3),
       height: 'auto',
       width: '100%',
     }

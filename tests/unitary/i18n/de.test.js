@@ -1,4 +1,5 @@
 const { arraysEqual } = require('../../helpers/arraysEqual');
+const i18nAf = require('../../../src/i18n/af.json');
 const i18nEn = require('../../../src/i18n/en.json');
 const i18nEs = require('../../../src/i18n/es.json');
 const i18nPt = require('../../../src/i18n/pt.json');
@@ -7,6 +8,7 @@ const i18nFr = require('../../../src/i18n/fr.json');
 const i18nDe = require('../../../src/i18n/de.json');
 const i18nDeCypress = require('../../e2e/cypress/fixtures/i18nDE.json');
 
+const afBodyKeys = Object.keys(i18nAf.body);
 const enBodyKeys = Object.keys(i18nEn.body);
 const esBodyKeys = Object.keys(i18nEs.body);
 const deBodyKeys = Object.keys(i18nDe.body);
@@ -17,6 +19,7 @@ const i18nDeBodyCypressKeys = Object.keys(i18nDeCypress.body);
 
 test('de body length', () => {
   expect(deBodyKeys.length).toEqual(69);
+  expect(deBodyKeys.length).toEqual(afBodyKeys.length);
   expect(deBodyKeys.length).toEqual(enBodyKeys.length);
   expect(deBodyKeys.length).toEqual(esBodyKeys.length);
   expect(deBodyKeys.length).toEqual(ptBodyKeys.length);
@@ -26,6 +29,7 @@ test('de body length', () => {
 });
 
 test('de body keys', () => {
+  expect(arraysEqual(deBodyKeys, afBodyKeys)).toEqual(true);
   expect(arraysEqual(deBodyKeys, enBodyKeys)).toEqual(true);
   expect(arraysEqual(deBodyKeys, esBodyKeys)).toEqual(true);
   expect(arraysEqual(deBodyKeys, frBodyKeys)).toEqual(true);
@@ -34,6 +38,7 @@ test('de body keys', () => {
   expect(arraysEqual(deBodyKeys, i18nDeBodyCypressKeys)).toEqual(true);
 });
 
+const afHeadKeys = Object.keys(i18nAf.head);
 const enHeadKeys = Object.keys(i18nEn.head);
 const esHeadKeys = Object.keys(i18nEs.head);
 const deHeadKeys = Object.keys(i18nDe.head);
@@ -44,6 +49,7 @@ const i18nDeHeadCypressKeys = Object.keys(i18nDeCypress.head);
 
 test('de head length', () => {
   expect(deHeadKeys.length).toEqual(4);
+  expect(deHeadKeys.length).toEqual(afHeadKeys.length);
   expect(deHeadKeys.length).toEqual(enHeadKeys.length);
   expect(deHeadKeys.length).toEqual(esHeadKeys.length);
   expect(deHeadKeys.length).toEqual(ptHeadKeys.length);
@@ -53,6 +59,7 @@ test('de head length', () => {
 });
 
 test('de head keys', () => {
+  expect(arraysEqual(deHeadKeys, afHeadKeys)).toEqual(true);
   expect(arraysEqual(deHeadKeys, enHeadKeys)).toEqual(true);
   expect(arraysEqual(deHeadKeys, esHeadKeys)).toEqual(true);
   expect(arraysEqual(deHeadKeys, frHeadKeys)).toEqual(true);
@@ -70,10 +77,10 @@ test('de strings props vals', () => {
         appname: 'Framingham HerzRisiko',
         description: 'Mit der Framingham-Skala kann das individuelle Risiko für kardiovaskuläre Ereignisse in 10 Jahren bestimmt werden',
         keywords: 'framingham, rechner, riske, partitur, herz, kardiovaskulär, koronar, krankheit',
-        title: 'Framingham CardioVascular Risk Score Rechner'
+        title: 'Framingham Herz Kreislauf Risiko Rechner'
       },
       body: {
-        abdominal_aortic_aneurysm: 'abdominales Aortenaneurysma',
+        abdominal_aortic_aneurysm: 'Bauchaortenaneurysma',
         age: 'Alter',
         androidapp: 'Android App',
         alternative_target: 'Alternatives Ziel',
@@ -117,7 +124,7 @@ test('de strings props vals', () => {
         purpose_text3: 'Es ist wichtig, das Risiko eines einzelnen Patienten vorhersagen zu können, um zu entscheiden, wann eine Änderung des Lebensstils und eine vorbeugende medizinische Behandlung eingeleitet werden sollen. Zu diesem Zweck wurden mehrere Risikomodelle für die Vorhersage des kardiovaskulären Risikos einzelner Patienten entwickelt. Ein solches Hauptrisikomodell ist der Framingham Risk Score.',
         results: 'Ergebnisse',
         risk: 'Risiko',
-        risk_score_calculator: 'Risk Score Rechner',
+        risk_score_calculator: 'Risikorechner',
         score: 'Interpunktion',
         send: 'Senden',
         smoking: 'Raucher',

@@ -1,4 +1,5 @@
 const { arraysEqual } = require('../../helpers/arraysEqual');
+const i18nAf = require('../../../src/i18n/af.json');
 const i18nEn = require('../../../src/i18n/en.json');
 const i18nEs = require('../../../src/i18n/es.json');
 const i18nPt = require('../../../src/i18n/pt.json');
@@ -7,6 +8,7 @@ const i18nFr = require('../../../src/i18n/fr.json');
 const i18nDe = require('../../../src/i18n/de.json');
 const i18nEnCypress = require('../../e2e/cypress/fixtures/i18nEN.json');
 
+const afBodyKeys = Object.keys(i18nAf.body);
 const enBodyKeys = Object.keys(i18nEn.body);
 const esBodyKeys = Object.keys(i18nEs.body);
 const deBodyKeys = Object.keys(i18nDe.body);
@@ -17,6 +19,7 @@ const i18nEnBodyCypressKeys = Object.keys(i18nEnCypress.body);
 
 test('en body length', () => {
   expect(enBodyKeys.length).toEqual(69);
+  expect(enBodyKeys.length).toEqual(afBodyKeys.length);
   expect(enBodyKeys.length).toEqual(deBodyKeys.length);
   expect(enBodyKeys.length).toEqual(esBodyKeys.length);
   expect(enBodyKeys.length).toEqual(ptBodyKeys.length);
@@ -26,6 +29,7 @@ test('en body length', () => {
 });
 
 test('en body keys', () => {
+  expect(arraysEqual(enBodyKeys, afBodyKeys)).toEqual(true);
   expect(arraysEqual(enBodyKeys, deBodyKeys)).toEqual(true);
   expect(arraysEqual(enBodyKeys, esBodyKeys)).toEqual(true);
   expect(arraysEqual(enBodyKeys, frBodyKeys)).toEqual(true);
@@ -34,6 +38,7 @@ test('en body keys', () => {
   expect(arraysEqual(enBodyKeys, i18nEnBodyCypressKeys)).toEqual(true);
 });
 
+const afHeadKeys = Object.keys(i18nAf.head);
 const enHeadKeys = Object.keys(i18nEn.head);
 const esHeadKeys = Object.keys(i18nEs.head);
 const deHeadKeys = Object.keys(i18nDe.head);
@@ -44,6 +49,7 @@ const i18nEnHeadCypressKeys = Object.keys(i18nEnCypress.head);
 
 test('en head length', () => {
   expect(enHeadKeys.length).toEqual(4);
+  expect(enHeadKeys.length).toEqual(afHeadKeys.length);
   expect(enHeadKeys.length).toEqual(deHeadKeys.length);
   expect(enHeadKeys.length).toEqual(esHeadKeys.length);
   expect(enHeadKeys.length).toEqual(ptHeadKeys.length);
@@ -53,6 +59,7 @@ test('en head length', () => {
 });
 
 test('en head keys', () => {
+  expect(arraysEqual(enHeadKeys, afHeadKeys)).toEqual(true);
   expect(arraysEqual(enHeadKeys, deHeadKeys)).toEqual(true);
   expect(arraysEqual(enHeadKeys, esHeadKeys)).toEqual(true);
   expect(arraysEqual(enHeadKeys, frHeadKeys)).toEqual(true);

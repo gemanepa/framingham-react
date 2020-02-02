@@ -78,7 +78,7 @@ export default function Results(props) {
             section#results h3 {
                 color: #4689C8;
                 font-weight: 600;
-                font-size: 170%;
+                font-size: 160%;
             }
 
             section#results h3 i {
@@ -94,6 +94,11 @@ export default function Results(props) {
 
               section#results h3 i {
                 margin-top: 3%;
+              }
+
+              section#results h3:last-child {
+                padding-bottom: 0;
+                margin-bottom: 0;
               }
             }
 

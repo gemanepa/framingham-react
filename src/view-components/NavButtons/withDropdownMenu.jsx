@@ -9,6 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Link from '../Link';
+import afFlag from '../../../public/flags/af-flag.png';
 import enFlag from '../../../public/flags/en-flag.png';
 import esFlag from '../../../public/flags/es-flag.png';
 import deFlag from '../../../public/flags/de-flag.png';
@@ -120,6 +121,14 @@ export default function CustomizedMenus(props) {
         { menuType === 'language'
           ? (
             <div key={`${menuType}-items`}>
+              <Link href="/?lang=af" as="/af" color="secondary" data-test="Navbuttons_languages_af">
+                <StyledMenuItem onClick={handleClose} key={`${menuType}-af-menuitem`}>
+                  <ListItemIcon key={`${menuType}-af-listitemicon`}>
+                    <img src={afFlag} alt="" className="navflagsimgs" />
+                  </ListItemIcon>
+                  <ListItemText primary="Afrikaans" key={`${menuType}-af-listitemtext`} />
+                </StyledMenuItem>
+              </Link>
               <Link href="/?lang=de" as="/de" color="secondary" data-test="Navbuttons_languages_de">
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-de-menuitem`}>
                   <ListItemIcon key={`${menuType}-de-listitemicon`}>
@@ -235,6 +244,7 @@ export default function CustomizedMenus(props) {
           }
         }
         @media (min-width: 1200px) {
+          padding-top: 0.125rem;
           .langmenuimg {
             height: 10vh;
             min-height: 65px;

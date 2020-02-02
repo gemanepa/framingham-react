@@ -12,12 +12,13 @@ export default function Header(props) {
 
   function handleSubheaderPadding() {
     const horizontalPadding = {
-      en: '25%',
+      af: '20%',
+      en: '21%',
       es: '17%',
-      de: '16%',
-      fr: '20.5%',
-      it: '22%',
-      pt: '22%'
+      de: '13%',
+      fr: '16%',
+      it: '20%',
+      pt: '20%'
     };
 
     return `5% ${horizontalPadding[lang]}`;
@@ -88,11 +89,14 @@ export default function Header(props) {
 
         h1 {
           padding-top: 5.5%;
+          font-size: 7.175vh;
+          text-shadow: 0.15vw 0.15vw #4689c8;
         }
 
         h2.subheader {
           margin-top: -0.5vh;
           margin-bottom: -0.5vh;
+          font-size: 2.46vw;
           padding: ${handleSubheaderPadding()};
         }
       }

@@ -5,13 +5,12 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
 import theme from '../src/view-components/helpers/materialui-theme';
 
+
 class MyDocument extends Document {
   render() {
-    if (typeof window !== 'undefined') console.log('window.location.pathname ', window.location.pathname);
-
     return (
       // eslint-disable-next-line jsx-a11y/html-has-lang
-      <html style={{ scrollBehavior: 'smooth' }}>
+      <html id="dom" style={{ scrollBehavior: 'smooth', fontSize: '100%' }}>
         <Head>
           <meta name="author" content="gemanepa | https://gemanepa.com" />
           <meta name="generator" content="NextJS" />
@@ -28,7 +27,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <body style={{ backgroundColor: '#7cb9fb' }}>
+        <body style={{ backgroundColor: '#7cb9fb', maxWidth: '100vw', overflow: 'hidden' }}>
           <Main />
           <NextScript />
         </body>

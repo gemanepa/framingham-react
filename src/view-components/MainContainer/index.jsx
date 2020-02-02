@@ -20,10 +20,19 @@ export default function MainContainer(props) {
       },
     },
     paperDesktop: {
-      padding: () => containerType.get === 'calcinput' ? '34px 24px 24px 50px' : theme.spacing(3, 3),
-      width: '90%',
-      minHeight: '80vh',
-      margin: '5% auto'
+      padding: containerType.get === 'results' ? '2.25rem 2rem 2.25rem 2rem' : '1.25rem 1rem 1.75rem 1rem',
+      minHeight: '72vh',
+      marginTop: '5vh',
+      marginRight: 'auto',
+      marginBottom: 'auto',
+      marginLeft: '0%',
+      width() {
+        if (containerType.get === 'calcinput') {
+          return '87%';
+        } if (containerType.get === 'results') {
+          return '94%';
+        } return '92%';
+      }
     },
     paperMobile: {
       padding: theme.spacing(3, 3),
@@ -105,7 +114,7 @@ export default function MainContainer(props) {
             @media (min-width: 1200px) {
               main#maincontainer {
                 min-height: 100%;
-                width: 49.5%;
+                width: 50%;
               }
             }
         `}

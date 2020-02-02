@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
+import { useRouter } from 'next/router';
 import Head from '../Head';
 import Header from '../Header';
 import NavButtons from '../NavButtons';
@@ -8,13 +9,23 @@ import Footer from '../Footer';
 
 
 export default function Index(props) {
-  const { translations } = props;
+  const { trs } = props; // Default i18n for each page
+  const [translations, setTranslations] = React.useState(trs);
+
+  const router = useRouter(); // i18n switching handler
+
+  const language = router.pathname.length > 1 ? router.pathname.replace('/', '') : 'en';
+  import(`../../i18n/${language}.json`).then((strings) => {
+    setTranslations(strings.default);
+  });
+
   const [containerType, setContainerType] = React.useState('calcinput');
 
   if (process.env.NODE_ENV !== 'development' && process.env.NODE_ENV !== 'test') {
     ReactGA.initialize('UA-157152731-1');
     ReactGA.pageview('/en');
   }
+
 
   return (
     <>

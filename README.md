@@ -2,7 +2,7 @@
 ![enter image description here](https://i.imgur.com/VPkYo89.png)
 
 *A Progressive Web App made with React NextJS*
-Live version: https://framinghamcalc.now.sh/
+*Live version: https://framinghamcalc.now.sh/*
 
 ## Tech Stack
 

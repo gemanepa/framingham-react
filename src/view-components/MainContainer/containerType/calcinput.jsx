@@ -61,6 +61,11 @@ export default function CalcInput(props) {
             @media (min-width: 1200px) {
               section#calcinput h2 {
                   margin-bottom: -1.5%;
+                  font-size: 2.05vw;
+              }
+
+              section#calcinput h5 {
+                font-size: 0.85vw; 
               }
             }
   

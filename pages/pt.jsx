@@ -4,13 +4,13 @@ import App from '../src/view-components/App';
 import * as translations from '../src/i18n/pt.json';
 
 export default function Index(props) {
-  const { tr } = props;
-  return <App translations={tr} />;
+  const { trs } = props;
+  return <App trs={trs} />;
 }
 
-Index.getInitialProps = () => ({ tr: translations.default });
+Index.getInitialProps = () => ({ trs: translations.default });
 
 Index.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  tr: PropTypes.object.isRequired
+  trs: PropTypes.object.isRequired
 };

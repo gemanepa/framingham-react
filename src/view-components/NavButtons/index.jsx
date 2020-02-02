@@ -7,7 +7,6 @@ import InfoIcon from '@material-ui/icons/Info';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import ButtonWithDropdownMenu from './withDropdownMenu';
 import useInterval from '../helpers/useIntervalHook';
-import Link from '../Link';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -30,11 +29,11 @@ export default function IconLabelButtons(props) {
   const classes = useStyles();
 
   function translateStringsIteration() {
-    const translateStrings = ['Translate', 'Traducir', 'Traduzir', 'Traduire', 'Tradurre', 'Übersetzen'];
+    const translateStrings = ['Translate', 'Traducir', 'Traduzir', 'Traduire', 'Tradurre', 'Übersetzen', 'Vertaal'];
     const [count, setCount] = useState(0);
 
     useInterval(() => {
-      if (count === 5) {
+      if (count === 6) {
         setCount(0);
       } else { setCount(count + 1); }
     }, 5000);
@@ -139,6 +138,12 @@ export default function IconLabelButtons(props) {
           @media (max-width: 1199px) {
             .navbuttons .firstrow, .navbuttons .secondrow {
               flex-direction: column;
+            }
+          }
+
+          @media (min-width: 1200px) {
+            .navbuttons span {
+              padding-top: 0.125rem;
             }
           }
       `}

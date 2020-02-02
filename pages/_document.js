@@ -27,7 +27,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <body style={{ backgroundColor: '#7cb9fb', maxWidth: '100vw', overflow: 'hidden' }}>
+        <body style={{ backgroundColor: '#7cb9fb', maxWidth: '100vw', 'overflow-x': 'hidden' }}>
           <Main />
           <NextScript />
         </body>

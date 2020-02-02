@@ -11,6 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Link from '../Link';
 import afFlag from '../../../public/flags/af-flag.png';
 import caFlag from '../../../public/flags/ca-flag.png';
+import daFlag from '../../../public/flags/da-flag.png';
 import enFlag from '../../../public/flags/en-flag.png';
 import esFlag from '../../../public/flags/es-flag.png';
 import deFlag from '../../../public/flags/de-flag.png';
@@ -136,6 +137,14 @@ export default function CustomizedMenus(props) {
                     <img src={caFlag} alt="" className="navflagsimgs" />
                   </ListItemIcon>
                   <ListItemText primary="Català" key={`${menuType}-ca-listitemtext`} />
+                </StyledMenuItem>
+              </Link>
+              <Link href="/?lang=da" as="/da" color="secondary" data-test="Navbuttons_languages_da">
+                <StyledMenuItem onClick={handleClose} key={`${menuType}-da-menuitem`}>
+                  <ListItemIcon key={`${menuType}-da-listitemicon`}>
+                    <img src={daFlag} alt="" className="navflagsimgs" />
+                  </ListItemIcon>
+                  <ListItemText primary="Dansk" key={`${menuType}-da-listitemtext`} />
                 </StyledMenuItem>
               </Link>
               <Link href="/?lang=de" as="/de" color="secondary" data-test="Navbuttons_languages_de">

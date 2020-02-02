@@ -30,7 +30,15 @@ export default function IconLabelButtons(props) {
 
   function translateStringsIteration() {
     const translateStrings = [
-      'Translate', 'Traducir', 'Traduzir', 'Traduire', 'Tradurre', 'Traduir', 'Übersetzen', 'Vertaal'
+      'Translate', // EN - English
+      'Traducir', // ES - Spanish
+      'Traduzir', // PT - Portuguese
+      'Traduire', // FR - French
+      'Tradurre', // IT - Italian
+      'Traduir', // CA - Catala
+      'Übersetzen', // DE - Deutsch
+      'Vertaal', // AF - Afrikaans
+      'Oversætte' // DA - Danish
     ];
     const [count, setCount] = useState(0);
 

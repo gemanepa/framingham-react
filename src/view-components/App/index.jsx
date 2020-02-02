@@ -13,8 +13,8 @@ export default function Index(props) {
   const [translations, setTranslations] = React.useState(trs);
 
   const router = useRouter(); // i18n switching handler
-
-  const language = router.pathname.length > 1 ? router.pathname.replace('/', '') : 'en';
+  const route = router.asPath.includes('#maincontainer') ? router.asPath.replace('#maincontainer', '') : router.asPath;
+  const language = route.length > 1 ? route.replace('/', '') : 'en';
   import(`../../i18n/${language}.json`).then((strings) => {
     setTranslations(strings.default);
   });
@@ -23,7 +23,7 @@ export default function Index(props) {
 
   if (process.env.NODE_ENV !== 'development' && process.env.NODE_ENV !== 'test') {
     ReactGA.initialize('UA-157152731-1');
-    ReactGA.pageview('/en');
+    ReactGA.pageview(route);
   }
 
 

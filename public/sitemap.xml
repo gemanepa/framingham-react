@@ -10,8 +10,9 @@
   <url>
     <loc>https://framinghamcalc.now.sh/</loc>
     <lastmod>2020-02-01T22:16:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="af" href="https://framinghamcalc.now.sh/af/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://framinghamcalc.now.sh/ca/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://framinghamcalc.now.sh/de/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/en/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://framinghamcalc.now.sh/es/" />
@@ -22,8 +23,22 @@
   <url>
     <loc>https://framinghamcalc.now.sh/af/</loc>
     <lastmod>2020-02-01T22:16:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://framinghamcalc.now.sh/ca/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://framinghamcalc.now.sh/de/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://framinghamcalc.now.sh/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://framinghamcalc.now.sh/fr/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://framinghamcalc.now.sh/it/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://framinghamcalc.now.sh/pt/" />
+  </url>
+  <url>
+    <loc>https://framinghamcalc.now.sh/ca/</loc>
+    <lastmod>2020-02-01T22:16:01+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/" />
+    <xhtml:link rel="alternate" hreflang="af" href="https://framinghamcalc.now.sh/af/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://framinghamcalc.now.sh/de/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/en/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://framinghamcalc.now.sh/es/" />
@@ -34,8 +49,9 @@
   <url>
     <loc>https://framinghamcalc.now.sh/de/</loc>
     <lastmod>2020-02-01T22:16:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="af" href="https://framinghamcalc.now.sh/af/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://framinghamcalc.now.sh/ca/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/en/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://framinghamcalc.now.sh/es/" />
@@ -46,8 +62,9 @@
   <url>
     <loc>https://framinghamcalc.now.sh/en/</loc>
     <lastmod>2020-02-01T22:16:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="af" href="https://framinghamcalc.now.sh/af/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://framinghamcalc.now.sh/ca/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://framinghamcalc.now.sh/de/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://framinghamcalc.now.sh/es/" />
@@ -58,8 +75,9 @@
   <url>
     <loc>https://framinghamcalc.now.sh/es/</loc>
     <lastmod>2020-02-01T22:16:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="af" href="https://framinghamcalc.now.sh/af/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://framinghamcalc.now.sh/ca/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://framinghamcalc.now.sh/de/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/en/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/" />
@@ -70,8 +88,9 @@
   <url>
     <loc>https://framinghamcalc.now.sh/fr/</loc>
     <lastmod>2020-02-01T22:16:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="af" href="https://framinghamcalc.now.sh/af/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://framinghamcalc.now.sh/ca/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://framinghamcalc.now.sh/de/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/en/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://framinghamcalc.now.sh/es/" />
@@ -82,8 +101,9 @@
   <url>
     <loc>https://framinghamcalc.now.sh/it</loc>
     <lastmod>2020-02-01T22:16:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="af" href="https://framinghamcalc.now.sh/af/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://framinghamcalc.now.sh/ca/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://framinghamcalc.now.sh/de/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/en/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://framinghamcalc.now.sh/es/" />
@@ -94,8 +114,9 @@
   <url>
     <loc>https://framinghamcalc.now.sh/pt</loc>
     <lastmod>2020-02-01T22:16:01+00:00</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="af" href="https://framinghamcalc.now.sh/af/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://framinghamcalc.now.sh/ca/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://framinghamcalc.now.sh/de/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://framinghamcalc.now.sh/en/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://framinghamcalc.now.sh/es/" />

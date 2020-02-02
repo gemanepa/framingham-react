@@ -22,7 +22,7 @@ export default function MainContainer(props) {
     paperDesktop: {
       padding: containerType.get === 'results' ? '2.25rem 2rem 2.25rem 2rem' : '1.25rem 1rem 1.75rem 1rem',
       minHeight: '72vh',
-      marginTop: '5%',
+      marginTop: '5vh',
       marginRight: 'auto',
       marginBottom: 'auto',
       marginLeft: '0%',

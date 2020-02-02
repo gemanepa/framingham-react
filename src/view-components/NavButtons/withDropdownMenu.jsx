@@ -244,7 +244,7 @@ export default function CustomizedMenus(props) {
           }
         }
         @media (min-width: 1200px) {
-          font-size: 1.1vw;
+          padding-top: 0.125rem;
           .langmenuimg {
             height: 10vh;
             min-height: 65px;

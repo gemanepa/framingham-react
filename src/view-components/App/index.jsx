@@ -13,7 +13,8 @@ export default function Index(props) {
   const [translations, setTranslations] = React.useState(trs);
 
   const router = useRouter(); // i18n switching handler
-  const language = router.asPath.length > 1 ? router.asPath.replace('/', '') : 'en';
+
+  const language = router.pathname.length > 1 ? router.pathname.replace('/', '') : 'en';
   import(`../../i18n/${language}.json`).then((strings) => {
     setTranslations(strings.default);
   });

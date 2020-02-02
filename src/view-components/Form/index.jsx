@@ -22,7 +22,7 @@ import { checkboxes, selects } from './data';
 const useStyles = makeStyles((theme) => ({
   defaultFormControl: {
     margin: theme.spacing(1),
-    minWidth: 250,
+    minWidth: '17vw',
   },
   cholesterolFormControls: {
     margin: theme.spacing(1),
@@ -267,7 +267,7 @@ export default function Form(props) {
       .error {
         color: #ff1744;
       }
-      
+
       @media (max-width: 1199px) {
         .desktopOnly {
           display: none;
@@ -283,6 +283,15 @@ export default function Form(props) {
         .formbuttons {
           display: flex;
           flex-direction: column-reverse;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        form {
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+          padding-left: 5%
         }
       }
     `}

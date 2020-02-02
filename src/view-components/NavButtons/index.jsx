@@ -143,7 +143,7 @@ export default function IconLabelButtons(props) {
 
           @media (min-width: 1200px) {
             .navbuttons span {
-              font-size: 1.1vw;
+              padding-top: 0.125rem;
             }
           }
       `}

@@ -20,14 +20,22 @@ export default function MainContainer(props) {
       },
     },
     paperDesktop: {
-      padding: () => containerType.get === 'calcinput' ? '34px 24px 24px 50px' : theme.spacing(3, 3),
-      width: '94%',
+      padding: containerType.get === 'calcinput' ? '1.25rem 1rem 1.25rem 1rem' : theme.spacing(3, 3),
       minHeight: '80vh',
-      margin: '5%',
-      marginLeft: '0%'
+      marginTop: '5%',
+      marginRight: 'auto',
+      marginBottom: 'auto',
+      marginLeft: '0%',
+      width() {
+        if (containerType.get === 'calcinput') {
+          return '87%';
+        } if (containerType.get === 'results') {
+          return '94%';
+        } return '98.75%';
+      }
     },
     paperMobile: {
-      padding: theme.spacing(3, 3),
+      padding: '24px 18px',
       height: 'auto',
       width: '100%',
     }

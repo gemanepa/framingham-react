@@ -39,11 +39,12 @@ export default function IconLabelButtons(props) {
       'Übersetzen', // DE - Deutsch
       'Vertaal', // AF - Afrikaans
       'Oversætte' // DA - Danish
+      // NL - Nederlands
     ];
     const [count, setCount] = useState(0);
 
     useInterval(() => {
-      if (count === 7) {
+      if (count === 8) {
         setCount(0);
       } else { setCount(count + 1); }
     }, 5000);

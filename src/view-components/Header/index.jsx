@@ -15,11 +15,12 @@ export default function Header(props) {
       af: '20%',
       ca: '19%',
       da: '20%',
+      de: '13%',
       en: '21%',
       es: '17%',
-      de: '13%',
       fr: '16%',
       it: '20%',
+      nl: '20%',
       pt: '20%'
     };
 

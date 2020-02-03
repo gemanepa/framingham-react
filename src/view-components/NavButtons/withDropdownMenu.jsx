@@ -17,6 +17,7 @@ import esFlag from '../../../public/flags/es-flag.png';
 import deFlag from '../../../public/flags/de-flag.png';
 import frFlag from '../../../public/flags/fr-flag.png';
 import itFlag from '../../../public/flags/it-flag.png';
+import nlFlag from '../../../public/flags/nl-flag.png';
 import ptFlag from '../../../public/flags/pt-flag.png';
 import fhsLogo from '../../../public/logos/fhslogo.png';
 import nihLogo from '../../../public/logos/nihlogo.png';
@@ -185,6 +186,14 @@ export default function CustomizedMenus(props) {
                     <img src={itFlag} alt="" className="navflagsimgs" />
                   </ListItemIcon>
                   <ListItemText primary="Italiano" key={`${menuType}-it-listitemtext`} />
+                </StyledMenuItem>
+              </Link>
+              <Link href="/?lang=nl" as="/nl" color="secondary" data-test="Navbuttons_languages_nl">
+                <StyledMenuItem onClick={handleClose} key={`${menuType}-nl-menuitem`}>
+                  <ListItemIcon key={`${menuType}-it-listitemicon`}>
+                    <img src={nlFlag} alt="" className="navflagsimgs" />
+                  </ListItemIcon>
+                  <ListItemText primary="Nederlands" key={`${menuType}-nl-listitemtext`} />
                 </StyledMenuItem>
               </Link>
               <Link href="/?lang=pt" as="/pt" color="secondary" data-test="Navbuttons_languages_pt">

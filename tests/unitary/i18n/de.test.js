@@ -4,6 +4,7 @@ const i18nCa = require('../../../src/i18n/ca.json');
 const i18nDa = require('../../../src/i18n/da.json');
 const i18nEn = require('../../../src/i18n/en.json');
 const i18nEs = require('../../../src/i18n/es.json');
+const i18nNl = require('../../../src/i18n/nl.json');
 const i18nPt = require('../../../src/i18n/pt.json');
 const i18nIt = require('../../../src/i18n/it.json');
 const i18nFr = require('../../../src/i18n/fr.json');
@@ -18,6 +19,7 @@ const esBodyKeys = Object.keys(i18nEs.body);
 const deBodyKeys = Object.keys(i18nDe.body);
 const frBodyKeys = Object.keys(i18nFr.body);
 const itBodyKeys = Object.keys(i18nIt.body);
+const nlBodyKeys = Object.keys(i18nNl.body);
 const ptBodyKeys = Object.keys(i18nPt.body);
 const i18nDeBodyCypressKeys = Object.keys(i18nDeCypress.body);
 
@@ -31,6 +33,7 @@ test('de body length', () => {
   expect(deBodyKeys.length).toEqual(ptBodyKeys.length);
   expect(deBodyKeys.length).toEqual(itBodyKeys.length);
   expect(deBodyKeys.length).toEqual(frBodyKeys.length);
+  expect(deBodyKeys.length).toEqual(nlBodyKeys.length);
   expect(deBodyKeys.length).toEqual(i18nDeBodyCypressKeys.length);
 });
 
@@ -43,6 +46,7 @@ test('de body keys', () => {
   expect(arraysEqual(deBodyKeys, frBodyKeys)).toEqual(true);
   expect(arraysEqual(deBodyKeys, itBodyKeys)).toEqual(true);
   expect(arraysEqual(deBodyKeys, ptBodyKeys)).toEqual(true);
+  expect(arraysEqual(deBodyKeys, nlBodyKeys)).toEqual(true);
   expect(arraysEqual(deBodyKeys, i18nDeBodyCypressKeys)).toEqual(true);
 });
 
@@ -54,6 +58,7 @@ const esHeadKeys = Object.keys(i18nEs.head);
 const deHeadKeys = Object.keys(i18nDe.head);
 const frHeadKeys = Object.keys(i18nFr.head);
 const itHeadKeys = Object.keys(i18nIt.head);
+const nlHeadKeys = Object.keys(i18nNl.head);
 const ptHeadKeys = Object.keys(i18nPt.head);
 const i18nDeHeadCypressKeys = Object.keys(i18nDeCypress.head);
 
@@ -67,6 +72,7 @@ test('de head length', () => {
   expect(deHeadKeys.length).toEqual(ptHeadKeys.length);
   expect(deHeadKeys.length).toEqual(itHeadKeys.length);
   expect(deHeadKeys.length).toEqual(frHeadKeys.length);
+  expect(deHeadKeys.length).toEqual(nlHeadKeys.length);
   expect(deHeadKeys.length).toEqual(i18nDeHeadCypressKeys.length);
 });
 
@@ -79,6 +85,7 @@ test('de head keys', () => {
   expect(arraysEqual(deHeadKeys, frHeadKeys)).toEqual(true);
   expect(arraysEqual(deHeadKeys, itHeadKeys)).toEqual(true);
   expect(arraysEqual(deHeadKeys, ptHeadKeys)).toEqual(true);
+  expect(arraysEqual(deHeadKeys, nlHeadKeys)).toEqual(true);
   expect(arraysEqual(deHeadKeys, i18nDeHeadCypressKeys)).toEqual(true);
 });
 

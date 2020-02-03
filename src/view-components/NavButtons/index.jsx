@@ -30,12 +30,21 @@ export default function IconLabelButtons(props) {
 
   function translateStringsIteration() {
     const translateStrings = [
-      'Translate', 'Traducir', 'Traduzir', 'Traduire', 'Tradurre', 'Traduir', 'Übersetzen', 'Vertaal'
+      'Translate', // EN - English
+      'Traducir', // ES - Spanish
+      'Traduzir', // PT - Portuguese
+      'Traduire', // FR - French
+      'Tradurre', // IT - Italian
+      'Traduir', // CA - Catala
+      'Übersetzen', // DE - Deutsch
+      'Vertaal', // AF - Afrikaans
+      'Oversætte' // DA - Danish
+      // NL - Nederlands
     ];
     const [count, setCount] = useState(0);
 
     useInterval(() => {
-      if (count === 7) {
+      if (count === 8) {
         setCount(0);
       } else { setCount(count + 1); }
     }, 5000);

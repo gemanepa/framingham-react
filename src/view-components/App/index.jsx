@@ -15,7 +15,7 @@ export default function Index(props) {
   const router = useRouter(); // i18n switching handler
   const route = router.asPath.includes('#maincontainer') ? router.asPath.replace('#maincontainer', '') : router.asPath;
   const language = route.length > 1 ? route.replace('/', '') : 'en';
-  if (typeof window !== 'undefined') { window.lang = language; }
+
   import(`../../i18n/${language}.json`).then((strings) => {
     setTranslations(strings.default);
   });

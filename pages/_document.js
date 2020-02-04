@@ -19,6 +19,7 @@ class MyDocument extends Document {
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
+          <meta name="google-site-verification" content="koFZ01o63GfWUiUsZ52GFea91V9OnhXXiTbL7XrZiek" />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link rel="icon" type="image/x-icon" href="icon.ico" />

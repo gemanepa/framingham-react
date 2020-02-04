@@ -181,7 +181,7 @@ export default function Form(props) {
       props.datasubmittedHandler(allData, translations.calc);
     }
   }
-  console.log('translations form', translations)
+
   return (
     <>
       <form autoComplete="off">

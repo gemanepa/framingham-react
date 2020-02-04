@@ -9,6 +9,7 @@ const i18nPt = require('../../../src/i18n/pt.json');
 const i18nIt = require('../../../src/i18n/it.json');
 const i18nFr = require('../../../src/i18n/fr.json');
 const i18nDe = require('../../../src/i18n/de.json');
+const i18nSv = require('../../../src/i18n/sv.json');
 const i18nAfCypress = require('../../e2e/cypress/fixtures/i18nAF.json');
 
 const afBodyKeys = Object.keys(i18nAf.body);
@@ -21,10 +22,11 @@ const frBodyKeys = Object.keys(i18nFr.body);
 const itBodyKeys = Object.keys(i18nIt.body);
 const nlBodyKeys = Object.keys(i18nNl.body);
 const ptBodyKeys = Object.keys(i18nPt.body);
+const svBodyKeys = Object.keys(i18nSv.body);
 const i18nAfBodyCypressKeys = Object.keys(i18nAfCypress.body);
 
 test('af body length', () => {
-  expect(afBodyKeys.length).toEqual(69);
+  expect(afBodyKeys.length).toEqual(72);
   expect(afBodyKeys.length).toEqual(caBodyKeys.length);
   expect(afBodyKeys.length).toEqual(daBodyKeys.length);
   expect(afBodyKeys.length).toEqual(enBodyKeys.length);
@@ -34,6 +36,7 @@ test('af body length', () => {
   expect(afBodyKeys.length).toEqual(itBodyKeys.length);
   expect(afBodyKeys.length).toEqual(frBodyKeys.length);
   expect(afBodyKeys.length).toEqual(nlBodyKeys.length);
+  expect(afBodyKeys.length).toEqual(svBodyKeys.length);
   expect(afBodyKeys.length).toEqual(i18nAfBodyCypressKeys.length);
 });
 
@@ -47,6 +50,7 @@ test('af body keys', () => {
   expect(arraysEqual(afBodyKeys, itBodyKeys)).toEqual(true);
   expect(arraysEqual(afBodyKeys, ptBodyKeys)).toEqual(true);
   expect(arraysEqual(afBodyKeys, nlBodyKeys)).toEqual(true);
+  expect(arraysEqual(afBodyKeys, svBodyKeys)).toEqual(true);
   expect(arraysEqual(afBodyKeys, i18nAfBodyCypressKeys)).toEqual(true);
 });
 
@@ -60,6 +64,7 @@ const frHeadKeys = Object.keys(i18nFr.head);
 const itHeadKeys = Object.keys(i18nIt.head);
 const nlHeadKeys = Object.keys(i18nNl.head);
 const ptHeadKeys = Object.keys(i18nPt.head);
+const svHeadKeys = Object.keys(i18nSv.head);
 const i18nAfHeadCypressKeys = Object.keys(i18nAfCypress.head);
 
 test('af head length', () => {
@@ -71,6 +76,7 @@ test('af head length', () => {
   expect(afHeadKeys.length).toEqual(esHeadKeys.length);
   expect(afHeadKeys.length).toEqual(esHeadKeys.length);
   expect(afHeadKeys.length).toEqual(nlHeadKeys.length);
+  expect(afHeadKeys.length).toEqual(svHeadKeys.length);
   expect(afHeadKeys.length).toEqual(itHeadKeys.length);
   expect(afHeadKeys.length).toEqual(frHeadKeys.length);
   expect(afHeadKeys.length).toEqual(i18nAfHeadCypressKeys.length);
@@ -85,6 +91,7 @@ test('af head keys', () => {
   expect(arraysEqual(afHeadKeys, frHeadKeys)).toEqual(true);
   expect(arraysEqual(afHeadKeys, itHeadKeys)).toEqual(true);
   expect(arraysEqual(afHeadKeys, nlHeadKeys)).toEqual(true);
+  expect(arraysEqual(afHeadKeys, svHeadKeys)).toEqual(true);
   expect(arraysEqual(afHeadKeys, ptHeadKeys)).toEqual(true);
   expect(arraysEqual(afHeadKeys, i18nAfHeadCypressKeys)).toEqual(true);
 });
@@ -114,6 +121,7 @@ test('af strings props vals', () => {
         colesterol_hdl: 'HDL Cholesterol',
         colesterol_ldl: 'LDL Cholesterol',
         colesterol_total: 'Totale Cholesterol',
+        'cms(inches)': 'cms (inches)',
         cvd: 'KVR',
         cvdexplanation: 'KVR: Kardio-vaskulêre risiko in 10 jaar',
         day: 'Dag',
@@ -129,6 +137,8 @@ test('af strings props vals', () => {
         intermediate: 'Intermediêre',
         low: 'Lae',
         man: 'Man',
+        mgdl: 'mg/dl',
+        mmHg: 'mmHg',
         month: 'Maand',
         navbar_title: 'KardioRisiko Framingham',
         or: 'of',

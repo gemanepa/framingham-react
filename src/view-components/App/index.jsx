@@ -15,6 +15,7 @@ export default function Index(props) {
   const router = useRouter(); // i18n switching handler
   const route = router.asPath.includes('#maincontainer') ? router.asPath.replace('#maincontainer', '') : router.asPath;
   const language = route.length > 1 ? route.replace('/', '') : 'en';
+  if (typeof window !== 'undefined') { window.lang = language; }
   import(`../../i18n/${language}.json`).then((strings) => {
     setTranslations(strings.default);
   });
@@ -95,11 +96,17 @@ export default function Index(props) {
                         treatment_low_diabetes: translations.body.treatment_low_diabetes,
                         unknown: translations.body.unknown,
                         waist_circumference: translations.body.waist_circumference,
-                        years: translations.body.years
+                        years: translations.body.years,
+                      },
+                      helpers: {
+                        'cms(inches)': translations.body['cms(inches)'],
+                        mgdl: translations.body.mgdl,
+                        mmHg: translations.body.mmHg
                       }
                     },
                     info: {
                       back: translations.body.back,
+                      info: translations.body.info,
                       purpose: translations.body.purpose,
                       purpose_text1: translations.body.purpose_text1,
                       purpose_text2: translations.body.purpose_text2,

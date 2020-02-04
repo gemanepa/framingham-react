@@ -181,7 +181,7 @@ export default function Form(props) {
       props.datasubmittedHandler(allData, translations.calc);
     }
   }
-
+  console.log('translations form', translations)
   return (
     <>
       <form autoComplete="off">
@@ -221,7 +221,7 @@ export default function Form(props) {
 
 
               </Select>
-              {select.helper && <FormHelperText>{select.helper}</FormHelperText>}
+              {select.helper && <FormHelperText>{translations.helpers[select.helper]}</FormHelperText>}
             </FormControl>
 
             {(select.name === 'age' || select.name === 'totaldl' || select.name === 'wt') && <br className="desktopOnly" />}

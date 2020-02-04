@@ -9,6 +9,8 @@ const i18nPt = require('../../../src/i18n/pt.json');
 const i18nIt = require('../../../src/i18n/it.json');
 const i18nFr = require('../../../src/i18n/fr.json');
 const i18nDe = require('../../../src/i18n/de.json');
+const i18nSv = require('../../../src/i18n/sv.json');
+const i18nRu = require('../../../src/i18n/ru.json');
 const i18nDeCypress = require('../../e2e/cypress/fixtures/i18nDE.json');
 
 const afBodyKeys = Object.keys(i18nAf.body);
@@ -21,10 +23,12 @@ const frBodyKeys = Object.keys(i18nFr.body);
 const itBodyKeys = Object.keys(i18nIt.body);
 const nlBodyKeys = Object.keys(i18nNl.body);
 const ptBodyKeys = Object.keys(i18nPt.body);
+const svBodyKeys = Object.keys(i18nSv.body);
+const ruBodyKeys = Object.keys(i18nRu.body);
 const i18nDeBodyCypressKeys = Object.keys(i18nDeCypress.body);
 
 test('de body length', () => {
-  expect(deBodyKeys.length).toEqual(69);
+  expect(deBodyKeys.length).toEqual(72);
   expect(deBodyKeys.length).toEqual(afBodyKeys.length);
   expect(deBodyKeys.length).toEqual(caBodyKeys.length);
   expect(deBodyKeys.length).toEqual(daBodyKeys.length);
@@ -34,6 +38,8 @@ test('de body length', () => {
   expect(deBodyKeys.length).toEqual(itBodyKeys.length);
   expect(deBodyKeys.length).toEqual(frBodyKeys.length);
   expect(deBodyKeys.length).toEqual(nlBodyKeys.length);
+  expect(deBodyKeys.length).toEqual(svBodyKeys.length);
+  expect(deBodyKeys.length).toEqual(ruBodyKeys.length);
   expect(deBodyKeys.length).toEqual(i18nDeBodyCypressKeys.length);
 });
 
@@ -47,6 +53,8 @@ test('de body keys', () => {
   expect(arraysEqual(deBodyKeys, itBodyKeys)).toEqual(true);
   expect(arraysEqual(deBodyKeys, ptBodyKeys)).toEqual(true);
   expect(arraysEqual(deBodyKeys, nlBodyKeys)).toEqual(true);
+  expect(arraysEqual(deBodyKeys, svBodyKeys)).toEqual(true);
+  expect(arraysEqual(deBodyKeys, ruBodyKeys)).toEqual(true);
   expect(arraysEqual(deBodyKeys, i18nDeBodyCypressKeys)).toEqual(true);
 });
 
@@ -60,6 +68,8 @@ const frHeadKeys = Object.keys(i18nFr.head);
 const itHeadKeys = Object.keys(i18nIt.head);
 const nlHeadKeys = Object.keys(i18nNl.head);
 const ptHeadKeys = Object.keys(i18nPt.head);
+const svHeadKeys = Object.keys(i18nSv.head);
+const ruHeadKeys = Object.keys(i18nRu.head);
 const i18nDeHeadCypressKeys = Object.keys(i18nDeCypress.head);
 
 test('de head length', () => {
@@ -73,6 +83,8 @@ test('de head length', () => {
   expect(deHeadKeys.length).toEqual(itHeadKeys.length);
   expect(deHeadKeys.length).toEqual(frHeadKeys.length);
   expect(deHeadKeys.length).toEqual(nlHeadKeys.length);
+  expect(deHeadKeys.length).toEqual(svHeadKeys.length);
+  expect(deHeadKeys.length).toEqual(ruHeadKeys.length);
   expect(deHeadKeys.length).toEqual(i18nDeHeadCypressKeys.length);
 });
 
@@ -86,6 +98,8 @@ test('de head keys', () => {
   expect(arraysEqual(deHeadKeys, itHeadKeys)).toEqual(true);
   expect(arraysEqual(deHeadKeys, ptHeadKeys)).toEqual(true);
   expect(arraysEqual(deHeadKeys, nlHeadKeys)).toEqual(true);
+  expect(arraysEqual(deHeadKeys, svHeadKeys)).toEqual(true);
+  expect(arraysEqual(deHeadKeys, ruHeadKeys)).toEqual(true);
   expect(arraysEqual(deHeadKeys, i18nDeHeadCypressKeys)).toEqual(true);
 });
 
@@ -115,12 +129,13 @@ test('de strings props vals', () => {
         colesterol_hdl: 'HDL-Cholesterin',
         colesterol_ldl: 'LDL-Cholesterin',
         colesterol_total: 'Gesamtcholesterin',
+        'cms(inches)': 'cms (inches)',
         cvd: 'HKR',
         cvdexplanation: 'HKR: Herz-Kreislauf-Risiko in 10 Jahren',
         day: 'Tag',
         decrease_in: 'Reduktion in',
         diabetes: 'Diabetes oder hohe Nüchtern Glykämie',
-        elinks: 'Elinks',
+        elinks: 'Links',
         gender: 'Geschlecht',
         genderRequired: 'Geschlecht ist erforderlich',
         heartage: 'Herzalter',
@@ -130,6 +145,8 @@ test('de strings props vals', () => {
         intermediate: 'Mittelstufe',
         low: 'Niedrig',
         man: 'Mann',
+        mgdl: 'mg/dl',
+        mmHg: 'mmHg',
         month: 'Monat',
         navbar_title: 'Framingham HerzRisiko',
         or: 'oder',

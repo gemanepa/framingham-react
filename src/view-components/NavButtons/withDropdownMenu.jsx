@@ -19,6 +19,8 @@ import frFlag from '../../../public/flags/fr-flag.png';
 import itFlag from '../../../public/flags/it-flag.png';
 import nlFlag from '../../../public/flags/nl-flag.png';
 import ptFlag from '../../../public/flags/pt-flag.png';
+import ruFlag from '../../../public/flags/ru-flag.png';
+import svFlag from '../../../public/flags/sv-flag.png';
 import fhsLogo from '../../../public/logos/fhslogo.png';
 import nihLogo from '../../../public/logos/nihlogo.png';
 import wikipediaLogo from '../../../public/logos/wikipedialogo3.png';
@@ -202,6 +204,22 @@ export default function CustomizedMenus(props) {
                     <img src={ptFlag} alt="" className="navflagsimgs" />
                   </ListItemIcon>
                   <ListItemText primary="Português" key={`${menuType}-pt-listitemtext`} />
+                </StyledMenuItem>
+              </Link>
+              <Link href="/?lang=ru" as="/ru" color="secondary" data-test="Navbuttons_languages_ru">
+                <StyledMenuItem onClick={handleClose} key={`${menuType}-ru-menuitem`}>
+                  <ListItemIcon key={`${menuType}-ru-listitemicon`}>
+                    <img src={ruFlag} alt="" className="navflagsimgs" />
+                  </ListItemIcon>
+                  <ListItemText primary="Русский" key={`${menuType}-ru-listitemtext`} />
+                </StyledMenuItem>
+              </Link>
+              <Link href="/?lang=sv" as="/pt" color="secondary" data-test="Navbuttons_languages_sv">
+                <StyledMenuItem onClick={handleClose} key={`${menuType}-sv-menuitem`}>
+                  <ListItemIcon key={`${menuType}-sv-listitemicon`}>
+                    <img src={svFlag} alt="" className="navflagsimgs" />
+                  </ListItemIcon>
+                  <ListItemText primary="Svenska" key={`${menuType}-sv-listitemtext`} />
                 </StyledMenuItem>
               </Link>
             </div>

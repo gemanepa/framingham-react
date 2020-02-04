@@ -37,14 +37,16 @@ export default function IconLabelButtons(props) {
       'Tradurre', // IT - Italian
       'Traduir', // CA - Catala
       'Übersetzen', // DE - Deutsch
+      'Oversætte', // DA - Danish
+      'Översätta', // SV - Swedish
       'Vertaal', // AF - Afrikaans
-      'Oversætte' // DA - Danish
-      // NL - Nederlands
+      'Vertalen', // NL - Dutch/Neerlandes
+      'Перевести'// RU - Russian
     ];
     const [count, setCount] = useState(0);
 
     useInterval(() => {
-      if (count === 8) {
+      if (count === 11) {
         setCount(0);
       } else { setCount(count + 1); }
     }, 5000);

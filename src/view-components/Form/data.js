@@ -8,19 +8,19 @@ export const selects = [
     label: 'colesterol_hdl',
     name: 'hdl',
     values: ['< 35.0', '35.0 - 45.9', '46.0 - 49.9', '50.0 - 61.9', '> 62.0'],
-    helper: 'mg/dl',
+    helper: 'mgdl',
   },
   {
     label: 'colesterol_ldl',
     name: 'ldl',
     values: ['< 80.0', '80.0 - 135.0', '> 135.0'],
-    helper: 'mg/dl',
+    helper: 'mgdl',
   },
   {
     label: 'colesterol_total',
     name: 'totaldl',
     values: ['< 158', '158 - 200', '201 - 239', '240 - 278', '> 278'],
-    helper: 'mg/dl',
+    helper: 'mgdl',
   },
   {
     label: 'arterial_pression',
@@ -36,7 +36,7 @@ export const selects = [
       female: ['< 88 (35)', '> 88 (35)', 'Unknown'],
       undefined: [''],
     },
-    helper: 'cms (inches)',
+    helper: 'cms(inches)',
   },
 ];
 

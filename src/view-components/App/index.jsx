@@ -106,6 +106,7 @@ export default function Index(props) {
                     },
                     info: {
                       back: translations.body.back,
+                      info: translations.body.info,
                       purpose: translations.body.purpose,
                       purpose_text1: translations.body.purpose_text1,
                       purpose_text2: translations.body.purpose_text2,

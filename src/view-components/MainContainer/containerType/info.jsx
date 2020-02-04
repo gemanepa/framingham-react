@@ -24,7 +24,7 @@ export default function Info(props) {
           >
             <span>{translations.back}</span>
           </Button>
-          <h2 data-test="Info_Header">Info</h2>
+          <h2 data-test="Info_Header">{translations.info}</h2>
           <ExpansionPanel translations={translations} />
         </Paper>
       </section>

@@ -10,6 +10,7 @@ const i18nIt = require('../../../src/i18n/it.json');
 const i18nFr = require('../../../src/i18n/fr.json');
 const i18nDe = require('../../../src/i18n/de.json');
 const i18nSv = require('../../../src/i18n/sv.json');
+const i18nRu = require('../../../src/i18n/ru.json');
 const i18nItCypress = require('../../e2e/cypress/fixtures/i18nIT.json');
 
 
@@ -24,6 +25,7 @@ const itBodyKeys = Object.keys(i18nIt.body);
 const nlBodyKeys = Object.keys(i18nNl.body);
 const ptBodyKeys = Object.keys(i18nPt.body);
 const svBodyKeys = Object.keys(i18nSv.body);
+const ruBodyKeys = Object.keys(i18nRu.body);
 const i18nItBodyCypressKeys = Object.keys(i18nItCypress.body);
 
 test('it body length', () => {
@@ -38,6 +40,7 @@ test('it body length', () => {
   expect(itBodyKeys.length).toEqual(esBodyKeys.length);
   expect(itBodyKeys.length).toEqual(nlBodyKeys.length);
   expect(itBodyKeys.length).toEqual(svBodyKeys.length);
+  expect(itBodyKeys.length).toEqual(ruBodyKeys.length);
   expect(itBodyKeys.length).toEqual(i18nItBodyCypressKeys.length);
 });
 
@@ -52,6 +55,7 @@ test('it body keys', () => {
   expect(arraysEqual(itBodyKeys, ptBodyKeys)).toEqual(true);
   expect(arraysEqual(itBodyKeys, nlBodyKeys)).toEqual(true);
   expect(arraysEqual(itBodyKeys, svBodyKeys)).toEqual(true);
+  expect(arraysEqual(itBodyKeys, ruBodyKeys)).toEqual(true);
   expect(arraysEqual(itBodyKeys, i18nItBodyCypressKeys)).toEqual(true);
 });
 
@@ -66,6 +70,7 @@ const itHeadKeys = Object.keys(i18nIt.head);
 const nlHeadKeys = Object.keys(i18nNl.head);
 const ptHeadKeys = Object.keys(i18nPt.head);
 const svHeadKeys = Object.keys(i18nSv.head);
+const ruHeadKeys = Object.keys(i18nRu.head);
 const i18nItHeadCypressKeys = Object.keys(i18nItCypress.head);
 
 test('it head length', () => {
@@ -80,6 +85,7 @@ test('it head length', () => {
   expect(itHeadKeys.length).toEqual(esHeadKeys.length);
   expect(itHeadKeys.length).toEqual(nlHeadKeys.length);
   expect(itHeadKeys.length).toEqual(svHeadKeys.length);
+  expect(itHeadKeys.length).toEqual(ruHeadKeys.length);
   expect(itHeadKeys.length).toEqual(i18nItHeadCypressKeys.length);
 });
 
@@ -94,6 +100,7 @@ test('it head keys', () => {
   expect(arraysEqual(itHeadKeys, ptHeadKeys)).toEqual(true);
   expect(arraysEqual(itHeadKeys, nlHeadKeys)).toEqual(true);
   expect(arraysEqual(itHeadKeys, svHeadKeys)).toEqual(true);
+  expect(arraysEqual(itHeadKeys, ruHeadKeys)).toEqual(true);
   expect(arraysEqual(itHeadKeys, i18nItHeadCypressKeys)).toEqual(true);
 });
 
@@ -128,7 +135,7 @@ test('it strings props vals', () => {
         day: 'Giorno',
         decrease_in: 'diminuzione di',
         diabetes: 'Diabete o alterata glicemia',
-        elinks: 'Elinks',
+        elinks: 'Links',
         gender: 'Genere',
         genderRequired: 'Genere è richiesto',
         heartage: 'Età Cardiaca',

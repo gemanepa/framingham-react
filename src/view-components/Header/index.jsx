@@ -21,7 +21,9 @@ export default function Header(props) {
       fr: '16%',
       it: '20%',
       nl: '20%',
-      pt: '20%'
+      pt: '20%',
+      sv: '20%',
+      ru: '20%'
     };
 
     return `5% ${horizontalPadding[lang]}`;

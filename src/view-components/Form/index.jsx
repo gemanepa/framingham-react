@@ -188,10 +188,26 @@ export default function Form(props) {
 
         <FormControl component="fieldset" className={classes.defaultFormControl} error={errors.gender}>
           <FormLabel component="legend">{translations.gender}</FormLabel>
-          <RadioGroup aria-label="gender" name="gender" value={radioVal} onChange={(event) => handleRadioChange(event)} row>
+          <RadioGroup
+            aria-label="gender"
+            name="gender"
+            value={radioVal}
+            onChange={(event) => handleRadioChange(event)}
+            row
+          >
             <div className={errors.gender ? 'error' : ''}>
-              <FormControlLabel value="female" control={<Radio />} label={translations.woman} data-test="Form_gender_female" />
-              <FormControlLabel value="male" control={<Radio />} label={translations.man} data-test="Form_gender_male" />
+              <FormControlLabel
+                value="female"
+                control={<Radio />}
+                label={translations.woman}
+                data-test="Form_gender_female"
+              />
+              <FormControlLabel
+                value="male"
+                control={<Radio />}
+                label={translations.man}
+                data-test="Form_gender_male"
+              />
             </div>
 
           </RadioGroup>
@@ -199,11 +215,17 @@ export default function Form(props) {
         {selects.map((select) => (
           <React.Fragment key={`select-${select.name}-container`}>
             <FormControl
-              className={(!select.label.includes('colesterol') && window.innerWidth > 1199) ? classes.defaultFormControl : classes.cholesterolFormControls}
+              className={(!select.label.includes('colesterol') && window.innerWidth > 1199)
+                ? classes.defaultFormControl : classes.cholesterolFormControls}
               error={errors[select.name]}
               key={`select-${select.name}-formcontrol`}
             >
-              <InputLabel htmlFor={select.name} data-test={`Form_label_${select.name}`}>{translations[select.label]}</InputLabel>
+              <InputLabel
+                htmlFor={select.name}
+                data-test={`Form_label_${select.name}`}
+              >
+                {translations[select.label]}
+              </InputLabel>
               <Select
                 value={selectsVals[select.name] ? selectsVals[select.name] : ''}
                 onChange={handleSelectChange}
@@ -214,21 +236,45 @@ export default function Form(props) {
                 data-test={`Form_${select.name}Select`}
               >
 
-                {select.name !== 'wt' && select.values.map((val) => <MenuItem value={val} key={`select-${select.name}-menuitem-${val}`} data-test={`Form_${select.name}_${val.replace(/ /g, '')}`}>{val}</MenuItem>)}
+                {select.name !== 'wt' && select.values.map((val) => (
+                  <MenuItem
+                    value={val}
+                    key={`select-${select.name}-menuitem-${val}`}
+                    data-test={`Form_${select.name}_${val.replace(/ /g, '')}`}
+                  >
+                    {val}
+                  </MenuItem>
+                ))}
 
 
-                {select.name === 'wt' && select.values[radioVal].map((val) => <MenuItem value={val || 'undefined'} key={`select-${select.name}-menuitem-${val}`} data-test={`Form_${select.name}_${val.replace(/ /g, '') || translations.genderRequired.replace(/ /g, '')}`}>{val || translations.genderRequired}</MenuItem>)}
+                {select.name === 'wt' && select.values[radioVal].map((val) => (
+                  <MenuItem
+                    value={val || 'undefined'}
+                    key={`select-${select.name}-menuitem-${val}`}
+                    data-test={`Form_${select.name}_${val.replace(/ /g, '')
+                    || translations.genderRequired.replace(/ /g, '')}`}
+                  >
+                    {val || translations.genderRequired}
+                  </MenuItem>
+                ))}
 
 
               </Select>
               {select.helper && <FormHelperText>{translations.helpers[select.helper]}</FormHelperText>}
             </FormControl>
 
-            {(select.name === 'age' || select.name === 'totaldl' || select.name === 'wt') && <br className="desktopOnly" />}
+            {(select.name === 'age' || select.name === 'totaldl' || select.name === 'wt')
+            && <br className="desktopOnly" />}
           </React.Fragment>
         ))}
 
-        <FormGroup column={`${window.innerWidth > 1200}`} row={window.innerWidth > 1200} style={window.innerWidth > 1200 ? { display: 'flex', justifyContent: 'space-between', marginTop: '3vh' } : { marginTop: '20px', marginBottom: '20px' }}>
+        <FormGroup
+          column={`${window.innerWidth > 1200}`}
+          row={window.innerWidth > 1200}
+          style={window.innerWidth > 1200
+            ? { display: 'flex', justifyContent: 'space-between', marginTop: '3vh' }
+            : { marginTop: '20px', marginBottom: '20px' }}
+        >
           {checkboxes.map((checkbox) => (
             <FormControlLabel
               control={(
@@ -253,11 +299,23 @@ export default function Form(props) {
         <br />
 
         <div className="formbuttons">
-          <Button onClick={resetButtonHandler} variant="contained" color="secondary" className={classes.resetButton} data-test="Form_ResetButton">
+          <Button
+            onClick={resetButtonHandler}
+            variant="contained"
+            color="secondary"
+            className={classes.resetButton}
+            data-test="Form_ResetButton"
+          >
             <DeleteIcon />
           </Button>
 
-          <Button onClick={calcButtonHandler} variant="contained" color="primary" className={classes.calcButton} data-test="Form_SendButton">
+          <Button
+            onClick={calcButtonHandler}
+            variant="contained"
+            color="primary"
+            className={classes.calcButton}
+            data-test="Form_SendButton"
+          >
             <SendIcon />
           </Button>
         </div>
@@ -325,10 +383,36 @@ Form.propTypes = {
     woman: PropTypes.string.isRequired,
     using_guidelines: PropTypes.string.isRequired,
     calc: PropTypes.exact({
-      low: PropTypes.string.isRequired,
+      abdominal_aortic_aneurysm: PropTypes.string.isRequired,
+      age: PropTypes.string.isRequired,
+      alternative_target: PropTypes.string.isRequired,
+      aterosclerosis: PropTypes.string.isRequired,
+      chronic_kidney_disease: PropTypes.string.isRequired,
+      decrease_in: PropTypes.string.isRequired,
+      diabetes: PropTypes.string.isRequired,
+      high: PropTypes.string.isRequired,
       intermediate: PropTypes.string.isRequired,
-      high: PropTypes.string.isRequired
-    })
+      low: PropTypes.string.isRequired,
+      or: PropTypes.string.isRequired,
+      patient_highly_requires_treatment: PropTypes.string.isRequired,
+      patient_not_requires_treatment: PropTypes.string.isRequired,
+      primary_target: PropTypes.string.isRequired,
+      smoking: PropTypes.string.isRequired,
+      so_treatment_is_recommended: PropTypes.string.isRequired,
+      statins_only_indicated: PropTypes.string.isRequired,
+      treatment_intermediate_hasfactors: PropTypes.string.isRequired,
+      treatment_intermediate_ldl: PropTypes.string.isRequired,
+      treatment_intermediate_norisks: PropTypes.string.isRequired,
+      treatment_low_diabetes: PropTypes.string.isRequired,
+      unknown: PropTypes.string.isRequired,
+      waist_circumference: PropTypes.string.isRequired,
+      years: PropTypes.string.isRequired
+    }).isRequired,
+    helpers: PropTypes.exact({
+      'cms(inches)': PropTypes.string.isRequired,
+      mgdl: PropTypes.string.isRequired,
+      mmHg: PropTypes.string.isRequired
+    }).isRequired,
   }).isRequired,
   previousData: PropTypes.oneOfType([
     PropTypes.bool,

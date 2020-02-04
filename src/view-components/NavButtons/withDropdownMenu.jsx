@@ -226,7 +226,13 @@ export default function CustomizedMenus(props) {
           )
           : (
             <div key={`${menuType}-items`}>
-              <a href="https://www.framinghamheartstudy.org/" target="_blank" rel="noopener noreferrer" title="Framingham Heart Study" data-test="NavButtons_elinks_FHS">
+              <a
+                href="https://www.framinghamheartstudy.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Framingham Heart Study"
+                data-test="NavButtons_elinks_FHS"
+              >
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-fsh-menuitem`}>
                   <ListItemIcon key={`${menuType}-fsh-listitemicon`}>
                     <img src={fhsLogo} alt="" className="fshlogo" />
@@ -234,7 +240,13 @@ export default function CustomizedMenus(props) {
                   <ListItemText primary="FHS" />
                 </StyledMenuItem>
               </a>
-              <a href="https://www.nhlbi.nih.gov/science/framingham-heart-study-fhs/" target="_blank" rel="noopener noreferrer" title="National Institutes of Health" data-test="NavButtons_elinks_NIH">
+              <a
+                href="https://www.nhlbi.nih.gov/science/framingham-heart-study-fhs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="National Institutes of Health"
+                data-test="NavButtons_elinks_NIH"
+              >
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-nih-menuitem`}>
                   <ListItemIcon key={`${menuType}-nih-listitemicon`}>
                     <img src={nihLogo} alt="" className="nihlogo" />
@@ -242,7 +254,13 @@ export default function CustomizedMenus(props) {
                   <ListItemText primary="NIH" />
                 </StyledMenuItem>
               </a>
-              <a href="https://en.wikipedia.org/wiki/Framingham_Risk_Score" target="_blank" rel="noopener noreferrer" title="Wikipedia" data-test="NavButtons_elinks_Wiki">
+              <a
+                href="https://en.wikipedia.org/wiki/Framingham_Risk_Score"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Wikipedia"
+                data-test="NavButtons_elinks_Wiki"
+              >
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-wiki-menuitem`}>
                   <ListItemIcon key={`${menuType}-wiki-listitemicon`}>
                     <img src={wikipediaLogo} alt="" className="wikilogo" />

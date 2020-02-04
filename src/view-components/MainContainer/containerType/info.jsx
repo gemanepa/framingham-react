@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ExpansionPanel from '../../ExpansionPanel'
+import ExpansionPanel from '../../ExpansionPanel';
 
 export default function Info(props) {
   const { classes, containerType, translations } = props;
@@ -110,4 +110,20 @@ Info.propTypes = {
     get: PropTypes.string.isRequired,
     set: PropTypes.func.isRequired,
   }).isRequired,
+  translations: PropTypes.exact({
+    back: PropTypes.string.isRequired,
+    info: PropTypes.string.isRequired,
+    purpose: PropTypes.string.isRequired,
+    purpose_text1: PropTypes.string.isRequired,
+    purpose_text2: PropTypes.string.isRequired,
+    purpose_text3: PropTypes.string.isRequired,
+    validation: PropTypes.string.isRequired,
+    validation_text: PropTypes.string.isRequired,
+    usefulness: PropTypes.string.isRequired,
+    usefulness_text_start: PropTypes.string.isRequired,
+    usefulness_text_lowrisk: PropTypes.string.isRequired,
+    usefulness_text_intermediaterisk: PropTypes.string.isRequired,
+    usefulness_text_highrisk: PropTypes.string.isRequired,
+    usefulness_text_end: PropTypes.string.isRequired
+  }).isRequired
 };

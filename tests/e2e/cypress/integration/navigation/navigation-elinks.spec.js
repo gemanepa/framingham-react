@@ -17,7 +17,7 @@ context('Navigation | Elinks', () => {
     cy.fixture('selectors').then((object) => {
       const selectorBtn = cy.get(object.static.nb_elinksbtn);
       selectorBtn.should('be.visible');
-      selectorBtn.contains('Elinks');
+      selectorBtn.contains('Links');
 
       selectorBtn.click({ force: true });
 
@@ -35,7 +35,7 @@ context('Navigation | Elinks', () => {
     cy.fixture('selectors').then((object) => {
       const selectorBtn = cy.get(object.static.nb_elinksbtn);
       selectorBtn.should('be.visible');
-      selectorBtn.contains('Elinks');
+      selectorBtn.contains('Links');
 
       selectorBtn.click({ force: true });
 
@@ -53,7 +53,7 @@ context('Navigation | Elinks', () => {
     cy.fixture('selectors').then((object) => {
       const selectorBtn = cy.get(object.static.nb_elinksbtn);
       selectorBtn.should('be.visible');
-      selectorBtn.contains('Elinks');
+      selectorBtn.contains('Links');
 
       selectorBtn.click({ force: true });
 

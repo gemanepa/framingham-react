@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -113,3 +114,19 @@ export default function CustomizedExpansionPanels(props) {
     </div>
   );
 }
+
+CustomizedExpansionPanels.propTypes = {
+  translations: PropTypes.exact({
+    usefulness: PropTypes.string.isRequired,
+    usefulness_text_start: PropTypes.string.isRequired,
+    usefulness_text_lowrisk: PropTypes.string.isRequired,
+    usefulness_text_intermediaterisk: PropTypes.string.isRequired,
+    usefulness_text_highrisk: PropTypes.string.isRequired,
+    purpose: PropTypes.string.isRequired,
+    purpose_text1: PropTypes.string.isRequired,
+    purpose_text2: PropTypes.string.isRequired,
+    purpose_text3: PropTypes.string.isRequired,
+    validation: PropTypes.string.isRequired,
+    validation_text: PropTypes.string.isRequired
+  }).isRequired
+};

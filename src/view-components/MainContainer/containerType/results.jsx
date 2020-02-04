@@ -60,7 +60,7 @@ export default function Results(props) {
           <h3 data-test="Results_Treatment">
             {translations.treatment}
             <br />
-            {results.needstreatment.split('\n').map((item, i) => <div key={i}>{item}</div>)}
+            {results.needstreatment.split('\n').map((item) => <div key={item}>{item}</div>)}
           </h3>
         </Paper>
       </section>
@@ -164,8 +164,10 @@ Results.propTypes = {
     score: PropTypes.number
   }).isRequired,
   translations: PropTypes.exact({
+    back: PropTypes.string.isRequired,
     score: PropTypes.string.isRequired,
     cvd: PropTypes.string.isRequired,
+    cvdexplanation: PropTypes.string.isRequired,
     heartage: PropTypes.string.isRequired,
     results: PropTypes.string.isRequired,
     risk: PropTypes.string.isRequired,

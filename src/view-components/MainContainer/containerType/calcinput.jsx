@@ -21,7 +21,12 @@ export default function CalcInput(props) {
         <Paper className={`${window.innerWidth > 1199 ? classes.paperDesktop : classes.paperMobile} `}>
           <h2 data-test="CalcInput_Header">{translations.risk_score_calculator}</h2>
           <h5>
-            <a href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf" target="_blank" rel="noopener noreferrer" data-test="CalcInput_elinkCCS">
+            <a
+              href="https://www.ccs.ca/images/Guidelines/Tools_and_Calculators_En/FRS_eng_2017_fnl1.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-test="CalcInput_elinkCCS"
+            >
               {translations.using_guidelines}
               <LinkIcon fontSize="small" />
             </a>
@@ -159,9 +164,35 @@ CalcInput.propTypes = {
     woman: PropTypes.string.isRequired,
     using_guidelines: PropTypes.string.isRequired,
     calc: PropTypes.exact({
-      low: PropTypes.string.isRequired,
+      abdominal_aortic_aneurysm: PropTypes.string.isRequired,
+      age: PropTypes.string.isRequired,
+      alternative_target: PropTypes.string.isRequired,
+      aterosclerosis: PropTypes.string.isRequired,
+      chronic_kidney_disease: PropTypes.string.isRequired,
+      decrease_in: PropTypes.string.isRequired,
+      diabetes: PropTypes.string.isRequired,
+      high: PropTypes.string.isRequired,
       intermediate: PropTypes.string.isRequired,
-      high: PropTypes.string.isRequired
-    }).isRequired
+      low: PropTypes.string.isRequired,
+      or: PropTypes.string.isRequired,
+      patient_highly_requires_treatment: PropTypes.string.isRequired,
+      patient_not_requires_treatment: PropTypes.string.isRequired,
+      primary_target: PropTypes.string.isRequired,
+      smoking: PropTypes.string.isRequired,
+      so_treatment_is_recommended: PropTypes.string.isRequired,
+      statins_only_indicated: PropTypes.string.isRequired,
+      treatment_intermediate_hasfactors: PropTypes.string.isRequired,
+      treatment_intermediate_ldl: PropTypes.string.isRequired,
+      treatment_intermediate_norisks: PropTypes.string.isRequired,
+      treatment_low_diabetes: PropTypes.string.isRequired,
+      unknown: PropTypes.string.isRequired,
+      waist_circumference: PropTypes.string.isRequired,
+      years: PropTypes.string.isRequired
+    }).isRequired,
+    helpers: PropTypes.exact({
+      'cms(inches)': PropTypes.string.isRequired,
+      mgdl: PropTypes.string.isRequired,
+      mmHg: PropTypes.string.isRequired
+    }).isRequired,
   }).isRequired
 };

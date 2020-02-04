@@ -42,6 +42,7 @@ function risklevelIntermediate(gender, ldl, hasDiabetes, wt, agePoints, hdlPoint
   const femaleConditional = (gender === 'female' && agePoints >= 9 && (hdl || isSmoker || hasDiabetes || hasHighWaist));
 
   if (maleConditional || femaleConditional) {
+    // eslint-disable-next-line max-len
     return `${treatment_intermediate_hasfactors} (${hdl ? `${low} HDL` : ''}${(hdl && (isSmoker || hasDiabetes || hasHighWaist)) ? ', ' : ''}${isSmoker ? smoking : ''}${(isSmoker && (hasDiabetes || hasHighWaist)) ? ', ' : ''}${hasDiabetes ? diabetes : ''}${(hasDiabetes && hasHighWaist) ? ', ' : ''}${hasHighWaist ? waist_circumference : ''}) ${so_treatment_is_recommended}`;
   }
 

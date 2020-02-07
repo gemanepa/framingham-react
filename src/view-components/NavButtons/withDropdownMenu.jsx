@@ -214,7 +214,7 @@ export default function CustomizedMenus(props) {
                   <ListItemText primary="Русский" key={`${menuType}-ru-listitemtext`} />
                 </StyledMenuItem>
               </Link>
-              <Link href="/?lang=sv" as="/pt" color="secondary" data-test="Navbuttons_languages_sv">
+              <Link href="/?lang=sv" as="/sv" color="secondary" data-test="Navbuttons_languages_sv">
                 <StyledMenuItem onClick={handleClose} key={`${menuType}-sv-menuitem`}>
                   <ListItemIcon key={`${menuType}-sv-listitemicon`}>
                     <img src={svFlag} alt="" className="navflagsimgs" />

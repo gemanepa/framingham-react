@@ -46,6 +46,7 @@ export default function App(props) {
                   />
                   <NavButtons
                     containerType={{ get: containerType, set: setContainerType }}
+                    lang={translations.lang}
                     translations={{
                       androidapp: translations.body.androidapp,
                       calculate: translations.body.calculate,

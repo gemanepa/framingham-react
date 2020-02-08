@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function IconLabelButtons(props) {
-  const { containerType, translations } = props;
+  const { containerType, translations, lang } = props;
   const {
     androidapp, calculate, elinks, info
   } = translations;
@@ -119,7 +119,7 @@ export default function IconLabelButtons(props) {
             className={classes.button}
             startIcon={<AndroidIcon />}
             data-test="NavButtons_androidappBtn"
-            href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham"
+            href={`https://play.google.com/store/apps/details?id=com.gemanepa.framingham&hl=${lang}`}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -170,6 +170,7 @@ IconLabelButtons.propTypes = {
     get: PropTypes.string.isRequired,
     set: PropTypes.func.isRequired,
   }).isRequired,
+  lang: PropTypes.string.isRequired,
   translations: PropTypes.exact({
     androidapp: PropTypes.string.isRequired,
     calculate: PropTypes.string.isRequired,

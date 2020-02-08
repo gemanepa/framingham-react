@@ -7,7 +7,7 @@ context('Navigation | Elinks', () => {
   });
 
   it('should be linking to android app', () => {
-    const selectorBtn = cy.get('[href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham"]');
+    const selectorBtn = cy.get('[href="https://play.google.com/store/apps/details?id=com.gemanepa.framingham&hl=en"]');
 
     selectorBtn.should('be.visible');
     selectorBtn.contains('Android App');

@@ -152,7 +152,7 @@ test('en strings props vals', () => {
         patient: 'Patient',
         patient_highly_requires_treatment: 'Patient highly requires treatment',
         patient_name: "Patient's Name",
-        patient_not_requires_treatment: 'Patient not requires treatment.',
+        patient_not_requires_treatment: 'Patient does not require treatment.',
         patientdata: 'Patient Data',
         primary_target: 'Primary Target',
         purpose: 'Purpose',

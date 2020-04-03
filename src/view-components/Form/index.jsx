@@ -234,6 +234,7 @@ export default function Form(props) {
                   id: select.name,
                 }}
                 data-test={`Form_${select.name}Select`}
+                MenuProps={{ disableScrollLock: true }}
               >
 
                 {select.name !== 'wt' && select.values.map((val) => (

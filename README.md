@@ -16,11 +16,9 @@
  - [Google Analytics](https://github.com/react-ga/react-ga)
  - [ZEIT](https://zeit.co/)
 
-
-
 ## Software Requisites for Running Properly
 
- - [NodeJS](https://nodejs.org/en/download/current/)
+ - [NodeJS](https://nodejs.org/en/download/current/) ()
  - [ESLint CLI](https://eslint.org/docs/user-guide/command-line-interface)  (`npm install eslint babel-eslint --global`) + [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
  -  [Docker](https://docs.docker.com/install/)
 
@@ -46,6 +44,9 @@
    modifications
  - `npm run docker:stop` stops running container
  - `npm run docker:rm` removes container
+
+## NodeJS Version Incompatibility?
+Run *nvm use* in project folder ([nvm installation link](https://github.com/nvm-sh/nvm))
 
 ## Android App Brother 
 ![enter image description here](https://i.imgur.com/8Gm6fK5.png)

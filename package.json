@@ -7,6 +7,23 @@
     "type": "git",
     "url": "https://github.com/gemanepa/framingham-react-pwa.git"
   },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "cy:open": "./node_modules/.bin/cypress open --project tests/e2e",
+    "cy:run": "./node_modules/.bin/cypress run --project tests/e2e",
+    "docker:install": "docker build -t framinghamwebapp .",
+    "docker:dev": "docker run -p 3000:3000 --security-opt apparmor=unconfined framinghamwebapp",
+    "docker:rebuild": "docker build -t framinghamwebapp .",
+    "docker:stop": "docker stop framinghamwebapp",
+    "docker:rm": "docker rm framinghamwebapp",
+    "lint:check": "eslint . --ext .js && eslint . --ext .jsx",
+    "lint:fix": "eslint . --ext .js --fix && eslint . --ext .jsx --fix",
+    "test": "npm run test:u && npm run test:e2e",
+    "test:u": "jest tests/unitary",
+    "test:e2e": "npm run cy:run"
+  },
   "keywords": [
     "JS",
     "ES",
@@ -41,22 +58,5 @@
     "jest": "25.1.0",
     "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "16.13.1"
-  },
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "cy:open": "./node_modules/.bin/cypress open --project tests/e2e",
-    "cy:run": "./node_modules/.bin/cypress run --project tests/e2e",
-    "docker:install": "docker build -t framinghamwebapp .",
-    "docker:dev": "docker run -p 3000:3000 --security-opt apparmor=unconfined framinghamwebapp",
-    "docker:rebuild": "docker build -t framinghamwebapp .",
-    "docker:stop": "docker stop framinghamwebapp",
-    "docker:rm": "docker rm framinghamwebapp",
-    "lint:check": "eslint . --ext .js && eslint . --ext .jsx",
-    "lint:fix": "eslint . --ext .js --fix && eslint . --ext .jsx --fix",
-    "test": "npm run test:u && npm run test:e2e",
-    "test:u": "jest tests/unitary",
-    "test:e2e": "npm run cy:run"
   }
 }

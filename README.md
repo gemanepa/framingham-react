@@ -18,7 +18,7 @@
 
 ## Software Requisites for Running Properly
 
- - [NodeJS](https://nodejs.org/en/download/current/) ()
+ - [NodeJS](https://nodejs.org/en/download/current/)
  - [ESLint CLI](https://eslint.org/docs/user-guide/command-line-interface)  (`npm install eslint babel-eslint --global`) + [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
  -  [Docker](https://docs.docker.com/install/)
 
